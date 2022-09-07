@@ -7,8 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4862577B3AF39B1DFEE08049 /* Pods_LateNightChauffeursTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9F6AFAC944C06DEEFF607C5A /* Pods_LateNightChauffeursTests.framework */; };
 		BA36D84228C8C39800B73053 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA36D84128C8C39800B73053 /* AppDelegate.swift */; };
-		BA36D84428C8C39800B73053 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA36D84328C8C39800B73053 /* SceneDelegate.swift */; };
 		BA36D84628C8C39800B73053 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA36D84528C8C39800B73053 /* ViewController.swift */; };
 		BA36D84928C8C39800B73053 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BA36D84728C8C39800B73053 /* Main.storyboard */; };
 		BA36D84C28C8C39800B73053 /* LateNightChauffeurs.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = BA36D84A28C8C39800B73053 /* LateNightChauffeurs.xcdatamodeld */; };
@@ -17,6 +17,11 @@
 		BA36D85C28C8C3A400B73053 /* LateNightChauffeursTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA36D85B28C8C3A400B73053 /* LateNightChauffeursTests.swift */; };
 		BA36D86628C8C3A400B73053 /* LateNightChauffeursUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA36D86528C8C3A400B73053 /* LateNightChauffeursUITests.swift */; };
 		BA36D86828C8C3A400B73053 /* LateNightChauffeursUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA36D86728C8C3A400B73053 /* LateNightChauffeursUITestsLaunchTests.swift */; };
+		BA726D0028C8D3EC00E8D351 /* background.png in Resources */ = {isa = PBXBuildFile; fileRef = BA726CFF28C8D3EB00E8D351 /* background.png */; };
+		BA726D0428C8D4E000E8D351 /* expanded.png in Resources */ = {isa = PBXBuildFile; fileRef = BA726D0228C8D4DF00E8D351 /* expanded.png */; };
+		BA726D0528C8D4E000E8D351 /* collapsed.png in Resources */ = {isa = PBXBuildFile; fileRef = BA726D0328C8D4E000E8D351 /* collapsed.png */; };
+		C93A29BE07006C6359B70AB2 /* Pods_LateNightChauffeurs.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F599E5A20DB51E52A7B1C860 /* Pods_LateNightChauffeurs.framework */; };
+		CEC9F234DF541C4F3CBB088D /* Pods_LateNightChauffeurs_LateNightChauffeursUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB3521EEC17DB0B15DD0752B /* Pods_LateNightChauffeurs_LateNightChauffeursUITests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,9 +42,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0F7A838214D8C6D343A0CB96 /* Pods-LateNightChauffeurs-LateNightChauffeursUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LateNightChauffeurs-LateNightChauffeursUITests.debug.xcconfig"; path = "Target Support Files/Pods-LateNightChauffeurs-LateNightChauffeursUITests/Pods-LateNightChauffeurs-LateNightChauffeursUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		22F738799C2CABF423305ABA /* Pods-LateNightChauffeursTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LateNightChauffeursTests.release.xcconfig"; path = "Target Support Files/Pods-LateNightChauffeursTests/Pods-LateNightChauffeursTests.release.xcconfig"; sourceTree = "<group>"; };
+		24CDEF3529B4C6383847DD44 /* Pods-LateNightChauffeursTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LateNightChauffeursTests.debug.xcconfig"; path = "Target Support Files/Pods-LateNightChauffeursTests/Pods-LateNightChauffeursTests.debug.xcconfig"; sourceTree = "<group>"; };
+		610699CEE9C5A65B4A29E4EE /* Pods-LateNightChauffeurs.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LateNightChauffeurs.debug.xcconfig"; path = "Target Support Files/Pods-LateNightChauffeurs/Pods-LateNightChauffeurs.debug.xcconfig"; sourceTree = "<group>"; };
+		68F165CB21FC19D2ABC49E41 /* Pods-LateNightChauffeurs-LateNightChauffeursUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LateNightChauffeurs-LateNightChauffeursUITests.release.xcconfig"; path = "Target Support Files/Pods-LateNightChauffeurs-LateNightChauffeursUITests/Pods-LateNightChauffeurs-LateNightChauffeursUITests.release.xcconfig"; sourceTree = "<group>"; };
+		9F6AFAC944C06DEEFF607C5A /* Pods_LateNightChauffeursTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LateNightChauffeursTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BA36D83E28C8C39800B73053 /* LateNightChauffeurs.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LateNightChauffeurs.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BA36D84128C8C39800B73053 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		BA36D84328C8C39800B73053 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		BA36D84528C8C39800B73053 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		BA36D84828C8C39800B73053 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		BA36D84B28C8C39800B73053 /* LateNightChauffeurs.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = LateNightChauffeurs.xcdatamodel; sourceTree = "<group>"; };
@@ -51,6 +61,13 @@
 		BA36D86128C8C3A400B73053 /* LateNightChauffeursUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LateNightChauffeursUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		BA36D86528C8C3A400B73053 /* LateNightChauffeursUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LateNightChauffeursUITests.swift; sourceTree = "<group>"; };
 		BA36D86728C8C3A400B73053 /* LateNightChauffeursUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LateNightChauffeursUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		BA726CFF28C8D3EB00E8D351 /* background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = background.png; sourceTree = "<group>"; };
+		BA726D0128C8D49F00E8D351 /* LateNightChauffeurs.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = LateNightChauffeurs.entitlements; sourceTree = "<group>"; };
+		BA726D0228C8D4DF00E8D351 /* expanded.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = expanded.png; sourceTree = "<group>"; };
+		BA726D0328C8D4E000E8D351 /* collapsed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = collapsed.png; sourceTree = "<group>"; };
+		F599E5A20DB51E52A7B1C860 /* Pods_LateNightChauffeurs.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LateNightChauffeurs.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F7DF40909CFD97A3AA3CAAC8 /* Pods-LateNightChauffeurs.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LateNightChauffeurs.release.xcconfig"; path = "Target Support Files/Pods-LateNightChauffeurs/Pods-LateNightChauffeurs.release.xcconfig"; sourceTree = "<group>"; };
+		FB3521EEC17DB0B15DD0752B /* Pods_LateNightChauffeurs_LateNightChauffeursUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LateNightChauffeurs_LateNightChauffeursUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +75,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C93A29BE07006C6359B70AB2 /* Pods_LateNightChauffeurs.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -65,6 +83,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4862577B3AF39B1DFEE08049 /* Pods_LateNightChauffeursTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -72,12 +91,36 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CEC9F234DF541C4F3CBB088D /* Pods_LateNightChauffeurs_LateNightChauffeursUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7DA76B515DCEEDF832F98104 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				F599E5A20DB51E52A7B1C860 /* Pods_LateNightChauffeurs.framework */,
+				FB3521EEC17DB0B15DD0752B /* Pods_LateNightChauffeurs_LateNightChauffeursUITests.framework */,
+				9F6AFAC944C06DEEFF607C5A /* Pods_LateNightChauffeursTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		B8BEF5AC56D638A78933DD28 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				610699CEE9C5A65B4A29E4EE /* Pods-LateNightChauffeurs.debug.xcconfig */,
+				F7DF40909CFD97A3AA3CAAC8 /* Pods-LateNightChauffeurs.release.xcconfig */,
+				0F7A838214D8C6D343A0CB96 /* Pods-LateNightChauffeurs-LateNightChauffeursUITests.debug.xcconfig */,
+				68F165CB21FC19D2ABC49E41 /* Pods-LateNightChauffeurs-LateNightChauffeursUITests.release.xcconfig */,
+				24CDEF3529B4C6383847DD44 /* Pods-LateNightChauffeursTests.debug.xcconfig */,
+				22F738799C2CABF423305ABA /* Pods-LateNightChauffeursTests.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		BA36D83528C8C39700B73053 = {
 			isa = PBXGroup;
 			children = (
@@ -85,6 +128,8 @@
 				BA36D85A28C8C3A400B73053 /* LateNightChauffeursTests */,
 				BA36D86428C8C3A400B73053 /* LateNightChauffeursUITests */,
 				BA36D83F28C8C39800B73053 /* Products */,
+				B8BEF5AC56D638A78933DD28 /* Pods */,
+				7DA76B515DCEEDF832F98104 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -101,12 +146,15 @@
 		BA36D84028C8C39800B73053 /* LateNightChauffeurs */ = {
 			isa = PBXGroup;
 			children = (
+				BA726D0128C8D49F00E8D351 /* LateNightChauffeurs.entitlements */,
 				BA36D84128C8C39800B73053 /* AppDelegate.swift */,
-				BA36D84328C8C39800B73053 /* SceneDelegate.swift */,
 				BA36D84528C8C39800B73053 /* ViewController.swift */,
 				BA36D84728C8C39800B73053 /* Main.storyboard */,
 				BA36D84D28C8C3A300B73053 /* Assets.xcassets */,
 				BA36D84F28C8C3A300B73053 /* LaunchScreen.storyboard */,
+				BA726CFF28C8D3EB00E8D351 /* background.png */,
+				BA726D0328C8D4E000E8D351 /* collapsed.png */,
+				BA726D0228C8D4DF00E8D351 /* expanded.png */,
 				BA36D85228C8C3A300B73053 /* Info.plist */,
 				BA36D84A28C8C39800B73053 /* LateNightChauffeurs.xcdatamodeld */,
 			);
@@ -137,9 +185,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = BA36D86B28C8C3A400B73053 /* Build configuration list for PBXNativeTarget "LateNightChauffeurs" */;
 			buildPhases = (
+				92847A964878FE112FCA9FE4 /* [CP] Check Pods Manifest.lock */,
 				BA36D83A28C8C39800B73053 /* Sources */,
 				BA36D83B28C8C39800B73053 /* Frameworks */,
 				BA36D83C28C8C39800B73053 /* Resources */,
+				60F4C9CDBB1788357E71BF07 /* [CP] Embed Pods Frameworks */,
+				B198407F96D62A1380E31D25 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -154,6 +205,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = BA36D86E28C8C3A400B73053 /* Build configuration list for PBXNativeTarget "LateNightChauffeursTests" */;
 			buildPhases = (
+				FBC30B6CF599A2E15305E9EC /* [CP] Check Pods Manifest.lock */,
 				BA36D85328C8C3A400B73053 /* Sources */,
 				BA36D85428C8C3A400B73053 /* Frameworks */,
 				BA36D85528C8C3A400B73053 /* Resources */,
@@ -172,9 +224,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = BA36D87128C8C3A400B73053 /* Build configuration list for PBXNativeTarget "LateNightChauffeursUITests" */;
 			buildPhases = (
+				EA525AFDDAB7C1A7C10C39CE /* [CP] Check Pods Manifest.lock */,
 				BA36D85D28C8C3A400B73053 /* Sources */,
 				BA36D85E28C8C3A400B73053 /* Frameworks */,
 				BA36D85F28C8C3A400B73053 /* Resources */,
+				253EC80B7CC2B412660E5C66 /* [CP] Embed Pods Frameworks */,
+				3694ED3355CC8F753DDFCD70 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -234,7 +289,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BA726D0428C8D4E000E8D351 /* expanded.png in Resources */,
 				BA36D85128C8C3A300B73053 /* LaunchScreen.storyboard in Resources */,
+				BA726D0028C8D3EC00E8D351 /* background.png in Resources */,
+				BA726D0528C8D4E000E8D351 /* collapsed.png in Resources */,
 				BA36D84E28C8C3A300B73053 /* Assets.xcassets in Resources */,
 				BA36D84928C8C39800B73053 /* Main.storyboard in Resources */,
 			);
@@ -256,6 +314,143 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		253EC80B7CC2B412660E5C66 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-LateNightChauffeurs-LateNightChauffeursUITests/Pods-LateNightChauffeurs-LateNightChauffeursUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-LateNightChauffeurs-LateNightChauffeursUITests/Pods-LateNightChauffeurs-LateNightChauffeursUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-LateNightChauffeurs-LateNightChauffeursUITests/Pods-LateNightChauffeurs-LateNightChauffeursUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		3694ED3355CC8F753DDFCD70 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-LateNightChauffeurs-LateNightChauffeursUITests/Pods-LateNightChauffeurs-LateNightChauffeursUITests-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-LateNightChauffeurs-LateNightChauffeursUITests/Pods-LateNightChauffeurs-LateNightChauffeursUITests-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-LateNightChauffeurs-LateNightChauffeursUITests/Pods-LateNightChauffeurs-LateNightChauffeursUITests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		60F4C9CDBB1788357E71BF07 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-LateNightChauffeurs/Pods-LateNightChauffeurs-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-LateNightChauffeurs/Pods-LateNightChauffeurs-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-LateNightChauffeurs/Pods-LateNightChauffeurs-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		92847A964878FE112FCA9FE4 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-LateNightChauffeurs-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B198407F96D62A1380E31D25 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-LateNightChauffeurs/Pods-LateNightChauffeurs-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-LateNightChauffeurs/Pods-LateNightChauffeurs-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-LateNightChauffeurs/Pods-LateNightChauffeurs-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		EA525AFDDAB7C1A7C10C39CE /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-LateNightChauffeurs-LateNightChauffeursUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		FBC30B6CF599A2E15305E9EC /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-LateNightChauffeursTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		BA36D83A28C8C39800B73053 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -264,7 +459,6 @@
 				BA36D84C28C8C39800B73053 /* LateNightChauffeurs.xcdatamodeld in Sources */,
 				BA36D84628C8C39800B73053 /* ViewController.swift in Sources */,
 				BA36D84228C8C39800B73053 /* AppDelegate.swift in Sources */,
-				BA36D84428C8C39800B73053 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -436,25 +630,35 @@
 		};
 		BA36D86C28C8C3A400B73053 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 610699CEE9C5A65B4A29E4EE /* Pods-LateNightChauffeurs.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = LateNightChauffeurs/LateNightChauffeurs.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = W53RYF67AF;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = LateNightChauffeurs/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "Late Night Chauffeurs";
+				INFOPLIST_KEY_NSCameraUsageDescription = "This app requires to access your camera to set profile picture and share your image to driver";
+				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "This app requires your current location to allow you to utlise cab service by using pickup and drop locations.";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "This app requires your current location to allow you to utlise cab service by using pickup and drop locations.";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "This app requires to access your photo library to set profile picture and share your image to driver";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIRequiredDeviceCapabilities = armv7;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = AnaadITSolutions.LateNightChauffeurs;
+				PRODUCT_BUNDLE_IDENTIFIER = com.AnaadITSolutions.LateNightChauffeurs;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -464,25 +668,35 @@
 		};
 		BA36D86D28C8C3A400B73053 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F7DF40909CFD97A3AA3CAAC8 /* Pods-LateNightChauffeurs.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = LateNightChauffeurs/LateNightChauffeurs.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = W53RYF67AF;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = LateNightChauffeurs/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "Late Night Chauffeurs";
+				INFOPLIST_KEY_NSCameraUsageDescription = "This app requires to access your camera to set profile picture and share your image to driver";
+				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "This app requires your current location to allow you to utlise cab service by using pickup and drop locations.";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "This app requires your current location to allow you to utlise cab service by using pickup and drop locations.";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "This app requires to access your photo library to set profile picture and share your image to driver";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIRequiredDeviceCapabilities = armv7;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = AnaadITSolutions.LateNightChauffeurs;
+				PRODUCT_BUNDLE_IDENTIFIER = com.AnaadITSolutions.LateNightChauffeurs;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -492,6 +706,7 @@
 		};
 		BA36D86F28C8C3A400B73053 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 24CDEF3529B4C6383847DD44 /* Pods-LateNightChauffeursTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -512,6 +727,7 @@
 		};
 		BA36D87028C8C3A400B73053 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 22F738799C2CABF423305ABA /* Pods-LateNightChauffeursTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -532,6 +748,7 @@
 		};
 		BA36D87228C8C3A400B73053 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0F7A838214D8C6D343A0CB96 /* Pods-LateNightChauffeurs-LateNightChauffeursUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -550,6 +767,7 @@
 		};
 		BA36D87328C8C3A400B73053 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 68F165CB21FC19D2ABC49E41 /* Pods-LateNightChauffeurs-LateNightChauffeursUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
