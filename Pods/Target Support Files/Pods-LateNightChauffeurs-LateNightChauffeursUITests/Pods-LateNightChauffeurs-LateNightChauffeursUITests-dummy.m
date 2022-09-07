@@ -1,0 +1,5 @@
+#import <Foundation/Foundation.h>
+@interface PodsDummy_Pods_LateNightChauffeurs_LateNightChauffeursUITests : NSObject
+@end
+@implementation PodsDummy_Pods_LateNightChauffeurs_LateNightChauffeursUITests
+@end

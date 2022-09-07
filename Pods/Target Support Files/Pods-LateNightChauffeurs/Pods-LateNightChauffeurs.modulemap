@@ -1,0 +1,6 @@
+framework module Pods_LateNightChauffeurs {
+  umbrella header "Pods-LateNightChauffeurs-umbrella.h"
+
+  export *
+  module * { export * }
+}
