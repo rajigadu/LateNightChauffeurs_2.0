@@ -1,4 +1,5 @@
 ${PODS_ROOT}/Target Support Files/Pods-LateNightChauffeurs/Pods-LateNightChauffeurs-frameworks.sh
+${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework
 ${BUILT_PRODUCTS_DIR}/AppAuth/AppAuth.framework
 ${BUILT_PRODUCTS_DIR}/Bolts/Bolts.framework
 ${BUILT_PRODUCTS_DIR}/FBSDKCoreKit/FBSDKCoreKit.framework
@@ -18,6 +19,7 @@ ${BUILT_PRODUCTS_DIR}/JCNotificationBannerPresenter/JCNotificationBannerPresente
 ${BUILT_PRODUCTS_DIR}/JJMaterialTextField/JJMaterialTextField.framework
 ${BUILT_PRODUCTS_DIR}/MBProgressHUD/MBProgressHUD.framework
 ${BUILT_PRODUCTS_DIR}/MFSideMenu/MFSideMenu.framework
+${BUILT_PRODUCTS_DIR}/ObjectMapper/ObjectMapper.framework
 ${BUILT_PRODUCTS_DIR}/PromisesObjC/FBLPromises.framework
 ${BUILT_PRODUCTS_DIR}/Reachability/Reachability.framework
 ${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework
