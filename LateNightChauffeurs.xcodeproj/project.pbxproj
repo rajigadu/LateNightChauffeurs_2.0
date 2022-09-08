@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		4862577B3AF39B1DFEE08049 /* Pods_LateNightChauffeursTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9F6AFAC944C06DEEFF607C5A /* Pods_LateNightChauffeursTests.framework */; };
 		BA36D84228C8C39800B73053 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA36D84128C8C39800B73053 /* AppDelegate.swift */; };
-		BA36D84628C8C39800B73053 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA36D84528C8C39800B73053 /* ViewController.swift */; };
 		BA36D84928C8C39800B73053 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BA36D84728C8C39800B73053 /* Main.storyboard */; };
 		BA36D84C28C8C39800B73053 /* LateNightChauffeurs.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = BA36D84A28C8C39800B73053 /* LateNightChauffeurs.xcdatamodeld */; };
 		BA36D84E28C8C3A300B73053 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BA36D84D28C8C3A300B73053 /* Assets.xcassets */; };
@@ -17,6 +16,32 @@
 		BA36D85C28C8C3A400B73053 /* LateNightChauffeursTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA36D85B28C8C3A400B73053 /* LateNightChauffeursTests.swift */; };
 		BA36D86628C8C3A400B73053 /* LateNightChauffeursUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA36D86528C8C3A400B73053 /* LateNightChauffeursUITests.swift */; };
 		BA36D86828C8C3A400B73053 /* LateNightChauffeursUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA36D86728C8C3A400B73053 /* LateNightChauffeursUITestsLaunchTests.swift */; };
+		BA60F9A028C986E4005D5B58 /* HttpRequestHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA60F99F28C986E4005D5B58 /* HttpRequestHelper.swift */; };
+		BA60F9A328C9873B005D5B58 /* EmployeesService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA60F9A228C9873B005D5B58 /* EmployeesService.swift */; };
+		BA60F9AB28C987C2005D5B58 /* LoginUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA60F9AA28C987C2005D5B58 /* LoginUser.swift */; };
+		BA60F9AD28C98914005D5B58 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA60F9AC28C98914005D5B58 /* LoginViewController.swift */; };
+		BA60F9AF28C98955005D5B58 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA60F9AE28C98955005D5B58 /* LoginViewModel.swift */; };
+		BA60F9B328C98C55005D5B58 /* Authentication.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BA60F9B228C98C55005D5B58 /* Authentication.storyboard */; };
+		BA60F9BA28C99075005D5B58 /* RegistrationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA60F9B928C99075005D5B58 /* RegistrationViewModel.swift */; };
+		BA60F9BC28C99096005D5B58 /* RegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA60F9BB28C99096005D5B58 /* RegistrationViewController.swift */; };
+		BA60F9BE28C990B1005D5B58 /* RegistrationUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA60F9BD28C990B1005D5B58 /* RegistrationUser.swift */; };
+		BA60F9C328C990DC005D5B58 /* ForgotPasswordUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA60F9C228C990DB005D5B58 /* ForgotPasswordUser.swift */; };
+		BA60F9C528C990EC005D5B58 /* ForgotPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA60F9C428C990EC005D5B58 /* ForgotPasswordViewController.swift */; };
+		BA60F9C728C99101005D5B58 /* ForgotPasswordViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA60F9C628C99101005D5B58 /* ForgotPasswordViewModel.swift */; };
+		BA60F9C928C99987005D5B58 /* LncUserConstants .swift in Sources */ = {isa = PBXBuildFile; fileRef = BA60F9C828C99987005D5B58 /* LncUserConstants .swift */; };
+		BA60F9CC28C9A16D005D5B58 /* UserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA60F9CB28C9A16D005D5B58 /* UserViewModel.swift */; };
+		BA60F9CE28C9A764005D5B58 /* helperConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA60F9CD28C9A764005D5B58 /* helperConstants.swift */; };
+		BA60F9DC28C9A8E9005D5B58 /* Lato-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BA60F9D128C9A8E9005D5B58 /* Lato-Italic.ttf */; };
+		BA60F9DD28C9A8E9005D5B58 /* Lato-LightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BA60F9D228C9A8E9005D5B58 /* Lato-LightItalic.ttf */; };
+		BA60F9DE28C9A8E9005D5B58 /* Lato-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BA60F9D328C9A8E9005D5B58 /* Lato-Thin.ttf */; };
+		BA60F9DF28C9A8E9005D5B58 /* Lato-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BA60F9D428C9A8E9005D5B58 /* Lato-Bold.ttf */; };
+		BA60F9E028C9A8E9005D5B58 /* Lato-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BA60F9D528C9A8E9005D5B58 /* Lato-Black.ttf */; };
+		BA60F9E128C9A8E9005D5B58 /* Lato-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BA60F9D628C9A8E9005D5B58 /* Lato-Regular.ttf */; };
+		BA60F9E228C9A8E9005D5B58 /* Lato-BlackItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BA60F9D728C9A8E9005D5B58 /* Lato-BlackItalic.ttf */; };
+		BA60F9E328C9A8E9005D5B58 /* OFL.txt in Resources */ = {isa = PBXBuildFile; fileRef = BA60F9D828C9A8E9005D5B58 /* OFL.txt */; };
+		BA60F9E428C9A8E9005D5B58 /* Lato-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BA60F9D928C9A8E9005D5B58 /* Lato-BoldItalic.ttf */; };
+		BA60F9E528C9A8E9005D5B58 /* Lato-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BA60F9DA28C9A8E9005D5B58 /* Lato-Light.ttf */; };
+		BA60F9E628C9A8E9005D5B58 /* Lato-ThinItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BA60F9DB28C9A8E9005D5B58 /* Lato-ThinItalic.ttf */; };
 		BA726D0028C8D3EC00E8D351 /* background.png in Resources */ = {isa = PBXBuildFile; fileRef = BA726CFF28C8D3EB00E8D351 /* background.png */; };
 		BA726D0428C8D4E000E8D351 /* expanded.png in Resources */ = {isa = PBXBuildFile; fileRef = BA726D0228C8D4DF00E8D351 /* expanded.png */; };
 		BA726D0528C8D4E000E8D351 /* collapsed.png in Resources */ = {isa = PBXBuildFile; fileRef = BA726D0328C8D4E000E8D351 /* collapsed.png */; };
@@ -50,7 +75,6 @@
 		9F6AFAC944C06DEEFF607C5A /* Pods_LateNightChauffeursTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LateNightChauffeursTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BA36D83E28C8C39800B73053 /* LateNightChauffeurs.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LateNightChauffeurs.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BA36D84128C8C39800B73053 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		BA36D84528C8C39800B73053 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		BA36D84828C8C39800B73053 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		BA36D84B28C8C39800B73053 /* LateNightChauffeurs.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = LateNightChauffeurs.xcdatamodel; sourceTree = "<group>"; };
 		BA36D84D28C8C3A300B73053 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -61,6 +85,32 @@
 		BA36D86128C8C3A400B73053 /* LateNightChauffeursUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LateNightChauffeursUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		BA36D86528C8C3A400B73053 /* LateNightChauffeursUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LateNightChauffeursUITests.swift; sourceTree = "<group>"; };
 		BA36D86728C8C3A400B73053 /* LateNightChauffeursUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LateNightChauffeursUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		BA60F99F28C986E4005D5B58 /* HttpRequestHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttpRequestHelper.swift; sourceTree = "<group>"; };
+		BA60F9A228C9873B005D5B58 /* EmployeesService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeesService.swift; sourceTree = "<group>"; };
+		BA60F9AA28C987C2005D5B58 /* LoginUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginUser.swift; sourceTree = "<group>"; };
+		BA60F9AC28C98914005D5B58 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		BA60F9AE28C98955005D5B58 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
+		BA60F9B228C98C55005D5B58 /* Authentication.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Authentication.storyboard; sourceTree = "<group>"; };
+		BA60F9B928C99075005D5B58 /* RegistrationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewModel.swift; sourceTree = "<group>"; };
+		BA60F9BB28C99096005D5B58 /* RegistrationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewController.swift; sourceTree = "<group>"; };
+		BA60F9BD28C990B1005D5B58 /* RegistrationUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationUser.swift; sourceTree = "<group>"; };
+		BA60F9C228C990DB005D5B58 /* ForgotPasswordUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordUser.swift; sourceTree = "<group>"; };
+		BA60F9C428C990EC005D5B58 /* ForgotPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordViewController.swift; sourceTree = "<group>"; };
+		BA60F9C628C99101005D5B58 /* ForgotPasswordViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordViewModel.swift; sourceTree = "<group>"; };
+		BA60F9C828C99987005D5B58 /* LncUserConstants .swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LncUserConstants .swift"; sourceTree = "<group>"; };
+		BA60F9CB28C9A16D005D5B58 /* UserViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewModel.swift; sourceTree = "<group>"; };
+		BA60F9CD28C9A764005D5B58 /* helperConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = helperConstants.swift; sourceTree = "<group>"; };
+		BA60F9D128C9A8E9005D5B58 /* Lato-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Italic.ttf"; sourceTree = "<group>"; };
+		BA60F9D228C9A8E9005D5B58 /* Lato-LightItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-LightItalic.ttf"; sourceTree = "<group>"; };
+		BA60F9D328C9A8E9005D5B58 /* Lato-Thin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Thin.ttf"; sourceTree = "<group>"; };
+		BA60F9D428C9A8E9005D5B58 /* Lato-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Bold.ttf"; sourceTree = "<group>"; };
+		BA60F9D528C9A8E9005D5B58 /* Lato-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Black.ttf"; sourceTree = "<group>"; };
+		BA60F9D628C9A8E9005D5B58 /* Lato-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Regular.ttf"; sourceTree = "<group>"; };
+		BA60F9D728C9A8E9005D5B58 /* Lato-BlackItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-BlackItalic.ttf"; sourceTree = "<group>"; };
+		BA60F9D828C9A8E9005D5B58 /* OFL.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = OFL.txt; sourceTree = "<group>"; };
+		BA60F9D928C9A8E9005D5B58 /* Lato-BoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-BoldItalic.ttf"; sourceTree = "<group>"; };
+		BA60F9DA28C9A8E9005D5B58 /* Lato-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Light.ttf"; sourceTree = "<group>"; };
+		BA60F9DB28C9A8E9005D5B58 /* Lato-ThinItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-ThinItalic.ttf"; sourceTree = "<group>"; };
 		BA726CFF28C8D3EB00E8D351 /* background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = background.png; sourceTree = "<group>"; };
 		BA726D0128C8D49F00E8D351 /* LateNightChauffeurs.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = LateNightChauffeurs.entitlements; sourceTree = "<group>"; };
 		BA726D0228C8D4DF00E8D351 /* expanded.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = expanded.png; sourceTree = "<group>"; };
@@ -148,7 +198,9 @@
 			children = (
 				BA726D0128C8D49F00E8D351 /* LateNightChauffeurs.entitlements */,
 				BA36D84128C8C39800B73053 /* AppDelegate.swift */,
-				BA36D84528C8C39800B73053 /* ViewController.swift */,
+				BA60F99E28C986CF005D5B58 /* Helpers */,
+				BA60F9A128C9871E005D5B58 /* Services */,
+				BA60F9A428C98751005D5B58 /* Screens */,
 				BA36D84728C8C39800B73053 /* Main.storyboard */,
 				BA36D84D28C8C3A300B73053 /* Assets.xcassets */,
 				BA36D84F28C8C3A300B73053 /* LaunchScreen.storyboard */,
@@ -176,6 +228,173 @@
 				BA36D86728C8C3A400B73053 /* LateNightChauffeursUITestsLaunchTests.swift */,
 			);
 			path = LateNightChauffeursUITests;
+			sourceTree = "<group>";
+		};
+		BA60F99E28C986CF005D5B58 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				BA60F99F28C986E4005D5B58 /* HttpRequestHelper.swift */,
+				BA60F9C828C99987005D5B58 /* LncUserConstants .swift */,
+				BA60F9CD28C9A764005D5B58 /* helperConstants.swift */,
+				BA60F9CF28C9A8E9005D5B58 /* FontFamily */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		BA60F9A128C9871E005D5B58 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				BA60F9A228C9873B005D5B58 /* EmployeesService.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		BA60F9A428C98751005D5B58 /* Screens */ = {
+			isa = PBXGroup;
+			children = (
+				BA60F9B128C98C25005D5B58 /* Auth */,
+			);
+			path = Screens;
+			sourceTree = "<group>";
+		};
+		BA60F9A528C98762005D5B58 /* LoginModule */ = {
+			isa = PBXGroup;
+			children = (
+				BA60F9A628C9876D005D5B58 /* Model */,
+				BA60F9A728C98775005D5B58 /* View */,
+				BA60F9A828C98784005D5B58 /* ViewModel */,
+			);
+			path = LoginModule;
+			sourceTree = "<group>";
+		};
+		BA60F9A628C9876D005D5B58 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				BA60F9AA28C987C2005D5B58 /* LoginUser.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		BA60F9A728C98775005D5B58 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				BA60F9AC28C98914005D5B58 /* LoginViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		BA60F9A828C98784005D5B58 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				BA60F9AE28C98955005D5B58 /* LoginViewModel.swift */,
+				BA60F9CB28C9A16D005D5B58 /* UserViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		BA60F9B128C98C25005D5B58 /* Auth */ = {
+			isa = PBXGroup;
+			children = (
+				BA60F9B528C99024005D5B58 /* Registration */,
+				BA60F9B428C9901C005D5B58 /* ForgotPassword */,
+				BA60F9A528C98762005D5B58 /* LoginModule */,
+				BA60F9B228C98C55005D5B58 /* Authentication.storyboard */,
+			);
+			path = Auth;
+			sourceTree = "<group>";
+		};
+		BA60F9B428C9901C005D5B58 /* ForgotPassword */ = {
+			isa = PBXGroup;
+			children = (
+				BA60F9C128C990C3005D5B58 /* Model */,
+				BA60F9C028C990BE005D5B58 /* View */,
+				BA60F9BF28C990B7005D5B58 /* ViewModel */,
+			);
+			path = ForgotPassword;
+			sourceTree = "<group>";
+		};
+		BA60F9B528C99024005D5B58 /* Registration */ = {
+			isa = PBXGroup;
+			children = (
+				BA60F9B828C9904A005D5B58 /* ViewModel */,
+				BA60F9B728C99042005D5B58 /* View */,
+				BA60F9B628C9903B005D5B58 /* Model */,
+			);
+			path = Registration;
+			sourceTree = "<group>";
+		};
+		BA60F9B628C9903B005D5B58 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				BA60F9BD28C990B1005D5B58 /* RegistrationUser.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		BA60F9B728C99042005D5B58 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				BA60F9BB28C99096005D5B58 /* RegistrationViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		BA60F9B828C9904A005D5B58 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				BA60F9B928C99075005D5B58 /* RegistrationViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		BA60F9BF28C990B7005D5B58 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				BA60F9C628C99101005D5B58 /* ForgotPasswordViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		BA60F9C028C990BE005D5B58 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				BA60F9C428C990EC005D5B58 /* ForgotPasswordViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		BA60F9C128C990C3005D5B58 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				BA60F9C228C990DB005D5B58 /* ForgotPasswordUser.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		BA60F9CF28C9A8E9005D5B58 /* FontFamily */ = {
+			isa = PBXGroup;
+			children = (
+				BA60F9D028C9A8E9005D5B58 /* Lato */,
+			);
+			path = FontFamily;
+			sourceTree = "<group>";
+		};
+		BA60F9D028C9A8E9005D5B58 /* Lato */ = {
+			isa = PBXGroup;
+			children = (
+				BA60F9D128C9A8E9005D5B58 /* Lato-Italic.ttf */,
+				BA60F9D228C9A8E9005D5B58 /* Lato-LightItalic.ttf */,
+				BA60F9D328C9A8E9005D5B58 /* Lato-Thin.ttf */,
+				BA60F9D428C9A8E9005D5B58 /* Lato-Bold.ttf */,
+				BA60F9D528C9A8E9005D5B58 /* Lato-Black.ttf */,
+				BA60F9D628C9A8E9005D5B58 /* Lato-Regular.ttf */,
+				BA60F9D728C9A8E9005D5B58 /* Lato-BlackItalic.ttf */,
+				BA60F9D828C9A8E9005D5B58 /* OFL.txt */,
+				BA60F9D928C9A8E9005D5B58 /* Lato-BoldItalic.ttf */,
+				BA60F9DA28C9A8E9005D5B58 /* Lato-Light.ttf */,
+				BA60F9DB28C9A8E9005D5B58 /* Lato-ThinItalic.ttf */,
+			);
+			path = Lato;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -289,11 +508,23 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BA60F9E528C9A8E9005D5B58 /* Lato-Light.ttf in Resources */,
+				BA60F9E628C9A8E9005D5B58 /* Lato-ThinItalic.ttf in Resources */,
+				BA60F9E328C9A8E9005D5B58 /* OFL.txt in Resources */,
+				BA60F9DF28C9A8E9005D5B58 /* Lato-Bold.ttf in Resources */,
 				BA726D0428C8D4E000E8D351 /* expanded.png in Resources */,
+				BA60F9E428C9A8E9005D5B58 /* Lato-BoldItalic.ttf in Resources */,
+				BA60F9E228C9A8E9005D5B58 /* Lato-BlackItalic.ttf in Resources */,
+				BA60F9B328C98C55005D5B58 /* Authentication.storyboard in Resources */,
 				BA36D85128C8C3A300B73053 /* LaunchScreen.storyboard in Resources */,
+				BA60F9E028C9A8E9005D5B58 /* Lato-Black.ttf in Resources */,
 				BA726D0028C8D3EC00E8D351 /* background.png in Resources */,
 				BA726D0528C8D4E000E8D351 /* collapsed.png in Resources */,
 				BA36D84E28C8C3A300B73053 /* Assets.xcassets in Resources */,
+				BA60F9DC28C9A8E9005D5B58 /* Lato-Italic.ttf in Resources */,
+				BA60F9DE28C9A8E9005D5B58 /* Lato-Thin.ttf in Resources */,
+				BA60F9E128C9A8E9005D5B58 /* Lato-Regular.ttf in Resources */,
+				BA60F9DD28C9A8E9005D5B58 /* Lato-LightItalic.ttf in Resources */,
 				BA36D84928C8C39800B73053 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -456,9 +687,22 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BA60F9AD28C98914005D5B58 /* LoginViewController.swift in Sources */,
+				BA60F9CE28C9A764005D5B58 /* helperConstants.swift in Sources */,
+				BA60F9C928C99987005D5B58 /* LncUserConstants .swift in Sources */,
+				BA60F9BA28C99075005D5B58 /* RegistrationViewModel.swift in Sources */,
+				BA60F9AB28C987C2005D5B58 /* LoginUser.swift in Sources */,
+				BA60F9A328C9873B005D5B58 /* EmployeesService.swift in Sources */,
+				BA60F9BC28C99096005D5B58 /* RegistrationViewController.swift in Sources */,
 				BA36D84C28C8C39800B73053 /* LateNightChauffeurs.xcdatamodeld in Sources */,
-				BA36D84628C8C39800B73053 /* ViewController.swift in Sources */,
+				BA60F9BE28C990B1005D5B58 /* RegistrationUser.swift in Sources */,
+				BA60F9AF28C98955005D5B58 /* LoginViewModel.swift in Sources */,
+				BA60F9CC28C9A16D005D5B58 /* UserViewModel.swift in Sources */,
 				BA36D84228C8C39800B73053 /* AppDelegate.swift in Sources */,
+				BA60F9C728C99101005D5B58 /* ForgotPasswordViewModel.swift in Sources */,
+				BA60F9C528C990EC005D5B58 /* ForgotPasswordViewController.swift in Sources */,
+				BA60F9C328C990DC005D5B58 /* ForgotPasswordUser.swift in Sources */,
+				BA60F9A028C986E4005D5B58 /* HttpRequestHelper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -647,7 +891,7 @@
 				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "This app requires to access your photo library to set profile picture and share your image to driver";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIMainStoryboardFile = Authentication;
 				INFOPLIST_KEY_UIRequiredDeviceCapabilities = armv7;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -685,7 +929,7 @@
 				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "This app requires to access your photo library to set profile picture and share your image to driver";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIMainStoryboardFile = Authentication;
 				INFOPLIST_KEY_UIRequiredDeviceCapabilities = armv7;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
