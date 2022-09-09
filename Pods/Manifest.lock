@@ -136,7 +136,6 @@ PODS:
   - JCNotificationBannerPresenter (1.1.2)
   - JJMaterialTextField (0.1.4)
   - MBProgressHUD (1.2.0)
-  - MFSideMenu (0.5.5)
   - nanopb (2.30909.0):
     - nanopb/decode (= 2.30909.0)
     - nanopb/encode (= 2.30909.0)
@@ -148,6 +147,7 @@ PODS:
   - SDWebImage (5.13.2):
     - SDWebImage/Core (= 5.13.2)
   - SDWebImage/Core (5.13.2)
+  - SideMenu (6.5.0)
   - Stripe (22.8.0):
     - Stripe/Stripe3DS2 (= 22.8.0)
     - StripeApplePay (= 22.8.0)
@@ -179,10 +179,10 @@ DEPENDENCIES:
   - JCNotificationBannerPresenter
   - JJMaterialTextField
   - MBProgressHUD
-  - MFSideMenu
   - ObjectMapper
   - Reachability
   - SDWebImage
+  - SideMenu (~> 6.0)
   - Stripe
 
 SPEC REPOS:
@@ -214,12 +214,12 @@ SPEC REPOS:
     - JCNotificationBannerPresenter
     - JJMaterialTextField
     - MBProgressHUD
-    - MFSideMenu
     - nanopb
     - ObjectMapper
     - PromisesObjC
     - Reachability
     - SDWebImage
+    - SideMenu
     - Stripe
     - StripeApplePay
     - StripeCore
@@ -253,17 +253,17 @@ SPEC CHECKSUMS:
   JCNotificationBannerPresenter: f40150961943048ed3b1d2628d29dbf66a959e21
   JJMaterialTextField: 6289e1520461aa3abb4bfd41f7804598f1d790cb
   MBProgressHUD: 3ee5efcc380f6a79a7cc9b363dd669c5e1ae7406
-  MFSideMenu: 268122e6894f2747fc3a2b48578100b232506c60
   nanopb: b552cce312b6c8484180ef47159bc0f65a1f0431
   ObjectMapper: 1eb41f610210777375fa806bf161dc39fb832b81
   PromisesObjC: ab77feca74fa2823e7af4249b8326368e61014cb
   Reachability: 33e18b67625424e47b6cde6d202dce689ad7af96
   SDWebImage: 72f86271a6f3139cc7e4a89220946489d4b9a866
+  SideMenu: f583187d21c5b1dd04c72002be544b555a2627a2
   Stripe: f969972967f5f5a63b8e9fb0d772703b43e6c13d
   StripeApplePay: 2b49bd530add0fafe80939d39349fb6eda198f0a
   StripeCore: 108056d8c1d5a693d3af04e516eaab05aecbc590
   StripeUICore: 5fd56bf85a4372490183aa76dca2018a3972dce2
 
-PODFILE CHECKSUM: 73d3ab49fc030cc8e8dc50a3f9d1c9a222a768dc
+PODFILE CHECKSUM: 2c465d4781624467cf6efc6060ec87ac9e6dcf3f
 
 COCOAPODS: 1.11.3

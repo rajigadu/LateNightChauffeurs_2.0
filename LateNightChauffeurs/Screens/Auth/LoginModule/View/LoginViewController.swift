@@ -30,7 +30,7 @@ class LoginViewController: UIViewController {
     //MARK: - UI-Button Actions
     
     @IBAction func signINButton(_ sender: Any) {
-        self.LoginApiCall()
+        self.loginApiCall()
     }
     
     @IBAction func forgotPasswordButton(_ sender: Any) {
@@ -43,29 +43,20 @@ class LoginViewController: UIViewController {
     
 }
 extension LoginViewController {
-    
-    func LoginApiCall(){
+    //Api Intigration
+    func loginApiCall(){
         guard let userEmail = txt_UserMailRef.text else {return}
         guard let userPassword = txt_PasswordRef.text else {return}
         if userEmail.isEmpty || !isValidEmail(userEmail) || userPassword.isEmpty {
             self.ShowAlert(message: "Please Eneter Valid Credentials!")
         } else {
-           
                 indicator.showActivityIndicator()
                 self.viewModel.getUserDetails(perams: ["emailid":userEmail,"password":userPassword]) { success, model, error in
-                    if success, let LoginedUser = model {
+                    if success {
                         DispatchQueue.main.async { [self] in
                         indicator.hideActivityIndicator()
-                        UserDefaults.standard.set(LoginedUser.data?[0].id, forKey: "UserLoginID")
-                        UserDefaults.standard.set(LoginedUser.data?[0].email_address, forKey: "UserEmailID")
-                        UserDefaults.standard.set(LoginedUser.data?[0].first_name, forKey: "UserFirstName")
-                        UserDefaults.standard.set(LoginedUser.data?[0].last_name, forKey: "UserLastName")
-                            UserDefaults.standard.set(LoginedUser.data?[0].mobile, forKey: "UserMobilenumber")
-                            UserDefaults.standard.set(API_URl.API_BASEIMAGE_URL + (LoginedUser.data?[0].profile_pic ?? ""), forKey: "userProfilepic")
-                        UserDefaults.standard.set("Normal Login", forKey: "userLoginType")
-                        UserDefaults.standard.set(LoginedUser.card_status, forKey: "CardStatus")
-                        
-                        self.showToast(message: LoginedUser.msg ?? "Welcome! You are successfully login in your account panel.", font: .systemFont(ofSize: 12.0))
+                        //self.showToast(message: LoginedUser.message ?? "Welcome! You are successfully login in your account panel.", font: .systemFont(ofSize: 12.0))
+                            movetonextvc(id: "DashBoardViewController", storyBordid: "DashBoard")
                         }
                     } else {
                         DispatchQueue.main.async { [self] in

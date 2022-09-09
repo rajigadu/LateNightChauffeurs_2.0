@@ -19,7 +19,7 @@ target 'LateNightChauffeurs' do
     pod 'JCNotificationBannerPresenter'
     pod 'FBSDKCoreKit', '~> 4.38.0'
     pod 'FBSDKLoginKit', '~> 4.38.0'
-    pod 'MFSideMenu'
+    pod 'SideMenu', '~> 6.0'
     pod 'GoogleSignIn'
     pod 'Stripe'
     pod 'Fabric'

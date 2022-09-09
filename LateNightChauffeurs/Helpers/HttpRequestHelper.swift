@@ -29,6 +29,10 @@ class HttpRequestHelper {
         }
         var request = URLRequest(url: url)
         request.httpMethod = "GET"
+        
+        print(" GET Method ")
+        print(" \(url) ")
+        print(" \(params) ")
 
         switch httpHeader {
         case .application_json:

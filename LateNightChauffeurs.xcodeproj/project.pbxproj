@@ -9,13 +9,19 @@
 /* Begin PBXBuildFile section */
 		4862577B3AF39B1DFEE08049 /* Pods_LateNightChauffeursTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9F6AFAC944C06DEEFF607C5A /* Pods_LateNightChauffeursTests.framework */; };
 		BA36D84228C8C39800B73053 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA36D84128C8C39800B73053 /* AppDelegate.swift */; };
-		BA36D84928C8C39800B73053 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BA36D84728C8C39800B73053 /* Main.storyboard */; };
+		BA36D84928C8C39800B73053 /* DashBoard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BA36D84728C8C39800B73053 /* DashBoard.storyboard */; };
 		BA36D84C28C8C39800B73053 /* LateNightChauffeurs.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = BA36D84A28C8C39800B73053 /* LateNightChauffeurs.xcdatamodeld */; };
 		BA36D84E28C8C3A300B73053 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BA36D84D28C8C3A300B73053 /* Assets.xcassets */; };
 		BA36D85128C8C3A300B73053 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BA36D84F28C8C3A300B73053 /* LaunchScreen.storyboard */; };
 		BA36D85C28C8C3A400B73053 /* LateNightChauffeursTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA36D85B28C8C3A400B73053 /* LateNightChauffeursTests.swift */; };
 		BA36D86628C8C3A400B73053 /* LateNightChauffeursUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA36D86528C8C3A400B73053 /* LateNightChauffeursUITests.swift */; };
 		BA36D86828C8C3A400B73053 /* LateNightChauffeursUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA36D86728C8C3A400B73053 /* LateNightChauffeursUITestsLaunchTests.swift */; };
+		BA4B3C2F28CAEB04001D48B8 /* TextFieldHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA4B3C2E28CAEB04001D48B8 /* TextFieldHelper.swift */; };
+		BA4B3C3528CAEDE1001D48B8 /* DashBoardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA4B3C3428CAEDE1001D48B8 /* DashBoardViewModel.swift */; };
+		BA4B3C3728CAEDFC001D48B8 /* DashBoardUserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA4B3C3628CAEDFB001D48B8 /* DashBoardUserData.swift */; };
+		BA4B3C3928CAEE0E001D48B8 /* DashBoardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA4B3C3828CAEE0E001D48B8 /* DashBoardViewController.swift */; };
+		BA4B3C3C28CAF52E001D48B8 /* SideMenu.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BA4B3C3B28CAF52E001D48B8 /* SideMenu.storyboard */; };
+		BA4B3C3E28CAF54B001D48B8 /* SideMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA4B3C3D28CAF54B001D48B8 /* SideMenuViewController.swift */; };
 		BA60F9A028C986E4005D5B58 /* HttpRequestHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA60F99F28C986E4005D5B58 /* HttpRequestHelper.swift */; };
 		BA60F9A328C9873B005D5B58 /* EmployeesService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA60F9A228C9873B005D5B58 /* EmployeesService.swift */; };
 		BA60F9AB28C987C2005D5B58 /* LoginUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA60F9AA28C987C2005D5B58 /* LoginUser.swift */; };
@@ -30,7 +36,7 @@
 		BA60F9C728C99101005D5B58 /* ForgotPasswordViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA60F9C628C99101005D5B58 /* ForgotPasswordViewModel.swift */; };
 		BA60F9C928C99987005D5B58 /* LncUserConstants .swift in Sources */ = {isa = PBXBuildFile; fileRef = BA60F9C828C99987005D5B58 /* LncUserConstants .swift */; };
 		BA60F9CC28C9A16D005D5B58 /* UserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA60F9CB28C9A16D005D5B58 /* UserViewModel.swift */; };
-		BA60F9CE28C9A764005D5B58 /* helperConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA60F9CD28C9A764005D5B58 /* helperConstants.swift */; };
+		BA60F9CE28C9A764005D5B58 /* HelperConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA60F9CD28C9A764005D5B58 /* HelperConstants.swift */; };
 		BA60F9DC28C9A8E9005D5B58 /* Lato-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BA60F9D128C9A8E9005D5B58 /* Lato-Italic.ttf */; };
 		BA60F9DD28C9A8E9005D5B58 /* Lato-LightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BA60F9D228C9A8E9005D5B58 /* Lato-LightItalic.ttf */; };
 		BA60F9DE28C9A8E9005D5B58 /* Lato-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BA60F9D328C9A8E9005D5B58 /* Lato-Thin.ttf */; };
@@ -75,7 +81,7 @@
 		9F6AFAC944C06DEEFF607C5A /* Pods_LateNightChauffeursTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LateNightChauffeursTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BA36D83E28C8C39800B73053 /* LateNightChauffeurs.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LateNightChauffeurs.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BA36D84128C8C39800B73053 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		BA36D84828C8C39800B73053 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		BA36D84828C8C39800B73053 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/DashBoard.storyboard; sourceTree = "<group>"; };
 		BA36D84B28C8C39800B73053 /* LateNightChauffeurs.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = LateNightChauffeurs.xcdatamodel; sourceTree = "<group>"; };
 		BA36D84D28C8C3A300B73053 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BA36D85028C8C3A300B73053 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -85,6 +91,12 @@
 		BA36D86128C8C3A400B73053 /* LateNightChauffeursUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LateNightChauffeursUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		BA36D86528C8C3A400B73053 /* LateNightChauffeursUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LateNightChauffeursUITests.swift; sourceTree = "<group>"; };
 		BA36D86728C8C3A400B73053 /* LateNightChauffeursUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LateNightChauffeursUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		BA4B3C2E28CAEB04001D48B8 /* TextFieldHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldHelper.swift; sourceTree = "<group>"; };
+		BA4B3C3428CAEDE1001D48B8 /* DashBoardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashBoardViewModel.swift; sourceTree = "<group>"; };
+		BA4B3C3628CAEDFB001D48B8 /* DashBoardUserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashBoardUserData.swift; sourceTree = "<group>"; };
+		BA4B3C3828CAEE0E001D48B8 /* DashBoardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashBoardViewController.swift; sourceTree = "<group>"; };
+		BA4B3C3B28CAF52E001D48B8 /* SideMenu.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SideMenu.storyboard; sourceTree = "<group>"; };
+		BA4B3C3D28CAF54B001D48B8 /* SideMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuViewController.swift; sourceTree = "<group>"; };
 		BA60F99F28C986E4005D5B58 /* HttpRequestHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttpRequestHelper.swift; sourceTree = "<group>"; };
 		BA60F9A228C9873B005D5B58 /* EmployeesService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeesService.swift; sourceTree = "<group>"; };
 		BA60F9AA28C987C2005D5B58 /* LoginUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginUser.swift; sourceTree = "<group>"; };
@@ -99,7 +111,7 @@
 		BA60F9C628C99101005D5B58 /* ForgotPasswordViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordViewModel.swift; sourceTree = "<group>"; };
 		BA60F9C828C99987005D5B58 /* LncUserConstants .swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LncUserConstants .swift"; sourceTree = "<group>"; };
 		BA60F9CB28C9A16D005D5B58 /* UserViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewModel.swift; sourceTree = "<group>"; };
-		BA60F9CD28C9A764005D5B58 /* helperConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = helperConstants.swift; sourceTree = "<group>"; };
+		BA60F9CD28C9A764005D5B58 /* HelperConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelperConstants.swift; sourceTree = "<group>"; };
 		BA60F9D128C9A8E9005D5B58 /* Lato-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Italic.ttf"; sourceTree = "<group>"; };
 		BA60F9D228C9A8E9005D5B58 /* Lato-LightItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-LightItalic.ttf"; sourceTree = "<group>"; };
 		BA60F9D328C9A8E9005D5B58 /* Lato-Thin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Thin.ttf"; sourceTree = "<group>"; };
@@ -201,7 +213,6 @@
 				BA60F99E28C986CF005D5B58 /* Helpers */,
 				BA60F9A128C9871E005D5B58 /* Services */,
 				BA60F9A428C98751005D5B58 /* Screens */,
-				BA36D84728C8C39800B73053 /* Main.storyboard */,
 				BA36D84D28C8C3A300B73053 /* Assets.xcassets */,
 				BA36D84F28C8C3A300B73053 /* LaunchScreen.storyboard */,
 				BA726CFF28C8D3EB00E8D351 /* background.png */,
@@ -230,13 +241,97 @@
 			path = LateNightChauffeursUITests;
 			sourceTree = "<group>";
 		};
+		BA4B3C3028CAEC82001D48B8 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				BA50B2E728CAE5A500EF116F /* ChangePassword */,
+				BA50B2E628CAE59800EF116F /* Profile */,
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
+		BA4B3C3128CAEDAA001D48B8 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				BA4B3C3428CAEDE1001D48B8 /* DashBoardViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		BA4B3C3228CAEDB2001D48B8 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				BA4B3C3828CAEE0E001D48B8 /* DashBoardViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		BA4B3C3328CAEDB7001D48B8 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				BA4B3C3628CAEDFB001D48B8 /* DashBoardUserData.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		BA4B3C3A28CAF510001D48B8 /* SideMenu */ = {
+			isa = PBXGroup;
+			children = (
+				BA4B3C3D28CAF54B001D48B8 /* SideMenuViewController.swift */,
+			);
+			path = SideMenu;
+			sourceTree = "<group>";
+		};
+		BA50B2E328CAE57500EF116F /* DashBoard */ = {
+			isa = PBXGroup;
+			children = (
+				BA36D84728C8C39800B73053 /* DashBoard.storyboard */,
+				BA50B2E428CAE58400EF116F /* DashBoard */,
+			);
+			path = DashBoard;
+			sourceTree = "<group>";
+		};
+		BA50B2E428CAE58400EF116F /* DashBoard */ = {
+			isa = PBXGroup;
+			children = (
+				BA4B3C3328CAEDB7001D48B8 /* Model */,
+				BA4B3C3228CAEDB2001D48B8 /* View */,
+				BA4B3C3128CAEDAA001D48B8 /* ViewModel */,
+			);
+			path = DashBoard;
+			sourceTree = "<group>";
+		};
+		BA50B2E528CAE59300EF116F /* SideMenu */ = {
+			isa = PBXGroup;
+			children = (
+				BA4B3C3A28CAF510001D48B8 /* SideMenu */,
+				BA4B3C3B28CAF52E001D48B8 /* SideMenu.storyboard */,
+			);
+			path = SideMenu;
+			sourceTree = "<group>";
+		};
+		BA50B2E628CAE59800EF116F /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
+		BA50B2E728CAE5A500EF116F /* ChangePassword */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ChangePassword;
+			sourceTree = "<group>";
+		};
 		BA60F99E28C986CF005D5B58 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
 				BA60F99F28C986E4005D5B58 /* HttpRequestHelper.swift */,
 				BA60F9C828C99987005D5B58 /* LncUserConstants .swift */,
-				BA60F9CD28C9A764005D5B58 /* helperConstants.swift */,
+				BA60F9CD28C9A764005D5B58 /* HelperConstants.swift */,
 				BA60F9CF28C9A8E9005D5B58 /* FontFamily */,
+				BA4B3C2E28CAEB04001D48B8 /* TextFieldHelper.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -252,6 +347,9 @@
 		BA60F9A428C98751005D5B58 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				BA50B2E528CAE59300EF116F /* SideMenu */,
+				BA4B3C3028CAEC82001D48B8 /* Profile */,
+				BA50B2E328CAE57500EF116F /* DashBoard */,
 				BA60F9B128C98C25005D5B58 /* Auth */,
 			);
 			path = Screens;
@@ -522,10 +620,11 @@
 				BA726D0528C8D4E000E8D351 /* collapsed.png in Resources */,
 				BA36D84E28C8C3A300B73053 /* Assets.xcassets in Resources */,
 				BA60F9DC28C9A8E9005D5B58 /* Lato-Italic.ttf in Resources */,
+				BA4B3C3C28CAF52E001D48B8 /* SideMenu.storyboard in Resources */,
 				BA60F9DE28C9A8E9005D5B58 /* Lato-Thin.ttf in Resources */,
 				BA60F9E128C9A8E9005D5B58 /* Lato-Regular.ttf in Resources */,
 				BA60F9DD28C9A8E9005D5B58 /* Lato-LightItalic.ttf in Resources */,
-				BA36D84928C8C39800B73053 /* Main.storyboard in Resources */,
+				BA36D84928C8C39800B73053 /* DashBoard.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -688,8 +787,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				BA60F9AD28C98914005D5B58 /* LoginViewController.swift in Sources */,
-				BA60F9CE28C9A764005D5B58 /* helperConstants.swift in Sources */,
+				BA4B3C3528CAEDE1001D48B8 /* DashBoardViewModel.swift in Sources */,
+				BA60F9CE28C9A764005D5B58 /* HelperConstants.swift in Sources */,
 				BA60F9C928C99987005D5B58 /* LncUserConstants .swift in Sources */,
+				BA4B3C3E28CAF54B001D48B8 /* SideMenuViewController.swift in Sources */,
 				BA60F9BA28C99075005D5B58 /* RegistrationViewModel.swift in Sources */,
 				BA60F9AB28C987C2005D5B58 /* LoginUser.swift in Sources */,
 				BA60F9A328C9873B005D5B58 /* EmployeesService.swift in Sources */,
@@ -699,6 +800,9 @@
 				BA60F9AF28C98955005D5B58 /* LoginViewModel.swift in Sources */,
 				BA60F9CC28C9A16D005D5B58 /* UserViewModel.swift in Sources */,
 				BA36D84228C8C39800B73053 /* AppDelegate.swift in Sources */,
+				BA4B3C3728CAEDFC001D48B8 /* DashBoardUserData.swift in Sources */,
+				BA4B3C2F28CAEB04001D48B8 /* TextFieldHelper.swift in Sources */,
+				BA4B3C3928CAEE0E001D48B8 /* DashBoardViewController.swift in Sources */,
 				BA60F9C728C99101005D5B58 /* ForgotPasswordViewModel.swift in Sources */,
 				BA60F9C528C990EC005D5B58 /* ForgotPasswordViewController.swift in Sources */,
 				BA60F9C328C990DC005D5B58 /* ForgotPasswordUser.swift in Sources */,
@@ -739,12 +843,12 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		BA36D84728C8C39800B73053 /* Main.storyboard */ = {
+		BA36D84728C8C39800B73053 /* DashBoard.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				BA36D84828C8C39800B73053 /* Base */,
 			);
-			name = Main.storyboard;
+			name = DashBoard.storyboard;
 			sourceTree = "<group>";
 		};
 		BA36D84F28C8C3A300B73053 /* LaunchScreen.storyboard */ = {
