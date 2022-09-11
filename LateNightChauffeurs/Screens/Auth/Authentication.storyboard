@@ -87,6 +87,11 @@
                                                                 <rect key="frame" x="40" y="0.0" width="354" height="40"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                 <textInputTraits key="textInputTraits"/>
+                                                                <userDefinedRuntimeAttributes>
+                                                                    <userDefinedRuntimeAttribute type="number" keyPath="paddingLeftCustom">
+                                                                        <real key="value" value="5"/>
+                                                                    </userDefinedRuntimeAttribute>
+                                                                </userDefinedRuntimeAttributes>
                                                             </textField>
                                                         </subviews>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -115,6 +120,11 @@
                                                                 <rect key="frame" x="40" y="0.0" width="354" height="40"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                 <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                                                                <userDefinedRuntimeAttributes>
+                                                                    <userDefinedRuntimeAttribute type="number" keyPath="paddingLeftCustom">
+                                                                        <real key="value" value="5"/>
+                                                                    </userDefinedRuntimeAttribute>
+                                                                </userDefinedRuntimeAttributes>
                                                             </textField>
                                                         </subviews>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -247,6 +257,7 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="t9h-LJ-EUv">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <color key="barTintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -306,6 +317,11 @@
                                                 <rect key="frame" x="40" y="0.0" width="354" height="40"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="paddingLeftCustom">
+                                                        <real key="value" value="5"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
                                                 <connections>
                                                     <outlet property="delegate" destination="fl8-t1-vTG" id="yQ3-C5-qcR"/>
                                                 </connections>
@@ -333,6 +349,9 @@
                                         <state key="normal" title="Reset Password">
                                             <color key="titleColor" red="0.8980392157" green="0.8980392157" blue="0.8980392157" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
+                                        <connections>
+                                            <action selector="forgotPasswordBtn:" destination="fl8-t1-vTG" eventType="touchUpInside" id="5PQ-Yz-3mY"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -365,6 +384,10 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Forgot Password" id="fqM-NU-475"/>
+                    <connections>
+                        <outlet property="forgotPasswordBtn" destination="sqk-R6-RkC" id="G4N-d3-txT"/>
+                        <outlet property="txt_UserMailRef" destination="BQe-sQ-j0a" id="3v6-cP-hCl"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fZj-lD-Fcx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -388,75 +411,119 @@
                                         <rect key="frame" x="8" y="0.0" width="398" height="766"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="kAe-px-fI8">
-                                                <rect key="frame" x="8" y="16" width="382" height="332"/>
+                                                <rect key="frame" x="8" y="16" width="382" height="340"/>
                                                 <subviews>
                                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter First Name" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="8Jy-wq-eMZ">
-                                                        <rect key="frame" x="0.0" y="0.0" width="382" height="39"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="382" height="40"/>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <constraints>
-                                                            <constraint firstAttribute="height" constant="40" id="xGa-oL-GOC"/>
+                                                            <constraint firstAttribute="height" constant="40" id="lKh-LI-JcQ"/>
                                                         </constraints>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <textInputTraits key="textInputTraits"/>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="paddingLeftCustom">
+                                                                <real key="value" value="5"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                        </userDefinedRuntimeAttributes>
                                                     </textField>
                                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter Last Name" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="JDT-65-bAU">
-                                                        <rect key="frame" x="0.0" y="49" width="382" height="38.5"/>
+                                                        <rect key="frame" x="0.0" y="50" width="382" height="40"/>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <constraints>
-                                                            <constraint firstAttribute="height" constant="40" id="Qz7-rk-rDt"/>
+                                                            <constraint firstAttribute="height" constant="40" id="WAL-mP-Qxf"/>
                                                         </constraints>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <textInputTraits key="textInputTraits"/>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="paddingLeftCustom">
+                                                                <real key="value" value="5"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                        </userDefinedRuntimeAttributes>
                                                     </textField>
                                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter Email Id" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="f9C-r9-lln">
-                                                        <rect key="frame" x="0.0" y="97.5" width="382" height="39"/>
+                                                        <rect key="frame" x="0.0" y="100" width="382" height="40"/>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <constraints>
-                                                            <constraint firstAttribute="height" constant="40" id="3z0-rV-VhT"/>
+                                                            <constraint firstAttribute="height" constant="40" id="Xnv-sD-tAy"/>
                                                         </constraints>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <textInputTraits key="textInputTraits" keyboardType="emailAddress"/>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="paddingLeftCustom">
+                                                                <real key="value" value="5"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                        </userDefinedRuntimeAttributes>
                                                     </textField>
-                                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter Address" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="ujN-aN-uD8" customClass="MVPlaceSearchTextField">
-                                                        <rect key="frame" x="0.0" y="146.5" width="382" height="39"/>
+                                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter Address" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="ujN-aN-uD8">
+                                                        <rect key="frame" x="0.0" y="150" width="382" height="40"/>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <constraints>
-                                                            <constraint firstAttribute="height" constant="40" id="M9s-OB-3wZ"/>
+                                                            <constraint firstAttribute="height" constant="40" id="Pqc-iA-kf2"/>
                                                         </constraints>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <textInputTraits key="textInputTraits"/>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="paddingLeftCustom">
+                                                                <real key="value" value="5"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                        </userDefinedRuntimeAttributes>
                                                     </textField>
                                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter Mobile No" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="9OM-3N-NCf">
-                                                        <rect key="frame" x="0.0" y="195.5" width="382" height="39"/>
+                                                        <rect key="frame" x="0.0" y="200" width="382" height="40"/>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <constraints>
-                                                            <constraint firstAttribute="height" constant="40" id="8gJ-er-0a1"/>
+                                                            <constraint firstAttribute="height" constant="40" id="zcq-qm-x2Y"/>
                                                         </constraints>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <textInputTraits key="textInputTraits" keyboardType="phonePad"/>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="paddingLeftCustom">
+                                                                <real key="value" value="5"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                        </userDefinedRuntimeAttributes>
                                                     </textField>
                                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter Password" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="Xqb-ua-xZ0">
-                                                        <rect key="frame" x="0.0" y="244.5" width="382" height="38.5"/>
+                                                        <rect key="frame" x="0.0" y="250" width="382" height="40"/>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <constraints>
-                                                            <constraint firstAttribute="height" constant="40" id="msO-EJ-SAi"/>
+                                                            <constraint firstAttribute="height" constant="40" id="dC1-ao-s4Q"/>
                                                         </constraints>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="paddingLeftCustom">
+                                                                <real key="value" value="5"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                        </userDefinedRuntimeAttributes>
                                                     </textField>
                                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter Confirm Password" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="4Km-cG-mQw">
-                                                        <rect key="frame" x="0.0" y="293" width="382" height="39"/>
+                                                        <rect key="frame" x="0.0" y="300" width="382" height="40"/>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <constraints>
-                                                            <constraint firstAttribute="height" constant="40" id="e3G-ze-s5P"/>
+                                                            <constraint firstAttribute="height" constant="40" id="SM2-4k-DWP"/>
                                                         </constraints>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="paddingLeftCustom">
+                                                                <real key="value" value="5"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                        </userDefinedRuntimeAttributes>
                                                     </textField>
                                                 </subviews>
                                             </stackView>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="68s-dI-MVJ">
+                                                <rect key="frame" x="8" y="166" width="382" height="40"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="plain"/>
+                                                <connections>
+                                                    <action selector="onLaunchClickedWithSender:" destination="yQo-fK-rEr" eventType="touchUpInside" id="BU7-3Y-tR3"/>
+                                                </connections>
+                                            </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TPN-5P-0lr">
-                                                <rect key="frame" x="10" y="378" width="378" height="45"/>
+                                                <rect key="frame" x="10" y="386" width="378" height="45"/>
                                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="45" id="e3W-Ne-snL"/>
@@ -465,14 +532,23 @@
                                                 <state key="normal" title="Sign Up">
                                                     <color key="titleColor" red="0.8980392157" green="0.8980392157" blue="0.8980392157" alpha="1" colorSpace="calibratedRGB"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="registrationBtn:" destination="yQo-fK-rEr" eventType="touchUpInside" id="bpw-vc-VdJ"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstItem="TPN-5P-0lr" firstAttribute="top" secondItem="kAe-px-fI8" secondAttribute="bottom" constant="30" id="0AW-Ac-7jE"/>
+                                            <constraint firstItem="68s-dI-MVJ" firstAttribute="bottom" secondItem="ujN-aN-uD8" secondAttribute="bottom" id="30T-JZ-1aw"/>
                                             <constraint firstAttribute="trailing" secondItem="kAe-px-fI8" secondAttribute="trailing" constant="8" id="C6y-Ed-cmF"/>
+                                            <constraint firstItem="68s-dI-MVJ" firstAttribute="leading" secondItem="ujN-aN-uD8" secondAttribute="leading" id="IPs-eR-YZj"/>
+                                            <constraint firstItem="68s-dI-MVJ" firstAttribute="trailing" secondItem="ujN-aN-uD8" secondAttribute="trailing" id="OoT-W6-3vx"/>
+                                            <constraint firstItem="68s-dI-MVJ" firstAttribute="top" secondItem="ujN-aN-uD8" secondAttribute="top" id="RmU-Ku-MPP"/>
+                                            <constraint firstItem="68s-dI-MVJ" firstAttribute="leading" secondItem="ujN-aN-uD8" secondAttribute="leading" id="U6k-hY-XHc"/>
                                             <constraint firstItem="TPN-5P-0lr" firstAttribute="leading" secondItem="DdI-1r-uno" secondAttribute="leading" constant="10" id="gdR-MC-hge"/>
                                             <constraint firstItem="kAe-px-fI8" firstAttribute="top" secondItem="DdI-1r-uno" secondAttribute="top" constant="16" id="qZ1-Y5-2Kt"/>
+                                            <constraint firstItem="68s-dI-MVJ" firstAttribute="trailing" secondItem="ujN-aN-uD8" secondAttribute="trailing" id="tEU-q5-uNb"/>
                                             <constraint firstAttribute="trailing" secondItem="TPN-5P-0lr" secondAttribute="trailing" constant="10" id="z7u-68-I68"/>
                                             <constraint firstItem="kAe-px-fI8" firstAttribute="leading" secondItem="DdI-1r-uno" secondAttribute="leading" constant="8" id="zo5-S1-u3V"/>
                                         </constraints>
@@ -482,7 +558,6 @@
                                     <constraint firstItem="DdI-1r-uno" firstAttribute="leading" secondItem="T0S-Au-cZe" secondAttribute="leading" constant="8" id="Ic9-85-cXX"/>
                                     <constraint firstAttribute="trailing" secondItem="DdI-1r-uno" secondAttribute="trailing" constant="8" id="cRu-v8-z8l"/>
                                     <constraint firstAttribute="bottom" secondItem="DdI-1r-uno" secondAttribute="bottom" id="hZs-N8-dsA"/>
-                                    <constraint firstAttribute="bottom" secondItem="TPN-5P-0lr" secondAttribute="bottom" constant="343" id="rLm-df-CZg"/>
                                     <constraint firstItem="DdI-1r-uno" firstAttribute="top" secondItem="T0S-Au-cZe" secondAttribute="top" id="sIT-5T-S31"/>
                                 </constraints>
                             </scrollView>
@@ -490,7 +565,6 @@
                         <viewLayoutGuide key="safeArea" id="fXm-7P-i1T"/>
                         <color key="backgroundColor" name="Green"/>
                         <constraints>
-                            <constraint firstItem="fXm-7P-i1T" firstAttribute="bottom" secondItem="TPN-5P-0lr" secondAttribute="bottom" constant="351" id="F5i-J5-iuu"/>
                             <constraint firstItem="Zb0-Yc-LdY" firstAttribute="top" secondItem="fXm-7P-i1T" secondAttribute="top" id="LYh-X5-LtO"/>
                             <constraint firstItem="T0S-Au-cZe" firstAttribute="bottom" secondItem="fXm-7P-i1T" secondAttribute="bottom" id="P63-PP-tyb"/>
                             <constraint firstItem="Zb0-Yc-LdY" firstAttribute="leading" secondItem="fXm-7P-i1T" secondAttribute="leading" id="Rrj-CW-xNl"/>
@@ -504,6 +578,16 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Registration" id="sat-EN-aoe"/>
+                    <connections>
+                        <outlet property="btn_SignRef" destination="TPN-5P-0lr" id="rHT-XG-N8s"/>
+                        <outlet property="confrimPasswordTxtFld" destination="4Km-cG-mQw" id="1i6-rz-1G4"/>
+                        <outlet property="emailTxtFld" destination="f9C-r9-lln" id="3sK-1z-O2u"/>
+                        <outlet property="firstNameTxtFld" destination="8Jy-wq-eMZ" id="gp3-jf-S7p"/>
+                        <outlet property="lastNameTxtFld" destination="JDT-65-bAU" id="ih5-X9-REf"/>
+                        <outlet property="mobileNoTxtFld" destination="9OM-3N-NCf" id="gPf-SI-brh"/>
+                        <outlet property="passwordTxtFld" destination="Xqb-ua-xZ0" id="QyK-be-gRz"/>
+                        <outlet property="txt_AdddressRef" destination="ujN-aN-uD8" id="Hrq-Cd-OQw"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DDc-uE-S9t" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -517,6 +601,7 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="lBE-ap-gha">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -535,6 +620,7 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="28I-pe-EiE">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>

@@ -6,6 +6,11 @@
 //
 
 import Foundation
+#if canImport(FoundationNetworking)
+import FoundationNetworking
+#endif
+import UIKit
+import Alamofire
 
 enum HTTPHeaderFields {
     case application_json
@@ -22,14 +27,18 @@ class HttpRequestHelper {
         components.queryItems = params.map { key, value in
             URLQueryItem(name: key, value: value)
         }
-
+        
         guard let url = components.url else {
             print("Error: cannot create URL")
             return
         }
         var request = URLRequest(url: url)
         request.httpMethod = "GET"
-
+        
+        print(" GET Method ")
+        print(" \(url) ")
+        print(" \(params) ")
+        
         switch httpHeader {
         case .application_json:
             request.setValue("application/json", forHTTPHeaderField: "Content-Type")
@@ -37,7 +46,7 @@ class HttpRequestHelper {
             request.setValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")
         case .none: break
         }
-
+        
         
         // .ephemeral prevent JSON from caching (They'll store in Ram and nothing on Disk)
         let config = URLSessionConfiguration.ephemeral
@@ -64,3 +73,43 @@ class HttpRequestHelper {
     }
 }
 
+extension HttpRequestHelper {
+    func uploadImagePOST(url: String, params: [String: String], fileName: String, image: UIImage, httpHeader: HTTPHeaderFields, complete: @escaping (Bool, Data?) -> ()) {
+        
+        let boundary = "Boundary-\(UUID().uuidString)"
+        let  httpHeaderr = ["Content-Type":"multipart/form-data; boundary=\(boundary)"]
+        
+        Alamofire.upload(multipartFormData: { (multipartFormData) in
+            if image != nil {
+                if let image = image as? UIImage{
+                    multipartFormData.append(image.jpegData(compressionQuality:0.5)!, withName:"profile_pic", fileName: "profile_pic.jpeg", mimeType: "image/jpeg")
+                }
+            }
+            
+            for (key, value) in params {
+                multipartFormData.append(value.data(using: .utf8)!, withName: key)
+            }
+            
+        }, usingThreshold: UInt64.init(), to:url,method:.post,
+                         headers: httpHeaderr){ (encodingResult) in
+            switch encodingResult {
+            case .success(let upload, _, _):
+                upload.responseJSON { (response) in
+                    debugPrint(response)
+                    if response.error != nil{
+                        complete(false, response.data)
+                    }
+                    complete(true, response.data)
+                }
+                upload.uploadProgress(closure: {
+                    progress in
+                    
+                    print(progress.fractionCompleted)
+                })
+            case .failure(let encodingError):
+                
+                print(encodingError)
+            }
+        }
+    }
+}
