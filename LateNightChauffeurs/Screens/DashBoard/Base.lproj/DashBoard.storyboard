@@ -4,7 +4,6 @@
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -281,7 +280,6 @@
                                             </state>
                                             <connections>
                                                 <action selector="setupSideMenu:" destination="LF4-g2-zey" eventType="touchUpInside" id="8Qg-50-hTp"/>
-                                                <segue destination="Lv8-eZ-Hjg" kind="presentation" id="Zk6-T5-x4j"/>
                                             </connections>
                                         </button>
                                     </subviews>
@@ -330,6 +328,9 @@
                             </view>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="mapView" destination="UQP-5E-anM" id="9di-Yg-3zg"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Pmy-eQ-be0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -985,57 +986,17 @@
             </objects>
             <point key="canvasLocation" x="908" y="43"/>
         </scene>
-        <!--Side Menu View Controller-->
-        <scene sceneID="0ia-PO-K2x">
-            <objects>
-                <viewController storyboardIdentifier="SideMenuViewController" id="e4c-Dq-tN3" customClass="SideMenuViewController" customModule="LateNightChauffeurs" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="0D8-D8-uwy">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <viewLayoutGuide key="safeArea" id="EGF-8F-bOc"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                    </view>
-                    <navigationItem key="navigationItem" id="Hk4-B1-i4W"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Bsv-jx-SKR" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-200" y="495"/>
-        </scene>
-        <!--Side Menu Navigation Controller-->
-        <scene sceneID="rNZ-Ft-acM">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Lv8-eZ-Hjg" customClass="SideMenuNavigationController" customModule="SideMenu" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="9Rh-XL-xG2">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <userDefinedRuntimeAttributes>
-                        <userDefinedRuntimeAttribute type="boolean" keyPath="leftSide" value="YES"/>
-                    </userDefinedRuntimeAttributes>
-                    <connections>
-                        <segue destination="e4c-Dq-tN3" kind="relationship" relationship="rootViewController" id="MHN-dC-Mhe"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="yVY-UT-M0k" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-746" y="26"/>
-        </scene>
     </scenes>
     <resources>
         <image name="backgroundimage" width="400" height="700"/>
-        <image name="bellIcon" width="32" height="32"/>
+        <image name="bellIcon" width="16" height="16"/>
         <image name="chat" width="32" height="32"/>
         <image name="checkbox_unchecked" width="30" height="30"/>
         <image name="crossIcon" width="24" height="24"/>
-        <image name="menuicon" width="20" height="20"/>
+        <image name="menuicon" width="16" height="16"/>
         <image name="phonecall" width="32" height="32"/>
         <systemColor name="darkTextColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
     </resources>
 </document>

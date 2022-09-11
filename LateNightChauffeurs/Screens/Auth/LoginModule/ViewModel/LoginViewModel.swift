@@ -24,6 +24,7 @@ class LoginViewModel: NSObject {
                 UserDefaults.standard.set(LoginedUser.userDetails?[0].firstName, forKey: "UserFirstName")
                 UserDefaults.standard.set(LoginedUser.userDetails?[0].lastName, forKey: "UserLastName")
                 UserDefaults.standard.set(LoginedUser.userDetails?[0].mobileNumber, forKey: "UserMobilenumber")
+                UserDefaults.standard.set(true, forKey: "IsUserLogined")
                 UserDefaults.standard.set(API_URl.API_BASEIMAGE_URL + (LoginedUser.userDetails?[0].profilePic ?? ""), forKey: "userProfilepic")
                 UserDefaults.standard.set("Normal Login", forKey: "userLoginType")
                 UserDefaults.standard.set(LoginedUser.paymentCardStatus, forKey: "CardStatus")

@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 import MBProgressHUD
 import Alamofire
-
+import SideMenu
 extension UIViewController {
     func isValidEmail(_ email: String) -> Bool {
         let emailRegEx = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
@@ -134,18 +134,60 @@ extension UIViewController {
        }
 }
 extension UIViewController {
-    func movetonextvc(id:String,storyBordid : String){
+    func movetonextvc(id:String,storyBordid : String,animated:Bool?){
         let Storyboard : UIStoryboard = UIStoryboard(name: storyBordid, bundle: nil)
         let nxtVC = Storyboard.instantiateViewController(withIdentifier: id)
-        self.navigationController?.pushViewController(nxtVC, animated: true)
+        self.navigationController?.pushViewController(nxtVC, animated: animated ?? true)
+    }
+    func presentnextvc(id:String,storyBordid : String,animated:Bool){
+        let Storyboard : UIStoryboard = UIStoryboard(name: storyBordid, bundle: nil)
+        let nxtVC = Storyboard.instantiateViewController(withIdentifier: id)
+        nxtVC.modalPresentationStyle = .fullScreen
+        self.present(nxtVC, animated: animated)
     }
     func popToBackVC(){
         self.navigationController?.popViewController(animated: true)
     }
     
+    func navigateToSideMenu(){
+        let Storyboard : UIStoryboard = UIStoryboard(name: "SideMenu", bundle: nil)
+        let nxtVC = Storyboard.instantiateViewController(withIdentifier: "SideMenuViewController") as! SideMenuViewController
+        let menu = SideMenuNavigationController(rootViewController: nxtVC)
+        menu.leftSide = true
+        present(menu, animated: true, completion: nil)
+    }
+
+    
     func dismiss(){
         self.dismiss(animated: true, completion: nil)
     }
+    
+    func swipeRight(){
+        let swipeRight = UISwipeGestureRecognizer(target: self, action: #selector(self.respondToSwipeGesture))
+        swipeRight.direction = .right
+        self.view.addGestureRecognizer(swipeRight)
+    }
+    
+    @objc func respondToSwipeGesture(gesture: UIGestureRecognizer) {
+        if let swipeGesture = gesture as? UISwipeGestureRecognizer {
+
+            switch swipeGesture.direction {
+            case .right:
+                print("Swiped right")
+                self.navigateToSideMenu()
+            case .down:
+                print("Swiped down")
+            case .left:
+                print("Swiped left")
+                
+            case .up:
+                print("Swiped up")
+            default:
+                break
+            }
+        }
+    }
+    
     func uiAnimate(view : NSLayoutConstraint, Constratint : Float){
         UIView.animate(withDuration:0.2, delay: 0.1, options: UIView.AnimationOptions.curveEaseIn, animations: {
             view.constant = CGFloat(Constratint)
@@ -224,6 +266,16 @@ extension UITableView {
                 cell.transform = CGAffineTransform.identity
             }, completion: nil)
             delayCounter += 1
+        }
+    }
+}
+extension UIViewController {
+    
+    func resetDefaults() {
+        let defaults = UserDefaults.standard
+        let dictionary = defaults.dictionaryRepresentation()
+        dictionary.keys.forEach { key in
+            defaults.removeObject(forKey: key)
         }
     }
 }

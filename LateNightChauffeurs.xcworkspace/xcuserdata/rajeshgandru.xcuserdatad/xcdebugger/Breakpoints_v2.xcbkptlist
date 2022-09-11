@@ -7,32 +7,48 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "C8410721-1E46-4450-9D32-3BA89AC216A0"
-            shouldBeEnabled = "Yes"
+            uuid = "1BC97D1B-4FA3-4A89-B427-0BE737309ACB"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "LateNightChauffeurs/Screens/DashBoard/DashBoard/View/DashBoardViewController.swift"
+            filePath = "LateNightChauffeurs/Screens/SideMenu/SideMenu/View/SideMenuViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "19"
-            endingLineNumber = "19"
-            landmarkName = "setupSideMenu(_:)"
+            startingLineNumber = "85"
+            endingLineNumber = "85"
+            landmarkName = "tableView(_:didSelectRowAt:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "4B4B5172-1292-413A-85CF-4CE39A69891F"
+            uuid = "098247C6-C2DD-4EA0-A2B8-D830960335CE"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "LateNightChauffeurs/Screens/DashBoard/DashBoard/View/DashBoardViewController.swift"
+            filePath = "LateNightChauffeurs/Screens/SideMenu/SideMenu/View/SideMenuViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "20"
-            endingLineNumber = "20"
-            landmarkName = "setupSideMenu(_:)"
+            startingLineNumber = "53"
+            endingLineNumber = "53"
+            landmarkName = "loadUserData()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "423D46CA-6C5C-422A-871E-280AA687C57E"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "LateNightChauffeurs/Screens/SideMenu/SideMenu/View/SideMenuViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "52"
+            endingLineNumber = "52"
+            landmarkName = "loadUserData()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

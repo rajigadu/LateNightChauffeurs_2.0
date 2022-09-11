@@ -34,11 +34,11 @@ class LoginViewController: UIViewController {
     }
     
     @IBAction func forgotPasswordButton(_ sender: Any) {
-        self.movetonextvc(id: "ForgotPasswordViewController", storyBordid: "Authentication")
+        self.movetonextvc(id: "ForgotPasswordViewController", storyBordid: "Authentication", animated: true)
     }
     
     @IBAction func signUPButton(_ sender: Any) {
-        self.movetonextvc(id: "RegistrationViewController", storyBordid: "Authentication")
+        self.movetonextvc(id: "RegistrationViewController", storyBordid: "Authentication", animated: true)
     }
     
 }
@@ -56,7 +56,7 @@ extension LoginViewController {
                         DispatchQueue.main.async { [self] in
                         indicator.hideActivityIndicator()
                         //self.showToast(message: LoginedUser.message ?? "Welcome! You are successfully login in your account panel.", font: .systemFont(ofSize: 12.0))
-                            movetonextvc(id: "DashBoardViewController", storyBordid: "DashBoard")
+                            movetonextvc(id: "DashBoardViewController", storyBordid: "DashBoard", animated: true)
                         }
                     } else {
                         DispatchQueue.main.async { [self] in

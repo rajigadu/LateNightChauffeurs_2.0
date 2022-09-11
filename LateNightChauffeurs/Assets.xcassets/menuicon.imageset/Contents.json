@@ -1,17 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "menuicon.png",
+      "filename" : "menu-button-of-three-horizontal-lines (2).png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "menuicon@2x.png",
+      "filename" : "menu-button-of-three-horizontal-lines-1.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "menuicon@3x.png",
+      "filename" : "menu-button-of-three-horizontal-lines.png",
       "idiom" : "universal",
       "scale" : "3x"
     }

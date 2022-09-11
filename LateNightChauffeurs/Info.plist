@@ -66,5 +66,13 @@
 		<string>fetch</string>
 		<string>remote-notification</string>
 	</array>
+	<key>NSCameraUsageDescription</key>
+	<string>This app requires to access your camera to set profile picture and share your image to driver</string>
+	<key>NSLocationAlwaysUsageDescription</key>
+	<string>This app requires your current location to allow you to utlise cab service by using pickup and drop locations.</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>This app requires your current location to allow you to utlise cab service by using pickup and drop locations.</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>This app requires to access your photo library to set profile picture and share your image to driver</string>
 </dict>
 </plist>
