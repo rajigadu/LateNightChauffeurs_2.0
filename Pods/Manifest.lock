@@ -1,10 +1,10 @@
 PODS:
   - Alamofire (4.9.1)
-  - AppAuth (1.5.0):
-    - AppAuth/Core (= 1.5.0)
-    - AppAuth/ExternalUserAgent (= 1.5.0)
-  - AppAuth/Core (1.5.0)
-  - AppAuth/ExternalUserAgent (1.5.0):
+  - AppAuth (1.6.0):
+    - AppAuth/Core (= 1.6.0)
+    - AppAuth/ExternalUserAgent (= 1.6.0)
+  - AppAuth/Core (1.6.0)
+  - AppAuth/ExternalUserAgent (1.6.0):
     - AppAuth/Core
   - Bolts (1.9.1):
     - Bolts/AppLinks (= 1.9.1)
@@ -148,20 +148,20 @@ PODS:
     - SDWebImage/Core (= 5.13.2)
   - SDWebImage/Core (5.13.2)
   - SideMenu (6.5.0)
-  - Stripe (22.8.0):
-    - Stripe/Stripe3DS2 (= 22.8.0)
-    - StripeApplePay (= 22.8.0)
-    - StripeCore (= 22.8.0)
-    - StripeUICore (= 22.8.0)
-  - Stripe/Stripe3DS2 (22.8.0):
-    - StripeApplePay (= 22.8.0)
-    - StripeCore (= 22.8.0)
-    - StripeUICore (= 22.8.0)
-  - StripeApplePay (22.8.0):
-    - StripeCore (= 22.8.0)
-  - StripeCore (22.8.0)
-  - StripeUICore (22.8.0):
-    - StripeCore (= 22.8.0)
+  - Stripe (22.8.1):
+    - Stripe/Stripe3DS2 (= 22.8.1)
+    - StripeApplePay (= 22.8.1)
+    - StripeCore (= 22.8.1)
+    - StripeUICore (= 22.8.1)
+  - Stripe/Stripe3DS2 (22.8.1):
+    - StripeApplePay (= 22.8.1)
+    - StripeCore (= 22.8.1)
+    - StripeUICore (= 22.8.1)
+  - StripeApplePay (22.8.1):
+    - StripeCore (= 22.8.1)
+  - StripeCore (22.8.1)
+  - StripeUICore (22.8.1):
+    - StripeCore (= 22.8.1)
 
 DEPENDENCIES:
   - Alamofire (~> 4.9.1)
@@ -227,7 +227,7 @@ SPEC REPOS:
 
 SPEC CHECKSUMS:
   Alamofire: 85e8a02c69d6020a0d734f6054870d7ecb75cf18
-  AppAuth: 80317d99ac7ff2801a2f18ff86b48cd315ed465d
+  AppAuth: 8fca6b5563a5baef2c04bee27538025e4ceb2add
   Bolts: 8c1e8aab2f603387b8b9924f57d1d64f43d3ffdc
   Crashlytics: 9220f5bc89e7a618df411b4f639389dbfb0e03d2
   Fabric: ea977e3cd9c20425516d3dafd3bf8c941c51223f
@@ -259,10 +259,10 @@ SPEC CHECKSUMS:
   Reachability: 33e18b67625424e47b6cde6d202dce689ad7af96
   SDWebImage: 72f86271a6f3139cc7e4a89220946489d4b9a866
   SideMenu: f583187d21c5b1dd04c72002be544b555a2627a2
-  Stripe: f969972967f5f5a63b8e9fb0d772703b43e6c13d
-  StripeApplePay: 2b49bd530add0fafe80939d39349fb6eda198f0a
-  StripeCore: 108056d8c1d5a693d3af04e516eaab05aecbc590
-  StripeUICore: 5fd56bf85a4372490183aa76dca2018a3972dce2
+  Stripe: b4cf3aa317a8e984b930d3545bac10b490dd3106
+  StripeApplePay: 858c1dadc39b658d317661dea8cc2b7158533a17
+  StripeCore: 52e0aba2fad604455692db593bf5edc04758b760
+  StripeUICore: b3d64c5cbcb4cacfa88f9a0950cdf1b4df72792e
 
 PODFILE CHECKSUM: 2c465d4781624467cf6efc6060ec87ac9e6dcf3f
 

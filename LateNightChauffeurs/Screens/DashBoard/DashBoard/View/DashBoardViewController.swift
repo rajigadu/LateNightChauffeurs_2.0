@@ -35,9 +35,7 @@ class DashBoardViewController: UIViewController {
     @IBAction func setupSideMenu(_ sender : Any){
         self.navigateToSideMenu()
     }
-    
-    
-    
+ 
     func initializeTheLocationManager() {
         locationManager.delegate = self
         locationManager.requestWhenInUseAuthorization()
