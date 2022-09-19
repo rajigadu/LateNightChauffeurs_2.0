@@ -7,15 +7,15 @@
 
 import UIKit
 import SideMenu
-import GoogleMaps
+//import GoogleMaps
 
 class DashBoardViewController: UIViewController {
     
     //MARK: - Class outlets
-    @IBOutlet weak var mapView: GMSMapView!
+    //@IBOutlet weak var mapView: GMSMapView!
 
     //MARK: - Class Propeties
-    var locationManager = CLLocationManager()
+   // var locationManager = CLLocationManager()
     let didFindMyLocation = false
 
     
@@ -26,7 +26,7 @@ class DashBoardViewController: UIViewController {
        // setupSideMenu()
        // self.swipeRight()
         initializeTheLocationManager()
-        self.mapView.isMyLocationEnabled = true
+        //self.mapView.isMyLocationEnabled = true
     }
 
     
@@ -35,11 +35,17 @@ class DashBoardViewController: UIViewController {
     @IBAction func setupSideMenu(_ sender : Any){
         self.navigateToSideMenu()
     }
+    
+    @IBAction func bookingReservation(_ sender: Any) {
+        self.movetonextvc(id: "BookingReservationViewController", storyBordid: "DashBoard", animated: true)
+    }
  
     func initializeTheLocationManager() {
-        locationManager.delegate = self
-        locationManager.requestWhenInUseAuthorization()
-        locationManager.startUpdatingLocation()
+        navigationController?.navigationBar.topItem?.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
+
+//        locationManager.delegate = self
+//        locationManager.requestWhenInUseAuthorization()
+//        locationManager.startUpdatingLocation()
     }
 }
 extension DashBoardViewController: SideMenuNavigationControllerDelegate {
@@ -63,18 +69,18 @@ extension DashBoardViewController: SideMenuNavigationControllerDelegate {
     
 }
 // MARK: - CLLocationManagerDelegate
-extension DashBoardViewController: CLLocationManagerDelegate {
-
-    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        if let location = locationManager.location?.coordinate {
-         cameraMoveToLocation(toLocation: location)
-        }
-
-     }
-
-     func cameraMoveToLocation(toLocation: CLLocationCoordinate2D?) {
-         if toLocation != nil {
-             mapView.camera = GMSCameraPosition.camera(withTarget: toLocation!, zoom: 15)
-         }
-     }
-}
+//extension DashBoardViewController: CLLocationManagerDelegate {
+//
+//    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+//        if let location = locationManager.location?.coordinate {
+//         cameraMoveToLocation(toLocation: location)
+//        }
+//
+//     }
+//
+//     func cameraMoveToLocation(toLocation: CLLocationCoordinate2D?) {
+//         if toLocation != nil {
+//             mapView.camera = GMSCameraPosition.camera(withTarget: toLocation!, zoom: 15)
+//         }
+//     }
+//}

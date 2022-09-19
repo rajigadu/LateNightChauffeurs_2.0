@@ -21,8 +21,11 @@ protocol LateNightChauffeursUSERServiceProtocol {
     func requestForContactUsServices(_ perams: Dictionary<String,String>,  completion: @escaping (_ success: Bool, _ results: ContactUsUserData?, _ error: String?) -> ())
     //MARK: Change Password
     func requestForChangePasswordServices(_ perams: Dictionary<String, String>, completion: @escaping (_ success: Bool, _ results: ChangePasswordUserData?, _ error: String?) -> ())
-    //MARK: Edit Profile    
+    //MARK: Edit Profile
     func requestForEditProfileServices(_ perams: Dictionary<String, String>,picImage: UIImage,fileName: String, completion: @escaping (_ success: Bool, _ results: ProfileUserData?, _ error: String?) -> ())
+    //MARK: - get Cancel Ride Info
+   // func requestForGetCancelInfoServices(_ perams: Dictionary<String, String>, completion: @escaping (_ success: Bool, _ results: ProfileUserData?, _ error: String?) -> ())
+    
 }
 
 //MARK: - Login
@@ -163,6 +166,27 @@ extension ApiService {
             if success {
                 do {
                     let model = try JSONDecoder().decode(ProfileUserData.self, from: data!)
+                    completion(true, model, nil)
+                } catch {
+                    completion(false, nil, I18n.ModelDecodeErrorString)
+                }
+            } else {
+                completion(false, nil, I18n.GetRequestFailedString)
+            }
+        }
+    }
+}
+
+extension ApiService {
+    //MARK: - Get Cancel Ride Info
+    func requestForGetCancelInfoServices(_ perams: Dictionary<String, String>, completion: @escaping (Bool, ChangePasswordUserData?, String?) -> ()) {
+        if Connectivity.isNotConnectedToInternet{
+            completion(false, nil, I18n.NoInterNetString)
+        }
+        HttpRequestHelper().GET(url: API_URl.API_CANCELRIDEAMOUNT_URL, params: perams, httpHeader: .application_json) { success, data in
+            if success {
+                do {
+                    let model = try JSONDecoder().decode(ChangePasswordUserData.self, from: data!)
                     completion(true, model, nil)
                 } catch {
                     completion(false, nil, I18n.ModelDecodeErrorString)

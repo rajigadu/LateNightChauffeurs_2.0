@@ -10,22 +10,23 @@ target 'LateNightChauffeurs' do
     pod 'IQKeyboardManager'
     pod 'Reachability'
     pod 'SDWebImage'
-    pod 'JJMaterialTextField'
-    pod 'GoogleMaps', '~> 3.1.0'
-    pod 'GooglePlaces','~>3.1.0'
-    pod 'GooglePlacePicker','~>3.1.0'
-    pod 'Firebase/Core'
-    pod 'Firebase/Messaging'
-    pod 'JCNotificationBannerPresenter'
-    pod 'FBSDKCoreKit', '~> 4.38.0'
-    pod 'FBSDKLoginKit', '~> 4.38.0'
-    pod 'SideMenu', '~> 6.0'
-    pod 'GoogleSignIn'
-    pod 'Stripe'
-    pod 'Fabric'
-    pod 'Crashlytics'
     pod 'Alamofire', '~> 4.9.1’
-    pod 'ObjectMapper'
+    pod 'SideMenu', '~> 6.0'
+    
+#    pod 'JJMaterialTextField'
+#    pod 'GoogleMaps', '~> 3.1.0'
+#    pod 'GooglePlaces','~>3.1.0'
+#    pod 'GooglePlacePicker','~>3.1.0'
+#    pod 'Firebase/Core'
+#    pod 'Firebase/Messaging'
+#    pod 'JCNotificationBannerPresenter'
+#
+#    pod 'GoogleSignIn'
+#    pod 'Stripe'
+#    pod 'Fabric'
+#    pod 'Crashlytics'
+#    pod 'Alamofire', '~> 4.9.1’
+#    pod 'ObjectMapper'
 
   target 'LateNightChauffeursTests' do
     inherit! :search_paths

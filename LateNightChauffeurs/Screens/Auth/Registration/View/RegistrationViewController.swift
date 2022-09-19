@@ -77,7 +77,7 @@ extension RegistrationViewController {
     }
 }
 extension RegistrationViewController: GMSAutocompleteViewControllerDelegate {
-    
+
     // Handle the user's selection.
     func viewController(_ viewController: GMSAutocompleteViewController, didAutocompleteWith place: GMSPlace) {
         print("Place name: \(String(describing: place.name))")
@@ -87,13 +87,13 @@ extension RegistrationViewController: GMSAutocompleteViewControllerDelegate {
         self.txt_AdddressRef.text = place.formattedAddress
         dismiss(animated: true, completion: nil)
     }
-    
+
     func viewController(_ viewController: GMSAutocompleteViewController, didFailAutocompleteWithError error: Error) {
         // TODO: handle the error.
         print("Error: \(error)")
         dismiss(animated: true, completion: nil)
     }
-    
+
     // User cancelled the operation.
     func wasCancelled(_ viewController: GMSAutocompleteViewController) {
         print("Autocomplete was cancelled.")

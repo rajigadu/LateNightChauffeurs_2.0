@@ -19,6 +19,7 @@
 		BA1181B328CDFB1100F61CD5 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA1181B228CDFB1100F61CD5 /* ProfileViewController.swift */; };
 		BA1181B528CDFB2D00F61CD5 /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA1181B428CDFB2D00F61CD5 /* ProfileViewModel.swift */; };
 		BA1181B728CDFE0E00F61CD5 /* ImagePickerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA1181B628CDFE0E00F61CD5 /* ImagePickerManager.swift */; };
+		BA1497C628D8AF6000126BD0 /* DatePickerHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA1497C528D8AF6000126BD0 /* DatePickerHelper.swift */; };
 		BA36D84228C8C39800B73053 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA36D84128C8C39800B73053 /* AppDelegate.swift */; };
 		BA36D84928C8C39800B73053 /* DashBoard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BA36D84728C8C39800B73053 /* DashBoard.storyboard */; };
 		BA36D84C28C8C39800B73053 /* LateNightChauffeurs.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = BA36D84A28C8C39800B73053 /* LateNightChauffeurs.xcdatamodeld */; };
@@ -27,6 +28,12 @@
 		BA36D85C28C8C3A400B73053 /* LateNightChauffeursTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA36D85B28C8C3A400B73053 /* LateNightChauffeursTests.swift */; };
 		BA36D86628C8C3A400B73053 /* LateNightChauffeursUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA36D86528C8C3A400B73053 /* LateNightChauffeursUITests.swift */; };
 		BA36D86828C8C3A400B73053 /* LateNightChauffeursUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA36D86728C8C3A400B73053 /* LateNightChauffeursUITestsLaunchTests.swift */; };
+		BA3F71BA28D7EDEA00B650E9 /* AddressListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA3F71B928D7EDEA00B650E9 /* AddressListViewModel.swift */; };
+		BA3F71BC28D7EE0000B650E9 /* AddressListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA3F71BB28D7EE0000B650E9 /* AddressListViewController.swift */; };
+		BA3F71BE28D7EE1400B650E9 /* AddressListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA3F71BD28D7EE1400B650E9 /* AddressListModel.swift */; };
+		BA3F71C028D7EE5700B650E9 /* AddressListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA3F71BF28D7EE5700B650E9 /* AddressListTableViewCell.swift */; };
+		BA3F71C628D7F6B900B650E9 /* StopsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA3F71C528D7F6B900B650E9 /* StopsTableViewCell.swift */; };
+		BA3F71C828D7F70900B650E9 /* StopsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA3F71C728D7F70900B650E9 /* StopsViewController.swift */; };
 		BA4B3C2F28CAEB04001D48B8 /* TextFieldHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA4B3C2E28CAEB04001D48B8 /* TextFieldHelper.swift */; };
 		BA4B3C3528CAEDE1001D48B8 /* DashBoardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA4B3C3428CAEDE1001D48B8 /* DashBoardViewModel.swift */; };
 		BA4B3C3728CAEDFC001D48B8 /* DashBoardUserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA4B3C3628CAEDFB001D48B8 /* DashBoardUserData.swift */; };
@@ -65,9 +72,18 @@
 		BA60F9E428C9A8E9005D5B58 /* Lato-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BA60F9D928C9A8E9005D5B58 /* Lato-BoldItalic.ttf */; };
 		BA60F9E528C9A8E9005D5B58 /* Lato-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BA60F9DA28C9A8E9005D5B58 /* Lato-Light.ttf */; };
 		BA60F9E628C9A8E9005D5B58 /* Lato-ThinItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BA60F9DB28C9A8E9005D5B58 /* Lato-ThinItalic.ttf */; };
+		BA64F3D528D8123F00BB06F2 /* StopsListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA64F3D428D8123F00BB06F2 /* StopsListTableViewCell.swift */; };
 		BA726D0028C8D3EC00E8D351 /* background.png in Resources */ = {isa = PBXBuildFile; fileRef = BA726CFF28C8D3EB00E8D351 /* background.png */; };
 		BA726D0428C8D4E000E8D351 /* expanded.png in Resources */ = {isa = PBXBuildFile; fileRef = BA726D0228C8D4DF00E8D351 /* expanded.png */; };
 		BA726D0528C8D4E000E8D351 /* collapsed.png in Resources */ = {isa = PBXBuildFile; fileRef = BA726D0328C8D4E000E8D351 /* collapsed.png */; };
+		BADA1ADB28D755D70016C1AD /* BookingReservationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BADA1ADA28D755D70016C1AD /* BookingReservationModel.swift */; };
+		BADA1ADE28D756070016C1AD /* BookingReservationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BADA1ADD28D756070016C1AD /* BookingReservationViewController.swift */; };
+		BADA1AE028D756320016C1AD /* BookingsecondHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BADA1ADF28D756320016C1AD /* BookingsecondHeaderCell.swift */; };
+		BADA1AE228D756490016C1AD /* BookingsecondFooterCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BADA1AE128D756490016C1AD /* BookingsecondFooterCell.swift */; };
+		BADA1AE428D756690016C1AD /* BookingReservationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BADA1AE328D756690016C1AD /* BookingReservationViewModel.swift */; };
+		BADA1AEA28D759670016C1AD /* CancelBookingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BADA1AE928D759670016C1AD /* CancelBookingModel.swift */; };
+		BADA1AEC28D759940016C1AD /* CancelBookingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BADA1AEB28D759940016C1AD /* CancelBookingViewController.swift */; };
+		BADA1AEE28D759A70016C1AD /* CancelBookingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BADA1AED28D759A70016C1AD /* CancelBookingViewModel.swift */; };
 		C93A29BE07006C6359B70AB2 /* Pods_LateNightChauffeurs.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F599E5A20DB51E52A7B1C860 /* Pods_LateNightChauffeurs.framework */; };
 		CEC9F234DF541C4F3CBB088D /* Pods_LateNightChauffeurs_LateNightChauffeursUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB3521EEC17DB0B15DD0752B /* Pods_LateNightChauffeurs_LateNightChauffeursUITests.framework */; };
 /* End PBXBuildFile section */
@@ -107,6 +123,7 @@
 		BA1181B228CDFB1100F61CD5 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		BA1181B428CDFB2D00F61CD5 /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
 		BA1181B628CDFE0E00F61CD5 /* ImagePickerManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePickerManager.swift; sourceTree = "<group>"; };
+		BA1497C528D8AF6000126BD0 /* DatePickerHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatePickerHelper.swift; sourceTree = "<group>"; };
 		BA36D83E28C8C39800B73053 /* LateNightChauffeurs.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LateNightChauffeurs.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BA36D84128C8C39800B73053 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BA36D84828C8C39800B73053 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/DashBoard.storyboard; sourceTree = "<group>"; };
@@ -119,6 +136,12 @@
 		BA36D86128C8C3A400B73053 /* LateNightChauffeursUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LateNightChauffeursUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		BA36D86528C8C3A400B73053 /* LateNightChauffeursUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LateNightChauffeursUITests.swift; sourceTree = "<group>"; };
 		BA36D86728C8C3A400B73053 /* LateNightChauffeursUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LateNightChauffeursUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		BA3F71B928D7EDEA00B650E9 /* AddressListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressListViewModel.swift; sourceTree = "<group>"; };
+		BA3F71BB28D7EE0000B650E9 /* AddressListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressListViewController.swift; sourceTree = "<group>"; };
+		BA3F71BD28D7EE1400B650E9 /* AddressListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressListModel.swift; sourceTree = "<group>"; };
+		BA3F71BF28D7EE5700B650E9 /* AddressListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressListTableViewCell.swift; sourceTree = "<group>"; };
+		BA3F71C528D7F6B900B650E9 /* StopsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = StopsTableViewCell.swift; path = LateNightChauffeurs/Screens/DashBoard/Stops/ViewModel/StopsTableViewCell.swift; sourceTree = SOURCE_ROOT; };
+		BA3F71C728D7F70900B650E9 /* StopsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StopsViewController.swift; sourceTree = "<group>"; };
 		BA4B3C2E28CAEB04001D48B8 /* TextFieldHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldHelper.swift; sourceTree = "<group>"; };
 		BA4B3C3428CAEDE1001D48B8 /* DashBoardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashBoardViewModel.swift; sourceTree = "<group>"; };
 		BA4B3C3628CAEDFB001D48B8 /* DashBoardUserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashBoardUserData.swift; sourceTree = "<group>"; };
@@ -157,10 +180,19 @@
 		BA60F9D928C9A8E9005D5B58 /* Lato-BoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-BoldItalic.ttf"; sourceTree = "<group>"; };
 		BA60F9DA28C9A8E9005D5B58 /* Lato-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Light.ttf"; sourceTree = "<group>"; };
 		BA60F9DB28C9A8E9005D5B58 /* Lato-ThinItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-ThinItalic.ttf"; sourceTree = "<group>"; };
+		BA64F3D428D8123F00BB06F2 /* StopsListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StopsListTableViewCell.swift; sourceTree = "<group>"; };
 		BA726CFF28C8D3EB00E8D351 /* background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = background.png; sourceTree = "<group>"; };
 		BA726D0128C8D49F00E8D351 /* LateNightChauffeurs.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = LateNightChauffeurs.entitlements; sourceTree = "<group>"; };
 		BA726D0228C8D4DF00E8D351 /* expanded.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = expanded.png; sourceTree = "<group>"; };
 		BA726D0328C8D4E000E8D351 /* collapsed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = collapsed.png; sourceTree = "<group>"; };
+		BADA1ADA28D755D70016C1AD /* BookingReservationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookingReservationModel.swift; sourceTree = "<group>"; };
+		BADA1ADD28D756070016C1AD /* BookingReservationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookingReservationViewController.swift; sourceTree = "<group>"; };
+		BADA1ADF28D756320016C1AD /* BookingsecondHeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookingsecondHeaderCell.swift; sourceTree = "<group>"; };
+		BADA1AE128D756490016C1AD /* BookingsecondFooterCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookingsecondFooterCell.swift; sourceTree = "<group>"; };
+		BADA1AE328D756690016C1AD /* BookingReservationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookingReservationViewModel.swift; sourceTree = "<group>"; };
+		BADA1AE928D759670016C1AD /* CancelBookingModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CancelBookingModel.swift; sourceTree = "<group>"; };
+		BADA1AEB28D759940016C1AD /* CancelBookingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CancelBookingViewController.swift; sourceTree = "<group>"; };
+		BADA1AED28D759A70016C1AD /* CancelBookingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CancelBookingViewModel.swift; sourceTree = "<group>"; };
 		F599E5A20DB51E52A7B1C860 /* Pods_LateNightChauffeurs.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LateNightChauffeurs.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F7DF40909CFD97A3AA3CAAC8 /* Pods-LateNightChauffeurs.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LateNightChauffeurs.release.xcconfig"; path = "Target Support Files/Pods-LateNightChauffeurs/Pods-LateNightChauffeurs.release.xcconfig"; sourceTree = "<group>"; };
 		FB3521EEC17DB0B15DD0752B /* Pods_LateNightChauffeurs_LateNightChauffeursUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LateNightChauffeurs_LateNightChauffeursUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -348,6 +380,74 @@
 			path = LateNightChauffeursUITests;
 			sourceTree = "<group>";
 		};
+		BA3F71B528D7EDBB00B650E9 /* AddressLists */ = {
+			isa = PBXGroup;
+			children = (
+				BA3F71B828D7EDD300B650E9 /* Model */,
+				BA3F71B728D7EDCD00B650E9 /* View */,
+				BA3F71B628D7EDC600B650E9 /* ViewModel */,
+			);
+			path = AddressLists;
+			sourceTree = "<group>";
+		};
+		BA3F71B628D7EDC600B650E9 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				BA3F71B928D7EDEA00B650E9 /* AddressListViewModel.swift */,
+				BA3F71BF28D7EE5700B650E9 /* AddressListTableViewCell.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		BA3F71B728D7EDCD00B650E9 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				BA3F71BB28D7EE0000B650E9 /* AddressListViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		BA3F71B828D7EDD300B650E9 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				BA3F71BD28D7EE1400B650E9 /* AddressListModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		BA3F71C128D7F68C00B650E9 /* Stops */ = {
+			isa = PBXGroup;
+			children = (
+				BA3F71C428D7F69D00B650E9 /* Model */,
+				BA3F71C328D7F69800B650E9 /* View */,
+				BA3F71C228D7F69200B650E9 /* ViewModel */,
+			);
+			path = Stops;
+			sourceTree = "<group>";
+		};
+		BA3F71C228D7F69200B650E9 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				BA3F71C528D7F6B900B650E9 /* StopsTableViewCell.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		BA3F71C328D7F69800B650E9 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				BA3F71C728D7F70900B650E9 /* StopsViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		BA3F71C428D7F69D00B650E9 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		BA4B3C3028CAEC82001D48B8 /* Profile */ = {
 			isa = PBXGroup;
 			children = (
@@ -398,6 +498,10 @@
 		BA50B2E328CAE57500EF116F /* DashBoard */ = {
 			isa = PBXGroup;
 			children = (
+				BA3F71C128D7F68C00B650E9 /* Stops */,
+				BA3F71B528D7EDBB00B650E9 /* AddressLists */,
+				BADA1AE528D759200016C1AD /* CancelBooking */,
+				BADA1AD628D7551B0016C1AD /* Booking_reservation */,
 				BA36D84728C8C39800B73053 /* DashBoard.storyboard */,
 				BA50B2E428CAE58400EF116F /* DashBoard */,
 			);
@@ -559,6 +663,7 @@
 				BA60F9CF28C9A8E9005D5B58 /* FontFamily */,
 				BA4B3C2E28CAEB04001D48B8 /* TextFieldHelper.swift */,
 				BA1181B628CDFE0E00F61CD5 /* ImagePickerManager.swift */,
+				BA1497C528D8AF6000126BD0 /* DatePickerHelper.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -722,6 +827,77 @@
 			path = Lato;
 			sourceTree = "<group>";
 		};
+		BADA1AD628D7551B0016C1AD /* Booking_reservation */ = {
+			isa = PBXGroup;
+			children = (
+				BADA1AD928D755410016C1AD /* Model */,
+				BADA1AD828D7553A0016C1AD /* View */,
+				BADA1AD728D7552F0016C1AD /* ViewModel */,
+			);
+			path = Booking_reservation;
+			sourceTree = "<group>";
+		};
+		BADA1AD728D7552F0016C1AD /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				BADA1ADF28D756320016C1AD /* BookingsecondHeaderCell.swift */,
+				BADA1AE128D756490016C1AD /* BookingsecondFooterCell.swift */,
+				BADA1AE328D756690016C1AD /* BookingReservationViewModel.swift */,
+				BA64F3D428D8123F00BB06F2 /* StopsListTableViewCell.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		BADA1AD828D7553A0016C1AD /* View */ = {
+			isa = PBXGroup;
+			children = (
+				BADA1ADD28D756070016C1AD /* BookingReservationViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		BADA1AD928D755410016C1AD /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				BADA1ADA28D755D70016C1AD /* BookingReservationModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		BADA1AE528D759200016C1AD /* CancelBooking */ = {
+			isa = PBXGroup;
+			children = (
+				BADA1AE828D7593A0016C1AD /* Model */,
+				BADA1AE728D759340016C1AD /* View */,
+				BADA1AE628D7592D0016C1AD /* ViewModel */,
+			);
+			path = CancelBooking;
+			sourceTree = "<group>";
+		};
+		BADA1AE628D7592D0016C1AD /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				BADA1AED28D759A70016C1AD /* CancelBookingViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		BADA1AE728D759340016C1AD /* View */ = {
+			isa = PBXGroup;
+			children = (
+				BADA1AEB28D759940016C1AD /* CancelBookingViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		BADA1AE828D7593A0016C1AD /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				BADA1AE928D759670016C1AD /* CancelBookingModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -734,7 +910,6 @@
 				BA36D83B28C8C39800B73053 /* Frameworks */,
 				BA36D83C28C8C39800B73053 /* Resources */,
 				60F4C9CDBB1788357E71BF07 /* [CP] Embed Pods Frameworks */,
-				B198407F96D62A1380E31D25 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -773,7 +948,6 @@
 				BA36D85E28C8C3A400B73053 /* Frameworks */,
 				BA36D85F28C8C3A400B73053 /* Resources */,
 				253EC80B7CC2B412660E5C66 /* [CP] Embed Pods Frameworks */,
-				3694ED3355CC8F753DDFCD70 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -890,23 +1064,6 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-LateNightChauffeurs-LateNightChauffeursUITests/Pods-LateNightChauffeurs-LateNightChauffeursUITests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		3694ED3355CC8F753DDFCD70 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-LateNightChauffeurs-LateNightChauffeursUITests/Pods-LateNightChauffeurs-LateNightChauffeursUITests-resources-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Copy Pods Resources";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-LateNightChauffeurs-LateNightChauffeursUITests/Pods-LateNightChauffeurs-LateNightChauffeursUITests-resources-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-LateNightChauffeurs-LateNightChauffeursUITests/Pods-LateNightChauffeurs-LateNightChauffeursUITests-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		60F4C9CDBB1788357E71BF07 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -944,23 +1101,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		B198407F96D62A1380E31D25 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-LateNightChauffeurs/Pods-LateNightChauffeurs-resources-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Copy Pods Resources";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-LateNightChauffeurs/Pods-LateNightChauffeurs-resources-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-LateNightChauffeurs/Pods-LateNightChauffeurs-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		EA525AFDDAB7C1A7C10C39CE /* [CP] Check Pods Manifest.lock */ = {
@@ -1018,15 +1158,19 @@
 				BA60F9AD28C98914005D5B58 /* LoginViewController.swift in Sources */,
 				BA4B3C3528CAEDE1001D48B8 /* DashBoardViewModel.swift in Sources */,
 				BA60F9CE28C9A764005D5B58 /* HelperConstants.swift in Sources */,
+				BA3F71C828D7F70900B650E9 /* StopsViewController.swift in Sources */,
 				BA60F9C928C99987005D5B58 /* LncUserConstants .swift in Sources */,
 				BA4B3C3E28CAF54B001D48B8 /* SideMenuViewController.swift in Sources */,
+				BA64F3D528D8123F00BB06F2 /* StopsListTableViewCell.swift in Sources */,
 				BA60F9BA28C99075005D5B58 /* RegistrationViewModel.swift in Sources */,
 				BA60F9AB28C987C2005D5B58 /* LoginUser.swift in Sources */,
 				BA60F9A328C9873B005D5B58 /* EmployeesService.swift in Sources */,
 				BA51633E28CDCCD6008FF4C8 /* SettingsViewController.swift in Sources */,
 				BA1181AA28CDF43200F61CD5 /* ChangePasswordViewController.swift in Sources */,
+				BADA1ADE28D756070016C1AD /* BookingReservationViewController.swift in Sources */,
 				BA07C45C28CD769700FE6F70 /* MenuSliderViewModel.swift in Sources */,
 				BA1181A828CDF42000F61CD5 /* ChangePasswordViewModel.swift in Sources */,
+				BADA1AEC28D759940016C1AD /* CancelBookingViewController.swift in Sources */,
 				BA60F9BC28C99096005D5B58 /* RegistrationViewController.swift in Sources */,
 				BA36D84C28C8C39800B73053 /* LateNightChauffeurs.xcdatamodeld in Sources */,
 				BA60F9BE28C990B1005D5B58 /* RegistrationUser.swift in Sources */,
@@ -1034,23 +1178,35 @@
 				BA60F9AF28C98955005D5B58 /* LoginViewModel.swift in Sources */,
 				BA51634D28CDE46C008FF4C8 /* ContactUsViewModel.swift in Sources */,
 				BA60F9CC28C9A16D005D5B58 /* UserViewModel.swift in Sources */,
+				BADA1AE228D756490016C1AD /* BookingsecondFooterCell.swift in Sources */,
+				BADA1AEE28D759A70016C1AD /* CancelBookingViewModel.swift in Sources */,
 				BA51634828CDDF9D008FF4C8 /* TermsAndPrivacyViewController.swift in Sources */,
+				BADA1AE028D756320016C1AD /* BookingsecondHeaderCell.swift in Sources */,
 				BA36D84228C8C39800B73053 /* AppDelegate.swift in Sources */,
 				BA4B3C3728CAEDFC001D48B8 /* DashBoardUserData.swift in Sources */,
 				BA51634228CDCDDD008FF4C8 /* SettingsTableViewCell.swift in Sources */,
 				BA07C45528CD735000FE6F70 /* MenuSliderTableViewCell.swift in Sources */,
 				BA1181B128CDFAC300F61CD5 /* ProfileUserData.swift in Sources */,
+				BA3F71BA28D7EDEA00B650E9 /* AddressListViewModel.swift in Sources */,
+				BADA1AE428D756690016C1AD /* BookingReservationViewModel.swift in Sources */,
 				BA1181AC28CDF44600F61CD5 /* ChangePasswordUserData.swift in Sources */,
+				BA3F71C028D7EE5700B650E9 /* AddressListTableViewCell.swift in Sources */,
 				BA4B3C2F28CAEB04001D48B8 /* TextFieldHelper.swift in Sources */,
+				BADA1AEA28D759670016C1AD /* CancelBookingModel.swift in Sources */,
+				BA3F71BE28D7EE1400B650E9 /* AddressListModel.swift in Sources */,
 				BA4B3C3928CAEE0E001D48B8 /* DashBoardViewController.swift in Sources */,
 				BA60F9C728C99101005D5B58 /* ForgotPasswordViewModel.swift in Sources */,
 				BA51634F28CDE481008FF4C8 /* ContactUsViewController.swift in Sources */,
+				BA3F71BC28D7EE0000B650E9 /* AddressListViewController.swift in Sources */,
+				BA1497C628D8AF6000126BD0 /* DatePickerHelper.swift in Sources */,
 				BA1181B528CDFB2D00F61CD5 /* ProfileViewModel.swift in Sources */,
 				BA60F9C528C990EC005D5B58 /* ForgotPasswordViewController.swift in Sources */,
 				BA60F9C328C990DC005D5B58 /* ForgotPasswordUser.swift in Sources */,
 				BA1181B328CDFB1100F61CD5 /* ProfileViewController.swift in Sources */,
 				BA60F9A028C986E4005D5B58 /* HttpRequestHelper.swift in Sources */,
+				BADA1ADB28D755D70016C1AD /* BookingReservationModel.swift in Sources */,
 				BA51635128CDE494008FF4C8 /* ContactUsUserData.swift in Sources */,
+				BA3F71C628D7F6B900B650E9 /* StopsTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
