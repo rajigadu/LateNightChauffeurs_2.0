@@ -827,6 +827,16 @@
 			path = Lato;
 			sourceTree = "<group>";
 		};
+		BA67CD6A28D96C99003127F4 /* tablecells */ = {
+			isa = PBXGroup;
+			children = (
+				BADA1ADF28D756320016C1AD /* BookingsecondHeaderCell.swift */,
+				BADA1AE128D756490016C1AD /* BookingsecondFooterCell.swift */,
+				BA64F3D428D8123F00BB06F2 /* StopsListTableViewCell.swift */,
+			);
+			path = tablecells;
+			sourceTree = "<group>";
+		};
 		BADA1AD628D7551B0016C1AD /* Booking_reservation */ = {
 			isa = PBXGroup;
 			children = (
@@ -840,10 +850,8 @@
 		BADA1AD728D7552F0016C1AD /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				BADA1ADF28D756320016C1AD /* BookingsecondHeaderCell.swift */,
-				BADA1AE128D756490016C1AD /* BookingsecondFooterCell.swift */,
+				BA67CD6A28D96C99003127F4 /* tablecells */,
 				BADA1AE328D756690016C1AD /* BookingReservationViewModel.swift */,
-				BA64F3D428D8123F00BB06F2 /* StopsListTableViewCell.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -910,6 +918,7 @@
 				BA36D83B28C8C39800B73053 /* Frameworks */,
 				BA36D83C28C8C39800B73053 /* Resources */,
 				60F4C9CDBB1788357E71BF07 /* [CP] Embed Pods Frameworks */,
+				2A8FD3AC348FB6E248479EEE /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -948,6 +957,7 @@
 				BA36D85E28C8C3A400B73053 /* Frameworks */,
 				BA36D85F28C8C3A400B73053 /* Resources */,
 				253EC80B7CC2B412660E5C66 /* [CP] Embed Pods Frameworks */,
+				9CBA3B7E48E36DDDC6B1D46A /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -1064,6 +1074,23 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-LateNightChauffeurs-LateNightChauffeursUITests/Pods-LateNightChauffeurs-LateNightChauffeursUITests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		2A8FD3AC348FB6E248479EEE /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-LateNightChauffeurs/Pods-LateNightChauffeurs-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-LateNightChauffeurs/Pods-LateNightChauffeurs-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-LateNightChauffeurs/Pods-LateNightChauffeurs-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		60F4C9CDBB1788357E71BF07 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -1101,6 +1128,23 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9CBA3B7E48E36DDDC6B1D46A /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-LateNightChauffeurs-LateNightChauffeursUITests/Pods-LateNightChauffeurs-LateNightChauffeursUITests-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-LateNightChauffeurs-LateNightChauffeursUITests/Pods-LateNightChauffeurs-LateNightChauffeursUITests-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-LateNightChauffeurs-LateNightChauffeursUITests/Pods-LateNightChauffeurs-LateNightChauffeursUITests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		EA525AFDDAB7C1A7C10C39CE /* [CP] Check Pods Manifest.lock */ = {

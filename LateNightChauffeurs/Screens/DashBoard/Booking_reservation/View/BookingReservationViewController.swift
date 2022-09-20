@@ -6,7 +6,7 @@
 //
 
 import UIKit
-//import GoogleMaps
+import GooglePlaces
 
 class BookingReservationViewController: UIViewController, SKUIDatePickerDelegate, SKUITimePickerDelegate {
     
@@ -59,13 +59,25 @@ class BookingReservationViewController: UIViewController, SKUIDatePickerDelegate
     
     
     //date Picker
-    var ary_StopList = Array<Any>()
+    lazy var viewModel = {
+        BookingReservationViewModel()
+    }()
     
     //step - 1 - Picker Step
     private var skUIdatePicker:SKUIDatePicker?
     var skUItimePicker:SKUITimePicker?
     //step - 2 - Picker and drop location setup
     var selctingPickLocation = ""
+    var selctingDropLocation = ""
+    //step - 3 - Transmission
+    var isTransmission = false
+    //step - 4 - Add Stops
+    var ary_StopList:[String] = []
+    //step - 5 - Estimate price
+    var userPickUplatitudeStr = String()
+    var userPickUplongitudeStr = String()
+    var userDroplatitudeStr = String()
+    var userDroplongitudeStr = String()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -84,21 +96,28 @@ class BookingReservationViewController: UIViewController, SKUIDatePickerDelegate
         self.carddetailsview_ref.isHidden = true;
         self.booknowview_ref.isHidden = true;
         
+        //step - 1
         skUIdatePicker = SKUIDatePicker()
         skUIdatePicker?.delegate = self
         skUIdatePicker?.showDatePicker(txtDatePicker:txt_FutureBookingDateRef)
         
-        
-        
-    }
+        //step - 3
+        self.btn_CheckTransmissionRef.setImage(UIImage(named: "checkbox_unchecked"), for: .normal)
+
+     }
     
     //MARK: - UIButton Actions
     @IBAction func btn_AddStopAddressActionRef(_ sender:Any) {
-        
+        let Storyboard : UIStoryboard = UIStoryboard(name: "DashBoard", bundle: nil)
+        let nxtVC = Storyboard.instantiateViewController(withIdentifier: "StopsViewController") as! StopsViewController
+        nxtVC.dalegate = self
+        nxtVC.addedStops = self.ary_StopList
+        self.navigationController?.pushViewController(nxtVC, animated: true)
+//        self.movetonextvc(id: "StopsViewController", storyBordid: "DashBoard", animated: true)
     }
     
     @IBAction func btn_EstimatedPriceRef(_ sender:Any) {
-        
+        self.ApiCallestimatePrice()
     }
     
     @IBAction func btn_BookingNowref(_ sender :Any) {
@@ -110,7 +129,13 @@ class BookingReservationViewController: UIViewController, SKUIDatePickerDelegate
     }
     
     @IBAction func btn_CheckTransmissionActionRef(_ sender: Any) {
-        
+        if !isTransmission {
+            isTransmission = true
+            self.btn_CheckTransmissionRef.setImage(UIImage(named: "checkbox_checked"), for: .normal)
+        } else {
+            isTransmission = false
+            self.btn_CheckTransmissionRef.setImage(UIImage(named: "checkbox_unchecked"), for: .normal)
+        }
     }
     
     @IBAction func AddCarddetails_viewhidebtn(_ sender: Any) {
@@ -131,32 +156,34 @@ class BookingReservationViewController: UIViewController, SKUIDatePickerDelegate
     
     @IBAction func pickUpLocationBtn_ref(_ sender: Any) {
         selctingPickLocation = "yes"
+        let acController = GMSAutocompleteViewController()
+        
+        let searchBarTextAttributes: [NSAttributedString.Key : AnyObject] = [NSAttributedString.Key(rawValue: NSAttributedString.Key.foregroundColor.rawValue): UIColor.white, NSAttributedString.Key(rawValue: NSAttributedString.Key.font.rawValue): UIFont.systemFont(ofSize: UIFont.systemFontSize)]
+        UITextField.appearance(whenContainedInInstancesOf: [UISearchBar.self]).defaultTextAttributes = searchBarTextAttributes
+        
+        acController.delegate = self
+        acController.modalPresentationStyle = .fullScreen
+        acController.tintColor = .white
+        present(acController, animated: true, completion: nil)
+     }
+    
+    @IBAction func dropLocationBtn_ref(_ sender: Any) {
+        selctingDropLocation = "yes"
+        let acController = GMSAutocompleteViewController()
+        
+        let searchBarTextAttributes: [NSAttributedString.Key : AnyObject] = [NSAttributedString.Key(rawValue: NSAttributedString.Key.foregroundColor.rawValue): UIColor.white, NSAttributedString.Key(rawValue: NSAttributedString.Key.font.rawValue): UIFont.systemFont(ofSize: UIFont.systemFontSize)]
+        UITextField.appearance(whenContainedInInstancesOf: [UISearchBar.self]).defaultTextAttributes = searchBarTextAttributes
+        
+        acController.delegate = self
+        acController.modalPresentationStyle = .fullScreen
+        acController.tintColor = .white
+        present(acController, animated: true, completion: nil)
     }
+
 }
 extension BookingReservationViewController {
     
-    func locationManagerAuthentication() {
-        //        locationManager.delegate = self
-        //        locationManager.requestWhenInUseAuthorization()
-        //        locationManager.startUpdatingLocation()
-    }
 }
-// MARK: - CLLocationManagerDelegate
-//extension BookingReservationViewController: CLLocationManagerDelegate {
-//
-//    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-//        if let location = locationManager.location?.coordinate {
-//         cameraMoveToLocation(toLocation: location)
-//        }
-//
-//     }
-//
-//     func cameraMoveToLocation(toLocation: CLLocationCoordinate2D?) {
-//         if toLocation != nil {
-//            // mapView.camera = GMSCameraPosition.camera(withTarget: toLocation!, zoom: 15)
-//         }
-//     }
-//}
 
 extension BookingReservationViewController : UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -164,7 +191,7 @@ extension BookingReservationViewController : UITableViewDelegate, UITableViewDat
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell:StopsListTableViewCell = tableView.dequeueReusableCell(withIdentifier: "StopsListTableViewCell", for: indexPath) as! StopsListTableViewCell
-        
+        cell.lbl_StopNameRef.text = ary_StopList[indexPath.row]
         return cell
     }
 }
@@ -202,16 +229,25 @@ extension BookingReservationViewController  {
     }
 }
 
-//PickUp Location
+//PickUp Location and Drop location setUP
 extension BookingReservationViewController: GMSAutocompleteViewControllerDelegate{
     
     // Handle the user's selection.
     func viewController(_ viewController: GMSAutocompleteViewController, didAutocompleteWith place: GMSPlace) {
+        
         print("Place name: \(String(describing: place.name))")
         print("Place address: \(String(describing: place.formattedAddress))")
         print("Place attributions: \(String(describing: place.attributions))")
-        self.addressID = place.placeID
-        self.txt_AdddressRef.text = place.formattedAddress
+      //  self.addressID = place.placeID
+        if selctingDropLocation == "yes" {
+            self.txt_DropLocationRef.text = place.formattedAddress
+            self.userDroplatitudeStr = "\(place.coordinate.latitude)"
+            self.userDroplongitudeStr = "\(place.coordinate.longitude)"
+        } else {
+            self.txt_PickUpLocationRef.text = place.formattedAddress
+            self.userPickUplatitudeStr = "\(place.coordinate.latitude)"
+            self.userPickUplongitudeStr = "\(place.coordinate.longitude)"
+        }
         dismiss(animated: true, completion: nil)
     }
     
@@ -227,4 +263,51 @@ extension BookingReservationViewController: GMSAutocompleteViewControllerDelegat
         dismiss(animated: true, completion: nil)
     }
     
+}
+
+//Stops Adding
+extension BookingReservationViewController: AddedStops{
+    func AddedStops(stopsList: [String]) {
+        self.ary_StopList = stopsList
+        self.tableview_StoplistRef.reloadData()
+    }
+}
+
+//MARK: - Call Api Estimate Price
+extension BookingReservationViewController {
+    
+    func ApiCallestimatePrice() {
+        guard let str_Date = self.txt_FutureBookingDateRef.text else{return}
+        guard let str_Time = self.txt_FutureBookingTimeRef.text else{return}
+        guard let str_pickUpLocation = self.txt_PickUpLocationRef.text else {return}
+        guard let str_DropLocation = self.txt_DropLocationRef.text else {return}
+       // guard let str_promocode = self.promocodetf_ref.text else {return}
+                                
+         if str_Date.isEmpty {
+             self.ShowAlert(message: "Please select date for booking reservation")
+        } else if str_Time.isEmpty {
+            self.ShowAlert(message: "Please select time for booking reservation")
+        } else if str_pickUpLocation.isEmpty || userPickUplatitudeStr.isEmpty || userPickUplongitudeStr.isEmpty {
+            self.ShowAlert(message: "Please select pickup for booking reservation")
+         } else if str_DropLocation.isEmpty || userDroplatitudeStr.isEmpty || userDroplongitudeStr.isEmpty {
+             self.ShowAlert(message: "Please select drop for booking reservation")
+         } else {
+            indicator.showActivityIndicator()
+             self.viewModel.requestForEstimatePriceForBookingServices(perams: ["pick_Add":str_pickUpLocation,"Drop_Add":str_DropLocation,"pick_lat":self.userPickUplatitudeStr,"pick_lng":self.userPickUplongitudeStr,"dest_lat":self.userDroplatitudeStr,"dest_lng":self.userDroplongitudeStr,"promo": self.promocodetf_ref.text ?? "","count":"\(self.ary_StopList.count )" , "date":str_Date,"time":str_Time,]) { success, model, error in
+                if success, let UserData = model {
+                    DispatchQueue.main.async { [self] in
+                        indicator.hideActivityIndicator()
+                        
+                        let str_EstimationPriceDetails = "\n\nPrice Details : \n\n Distance:  \(UserData.data?[0].distance ?? "") \n Time:  \(UserData.data?[0].estimate_time ?? "") \n Price:  \(UserData.data?[0].estimate_price ?? "")"
+                        self.ShowAlert(message: str_EstimationPriceDetails)
+                    }
+                } else {
+                    DispatchQueue.main.async { [self] in
+                        indicator.hideActivityIndicator()
+                        self.showToast(message: error ?? "No Such Email Address Found.", font: .systemFont(ofSize: 12.0))
+                    }
+                }
+            }
+        }
+    }
 }

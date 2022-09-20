@@ -14,9 +14,9 @@ target 'LateNightChauffeurs' do
     pod 'SideMenu', '~> 6.0'
     
 #    pod 'JJMaterialTextField'
-#    pod 'GoogleMaps', '~> 3.1.0'
-#    pod 'GooglePlaces','~>3.1.0'
-#    pod 'GooglePlacePicker','~>3.1.0'
+     pod 'GoogleMaps'
+     pod 'GooglePlaces'
+     pod 'GooglePlacePicker'
 #    pod 'Firebase/Core'
 #    pod 'Firebase/Messaging'
 #    pod 'JCNotificationBannerPresenter'

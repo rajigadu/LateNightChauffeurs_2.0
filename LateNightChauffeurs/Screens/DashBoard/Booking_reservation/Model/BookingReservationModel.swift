@@ -63,3 +63,50 @@ struct BookingModel {
     var str_droptf_status = String()
 
 }
+
+typealias EstinatePriceModelData = EstinatePriceModel
+
+
+struct EstinatePriceModel : Codable {
+    let data : [EstinatePriceModelDatar]?
+    let status : String?
+    let message : String?
+    enum CodingKeys: String, CodingKey {
+
+        case data = "data"
+        case status = "status"
+        case message = "message"
+    }
+
+    init(from decoder: Decoder) throws {
+        let values = try decoder.container(keyedBy: CodingKeys.self)
+        data = try values.decodeIfPresent([EstinatePriceModelDatar].self, forKey: .data)
+        status = try values.decodeIfPresent(String.self, forKey: .status)
+        message = try values.decodeIfPresent(String.self, forKey: .status)
+    }
+
+}
+
+struct EstinatePriceModelDatar : Codable {
+    let planned_charges : String?
+    let estimate_price : String?
+    let estimate_time : String?
+    let distance : String?
+
+    enum CodingKeys: String, CodingKey {
+
+        case planned_charges = "planned_charges"
+        case estimate_price = "estimate_price"
+        case estimate_time = "estimate_time"
+        case distance = "distance"
+    }
+
+    init(from decoder: Decoder) throws {
+        let values = try decoder.container(keyedBy: CodingKeys.self)
+        planned_charges = try values.decodeIfPresent(String.self, forKey: .planned_charges)
+        estimate_price = try values.decodeIfPresent(String.self, forKey: .estimate_price)
+        estimate_time = try values.decodeIfPresent(String.self, forKey: .estimate_time)
+        distance = try values.decodeIfPresent(String.self, forKey: .distance)
+    }
+
+}
