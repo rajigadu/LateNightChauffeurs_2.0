@@ -22,9 +22,26 @@ class StopsViewController: UIViewController {
     
     var addedStops:[String] = []
     var dalegate:AddedStops?
+    var str_ComingFrom = ""
+    var str_rideid = ""
+    
+    lazy var viewModel = {
+        StopsViewModel()
+    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.title = "STOPS"
+        if self.str_ComingFrom == "Ride History" || self.str_ComingFrom == "Future" {
+            btn_SubmitActionRef.isHidden = true
+            txt_StoplocationRef.isHidden = true
+            btn_AddStopAddressRef.isHidden = true
+           // self.view_AddStopAddressConstarintRef.constant = 0;
+            self.btn_SubmitHeghtConstraintRef.constant = 0;
+            self.CurrentRideStopListAPI()
+        }else{
+            self.btn_SubmitHeghtConstraintRef.constant = 40;
+        }
         
         // Do any additional setup after loading the view.
     }
@@ -69,6 +86,11 @@ extension StopsViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "StopsTableViewCell", for: indexPath) as? StopsTableViewCell else {return UITableViewCell()}
         cell.lbl_StoplocationRef.text = addedStops[indexPath.row]
+        if self.str_ComingFrom == "Ride History" || self.str_ComingFrom == "Future" {
+            cell.btn_DeleteRef.isHidden = true
+        } else {
+            cell.btn_DeleteRef.isHidden = false
+        }
         cell.btn_DeleteRef.tag = indexPath.row
         cell.btn_DeleteRef.addTarget(self, action: #selector(btnDeletePress), for: .touchUpInside)
         return cell
@@ -111,4 +133,33 @@ extension StopsViewController: GMSAutocompleteViewControllerDelegate{
         dismiss(animated: true, completion: nil)
     }
     
+}
+
+extension StopsViewController {
+    //MARK:- API Intigration
+    func CurrentRideStopListAPI() {
+
+            indicator.showActivityIndicator()
+            self.viewModel.requestForStopsServices(perams: ["rideid":str_rideid]) { success, model, error in
+                if success, let UserData = model {
+                    DispatchQueue.main.async { [self] in
+                        indicator.hideActivityIndicator()
+                        if UserData.status == "1" {
+                            if let stopsList = UserData.data as? [StopsDatar] {
+                                for stop in stopsList {
+                                    self.addedStops.append(stop.location ?? "")
+                                }
+                            }
+                            self.tableview_StopshistoryRef.reloadData()
+                        }
+                    }
+                } else {
+                    DispatchQueue.main.async { [self] in
+                        indicator.hideActivityIndicator()
+                        self.showToast(message: error ?? "no record found.", font: .systemFont(ofSize: 12.0))
+                    }
+                }
+            }
+        
+    }
 }

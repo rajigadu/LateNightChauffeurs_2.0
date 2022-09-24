@@ -25,7 +25,26 @@ protocol LateNightChauffeursUSERServiceProtocol {
     func requestForEditProfileServices(_ perams: Dictionary<String, String>,picImage: UIImage,fileName: String, completion: @escaping (_ success: Bool, _ results: ProfileUserData?, _ error: String?) -> ())
     //MARK: - get Estimate Price
     func requestForGetEstimatePriceServices(_ perams: Dictionary<String, String>, completion: @escaping (_ success: Bool, _ results: EstinatePriceModelData?, _ error: String?) -> ())
-    
+    //MARK: - Get saved card list
+    func requestForGetSavedCardListServices(_ perams: Dictionary<String, String>, completion: @escaping (Bool, SecondBookingData?, String?) -> ())
+    //MARK: - Get validate promocode
+    func requestForGetvalidatepromocodeServices(_ perams: Dictionary<String, String>, completion: @escaping (Bool, PromoCodeValidationData?, String?) -> ())
+    //MARK: - Add new card
+    func requestForAddNewCardServices(_ perams: Dictionary<String, String>, completion: @escaping (Bool, addNewCardData?, String?) -> ())
+    //MARK: - create new card
+    func requestForcreateNewRideAPIServices(_ perams: Dictionary<String, String>, completion: @escaping (Bool, createNewRideData?, String?) -> ())
+    //MARK: - Remove Card
+    func requestForRemoveCardServices(_ perams: Dictionary<String, String>, completion: @escaping (Bool, addNewCardData?, String?) -> ())
+    //MARK: - Payment history
+    func requestForPaymentHistoryServices(_ perams: Dictionary<String, String>, completion: @escaping (Bool, PaymentHistoryData?, String?) -> ())
+    //MARK: - RIDE INFO
+    func requestForRideInfoServices(_ perams: Dictionary<String, String>, completion: @escaping (Bool, RideInfoData?, String?) -> ())
+    //MARK: - Payment summary
+    func requestForPaymentSummaryServices(_ perams: Dictionary<String, String>, completion: @escaping (Bool, PaymentSummaryData?, String?) -> ())
+    //MARK: - submit tip payment summary
+    func requestForSubmitFeedBackServices(_ perams: Dictionary<String, String>, completion: @escaping (Bool, RideHistoryTipData?, String?) -> ())
+    //MARK: - StopsList
+    func requestForStopsServices(_ perams: Dictionary<String, String>, completion: @escaping (Bool, StopsData?, String?) -> ())
 }
 
 //MARK: - Login
@@ -187,6 +206,212 @@ extension ApiService {
             if success {
                 do {
                     let model = try JSONDecoder().decode(EstinatePriceModelData.self, from: data!)
+                    completion(true, model, nil)
+                } catch {
+                    completion(false, nil, I18n.ModelDecodeErrorString)
+                }
+            } else {
+                completion(false, nil, I18n.GetRequestFailedString)
+            }
+        }
+    }
+}
+
+extension ApiService {
+    //MARK: - get Saved Card list
+    func requestForGetSavedCardListServices(_ perams: Dictionary<String, String>, completion: @escaping (Bool, SecondBookingData?, String?) -> ()) {
+        if Connectivity.isNotConnectedToInternet{
+            completion(false, nil, I18n.NoInterNetString)
+        }
+        HttpRequestHelper().GET(url: API_URl.API_USERSAVEDCREDITCARDLIST_URL, params: perams, httpHeader: .application_json) { success, data in
+            if success {
+                do {
+                    let model = try JSONDecoder().decode(SecondBookingData.self, from: data!)
+                    completion(true, model, nil)
+                } catch {
+                    completion(false, nil, I18n.ModelDecodeErrorString)
+                }
+            } else {
+                completion(false, nil, I18n.GetRequestFailedString)
+            }
+        }
+    }
+}
+extension ApiService {
+    //MARK: - get validate promo code
+    func requestForGetvalidatepromocodeServices(_ perams: Dictionary<String, String>, completion: @escaping (Bool, PromoCodeValidationData?, String?) -> ()) {
+        if Connectivity.isNotConnectedToInternet{
+            completion(false, nil, I18n.NoInterNetString)
+        }
+        HttpRequestHelper().GET(url: API_URl.API_Promocode_URL, params: perams, httpHeader: .application_json) { success, data in
+            if success {
+                do {
+                    let model = try JSONDecoder().decode(PromoCodeValidationData.self, from: data!)
+                    completion(true, model, nil)
+                } catch {
+                    completion(false, nil, I18n.ModelDecodeErrorString)
+                }
+            } else {
+                completion(false, nil, I18n.GetRequestFailedString)
+            }
+        }
+    }
+}
+extension ApiService {
+    //MARK: - get validate promo code
+    func requestForAddNewCardServices(_ perams: Dictionary<String, String>, completion: @escaping (Bool, addNewCardData?, String?) -> ()) {
+        if Connectivity.isNotConnectedToInternet{
+            completion(false, nil, I18n.NoInterNetString)
+        }
+        HttpRequestHelper().POST(url: API_URl.API_ADDCREDITCARD_URL, params: perams, httpHeader: .application_json) { success, data in
+            if success {
+                do {
+                    let model = try JSONDecoder().decode(addNewCardData.self, from: data!)
+                    completion(true, model, nil)
+                } catch {
+                    completion(false, nil, I18n.ModelDecodeErrorString)
+                }
+            } else {
+                completion(false, nil, I18n.GetRequestFailedString)
+            }
+        }
+    }
+}
+
+extension ApiService {
+    //MARK: - get Create New Ride
+    func requestForcreateNewRideAPIServices(_ perams: Dictionary<String, String>, completion: @escaping (Bool, createNewRideData?, String?) -> ()) {
+        if Connectivity.isNotConnectedToInternet{
+            completion(false, nil, I18n.NoInterNetString)
+        }
+        HttpRequestHelper().POST(url: API_URl.API_USERRIDEREQUEST_URL, params: perams, httpHeader: .application_json) { success, data in
+            if success {
+                do {
+                    let model = try JSONDecoder().decode(createNewRideData.self, from: data!)
+                    completion(true, model, nil)
+                } catch {
+                    completion(false, nil, I18n.ModelDecodeErrorString)
+                }
+            } else {
+                completion(false, nil, I18n.GetRequestFailedString)
+            }
+        }
+    }
+}
+
+extension ApiService {
+    //MARK: - get Create New Ride
+    func requestForRemoveCardServices(_ perams: Dictionary<String, String>, completion: @escaping (Bool, addNewCardData?, String?) -> ()) {
+        if Connectivity.isNotConnectedToInternet{
+            completion(false, nil, I18n.NoInterNetString)
+        }
+        HttpRequestHelper().POST(url: API_URl.API_REMOVESAVEDUSERCREDITCARD_URL, params: perams, httpHeader: .application_json) { success, data in
+            if success {
+                do {
+                    let model = try JSONDecoder().decode(addNewCardData.self, from: data!)
+                    completion(true, model, nil)
+                } catch {
+                    completion(false, nil, I18n.ModelDecodeErrorString)
+                }
+            } else {
+                completion(false, nil, I18n.GetRequestFailedString)
+            }
+        }
+    }
+}
+extension ApiService {
+//MARK: - Payment history
+    func requestForPaymentHistoryServices(_ perams: Dictionary<String, String>, completion: @escaping (Bool, PaymentHistoryData?, String?) -> ()) {
+        if Connectivity.isNotConnectedToInternet{
+            completion(false, nil, I18n.NoInterNetString)
+        }
+        HttpRequestHelper().POST(url: API_URl.API_USERRIDELIST_URL, params: perams, httpHeader: .application_json) { success, data in
+            if success {
+                do {
+                    let model = try JSONDecoder().decode(PaymentHistoryData.self, from: data!)
+                    completion(true, model, nil)
+                } catch {
+                    completion(false, nil, I18n.ModelDecodeErrorString)
+                }
+            } else {
+                completion(false, nil, I18n.GetRequestFailedString)
+            }
+        }
+    }
+}
+
+extension ApiService {
+    //MARK: - RIDE INFO
+    func requestForRideInfoServices(_ perams: Dictionary<String, String>, completion: @escaping (Bool, RideInfoData?, String?) -> ()) {
+        if Connectivity.isNotConnectedToInternet{
+            completion(false, nil, I18n.NoInterNetString)
+        }
+        HttpRequestHelper().GET(url: API_URl.API_CURRENTFUTURERIDE_URL, params: perams, httpHeader: .application_json) { success, data in
+            if success {
+                do {
+                    let model = try JSONDecoder().decode(RideInfoData.self, from: data!)
+                    completion(true, model, nil)
+                } catch {
+                    completion(false, nil, I18n.ModelDecodeErrorString)
+                }
+            } else {
+                completion(false, nil, I18n.GetRequestFailedString)
+            }
+        }
+    }
+}
+
+extension ApiService {
+    //MARK: - Payment data
+    func requestForPaymentSummaryServices(_ perams: Dictionary<String, String>, completion: @escaping (Bool, PaymentSummaryData?, String?) -> ()) {
+        if Connectivity.isNotConnectedToInternet{
+            completion(false, nil, I18n.NoInterNetString)
+        }
+        HttpRequestHelper().GET(url: API_URl.API_USERPAYMENTSUMMARY_URL, params: perams, httpHeader: .application_json) { success, data in
+            if success {
+                do {
+                    let model = try JSONDecoder().decode(PaymentSummaryData.self, from: data!)
+                    completion(true, model, nil)
+                } catch {
+                    completion(false, nil, I18n.ModelDecodeErrorString)
+                }
+            } else {
+                completion(false, nil, I18n.GetRequestFailedString)
+            }
+        }
+    }
+}
+
+extension ApiService {
+    //MARK: - submit tip payment data
+    func requestForSubmitFeedBackServices(_ perams: Dictionary<String, String>, completion: @escaping (Bool, RideHistoryTipData?, String?) -> ()) {
+        if Connectivity.isNotConnectedToInternet{
+            completion(false, nil, I18n.NoInterNetString)
+        }
+        HttpRequestHelper().GET(url: API_URl.API_FEEDBACK_URL, params: perams, httpHeader: .application_json) { success, data in
+            if success {
+                do {
+                    let model = try JSONDecoder().decode(RideHistoryTipData.self, from: data!)
+                    completion(true, model, nil)
+                } catch {
+                    completion(false, nil, I18n.ModelDecodeErrorString)
+                }
+            } else {
+                completion(false, nil, I18n.GetRequestFailedString)
+            }
+        }
+    }
+}
+extension ApiService {
+    //MARK: - StopsList
+    func requestForStopsServices(_ perams: Dictionary<String, String>, completion: @escaping (Bool, StopsData?, String?) -> ()) {
+        if Connectivity.isNotConnectedToInternet{
+            completion(false, nil, I18n.NoInterNetString)
+        }
+        HttpRequestHelper().GET(url: API_URl.API_CURRENTRIDESTOPLIST_URL, params: perams, httpHeader: .application_json) { success, data in
+            if success {
+                do {
+                    let model = try JSONDecoder().decode(StopsData.self, from: data!)
                     completion(true, model, nil)
                 } catch {
                     completion(false, nil, I18n.ModelDecodeErrorString)

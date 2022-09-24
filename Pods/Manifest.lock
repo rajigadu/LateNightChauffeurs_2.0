@@ -1,5 +1,6 @@
 PODS:
   - Alamofire (4.9.1)
+  - Cosmos (23.0.0)
   - GoogleMaps (3.1.0):
     - GoogleMaps/Maps (= 3.1.0)
   - GoogleMaps/Base (3.1.0)
@@ -20,6 +21,7 @@ PODS:
 
 DEPENDENCIES:
   - Alamofire (~> 4.9.1)
+  - Cosmos (~> 23.0)
   - GoogleMaps
   - GooglePlacePicker
   - GooglePlaces
@@ -32,6 +34,7 @@ DEPENDENCIES:
 SPEC REPOS:
   trunk:
     - Alamofire
+    - Cosmos
     - GoogleMaps
     - GooglePlacePicker
     - GooglePlaces
@@ -43,6 +46,7 @@ SPEC REPOS:
 
 SPEC CHECKSUMS:
   Alamofire: 85e8a02c69d6020a0d734f6054870d7ecb75cf18
+  Cosmos: b5c6a9a637e28a061b54c8f8b1d8529d7d4db73f
   GoogleMaps: 5c13302e6fe6bb6e686b267196586b91cd594225
   GooglePlacePicker: fa975116ac202ac29822c0a79758ea1c4db5a95f
   GooglePlaces: e874db179f2675c4f3eeda0b686b540273a578b0
@@ -52,6 +56,6 @@ SPEC CHECKSUMS:
   SDWebImage: af5bbffef2cde09f148d826f9733dcde1a9414cd
   SideMenu: f583187d21c5b1dd04c72002be544b555a2627a2
 
-PODFILE CHECKSUM: 92dc1aa1031fb65c0ad03924e80270a9e9aa0bb1
+PODFILE CHECKSUM: 2e9b39ba9fbdc166730eb85f45221384d5150c25
 
 COCOAPODS: 1.11.3

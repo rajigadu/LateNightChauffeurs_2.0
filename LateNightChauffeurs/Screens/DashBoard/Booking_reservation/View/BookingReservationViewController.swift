@@ -55,7 +55,7 @@ class BookingReservationViewController: UIViewController, SKUIDatePickerDelegate
     // var locationManager = CLLocationManager()
     
     //var locationManager: CLLocationManager?
-    var bookingReservationModel: BookingModel =  BookingModel()
+//    var bookingReservationModel: BookingModel =  BookingModel()
     
     
     //date Picker
@@ -78,10 +78,28 @@ class BookingReservationViewController: UIViewController, SKUIDatePickerDelegate
     var userPickUplongitudeStr = String()
     var userDroplatitudeStr = String()
     var userDroplongitudeStr = String()
+    var userDropCityNameStr = String()
+    var userPickCityNameStr = String()
+    //step - 6 - creating of global dict
+    var bookingModel: BookingModel?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         IntialMethod()
+        
+        
+        self.txt_FutureBookingDateRef.text = "10-24-2022"
+        self.txt_FutureBookingTimeRef.text = "07:03 PM"
+        self.txt_PickUpLocationRef.text = "Kommala Padu, Andhra Pradesh 523303, India"
+        self.txt_DropLocationRef.text = "Addanki, Andhra Pradesh 523201, India"
+        self.textview_Descriptionref.text = "hello sdf"
+        self.userPickUplatitudeStr = "16.0294422"
+        self.userPickUplongitudeStr = "79.9447885"
+        self.userDroplatitudeStr = "15.810707"
+        self.userDroplongitudeStr = "79.9724245"
+        self.userDropCityNameStr = "Addanki"
+        self.userPickCityNameStr = "Kommala Padu"
+        self.ary_StopList.append("WXP4+8P2, Kopperapadu, Chinakotha Palle, Andhra Pradesh 523303, India")
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -112,7 +130,7 @@ class BookingReservationViewController: UIViewController, SKUIDatePickerDelegate
         let nxtVC = Storyboard.instantiateViewController(withIdentifier: "StopsViewController") as! StopsViewController
         nxtVC.dalegate = self
         nxtVC.addedStops = self.ary_StopList
-        self.navigationController?.pushViewController(nxtVC, animated: true)
+         self.navigationController?.pushViewController(nxtVC, animated: true)
 //        self.movetonextvc(id: "StopsViewController", storyBordid: "DashBoard", animated: true)
     }
     
@@ -139,7 +157,21 @@ class BookingReservationViewController: UIViewController, SKUIDatePickerDelegate
     }
     
     @IBAction func AddCarddetails_viewhidebtn(_ sender: Any) {
+        guard let userID = UserDefaults.standard.string(forKey: "UserLoginID") else {return}
+        guard let str_Date = self.txt_FutureBookingDateRef.text else{return}
+        guard let str_Time = self.txt_FutureBookingTimeRef.text else{return}
+        guard let str_pickUpLocation = self.txt_PickUpLocationRef.text else {return}
+        guard let str_DropLocation = self.txt_DropLocationRef.text else {return}
+        guard let BookNotes = self.textview_Descriptionref.text else {return}
+        var transMission = isTransmission ? "manual" : "automatic"
+        bookingModel = BookingModel(userid: userID, card_id: "", acctid: "", nstops: "\(self.ary_StopList.count)", savedrop: self.ary_StopList, platitude: userPickUplatitudeStr, plongitude: userPickUplongitudeStr, pickup_address: str_pickUpLocation, pickup_city: userPickCityNameStr, drop_address: str_DropLocation, dlatitude: userDroplatitudeStr, dlongitude: userDroplongitudeStr, drop_city: userDropCityNameStr, notes: BookNotes, booking_type: "2", date: str_Date, time: str_Time, transmission: transMission, promo: "", version: "Yes")
+
         
+        let Storyboard : UIStoryboard = UIStoryboard(name: "DashBoard", bundle: nil)
+        let nxtVC = Storyboard.instantiateViewController(withIdentifier: "SecondBookingViewController") as! SecondBookingViewController
+          nxtVC.bookingModel = self.bookingModel
+        self.navigationController?.pushViewController(nxtVC, animated: true)
+       // self.movetonextvc(id: "SecondBookingViewController", storyBordid: "DashBoard", animated: true)
     }
     
     @IBAction func PromoMainButtjon(_ sender: Any) {
@@ -243,10 +275,13 @@ extension BookingReservationViewController: GMSAutocompleteViewControllerDelegat
             self.txt_DropLocationRef.text = place.formattedAddress
             self.userDroplatitudeStr = "\(place.coordinate.latitude)"
             self.userDroplongitudeStr = "\(place.coordinate.longitude)"
+            self.userDropCityNameStr = place.name ?? ""
         } else {
             self.txt_PickUpLocationRef.text = place.formattedAddress
             self.userPickUplatitudeStr = "\(place.coordinate.latitude)"
             self.userPickUplongitudeStr = "\(place.coordinate.longitude)"
+            self.userPickCityNameStr = place.name ?? ""
+
         }
         dismiss(animated: true, completion: nil)
     }

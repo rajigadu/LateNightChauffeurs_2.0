@@ -7,62 +7,23 @@
 
 import Foundation
 import UIKit
-struct BookingModel {
-    var userCurrentLocationLatitude = Double()
-    var userCurrentLocationLongitude = Double()
-    
-    var userPickUplatitudeStr = String()
-    var userPickUplongitudeStr = String()
-    var userCurrentlatitudeStr = String()
-    var userCurrentlongitudeStr = String()
-    var userDroplatitudeStr = String()
-    var userDroplongitudeStr = String()
-    var userDropupCityStr = String()
-    var userPickupCityStr = String()
-    var rideDestinationLatitudeStr = String()
-    var rideDestinationLongitudeStr = String()
-//    var geoCoder = CLGeocoder()
-//    var placeMark = CLPlacemark()
-    var str_UserLoginID = String()
-    var str_TodayDate = String()
-    var selectedTextField = Int()
-    var str_BookingRideType = String()
-    var pickerView = UIPickerView()
-    var ary_ChooseTypeRef = Array<Any>()
-    var str_StartButtonClicked = String()
-    var str_SelectedOneFromPickerview = String()
-    var dict_SelectedActiveCardInfo = Dictionary<String,Any>()
-    var dict_SelectedDestinationAddressInfo = Dictionary<String,Any>()
-    var ary_StopList = Array<Any>()
-    var ary_UpdateToServerArray = Array<Any>()
-    var totalridedistance = String()
-    var totalridetime = String()
-//    BOOL isSelectedForFuture;
-    var isSelectedCarTransmission = Bool()
-    var driverlatitudeStr = String()
-    var driverlongitudeStr = String()
-    var dateFormatForFutureDate = DateFormatter()
-    var str_CurrentDate = String()
-    var str_CurrentTime = String()
-    var str_CheckTransmissionStatus = String()
-    var str_CardID = String()
-    var str_SelectedBookingIDInEdit = String()
-    var str_PromoCodeStr = String()
-    var str_PromoCodesuccessStr = String()
-    var Addcardetailsbtnstr = String()
-    var pickupCityName = String()
-    var dropOffCityName = String()
-    var pickingdate = Date()
-    var version = String()
-    var Str_savedCardNumber = String()
-    var Str_pic_Drop_TF_empty_add = String()
-    var D_t_pickStatus = String()
-    var EditCardNumber = String()
-    var EditPromocode = String()
-    var str_picktf_status = String()
-    var str_droptf_status = String()
-
-}
+//struct BookingModel {
+//    var pickUpLatitude : String
+//    var pickUpLongitude: String
+//    var pickUpDropAddress: String
+//    var dropLatitude: String
+//    var dropLongitude: String
+//    var bookingDate: String
+//    var bookingTime: String
+//    var bookingComment: String
+//    var bookingStops: [String]
+//    var bookingStopsNo: String
+//    var carTransMission: String
+//    var promoCode: String
+//    var cardID: String
+//    var bookingType: String
+//    var appVersion: String
+//}
 
 typealias EstinatePriceModelData = EstinatePriceModel
 
@@ -110,3 +71,82 @@ struct EstinatePriceModelDatar : Codable {
     }
 
 }
+/*
+ 
+ "userid":701
+ "card_id":9413634822968978
+ "acctid":18
+ 
+ "nstops":"1"
+ "savedrop":["WXP4+8P2, Kopperapadu, Chinakotha Palle, Andhra Pradesh 523303, India"]
+ 
+ "platitude":"16.0294422"
+ "plongitude":"79.9447885"
+ "pickup_address":"Kommala Padu, Andhra Pradesh 523303, India"
+ "pickup_city":"Kommala Padu"
+ 
+ "drop_address":"Addanki, Andhra Pradesh 523201, India"
+ "dlatitude":"15.810707"
+ "dlongitude":"79.9724245"
+ "drop_city":"Addanki"
+ 
+ "notes":"hi hello"
+
+ 
+ "booking_type": "2" @"future booking" or "1" @"As Soon As Possible"
+ "date":"24-09-2022"
+ "time":"07:03 PM"
+ "transmission":"automatic"  checked@"manual"   unchecked@"automatic"
+ 
+ 
+ "promo":""
+ 
+ "version":"1.0.30"
+ */
+
+//{
+//"userid":"701",
+//"card_id":"9413634822968978",
+//"acctid":"18",
+//"nstops":"1",
+//"savedrop":["WXP4+8P2, Kopperapadu, Chinakotha Palle, Andhra Pradesh 523303, India"],
+//"platitude":"16.0294422",
+//"plongitude":"79.9447885",
+//"pickup_address":"Kommala Padu, Andhra Pradesh 523303, India",
+//"pickup_city":"Kommala Padu",
+//"drop_address":"Addanki, Andhra Pradesh 523201, India",
+//"dlatitude":"15.810707",
+//"dlongitude":"79.9724245",
+//"drop_city":"Addanki",
+//"notes":"hi hello",
+//"booking_type": "2",
+//"date":"24-09-2022",
+//"time":"07:03 PM",
+//"transmission":"automatic",
+//"promo":"",
+//"version":"yes",
+//}
+
+struct BookingModel {
+    var userid: String,
+    card_id: String,
+    acctid: String,
+    nstops: String,
+    savedrop: [String],
+    platitude: String,
+    plongitude: String,
+    pickup_address: String,
+    pickup_city: String,
+    drop_address: String,
+    dlatitude: String,
+    dlongitude: String,
+    drop_city: String,
+    notes: String,
+    booking_type: String,
+    date: String,
+    time: String,
+    transmission: String,
+    promo: String,
+    version: String
+}
+

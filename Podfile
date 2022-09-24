@@ -27,6 +27,7 @@ target 'LateNightChauffeurs' do
 #    pod 'Crashlytics'
 #    pod 'Alamofire', '~> 4.9.1’
 #    pod 'ObjectMapper'
+     pod 'Cosmos', '~> 23.0'
 
   target 'LateNightChauffeursTests' do
     inherit! :search_paths

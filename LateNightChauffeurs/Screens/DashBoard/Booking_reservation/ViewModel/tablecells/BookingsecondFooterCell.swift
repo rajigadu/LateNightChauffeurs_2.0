@@ -9,6 +9,8 @@ import UIKit
 
 class BookingsecondFooterCell: UITableViewCell {
 
+    @IBOutlet weak var Removebtnref: UIButton!
+    @IBOutlet weak var lblName: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
      }

@@ -74,6 +74,40 @@ class HttpRequestHelper {
 }
 
 extension HttpRequestHelper {
+    func POST(url: String, params: [String: String], httpHeader: HTTPHeaderFields, complete: @escaping (Bool, Data?) -> ()) {
+        let boundary = "Boundary-\(UUID().uuidString)"
+        let  httpHeaderr = ["content-type": "application/x-www-form-urlencoded"]
+
+        Alamofire.upload(multipartFormData: { (multipartFormData) in
+            for (key, value) in params {
+                multipartFormData.append(value.data(using: .utf8)!, withName: key)
+            }
+            
+        }, usingThreshold: UInt64.init(), to:url,method:.post,
+                         headers: httpHeaderr){ (encodingResult) in
+            switch encodingResult {
+            case .success(let upload, _, _):
+                upload.responseJSON { (response) in
+                    debugPrint(response)
+                    if response.error != nil{
+                        complete(false, response.data)
+                    }
+                    complete(true, response.data)
+                }
+                upload.uploadProgress(closure: {
+                    progress in
+                    
+                    print(progress.fractionCompleted)
+                })
+            case .failure(let encodingError):
+                
+                print(encodingError)
+            }
+        }
+    }
+}
+
+extension HttpRequestHelper {
     func uploadImagePOST(url: String, params: [String: String], fileName: String, image: UIImage, httpHeader: HTTPHeaderFields, complete: @escaping (Bool, Data?) -> ()) {
         
         let boundary = "Boundary-\(UUID().uuidString)"

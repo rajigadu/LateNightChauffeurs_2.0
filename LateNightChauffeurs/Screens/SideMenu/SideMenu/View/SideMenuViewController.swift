@@ -89,7 +89,13 @@ extension SideMenuViewController :UITableViewDelegate,UITableViewDataSource {
             self.movetonextvc(id: "DashBoardViewController", storyBordid: "DashBoard",animated:false)
         } else if arrayResponse[indexPath.row] == "Settings" {
             self.movetonextvc(id: "SettingsViewController", storyBordid: "Profile",animated:false)
+        } else if arrayResponse[indexPath.row] == "Available Cards" {
+            self.movetonextvc(id: "AvilableCardsViewController", storyBordid: "Profile",animated:false)
+        } else if arrayResponse[indexPath.row] == "Ride Info" {
+            self.movetonextvc(id: "RideHistoryViewController", storyBordid: "Profile",animated:false)
         }
+        
+        
     }
     
 }
