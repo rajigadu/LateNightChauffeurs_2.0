@@ -132,6 +132,15 @@ extension UIViewController {
            alertController.addAction(OKAction)
            self.present(alertController, animated: true, completion: nil)
        }
+    
+    func ShowAlertWithPUSH(message : String,id:String,storyBordid : String,animated:Bool?){
+        let alertController = UIAlertController(title: kApptitle, message: message, preferredStyle: .alert)
+        let OKAction = UIAlertAction(title: "OK", style: .default) { (UIAlertAction) in
+            self.movetonextvc(id:id,storyBordid : storyBordid,animated:animated)
+        }
+        alertController.addAction(OKAction)
+        self.present(alertController, animated: true, completion: nil)
+    }
 }
 extension UIViewController {
     func movetonextvc(id:String,storyBordid : String,animated:Bool?){
@@ -312,4 +321,30 @@ func formattedDateFromString(dateString: String, withFormat format: String) -> S
 
     return nil
 }
+}
+extension String {
+   func replace(string:String, replacement:String) -> String {
+       return self.replacingOccurrences(of: string, with: replacement, options: NSString.CompareOptions.literal, range: nil)
+   }
+
+   func removeWhitespace() -> String {
+       return self.replace(string: " ", replacement: "")
+   }
+ }
+
+extension UIViewController {
+    
+    func formattedDateFromString2(inputDatestr : String,dateString: String, withFormat format: String) -> String {
+        let inputFormatter = DateFormatter()
+        inputFormatter.dateFormat = inputDatestr//"yyyy-MM-dd HH:mm:ss"
+        
+        if let date = inputFormatter.date(from: dateString) {
+            
+            let outputFormatter = DateFormatter()
+            outputFormatter.dateFormat = format
+            
+            return outputFormatter.string(from: date)
+        }
+        return dateString
+    }
 }

@@ -138,15 +138,17 @@ struct createNewRideModel : Codable {
 
 struct createNewRideDatar : Codable {
     let message : String?
-
+    let ride_id : String?
     enum CodingKeys: String, CodingKey {
 
         case message = "msg"
+        case ride_id = "ride_id"
     }
 
     init(from decoder: Decoder) throws {
         let values = try decoder.container(keyedBy: CodingKeys.self)
         message = try values.decodeIfPresent(String.self, forKey: .message)
+        ride_id = try values.decodeIfPresent(String.self, forKey: .ride_id)
     }
 
 }

@@ -436,10 +436,22 @@ extension RideHistoryViewController: UITableViewDelegate, UITableViewDataSource 
             nxtVC.rideDistance = PaymentInfoArray[indexPath.row].distance ?? ""
             self.navigationController?.pushViewController(nxtVC, animated: true)
 
+        } else {
+            
+            if let str_BookingType = rideInfoArray[indexPath.row].booking_type, str_BookingType == "2" {
+            let Storyboard : UIStoryboard = UIStoryboard(name: "Profile", bundle: nil)
+            let nxtVC = Storyboard.instantiateViewController(withIdentifier: "DriverDetailInFutureBookingViewController") as! DriverDetailInFutureBookingViewController
+            nxtVC.str_FutureRideStatus = rideInfoArray[indexPath.row].future_accept ?? ""
+            nxtVC.str_FutureRideDate = rideInfoArray[indexPath.row].date ?? ""
+            nxtVC.str_FutureRideTime = rideInfoArray[indexPath.row].time ?? ""
+            nxtVC.str_FutureRideID = rideInfoArray[indexPath.row].id ?? ""
+            self.navigationController?.pushViewController(nxtVC, animated: true)
+            }
         }
     }
     
     @objc func stopsButtonClicked(sender: UIButton) {
+        
     //MARK: - Move to stops page
         let Storyboard : UIStoryboard = UIStoryboard(name: "DashBoard", bundle: nil)
         let nxtVC = Storyboard.instantiateViewController(withIdentifier: "StopsViewController") as! StopsViewController
@@ -450,11 +462,21 @@ extension RideHistoryViewController: UITableViewDelegate, UITableViewDataSource 
     }
     
     @objc func viewDetailButtonClicked(sender: UIButton) {
-        
+        if let str_BookingType = rideInfoArray[sender.tag].booking_type, str_BookingType == "2" {
+        let Storyboard : UIStoryboard = UIStoryboard(name: "Profile", bundle: nil)
+        let nxtVC = Storyboard.instantiateViewController(withIdentifier: "DriverDetailInFutureBookingViewController") as! DriverDetailInFutureBookingViewController
+        nxtVC.str_FutureRideStatus = rideInfoArray[sender.tag].future_accept ?? ""
+        nxtVC.str_FutureRideDate = rideInfoArray[sender.tag].date ?? ""
+        nxtVC.str_FutureRideTime = rideInfoArray[sender.tag].time ?? ""
+        nxtVC.str_FutureRideID = rideInfoArray[sender.tag].id ?? ""
+        self.navigationController?.pushViewController(nxtVC, animated: true)
+        } else {
+            self.EditRideConformationAPI(RideID:rideInfoArray[sender.tag].id ?? "")
+        }
     }
     
     @objc func editRideDetailsButtonClicked(sender: UIButton) {
-        
+        //self.EditRideConformationAPI(RideID:rideInfoArray[sender.tag].id ?? "")
     }
     
     @objc func futureStopsButtonClicked(sender: UIButton) {
@@ -593,6 +615,29 @@ extension RideHistoryViewController {
                     }
                     self.navigationController?.pushViewController(nxtVC, animated: true)
 
+                }
+            } else {
+                DispatchQueue.main.async { [self] in
+                    indicator.hideActivityIndicator()
+                    self.showToast(message: error ?? "No Such Email Address Found.", font: .systemFont(ofSize: 12.0))
+                }
+            }
+            
+        }
+    }
+}
+
+
+extension RideHistoryViewController {
+    //MARK: - Api Intigration
+    func EditRideConformationAPI(RideID:String){
+        indicator.showActivityIndicator()
+        
+        self.viewModel.EditRideConformationApiService(perams: ["ride_id":RideID]) { success, model, error in
+            if success  {
+                DispatchQueue.main.async { [self] in
+                    indicator.hideActivityIndicator()
+                    self.movetonextvc(id: "BookingReservationViewController", storyBordid: "DashBoard", animated: true)
                 }
             } else {
                 DispatchQueue.main.async { [self] in

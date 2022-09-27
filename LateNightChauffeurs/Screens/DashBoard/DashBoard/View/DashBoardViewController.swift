@@ -39,6 +39,10 @@ class DashBoardViewController: UIViewController {
     @IBAction func bookingReservation(_ sender: Any) {
         self.movetonextvc(id: "BookingReservationViewController", storyBordid: "DashBoard", animated: true)
     }
+    
+    @IBAction func MovetoAlertNotification(_ sender: Any) {
+        self.movetonextvc(id: "NotificationViewController", storyBordid: "Profile", animated: true)
+    }
  
     func initializeTheLocationManager() {
         navigationController?.navigationBar.topItem?.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)

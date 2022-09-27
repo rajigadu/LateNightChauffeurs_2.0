@@ -366,8 +366,8 @@ extension SecondBookingViewController {
         guard let transmission = self.bookingModel2?.transmission as? String else {return}
 
 
-        var perams = [
-            "userid": userid,
+        let perams = [
+            "userid": "701",//userid,
             "card_id": card_id,
             "acctid": acctid,
             "nstops": nstops,
@@ -394,12 +394,32 @@ extension SecondBookingViewController {
         var str2 = json(from: peram2) ?? ""
         
         indicator.showActivityIndicator()
-        self.viewModel.requestForcreateNewRideAPIServices(perams: ["json":str1, "jsonstops":str2]) { success, model, error in
+        self.viewModel.requestForcreateNewRideAPIServices(perams: ["json":str1.removeWhitespace(), "jsonstops":str2.removeWhitespace()]) { success, model, error in
             if success, let UserData = model {
                 DispatchQueue.main.async { [self] in
                     indicator.hideActivityIndicator()
-
-                    self.ShowAlert(message: UserData.message ?? "")
+                    if UserData.status == "1" {
+                        UserDefaults.standard.set(UserData.data?[0].ride_id ?? "", forKey: "OnGoingRequestID")
+                        UserDefaults.standard.set("RideRequestProcessing", forKey: "RideRequestProcessingCheck")
+                        
+                        self.movetonextvc(id: "DashBoardViewController", storyBordid: "DashBoard", animated: true)
+                    } else if UserData.status == "3" {
+                        self.ShowAlertWithPUSH(message : UserData.data?[0].message ?? "",id:"RideHistoryViewController",storyBordid : "Profile",animated:true)
+                    } else if UserData.status == "0" {
+                        let message1 = "Congratulations! your reservation has been completed."
+                        let message2 = "‣ Reservation is Subject to Our availability."
+                        let message3 = "‣ Wait time = $10/15min."
+                        let message4 = "‣ Unplanned stops = $10."
+                        let message5 = "‣ Price does not include gratuity."
+                        let message  = message1 + message2 + message3 + message4 + message5
+                        let str_MessageTitle = UserData.data?[0].message ?? ""
+                        
+                        if str_MessageTitle == "Congratulations! your reservation has been completed." {
+                            self.ShowAlertWithPUSH(message : str_MessageTitle,id:"RideHistoryViewController",storyBordid : "Profile",animated:true)
+                        } else {
+                            self.ShowAlertWithPUSH(message : str_MessageTitle,id:"DashBoardViewController",storyBordid : "DashBoard",animated:true)
+                        }
+                    }
                 }
             } else {
                 DispatchQueue.main.async { [self] in

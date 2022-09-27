@@ -45,6 +45,19 @@ protocol LateNightChauffeursUSERServiceProtocol {
     func requestForSubmitFeedBackServices(_ perams: Dictionary<String, String>, completion: @escaping (Bool, RideHistoryTipData?, String?) -> ())
     //MARK: - StopsList
     func requestForStopsServices(_ perams: Dictionary<String, String>, completion: @escaping (Bool, StopsData?, String?) -> ())
+    //MARK: - Get Ride Info
+    func requestForDriverDetailInFutureBookingServices(_ perams: Dictionary<String, String>, completion: @escaping (Bool, DriverDetailInFutureBookingData?, String?) -> ())
+    //MARK: - Edit Ride Conformation
+    func requestForEditRideConformationServices(_ perams: Dictionary<String, String>, completion: @escaping (Bool, EditRideConfirmData?, String?) -> ())
+    //MARK: - Cancel Ride information
+    func requestForCancelRideServices(_ perams: Dictionary<String, String>, completion: @escaping (Bool, CancelRideData?, String?) -> ())
+    //MARK: - Cancel Ride Amount
+    func requestForCancelRideAmountServices(_ perams: Dictionary<String, String>, completion: @escaping (Bool, CancelRideAmountData?, String?) -> ())
+    //MARK: - Chat History
+    func requestForChatViewServices(_ perams: Dictionary<String, String>, completion: @escaping (Bool, UserChatData?, String?) -> ())
+    //MARK: - Notification List
+    func requestForNotificationServices(_ perams: Dictionary<String, String>, completion: @escaping (Bool, NotificationData?, String?) -> ())
+        
 }
 
 //MARK: - Login
@@ -412,6 +425,129 @@ extension ApiService {
             if success {
                 do {
                     let model = try JSONDecoder().decode(StopsData.self, from: data!)
+                    completion(true, model, nil)
+                } catch {
+                    completion(false, nil, I18n.ModelDecodeErrorString)
+                }
+            } else {
+                completion(false, nil, I18n.GetRequestFailedString)
+            }
+        }
+    }
+}
+
+extension ApiService {
+    //MARK: - Get Ride Info
+    func requestForDriverDetailInFutureBookingServices(_ perams: Dictionary<String, String>, completion: @escaping (Bool, DriverDetailInFutureBookingData?, String?) -> ()) {
+        if Connectivity.isNotConnectedToInternet{
+            completion(false, nil, I18n.NoInterNetString)
+        }
+        HttpRequestHelper().GET(url: API_URl.API_USERFUTURERIDEDETAILS_URL, params: perams, httpHeader: .application_json) { success, data in
+            if success {
+                do {
+                    let model = try JSONDecoder().decode(DriverDetailInFutureBookingData.self, from: data!)
+                    completion(true, model, nil)
+                } catch {
+                    completion(false, nil, I18n.ModelDecodeErrorString)
+                }
+            } else {
+                completion(false, nil, I18n.GetRequestFailedString)
+            }
+        }
+    }
+}
+extension ApiService {
+    //MARK: - Edit Ride Conformation
+    func requestForEditRideConformationServices(_ perams: Dictionary<String, String>, completion: @escaping (Bool, EditRideConfirmData?, String?) -> ()) {
+        if Connectivity.isNotConnectedToInternet{
+            completion(false, nil, I18n.NoInterNetString)
+        }
+        HttpRequestHelper().GET(url: API_URl.API_IS_EDITABLE_RIDEINFO_URL, params: perams, httpHeader: .application_json) { success, data in
+            if success {
+                do {
+                    let model = try JSONDecoder().decode(EditRideConfirmData.self, from: data!)
+                    completion(true, model, nil)
+                } catch {
+                    completion(false, nil, I18n.ModelDecodeErrorString)
+                }
+            } else {
+                completion(false, nil, I18n.GetRequestFailedString)
+            }
+        }
+    }
+}
+extension ApiService {
+    //MARK: - Cancel Ride info
+    func requestForCancelRideServices(_ perams: Dictionary<String, String>, completion: @escaping (Bool, CancelRideData?, String?) -> ()) {
+        if Connectivity.isNotConnectedToInternet{
+            completion(false, nil, I18n.NoInterNetString)
+        }
+        HttpRequestHelper().GET(url: API_URl.API_USERFUTURECANCELRIDE_URL, params: perams, httpHeader: .application_json) { success, data in
+            if success {
+                do {
+                    let model = try JSONDecoder().decode(CancelRideData.self, from: data!)
+                    completion(true, model, nil)
+                } catch {
+                    completion(false, nil, I18n.ModelDecodeErrorString)
+                }
+            } else {
+                completion(false, nil, I18n.GetRequestFailedString)
+            }
+        }
+    }
+}
+extension ApiService {
+    //MARK: - Cancel Ride Amount
+    func requestForCancelRideAmountServices(_ perams: Dictionary<String, String>, completion: @escaping (Bool, CancelRideAmountData?, String?) -> ()) {
+        if Connectivity.isNotConnectedToInternet{
+            completion(false, nil, I18n.NoInterNetString)
+        }
+        HttpRequestHelper().GET(url: API_URl.API_USERFUTURECANCELRIDE_URL, params: perams, httpHeader: .application_json) { success, data in
+            if success {
+                do {
+                    let model = try JSONDecoder().decode(CancelRideAmountData.self, from: data!)
+                    completion(true, model, nil)
+                } catch {
+                    completion(false, nil, I18n.ModelDecodeErrorString)
+                }
+            } else {
+                completion(false, nil, I18n.GetRequestFailedString)
+            }
+        }
+    }
+}
+
+extension ApiService {
+    //MARK: - Chat History
+    func requestForChatViewServices(_ perams: Dictionary<String, String>, completion: @escaping (Bool, UserChatData?, String?) -> ()) {
+        if Connectivity.isNotConnectedToInternet{
+            completion(false, nil, I18n.NoInterNetString)
+        }
+        HttpRequestHelper().GET(url: API_URl.API_USER_CHATWITHDRIVER_URL, params: perams, httpHeader: .application_json) { success, data in
+            if success {
+                do {
+                    let model = try JSONDecoder().decode(UserChatData.self, from: data!)
+                    completion(true, model, nil)
+                } catch {
+                    completion(false, nil, I18n.ModelDecodeErrorString)
+                }
+            } else {
+                completion(false, nil, I18n.GetRequestFailedString)
+            }
+        }
+    }
+}
+
+extension ApiService {
+    //MARK: - Notification List
+    func requestForNotificationServices(_ perams: Dictionary<String, String>, completion: @escaping (Bool, NotificationData?, String?) -> ()) {
+        if Connectivity.isNotConnectedToInternet{
+            completion(false, nil, I18n.NoInterNetString)
+        }
+        HttpRequestHelper().GET(url: API_URl.API_RichNotification_url, params: perams, httpHeader: .application_json) { success, data in
+            if success {
+                do {
+                    let model = try JSONDecoder().decode(NotificationData.self, from: data!)
                     completion(true, model, nil)
                 } catch {
                     completion(false, nil, I18n.ModelDecodeErrorString)
