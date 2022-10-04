@@ -74,76 +74,175 @@ class HttpRequestHelper {
 }
 
 extension HttpRequestHelper {
-    func POST(url: String, params: [String: String], httpHeader: HTTPHeaderFields, complete: @escaping (Bool, Data?) -> ()) {
+    func POST(url: String, params: [String: Any], httpHeader: HTTPHeaderFields, complete: @escaping (Bool, Data?) -> ()) {
         let boundary = "Boundary-\(UUID().uuidString)"
-        let  httpHeaderr = ["content-type": "application/x-www-form-urlencoded"]
-
-        Alamofire.upload(multipartFormData: { (multipartFormData) in
+        guard let url = URL(string: url) else {
+            return
+        }
+        var urlRequest = URLRequest(url: url, cachePolicy: .reloadIgnoringLocalAndRemoteCacheData, timeoutInterval: 10.0 * 1000)
+        urlRequest.httpMethod = "POST"
+        urlRequest.addValue("application/json", forHTTPHeaderField: "Content-type")
+        
+        switch httpHeader {
+        case .application_json:
+            urlRequest.addValue("application/json", forHTTPHeaderField: "Content-type")
+        case .application_x_www_form_urlencoded:
+            //urlRequest.addValue("application/json", forHTTPHeaderField: "Accept")
+            //urlRequest.setValue("multipart/form-data", forHTTPHeaderField: "Accept")
+            urlRequest.setValue("multipart/form-data; boundary=\(boundary)", forHTTPHeaderField: "Content-Type")
+            
+        case .none: break
+        }
+        
+        // Now Execute
+        AF.upload(multipartFormData: { multiPart in
             for (key, value) in params {
-                multipartFormData.append(value.data(using: .utf8)!, withName: key)
+                if let temp = value as? String {
+                    multiPart.append(temp.data(using: .utf8)!, withName: key )
+                }
+                if let temp = value as? Int {
+                    multiPart.append("\(temp)".data(using: .utf8)!, withName: key )
+                }
+                if let temp = value as? Array<Any> {
+                    let keyObj = key
+                    
+                    do {
+                        let dataStops =  try JSONSerialization.data(withJSONObject:temp, options: .prettyPrinted)
+                        multiPart.append(dataStops, withName: keyObj)
+                    } catch {
+                        print(error.localizedDescription)
+                    }
+                    
+                    //                    temp.forEach({ element in
+                    //                        let keyObj = key //+ "[]"
+                    //                        if let string = element as? String {
+                    //                            multiPart.append(string.data(using: .utf8)!, withName: keyObj)
+                    //                        } else
+                    //                        if let num = element as? Int {
+                    //                            let value = "\(num)"
+                    //                            multiPart.append(value.data(using: .utf8)!, withName: keyObj)
+                    //                        }
+                    //                    })
+                }
             }
             
-        }, usingThreshold: UInt64.init(), to:url,method:.post,
-                         headers: httpHeaderr){ (encodingResult) in
-            switch encodingResult {
-            case .success(let upload, _, _):
-                upload.responseJSON { (response) in
-                    debugPrint(response)
-                    if response.error != nil{
-                        complete(false, response.data)
-                    }
+             
+        }, with: urlRequest)
+        .uploadProgress(queue: .main, closure: { progress in
+            //Current upload progress of file
+            print("Upload Progress: \(progress.fractionCompleted)")
+        })
+        .responseData { response in
+            switch response.result {
+            case .success(let data):
+                do {
+                    //let asJSON = try JSONSerialization.jsonObject(with: data)
+                   // let model = try JSONDecoder().decode(ProfileUserData.self, from: data)
+                    // Handle as previously success
                     complete(true, response.data)
+                } catch {
+                    complete(false, response.data)
                 }
-                upload.uploadProgress(closure: {
-                    progress in
-                    
-                    print(progress.fractionCompleted)
-                })
-            case .failure(let encodingError):
-                
-                print(encodingError)
+            case .failure(let error):
+                // Handle as previously error
+                print(error)
+                complete(false, nil)
             }
         }
     }
 }
-
 extension HttpRequestHelper {
-    func uploadImagePOST(url: String, params: [String: String], fileName: String, image: UIImage, httpHeader: HTTPHeaderFields, complete: @escaping (Bool, Data?) -> ()) {
+    //Profile Pic uplaod
+    func uploadImagePOST(url: String, params: [String: Any], fileName: String, picImage: UIImage?, httpHeader: HTTPHeaderFields, profileStruct : uploadImage, completion: @escaping (Bool, ProfileUserData?) -> ()) {
         
         let boundary = "Boundary-\(UUID().uuidString)"
-        let  httpHeaderr = ["Content-Type":"multipart/form-data; boundary=\(boundary)"]
+        guard let url = URL(string: url) else {
+            return
+        }
+        var urlRequest = URLRequest(url: url, cachePolicy: .reloadIgnoringLocalAndRemoteCacheData, timeoutInterval: 10.0 * 1000)
+        urlRequest.httpMethod = "POST"
+        urlRequest.addValue("application/json", forHTTPHeaderField: "Content-type")
         
-        Alamofire.upload(multipartFormData: { (multipartFormData) in
-            if image != nil {
-                if let image = image as? UIImage{
-                    multipartFormData.append(image.jpegData(compressionQuality:0.5)!, withName:"profile_pic", fileName: "profile_pic.jpeg", mimeType: "image/jpeg")
-                }
-            }
+        switch httpHeader {
+        case .application_json:
+            urlRequest.addValue("application/json", forHTTPHeaderField: "Content-type")
+        case .application_x_www_form_urlencoded:
+            //urlRequest.addValue("application/json", forHTTPHeaderField: "Accept")
+            //urlRequest.setValue("multipart/form-data", forHTTPHeaderField: "Accept")
+            urlRequest.setValue("multipart/form-data; boundary=\(boundary)", forHTTPHeaderField: "Content-Type")
             
+        case .none: break
+        }
+        
+        // Now Execute
+        AF.upload(multipartFormData: { multiPart in
             for (key, value) in params {
-                multipartFormData.append(value.data(using: .utf8)!, withName: key)
+                if let temp = value as? String {
+                    multiPart.append(temp.data(using: .utf8)!, withName: key )
+                }
+                if let temp = value as? Int {
+                    multiPart.append("\(temp)".data(using: .utf8)!, withName: key )
+                }
+                if let temp = value as? NSArray {
+                    temp.forEach({ element in
+                        let keyObj = key + "[]"
+                        if let string = element as? String {
+                            multiPart.append(string.data(using: .utf8)!, withName: keyObj)
+                        } else
+                        if let num = element as? Int {
+                            let value = "\(num)"
+                            multiPart.append(value.data(using: .utf8)!, withName: keyObj)
+                        }
+                    })
+                }
             }
             
-        }, usingThreshold: UInt64.init(), to:url,method:.post,
-                         headers: httpHeaderr){ (encodingResult) in
-            switch encodingResult {
-            case .success(let upload, _, _):
-                upload.responseJSON { (response) in
-                    debugPrint(response)
-                    if response.error != nil{
-                        complete(false, response.data)
+            if profileStruct.imagetype == "Device" {
+                if let imagePic = picImage {
+                    if let datar = imagePic.jpegData(compressionQuality: 0.5)  {
+                        multiPart.append(datar, withName: fileName, fileName: "\(fileName).jpg", mimeType: "image/jpg")
                     }
-                    complete(true, response.data)
                 }
-                upload.uploadProgress(closure: {
-                    progress in
-                    
-                    print(progress.fractionCompleted)
-                })
-            case .failure(let encodingError):
-                
-                print(encodingError)
+            }
+            else {
+                if let ImageURL = URL(string : profileStruct.ImageUrl ?? "") {
+                    //load some image
+                    do {
+                        let imageData = try Data(contentsOf: ImageURL)
+                        multiPart.append(imageData, withName: fileName, fileName: "\(fileName).jpg", mimeType: "image/jpg")
+                    } catch {
+                        print("Unable to load image: \(error)")
+                    }
+                }
+            }
+        }, with: urlRequest)
+        .uploadProgress(queue: .main, closure: { progress in
+            //Current upload progress of file
+            print("Upload Progress: \(progress.fractionCompleted)")
+        })
+        .responseData { response in
+            switch response.result {
+            case .success(let data):
+                do {
+                    //let asJSON = try JSONSerialization.jsonObject(with: data)
+                    let model = try JSONDecoder().decode(ProfileUserData.self, from: data)
+                    // Handle as previously success
+                    completion(true, model)
+                } catch {
+                    completion(false, nil)
+                }
+            case .failure(let error):
+                // Handle as previously error
+                print(error)
+                completion(false, nil)
             }
         }
     }
 }
+
+struct uploadImage {
+    var Imagepic: UIImage?
+    var ImageName : String?
+    var imagetype : String? // Device one
+    var ImageUrl : String?
+ }

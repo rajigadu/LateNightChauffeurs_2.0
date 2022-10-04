@@ -34,9 +34,10 @@ class ShowRideLocationViewController: UIViewController {
         marker2.iconView = markerView2
         marker2.map = mapViewref
     
-
-        self.lbl_HistoryRideDistanceRef.text = "Distance: " + "\(Float(rideDistance ?? "") ?? 0.00)" + " Miles"
-
+        if let rideDoubleValue = Double(rideDistance) as? Double {
+        let rideDistance  = String(format:"%.2f", rideDoubleValue)
+        self.lbl_HistoryRideDistanceRef.text = "Distance: " + rideDistance + " Miles"
+        }
         // Do any additional setup after loading the view.
     }
     

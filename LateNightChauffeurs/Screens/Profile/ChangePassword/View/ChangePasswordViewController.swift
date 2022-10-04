@@ -23,7 +23,6 @@ class ChangePasswordViewController: UIViewController {
     //MARK: - View life cycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
     }
 
     //MARK: - Class Actions
@@ -49,12 +48,12 @@ extension ChangePasswordViewController {
                 if success, let ForgotPasswordUserData = model {
                     DispatchQueue.main.async { [self] in
                         indicator.hideActivityIndicator()
-                        self.ShowAlertWithPop(message: ForgotPasswordUserData.userData?[0].Message ?? "Your Password has been updated successfully.")
+                        self.ShowAlertWithLoginPage(message : ForgotPasswordUserData.userData?[0].Message ?? "Your Password has been updated successfully.")
                     }
                 } else {
                     DispatchQueue.main.async { [self] in
                         indicator.hideActivityIndicator()
-                        self.showToast(message: error ?? "No Such Email Address Found.", font: .systemFont(ofSize: 12.0))
+                        self.showToast(message: error ?? "Something went wrong.", font: .systemFont(ofSize: 12.0))
                     }
                 }
             }

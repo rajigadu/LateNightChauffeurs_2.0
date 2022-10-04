@@ -22,7 +22,7 @@ protocol LateNightChauffeursUSERServiceProtocol {
     //MARK: Change Password
     func requestForChangePasswordServices(_ perams: Dictionary<String, String>, completion: @escaping (_ success: Bool, _ results: ChangePasswordUserData?, _ error: String?) -> ())
     //MARK: Edit Profile
-    func requestForEditProfileServices(_ perams: Dictionary<String, String>,picImage: UIImage,fileName: String, completion: @escaping (_ success: Bool, _ results: ProfileUserData?, _ error: String?) -> ())
+    func requestForEditProfileServices(_ perams: Dictionary<String, String>,picImage: UIImage,fileName: String,profileStruct : uploadImage, completion: @escaping (_ success: Bool, _ results: ProfileUserData?, _ error: String?) -> ())
     //MARK: - get Estimate Price
     func requestForGetEstimatePriceServices(_ perams: Dictionary<String, String>, completion: @escaping (_ success: Bool, _ results: EstinatePriceModelData?, _ error: String?) -> ())
     //MARK: - Get saved card list
@@ -31,8 +31,10 @@ protocol LateNightChauffeursUSERServiceProtocol {
     func requestForGetvalidatepromocodeServices(_ perams: Dictionary<String, String>, completion: @escaping (Bool, PromoCodeValidationData?, String?) -> ())
     //MARK: - Add new card
     func requestForAddNewCardServices(_ perams: Dictionary<String, String>, completion: @escaping (Bool, addNewCardData?, String?) -> ())
-    //MARK: - create new card
-    func requestForcreateNewRideAPIServices(_ perams: Dictionary<String, String>, completion: @escaping (Bool, createNewRideData?, String?) -> ())
+    //MARK: - create new Ride
+    func requestForcreateNewRideAPIServices(_ perams: Dictionary<String, Any>, completion: @escaping (Bool, createNewRideData?, String?) -> ())
+    //MARK: - Edit Ride
+    func requestForEditRideAPIServices(_ perams: Dictionary<String, Any>, completion: @escaping (Bool, createNewRideData?, String?) -> ())
     //MARK: - Remove Card
     func requestForRemoveCardServices(_ perams: Dictionary<String, String>, completion: @escaping (Bool, addNewCardData?, String?) -> ())
     //MARK: - Payment history
@@ -60,9 +62,28 @@ protocol LateNightChauffeursUSERServiceProtocol {
         
 }
 
-//MARK: - Login
+
 class ApiService: LateNightChauffeursUSERServiceProtocol {
+    //MARK: - Existing ride Edit
+    func requestForEditRideAPIServices(_ perams: Dictionary<String, Any>, completion: @escaping (Bool, createNewRideData?, String?) -> ()) {
+        if Connectivity.isNotConnectedToInternet{
+            completion(false, nil, I18n.NoInterNetString)
+        }
+        HttpRequestHelper().POST(url: API_URl.API_EDITUSERRIDEREQUEST_URL, params: perams, httpHeader: .application_json) { success, data in
+            if success {
+                do {
+                    let model = try JSONDecoder().decode(createNewRideData.self, from: data!)
+                    completion(true, model, nil)
+                } catch {
+                    completion(false, nil, I18n.ModelDecodeErrorString)
+                }
+            } else {
+                completion(false, nil, I18n.GetRequestFailedString)
+            }
+        }
+    }
     
+    //MARK: - Login
     func getLoginedUserDetails(_ perams :Dictionary<String,String>, completion: @escaping (Bool, UserData?, String?) -> ()) {
         if Connectivity.isNotConnectedToInternet{
             completion(false, nil, I18n.NoInterNetString)
@@ -189,16 +210,32 @@ extension ApiService {
 
 //MARK: - Edit Profile
 extension ApiService {
-    func requestForEditProfileServices(_ perams: Dictionary<String, String>,picImage: UIImage,fileName: String, completion: @escaping (Bool, ProfileUserData?, String?) -> ()) {
+//    func requestForEditProfileServices(_ perams: Dictionary<String, String>,picImage: UIImage,fileName: String, completion: @escaping (Bool, ProfileUserData?, String?) -> ()) {
+        
+        func requestForEditProfileServices(_ perams: Dictionary<String, String>,picImage: UIImage,fileName: String, profileStruct : uploadImage, completion: @escaping (Bool, ProfileUserData?, String?) -> ()) {
+
         if Connectivity.isNotConnectedToInternet{
             completion(false, nil, I18n.NoInterNetString)
         }
         
-        HttpRequestHelper().uploadImagePOST(url: API_URl.API_UPDATEPROFILE_URL, params: perams, fileName: fileName, image: picImage, httpHeader: .application_json) { success, data in
+//        HttpRequestHelper().uploadImagePOST(url: API_URl.API_UPDATEPROFILE_URL, params: perams, fileName: fileName, image: picImage, httpHeader: .application_json) { success, data in
+//            if success {
+//                do {
+//                    let model = try JSONDecoder().decode(ProfileUserData.self, from: data!)
+//                    completion(true, model, nil)
+//                } catch {
+//                    completion(false, nil, I18n.ModelDecodeErrorString)
+//                }
+//            } else {
+//                completion(false, nil, I18n.GetRequestFailedString)
+//            }
+//        }
+        
+        HttpRequestHelper().uploadImagePOST(url: API_URl.API_UPDATEPROFILE_URL, params: perams, fileName: fileName, picImage: picImage,httpHeader: .application_json, profileStruct : profileStruct) { success, data in
             if success {
                 do {
-                    let model = try JSONDecoder().decode(ProfileUserData.self, from: data!)
-                    completion(true, model, nil)
+                    //let model = try JSONDecoder().decode(ProfileUserData.self, from: data!)
+                    completion(true, data, nil)
                 } catch {
                     completion(false, nil, I18n.ModelDecodeErrorString)
                 }
@@ -293,7 +330,7 @@ extension ApiService {
 
 extension ApiService {
     //MARK: - get Create New Ride
-    func requestForcreateNewRideAPIServices(_ perams: Dictionary<String, String>, completion: @escaping (Bool, createNewRideData?, String?) -> ()) {
+    func requestForcreateNewRideAPIServices(_ perams: Dictionary<String, Any>, completion: @escaping (Bool, createNewRideData?, String?) -> ()) {
         if Connectivity.isNotConnectedToInternet{
             completion(false, nil, I18n.NoInterNetString)
         }
@@ -502,7 +539,7 @@ extension ApiService {
         if Connectivity.isNotConnectedToInternet{
             completion(false, nil, I18n.NoInterNetString)
         }
-        HttpRequestHelper().GET(url: API_URl.API_USERFUTURECANCELRIDE_URL, params: perams, httpHeader: .application_json) { success, data in
+        HttpRequestHelper().GET(url: API_URl.API_CANCELRIDEAMOUNT_URL, params: perams, httpHeader: .application_json) { success, data in
             if success {
                 do {
                     let model = try JSONDecoder().decode(CancelRideAmountData.self, from: data!)
@@ -558,3 +595,27 @@ extension ApiService {
         }
     }
 }
+
+
+
+extension ApiService {
+    //MARK: - get Create New Ride
+    func requestForEditRideAPIServices(_ perams: Dictionary<String, String>, completion: @escaping (Bool, createNewRideData?, String?) -> ()) {
+        if Connectivity.isNotConnectedToInternet{
+            completion(false, nil, I18n.NoInterNetString)
+        }
+        HttpRequestHelper().POST(url: API_URl.API_EDITUSERRIDEREQUEST_URL, params: perams, httpHeader: .application_json) { success, data in
+            if success {
+                do {
+                    let model = try JSONDecoder().decode(createNewRideData.self, from: data!)
+                    completion(true, model, nil)
+                } catch {
+                    completion(false, nil, I18n.ModelDecodeErrorString)
+                }
+            } else {
+                completion(false, nil, I18n.GetRequestFailedString)
+            }
+        }
+    }
+}
+   

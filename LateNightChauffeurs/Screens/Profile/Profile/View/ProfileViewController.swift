@@ -23,6 +23,7 @@ class ProfileViewController: UIViewController {
     lazy var viewModel = {
         ProfileViewModel()
     }()
+    var profileStruct = uploadImage()
     
     //MARK: - View life cycle
     override func viewDidLoad() {
@@ -42,20 +43,41 @@ class ProfileViewController: UIViewController {
          }
         //User Image
         if let Str_UserImage = UserDefaults.standard.string(forKey: "userProfilepic") as? String {
-            self.imageview_ProfilepicRef.sd_setImage(with: URL(string: API_URl.API_BASEIMAGE_URL +  Str_UserImage), placeholderImage: UIImage(named: "UserPic"))
+            isProfilePicTaken = true
+            
+            self.imageview_ProfilepicRef.sd_setImage(with: URL(string: Str_UserImage), placeholderImage: UIImage(named: "UserPic"))
+            profileStruct.Imagepic = self.imageview_ProfilepicRef.image
+            profileStruct.ImageUrl = Str_UserImage
+            profileStruct.imagetype = "URL"
+            profileStruct.ImageName = "profilepic"
+
          }
     }
     
     //MARK: - Class Actions
     @IBAction func btn_UploadProfilepicRef(_ sender: Any) {
         isProfilePicTaken = false
+        if let imagePic = UIImage(named: "placeholder") {
+            self.profilePic = imagePic
+        }
+        
+        profileStruct.Imagepic = nil
+        profileStruct.ImageName = ""
+        profileStruct.imagetype = ""
+        profileStruct.ImageUrl = ""
+        
         ImagePickerManager().pickImage(self){ image in
-                //here is the image
+            //here is the image
             self.imageview_ProfilepicRef.image = image
-            self.profilePic = image
             self.isProfilePicTaken = true
-             
-            }
+            self.profilePic = image
+            
+            self.profileStruct.Imagepic = image
+            self.profileStruct.ImageName = "documents_image"
+            self.profileStruct.imagetype = "Device"
+            self.profileStruct.ImageUrl = ""
+            
+        }
     }
     
     @IBAction func btn_UpdateRef(_ sender: Any) {
@@ -75,7 +97,7 @@ extension ProfileViewController {
             self.ShowAlert(message: "Please Eneter Valid Credentials!")
         } else {
             indicator.showActivityIndicator()
-            self.viewModel.requestForEditProfileServices(perams: ["userid":str_userID,"fname":str_FirstName,"lname":str_LastName,"mobile":str_mobileNumber], picImage: self.profilePic, fileName: "profile_pic") { success, model, error in
+            self.viewModel.requestForEditProfileServices(perams: ["userid":str_userID,"fname":str_FirstName,"lname":str_LastName,"mobile":str_mobileNumber],picImage: self.profilePic, fileName:  "profilepic", profileStruct: self.profileStruct) { success, model, error in
                 if success, let ForgotPasswordUserData = model {
                     DispatchQueue.main.async { [self] in
                         indicator.hideActivityIndicator()
@@ -84,7 +106,7 @@ extension ProfileViewController {
                 } else {
                     DispatchQueue.main.async { [self] in
                         indicator.hideActivityIndicator()
-                        self.showToast(message: error ?? "No Such Email Address Found.", font: .systemFont(ofSize: 12.0))
+                        self.showToast(message: error ?? "Something went wrong.", font: .systemFont(ofSize: 12.0))
                     }
                 }
             }

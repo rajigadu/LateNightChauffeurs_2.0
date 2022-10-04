@@ -7,13 +7,17 @@
 
 import UIKit
 import SideMenu
-//import GoogleMaps
+import GoogleMaps
 
 class DashBoardViewController: UIViewController {
     
     //MARK: - Class outlets
-    //@IBOutlet weak var mapView: GMSMapView!
-
+    @IBOutlet weak var mapView: GMSMapView!
+    @IBOutlet weak var view_BannerADSViewRef: UIView!
+    @IBOutlet weak var containerViewBannerRef: UIView!
+    @IBOutlet weak var btnFutureRideTimeCheck: UIButton!
+    @IBOutlet weak var lbl_FutureRideTimeCheck: UILabel!
+    @IBOutlet weak var lbl_FutureRideCheckConstraint: NSLayoutConstraint!
     //MARK: - Class Propeties
    // var locationManager = CLLocationManager()
     let didFindMyLocation = false
@@ -88,3 +92,8 @@ extension DashBoardViewController: SideMenuNavigationControllerDelegate {
 //         }
 //     }
 //}
+extension DashBoardViewController {
+    @IBAction func btnFutureRideTimeCheckAction(_ sender: Any) {
+        
+    }
+}

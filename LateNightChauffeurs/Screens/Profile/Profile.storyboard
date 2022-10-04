@@ -470,12 +470,17 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="backgroundimage" translatesAutoresizingMaskIntoConstraints="NO" id="vcl-uN-O9a">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="862"/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="personIcon" translatesAutoresizingMaskIntoConstraints="NO" id="grF-55-eK8">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="personIcon" translatesAutoresizingMaskIntoConstraints="NO" id="grF-55-eK8">
                                 <rect key="frame" x="147" y="64" width="120" height="120"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="120" id="77R-OX-3f3"/>
                                     <constraint firstAttribute="height" constant="120" id="oDU-kM-xoo"/>
                                 </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadiusV">
+                                        <real key="value" value="60"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MvV-iT-xfZ">
                                 <rect key="frame" x="131.5" y="192" width="151" height="24"/>

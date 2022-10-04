@@ -83,12 +83,12 @@ extension CancelRideViewController {
             if success, let UserData = model {
                 DispatchQueue.main.async { [self] in
                     indicator.hideActivityIndicator()
-                    self.ShowAlertWithPUSH(message: UserData.userData?[0].Message ?? "", id: "RideHistoryViewController", storyBordid: "Profile", animated: true)
+                    self.ShowAlertWithDashBoardPage(message : UserData.userData?[0].Message ?? "")
                 }
             } else {
                 DispatchQueue.main.async { [self] in
                     indicator.hideActivityIndicator()
-                    self.showToast(message: error ?? "No Such Email Address Found.", font: .systemFont(ofSize: 12.0))
+                    self.showToast(message: error ?? "Something went wrong.", font: .systemFont(ofSize: 12.0))
                 }
             }
             
@@ -97,7 +97,7 @@ extension CancelRideViewController {
     
     func CancelRideAmount() {
         indicator.showActivityIndicator()
-        let perams = [ "ride_id":str_UserID,
+        let perams = [ "ride_id":str_RideID,
                        "cancel_time":currentDate]
         self.viewModel.requestForCancelRideAmountAPIServices(perams: perams) { success, model, error in
             if success, let UserData = model {
@@ -111,7 +111,7 @@ extension CancelRideViewController {
             } else {
                 DispatchQueue.main.async { [self] in
                     indicator.hideActivityIndicator()
-                    self.showToast(message: error ?? "No Such Email Address Found.", font: .systemFont(ofSize: 12.0))
+                    self.showToast(message: error ?? "Something went wrong.", font: .systemFont(ofSize: 12.0))
                 }
             }
             

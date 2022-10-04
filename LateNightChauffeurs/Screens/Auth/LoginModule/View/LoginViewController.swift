@@ -23,7 +23,7 @@ class LoginViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.txt_PasswordRef.text = "123"
-        self.txt_UserMailRef.text = "rajesh@anaad.net"
+        self.txt_UserMailRef.text = "harvinder@anaad.net"
         // Do any additional setup after loading the view.
     }
     
@@ -44,6 +44,7 @@ class LoginViewController: UIViewController {
 }
 extension LoginViewController {
     //Api Intigration
+    //MARK: --  Login Api Intigration...
     func loginApiCall(){
         guard let userEmail = txt_UserMailRef.text else {return}
         guard let userPassword = txt_PasswordRef.text else {return}
@@ -55,8 +56,7 @@ extension LoginViewController {
                     if success {
                         DispatchQueue.main.async { [self] in
                         indicator.hideActivityIndicator()
-                        //self.showToast(message: LoginedUser.message ?? "Welcome! You are successfully login in your account panel.", font: .systemFont(ofSize: 12.0))
-                            movetonextvc(id: "DashBoardViewController", storyBordid: "DashBoard", animated: true)
+                            self.movetonextvc(id: "DashBoardViewController", storyBordid: "DashBoard", animated: true)
                         }
                     } else {
                         DispatchQueue.main.async { [self] in

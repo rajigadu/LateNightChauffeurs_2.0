@@ -31,11 +31,7 @@ class AvilableCardViewMode: NSObject {
     func requestForAddNewCardAPIServices(perams: Dictionary<String,String>, completion: @escaping (Bool, addNewCardData?, String?) -> ()) {
         AvilableCardServices.requestForAddNewCardServices(perams) { success, model, error in
             if success, let UserData = model {
-                if UserData.status == "1" {
                     completion(true, UserData, nil)
-                } else {
-                    completion(false, UserData, nil)
-                }
             } else {
                 completion(false, nil, error)
             }
@@ -45,11 +41,9 @@ class AvilableCardViewMode: NSObject {
     func requestForRemoveCardAPIServices(perams: Dictionary<String,String>, completion: @escaping (Bool, addNewCardData?, String?) -> ()) {
         AvilableCardServices.requestForRemoveCardServices(perams) { success, model, error in
             if success, let UserData = model {
-                if UserData.status == "1" {
+               
                     completion(true, UserData, nil)
-                } else {
-                    completion(false, UserData, nil)
-                }
+               
             } else {
                 completion(false, nil, error)
             }

@@ -21,7 +21,6 @@ class ForgotPasswordViewController: UIViewController {
     //MARK: - View life cycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        
     }
     
     //MARK: - Class Actions
@@ -31,6 +30,7 @@ class ForgotPasswordViewController: UIViewController {
 }
 extension ForgotPasswordViewController {
     //MARK: - Api Intigration
+    //MARK: - Forgot Password Api Intigraation
     func forgotPasswordApiCall(){
         guard let userEmail = txt_UserMailRef.text else {return}
         if userEmail.isEmpty || !isValidEmail(userEmail) {
@@ -46,7 +46,7 @@ extension ForgotPasswordViewController {
                 } else {
                     DispatchQueue.main.async { [self] in
                         indicator.hideActivityIndicator()
-                        self.showToast(message: error ?? "No Such Email Address Found.", font: .systemFont(ofSize: 12.0))
+                        self.showToast(message: error ?? "Something went wrong.", font: .systemFont(ofSize: 12.0))
                     }
                 }
             }

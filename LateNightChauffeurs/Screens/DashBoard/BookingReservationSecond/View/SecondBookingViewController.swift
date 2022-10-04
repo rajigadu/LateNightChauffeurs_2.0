@@ -30,6 +30,7 @@ class SecondBookingViewController: UIViewController {
         SecondBookingViewModel()
     }()
     var array_AvailableCardList: SecondBookingData?
+    var dict_SelectedRideDetailsForEdit :RideInfoDatar?
     var arrSelectedSectionIndex:[Int] = []
     var SelectedIndex:[Int] = []
     var str_SelectedAccountID = ""
@@ -50,6 +51,7 @@ class SecondBookingViewController: UIViewController {
     var cvvCode = ""
     var name = ""
     var expiryDatePicker: UIPickerView!
+    var str_ComingFrom = ""
     
     //step - 6 - creating of global dict
     var bookingModel: BookingModel?
@@ -58,6 +60,9 @@ class SecondBookingViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        if str_ComingFrom == "RideHistory" {
+        self.ProMoCodeTf_ref.text = dict_SelectedRideDetailsForEdit?.promo ?? ""
+        }
         self.bookingModel2 = self.bookingModel
 
         self.savedCardListApiCall()
@@ -120,7 +125,13 @@ class SecondBookingViewController: UIViewController {
     }
     
     @IBAction func BookMyChauffer(_ sender: Any) {
-        createNewRideApiCall()
+        
+        if str_ComingFrom == "RideHistory" {
+            EditRideApiCall()
+        } else {
+            createNewRideApiCall()
+        }
+        
     }
     
     //    @IBAction func btnTapShowHideSection(_ sender: Any) {
@@ -170,6 +181,8 @@ extension SecondBookingViewController: UITableViewDelegate,UITableViewDataSource
         //        headerView.CvvNumberLblref.text = ""
         //        headerView.
         
+        
+        
         if SelectedIndex.contains(section) {
             headerView.SeletcardBtnref.setImage(UIImage(named: "Circle"), for: .normal)
         } else {
@@ -179,6 +192,14 @@ extension SecondBookingViewController: UITableViewDelegate,UITableViewDataSource
         if arrSelectedSectionIndex.contains(section) {
             headerView.btnShowHide.isSelected = true
         }
+        
+        // Edit Ride Info time select the car
+        if  cardData?.acctid ?? "" == dict_SelectedRideDetailsForEdit?.acctid ?? "0" {
+            headerView.SeletcardBtnref.setImage(UIImage(named: "Circle"), for: .normal)
+            str_SelectedCardID = dict_SelectedRideDetailsForEdit?.card_id ?? ""
+            str_SelectedAccountID = dict_SelectedRideDetailsForEdit?.acctid ?? ""
+        }
+        
         
         headerView.btnShowHide.tag = section
         headerView.btnShowHide.addTarget(self, action: #selector(btnTapShowHideSection), for: .touchUpInside)
@@ -277,7 +298,7 @@ extension SecondBookingViewController {
             } else {
                 DispatchQueue.main.async { [self] in
                     indicator.hideActivityIndicator()
-                    self.showToast(message: error ?? "No Such Email Address Found.", font: .systemFont(ofSize: 12.0))
+                    self.showToast(message: error ?? "Something went wrong.", font: .systemFont(ofSize: 12.0))
                 }
             }
             
@@ -334,7 +355,7 @@ extension SecondBookingViewController {
             } else {
                 DispatchQueue.main.async { [self] in
                     indicator.hideActivityIndicator()
-                    self.showToast(message: error ?? "No Such Email Address Found.", font: .systemFont(ofSize: 12.0))
+                    self.showToast(message: error ?? "Something went wrong.", font: .systemFont(ofSize: 12.0))
                 }
             }
             
@@ -389,12 +410,16 @@ extension SecondBookingViewController {
             "version": "yes"
         ] as? [String: Any]
         var peram2 = savedrop as? [String]
+        var allStops : [String] = []
+        for peram in savedrop {
+            allStops.append(peram.removeWhitespace())
+        }
         
         var str1 = json(from: perams) ?? ""
         var str2 = json(from: peram2) ?? ""
         
         indicator.showActivityIndicator()
-        self.viewModel.requestForcreateNewRideAPIServices(perams: ["json":str1.removeWhitespace(), "jsonstops":str2.removeWhitespace()]) { success, model, error in
+        self.viewModel.requestForcreateNewRideAPIServices(perams: ["json":str1.removeWhitespace(), "jsonstops":allStops]) { success, model, error in
             if success, let UserData = model {
                 DispatchQueue.main.async { [self] in
                     indicator.hideActivityIndicator()
@@ -415,16 +440,16 @@ extension SecondBookingViewController {
                         let str_MessageTitle = UserData.data?[0].message ?? ""
                         
                         if str_MessageTitle == "Congratulations! your reservation has been completed." {
-                            self.ShowAlertWithPUSH(message : str_MessageTitle,id:"RideHistoryViewController",storyBordid : "Profile",animated:true)
+                            self.ShowAlertWithRideInfoPage(message : str_MessageTitle)
                         } else {
-                            self.ShowAlertWithPUSH(message : str_MessageTitle,id:"DashBoardViewController",storyBordid : "DashBoard",animated:true)
+                            self.ShowAlertWithDashBoardPage(message: str_MessageTitle)
                         }
                     }
                 }
             } else {
                 DispatchQueue.main.async { [self] in
                     indicator.hideActivityIndicator()
-                    self.showToast(message: error ?? "No Such Email Address Found.", font: .systemFont(ofSize: 12.0))
+                    self.showToast(message: error ?? "Something went wrong.", font: .systemFont(ofSize: 12.0))
                 }
             }
             
@@ -432,3 +457,98 @@ extension SecondBookingViewController {
     }
 }
 
+
+extension SecondBookingViewController {
+    //MARK: - Edit Ride
+    func EditRideApiCall(){
+        guard let strPromoCode = self.ProMoCodeTf_ref.text else{ return }
+        guard let userid = self.bookingModel2?.userid as? String else {return}
+        guard let card_id = self.str_SelectedCardID as? String else {return}
+        guard let acctid = self.str_SelectedAccountID as? String else {return}
+        guard let nstops = self.bookingModel2?.nstops as? String else {return}
+        guard let savedrop = self.bookingModel2?.savedrop as? [String] else {return}
+        guard let platitude = self.bookingModel2?.platitude as? String else {return}
+        guard let plongitude = self.bookingModel2?.plongitude as? String else {return}
+        guard let pickup_address = self.bookingModel2?.pickup_address as? String else {return}
+        guard let pickup_city = self.bookingModel2?.pickup_city as? String else {return}
+        guard let drop_address = self.bookingModel2?.drop_address as? String else {return}
+        guard let dlatitude = self.bookingModel2?.dlatitude as? String else {return}
+        guard let dlongitude = self.bookingModel2?.dlongitude as? String else {return}
+        guard let drop_city = self.bookingModel2?.drop_city as? String else {return}
+        guard let notes = self.bookingModel2?.notes as? String else {return}
+        guard let booking_type = self.bookingModel2?.booking_type as? String else {return}
+        guard let date = self.bookingModel2?.date as? String else {return}
+        guard let time = self.bookingModel2?.time as? String else {return}
+        guard let transmission = self.bookingModel2?.transmission as? String else {return}
+        guard let bookingID = self.dict_SelectedRideDetailsForEdit?.id as? String else {return}
+
+        let perams = [
+            "booking_id":bookingID,
+            "userid": userid,
+            "card_id": card_id,
+            "acctid": acctid,
+            "nstops": nstops,
+            "savedrop": savedrop,
+            "platitude": platitude,
+            "plongitude": plongitude,
+            "pickup_address": pickup_address,
+            "pickup_city": pickup_city,
+            "drop_address": drop_address,
+            "dlatitude": dlatitude,
+            "dlongitude": dlongitude,
+            "drop_city": drop_city,
+            "notes": notes,
+            "booking_type": booking_type,
+            "date": date,
+            "time": time,
+            "transmission": transmission,
+            "promo": strPromoCode,
+            "version": "yes"
+        ] as? [String: Any]
+        var peram2 = savedrop as? [String]
+        var allStops : [String] = []
+        for peram in savedrop {
+            allStops.append(peram.removeWhitespace())
+        }
+        
+        var str1 = json(from: perams) ?? ""
+        var str2 = json(from: peram2) ?? ""
+        
+        indicator.showActivityIndicator()
+        self.viewModel.requestForEditRideAPIServices(perams: ["json":str1.removeWhitespace(), "jsonstops":allStops]) { success, model, error in
+            if success, let UserData = model {
+                DispatchQueue.main.async { [self] in
+                    indicator.hideActivityIndicator()
+                    if UserData.status == "1" {
+                        UserDefaults.standard.set(UserData.data?[0].ride_id ?? "", forKey: "OnGoingRequestID")
+                        UserDefaults.standard.set("RideRequestProcessing", forKey: "RideRequestProcessingCheck")
+                        self.ShowAlertWithDashBoardPage(message: "Success")
+                        //self.movetonextvc(id: "DashBoardViewController", storyBordid: "DashBoard", animated: true)
+                    } else if UserData.status == "3" {
+                        self.ShowAlertWithRideInfoPage(message: UserData.data?[0].message ?? "")
+                    } else if UserData.status == "0" {
+                        let message1 = "Congratulations! your reservation has been completed."
+                        let message2 = "‣ Reservation is Subject to Our availability."
+                        let message3 = "‣ Wait time = $10/15min."
+                        let message4 = "‣ Unplanned stops = $10."
+                        let message5 = "‣ Price does not include gratuity."
+                        let message  = message1 + message2 + message3 + message4 + message5
+                        let str_MessageTitle = UserData.data?[0].message ?? ""
+                        
+                        if str_MessageTitle == "Congratulations! your reservation has been completed." {
+                            self.ShowAlertWithRideInfoPage(message : str_MessageTitle)
+                        } else {
+                            self.ShowAlertWithDashBoardPage(message: str_MessageTitle)
+                        }
+                    }
+                }
+            } else {
+                DispatchQueue.main.async { [self] in
+                    indicator.hideActivityIndicator()
+                    self.showToast(message: error ?? "Something went wrong.", font: .systemFont(ofSize: 12.0))
+                }
+            }
+            
+        }
+    }
+}

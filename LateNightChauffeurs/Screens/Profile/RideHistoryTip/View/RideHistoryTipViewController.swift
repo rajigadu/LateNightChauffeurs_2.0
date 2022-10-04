@@ -58,7 +58,7 @@ class RideHistoryTipViewController: UIViewController {
             
             self.lbl_DriverNameForFeedbackRef.text = str_SelectedDriverFirstNameget + str_SelectedDriverLastNameget
             if let profileImage = str_SelectedDriverProfilepicget as? String {
-                self.imageview_DriverForFeedbackRef.sd_setImage(with: URL(string: API_URl.API_BASEIMAGE_URL +  profileImage), placeholderImage: UIImage(named: "UserPic"))
+                self.imageview_DriverForFeedbackRef.sd_setImage(with: URL(string: API_URl.API_BASEIMAGE_URL +  str_SelectedDriverProfilepicget ?? ""), placeholderImage: UIImage(named: "UserPic"))
             }
 
         }
@@ -172,7 +172,7 @@ extension RideHistoryTipViewController {
             } else {
                 DispatchQueue.main.async { [self] in
                     indicator.hideActivityIndicator()
-                    self.showToast(message: error ?? "No Such Email Address Found.", font: .systemFont(ofSize: 12.0))
+                    self.showToast(message: error ?? "Something went wrong.", font: .systemFont(ofSize: 12.0))
                 }
             }
             

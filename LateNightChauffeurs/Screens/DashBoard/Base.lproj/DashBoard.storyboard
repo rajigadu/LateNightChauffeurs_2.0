@@ -26,8 +26,13 @@
                                 <state key="normal" title="Reservation/Quote">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadiusV">
+                                        <real key="value" value="5"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <action selector="bookingReservation:" destination="LF4-g2-zey" eventType="touchUpInside" id="DEb-4W-SL9"/>
+                                    <action selector="bookingReservation:" destination="LF4-g2-zey" eventType="touchUpInside" id="S7I-zr-NSl"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -60,7 +65,7 @@
                                                 <color key="titleColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             </state>
                                             <connections>
-                                                <action selector="setupSideMenu:" destination="LF4-g2-zey" eventType="touchUpInside" id="8Qg-50-hTp"/>
+                                                <action selector="setupSideMenu:" destination="LF4-g2-zey" eventType="touchUpInside" id="q76-1c-soN"/>
                                             </connections>
                                         </button>
                                     </subviews>
@@ -95,7 +100,7 @@
                                             <color key="titleColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
                                         <connections>
-                                            <action selector="MovetoAlertNotification:" destination="LF4-g2-zey" eventType="touchUpInside" id="Sfn-1S-39c"/>
+                                            <action selector="MovetoAlertNotification:" destination="LF4-g2-zey" eventType="touchUpInside" id="lbz-Mm-jaF"/>
                                         </connections>
                                     </button>
                                 </subviews>

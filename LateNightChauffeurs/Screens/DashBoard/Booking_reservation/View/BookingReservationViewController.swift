@@ -50,7 +50,7 @@ class BookingReservationViewController: UIViewController, SKUIDatePickerDelegate
     @IBOutlet weak var btn_CheckTransmissionRef: UIButton!
     @IBOutlet weak var btn_BookingNowRef: UIButton!
     
-    var dict_SelectedRideDetailsForEdit = Dictionary<String,Any>()
+    var dict_SelectedRideDetailsForEdit :RideInfoDatar?
     var str_ComingFrom = ""
     // var locationManager = CLLocationManager()
     
@@ -61,6 +61,10 @@ class BookingReservationViewController: UIViewController, SKUIDatePickerDelegate
     //date Picker
     lazy var viewModel = {
         BookingReservationViewModel()
+    }()
+    
+    lazy var viewModel2 = {
+        StopsViewModel()
     }()
     
     //step - 1 - Picker Step
@@ -87,8 +91,8 @@ class BookingReservationViewController: UIViewController, SKUIDatePickerDelegate
         super.viewDidLoad()
         IntialMethod()
         
-        self.txt_FutureBookingDateRef.text = "10-03-2022"
-        self.txt_FutureBookingTimeRef.text = "08:15 AM"
+        self.txt_FutureBookingDateRef.text = "10-10-2022"
+        self.txt_FutureBookingTimeRef.text = "05:00 AM"
         self.txt_PickUpLocationRef.text = "Kommala Padu, Andhra Pradesh 523303, India"
         self.txt_DropLocationRef.text = "Addanki, Andhra Pradesh 523201, India"
         self.textview_Descriptionref.text = "hello sdf"
@@ -99,6 +103,34 @@ class BookingReservationViewController: UIViewController, SKUIDatePickerDelegate
         self.userDropCityNameStr = "Addanki"
         self.userPickCityNameStr = "Kommala Padu"
         self.ary_StopList.append("WXP4+8P2, Kopperapadu, Chinakotha Palle, Andhra Pradesh 523303, India")
+        
+        if str_ComingFrom == "RideHistory" {
+            
+        self.txt_FutureBookingDateRef.text = dict_SelectedRideDetailsForEdit?.otherdate ?? ""
+        self.txt_FutureBookingTimeRef.text = dict_SelectedRideDetailsForEdit?.time ?? ""
+        self.txt_PickUpLocationRef.text = dict_SelectedRideDetailsForEdit?.pickup_address ?? ""
+        self.txt_DropLocationRef.text = dict_SelectedRideDetailsForEdit?.drop_address ?? ""
+        self.textview_Descriptionref.text = dict_SelectedRideDetailsForEdit?.notes ?? ""
+        self.userPickUplatitudeStr = dict_SelectedRideDetailsForEdit?.pickup_lat ?? ""
+        self.userPickUplongitudeStr = dict_SelectedRideDetailsForEdit?.pickup_long ?? ""
+        self.userDroplatitudeStr = dict_SelectedRideDetailsForEdit?.d_lat ?? ""
+        self.userDroplongitudeStr = dict_SelectedRideDetailsForEdit?.d_long ?? ""
+        self.userDropCityNameStr = dict_SelectedRideDetailsForEdit?.city_drop ?? ""
+        self.userPickCityNameStr = dict_SelectedRideDetailsForEdit?.city_pickup ?? ""
+            if let transmission = dict_SelectedRideDetailsForEdit?.car_transmission {
+                self.isTransmission = transmission == "automatic" ? false : true
+                if self.isTransmission {
+                    self.btn_CheckTransmissionRef.setImage(UIImage(named: "checkbox_checked"), for: .normal)
+                } else {
+                    self.btn_CheckTransmissionRef.setImage(UIImage(named: "checkbox_unchecked"), for: .normal)
+                }
+            }
+            if dict_SelectedRideDetailsForEdit?.numstops !=  "0" {
+                self.CurrentRideStopListAPI(str_rideid: dict_SelectedRideDetailsForEdit?.id ?? "")
+           }
+            
+        }
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -162,13 +194,17 @@ class BookingReservationViewController: UIViewController, SKUIDatePickerDelegate
         guard let str_pickUpLocation = self.txt_PickUpLocationRef.text else {return}
         guard let str_DropLocation = self.txt_DropLocationRef.text else {return}
         guard let BookNotes = self.textview_Descriptionref.text else {return}
-        var transMission = isTransmission ? "manual" : "automatic"
+        let transMission = isTransmission ? "manual" : "automatic"
         bookingModel = BookingModel(userid: userID, card_id: "", acctid: "", nstops: "\(self.ary_StopList.count)", savedrop: self.ary_StopList, platitude: userPickUplatitudeStr, plongitude: userPickUplongitudeStr, pickup_address: str_pickUpLocation, pickup_city: userPickCityNameStr, drop_address: str_DropLocation, dlatitude: userDroplatitudeStr, dlongitude: userDroplongitudeStr, drop_city: userDropCityNameStr, notes: BookNotes, booking_type: "2", date: str_Date, time: str_Time, transmission: transMission, promo: "", version: "Yes")
 
         
         let Storyboard : UIStoryboard = UIStoryboard(name: "DashBoard", bundle: nil)
         let nxtVC = Storyboard.instantiateViewController(withIdentifier: "SecondBookingViewController") as! SecondBookingViewController
           nxtVC.bookingModel = self.bookingModel
+        if self.str_ComingFrom == "RideHistory" {
+        nxtVC.str_ComingFrom = self.str_ComingFrom
+        nxtVC.dict_SelectedRideDetailsForEdit = self.dict_SelectedRideDetailsForEdit
+        }
         self.navigationController?.pushViewController(nxtVC, animated: true)
        // self.movetonextvc(id: "SecondBookingViewController", storyBordid: "DashBoard", animated: true)
     }
@@ -332,13 +368,42 @@ extension BookingReservationViewController {
                     DispatchQueue.main.async { [self] in
                         indicator.hideActivityIndicator()
                         
-                        let str_EstimationPriceDetails = "\n\nPrice Details : \n\n Distance:  \(UserData.data?[0].distance ?? "") \n Time:  \(UserData.data?[0].estimate_time ?? "") \n Price:  \(UserData.data?[0].estimate_price ?? "")"
+                        let str_EstimationPriceDetails = "\n\nPrice Details : \n\n Distance:  \(UserData.data?[0].distance ?? "") miles\n Time:  \(UserData.data?[0].estimate_time ?? "") \n Price: $ \(UserData.data?[0].estimate_price ?? "")"
                         self.ShowAlert(message: str_EstimationPriceDetails)
                     }
                 } else {
                     DispatchQueue.main.async { [self] in
                         indicator.hideActivityIndicator()
-                        self.showToast(message: error ?? "No Such Email Address Found.", font: .systemFont(ofSize: 12.0))
+                        self.showToast(message: error ?? "Something went wrong.", font: .systemFont(ofSize: 12.0))
+                    }
+                }
+            }
+        }
+    }
+}
+
+extension BookingReservationViewController {
+    //MARK:- API Intigration
+    func CurrentRideStopListAPI(str_rideid: String) {
+        if str_ComingFrom == "RideHistory" {
+            indicator.showActivityIndicator()
+            self.viewModel2.requestForStopsServices(perams: ["rideid":str_rideid]) { success, model, error in
+                if success, let UserData = model {
+                    DispatchQueue.main.async { [self] in
+                        indicator.hideActivityIndicator()
+                        if UserData.status == "1" {
+                            if let stopsList = UserData.data as? [StopsDatar] {
+                                for stop in stopsList {
+                                    self.ary_StopList.append(stop.location ?? "")
+                                }
+                            }
+                            self.tableview_StoplistRef.reloadData()
+                        }
+                    }
+                } else {
+                    DispatchQueue.main.async { [self] in
+                        indicator.hideActivityIndicator()
+                        self.showToast(message: error ?? "no record found.", font: .systemFont(ofSize: 12.0))
                     }
                 }
             }

@@ -3,7 +3,7 @@
 //  LateNightChauffeurs
 //
 //  Created by rajesh gandru on 23/09/22.
-//
+//  {"status":"1","msg":"Eligible to Edit ride information."}
 
 import UIKit
 
@@ -17,6 +17,7 @@ class RideHistoryViewController: UIViewController {
     @IBOutlet weak var lbl_NoListRef:UILabel!
 
     var rideInfoArray:[RideInfoDatar] = []
+    var selectedRideInfoDict:RideInfoDatar?
     var PaymentInfoArray:[PaymentHistoryDatar] = []
     var str_DriverRating = ""
     var isRideInfoEnabled = true
@@ -42,14 +43,18 @@ class RideHistoryViewController: UIViewController {
         self.view_UpcomingRef.backgroundColor = .red
         self.lbl_UpcomingRef.backgroundColor = .red
         self.lbl_NoListRef.isHidden = true
-        self.tableview_RideInfoRef.isHidden = true
+//        self.tableview_RideInfoRef.isHidden = true
         
+      
+        // Do any additional setup after loading the view.
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
         if isRideInfoEnabled {
             self.userRideListAPI()
         } else {
             self.currentRideWithFutureAcceptedListAPI()
         }
-        // Do any additional setup after loading the view.
     }
 
     @IBAction func btn_UpcomingRef(_ sender: Any){
@@ -82,6 +87,14 @@ class RideHistoryViewController: UIViewController {
     }
 }
 extension RideHistoryViewController: UITableViewDelegate, UITableViewDataSource {
+    func numberOfSections(in tableView: UITableView) -> Int {
+        if isRideInfoEnabled {
+            return numberOfSections_nodata(in: tableView, ArrayCount: rideInfoArray.count, numberOfsections: 1, data_MSG_Str: "No Ride Request!")
+        } else {
+            return numberOfSections_nodata(in: tableView, ArrayCount: PaymentInfoArray.count, numberOfsections: 1, data_MSG_Str: "No Records Found!")
+        }
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if isRideInfoEnabled {
             return rideInfoArray.count
@@ -101,7 +114,7 @@ extension RideHistoryViewController: UITableViewDelegate, UITableViewDataSource 
                    // cell.btn_PaymentConstraintRef.constant = 0
                     //otherdate
                     if let str_FutureRidedate = rideInfoArray[indexPath.row].otherdate,let str_FutureRideTime = rideInfoArray[indexPath.row].time {
-                        let AttributeStr = "Current Ride Date : " + str_FutureRidedate + str_FutureRideTime
+                        let AttributeStr = "Current Ride Date : " + str_FutureRidedate + " " + str_FutureRideTime
                         let attrStri = NSMutableAttributedString.init(string:AttributeStr)
                         let nsRange = NSString(string: AttributeStr).range(of: "Current Ride Date :", options: String.CompareOptions.caseInsensitive)
                         attrStri.addAttributes([NSAttributedString.Key.foregroundColor : UIColor(red: CGFloat(35.0/255.0), green: CGFloat(159.0/255.0), blue: CGFloat(98.0/255.0), alpha: CGFloat(1.0)), NSAttributedString.Key.font: UIFont.init(name: "Arial", size: 11.0) as Any], range: nsRange)
@@ -130,8 +143,15 @@ extension RideHistoryViewController: UITableViewDelegate, UITableViewDataSource 
                     }
                     // Distance and Price
                     if let Distance = rideInfoArray[indexPath.row].distance,let price = rideInfoArray[indexPath.row].estimation_price {
+                        var distanceStr = ""
+                        if let rideDoubleValue = Double(Distance) as? Double {
+                        let rideDistance  = String(format:"%.2f", rideDoubleValue)
+                            distanceStr =  rideDistance + " Miles"
+                        }
+
                         
-                        let AttributeStr = "Distance : " + Distance + "Price : " + price
+                        
+                        let AttributeStr = "Distance : " + distanceStr + "Price : " + price
                         
                         let attrStri = NSMutableAttributedString.init(string:AttributeStr)
                         
@@ -261,7 +281,7 @@ extension RideHistoryViewController: UITableViewDelegate, UITableViewDataSource 
                         str_PaymentDateTime = PayDateTime
                     }
                 
-                var Bookingdate = str_CurrentRideDate + str_CurrentRideTime
+                var Bookingdate = str_CurrentRideDate + " " + str_CurrentRideTime
                 
                 var Journeystr = "Booking Date : " +  Bookingdate + "\nPayment Date : " + str_PaymentDateTime
 
@@ -325,8 +345,13 @@ extension RideHistoryViewController: UITableViewDelegate, UITableViewDataSource 
                 var str_RideCompleteORpendingStatus = PaymentInfoArray[indexPath.row].status ?? ""
                 if str_RideCompleteORpendingStatus == "2" {
                     var distanceinFloat = PaymentInfoArray[indexPath.row].distance ?? ""
-                    let Distancestr = Float(distanceinFloat) ?? 0.0
-                    var JourneyDistance = "Distance : " + "\(Distancestr)" + " Miles\nTransaction ID : " + str_RideTransactionID + "\nPromo Code : $" + Str_promoCodevalue + "\nTip Amount : $" + str_RideTipAmount + "\nRide Total Cost: $" + str_CompleteRideAmountWithTip
+                    var distanceStr = ""
+                    if let rideDoubleValue = Double(distanceinFloat) as? Double {
+                    let rideDistance  = String(format:"%.2f", rideDoubleValue)
+                        distanceStr =  rideDistance
+                    }
+                    
+                    var JourneyDistance = "Distance : " + "\(distanceStr)" + " Miles\nTransaction ID : " + str_RideTransactionID + "\nPromo Code : $" + Str_promoCodevalue + "\nTip Amount : $" + str_RideTipAmount + "\nRide Total Cost: $" + str_CompleteRideAmountWithTip
                     
                     let attrStri = NSMutableAttributedString.init(string:JourneyDistance)
                     
@@ -348,11 +373,14 @@ extension RideHistoryViewController: UITableViewDelegate, UITableViewDataSource 
                     cell.lbl_DistanceRef.attributedText = attrStri
 
                 } else if str_RideCompleteORpendingStatus == "4" {
-                    var distanceinFloat = PaymentInfoArray[indexPath.row].distance ?? ""
-                    
-                    let Distancestr = Float(distanceinFloat) ?? 0.0
+                    let distanceinFloat = PaymentInfoArray[indexPath.row].distance ?? ""
+                    var distanceStr = ""
+                    if let rideDoubleValue = Double(distanceinFloat) as? Double {
+                    let rideDistance  = String(format:"%.2f", rideDoubleValue)
+                        distanceStr =  rideDistance + " Miles"
+                    }
                                     
-                    var JourneyDistance = "Distance : " + "\(Distancestr)" + " Miles" + "\nTransaction ID : " + str_RideTransactionID + "\nRide Cancellation Amount : $" + str_RideAmount
+                    var JourneyDistance = "Distance : " + distanceStr + "\nTransaction ID : " + str_RideTransactionID + "\nRide Cancellation Amount : $" + str_RideAmount
                     
                     let attrStri = NSMutableAttributedString.init(string:JourneyDistance)
                     
@@ -458,8 +486,7 @@ extension RideHistoryViewController: UITableViewDelegate, UITableViewDataSource 
         nxtVC.str_ComingFrom = "Ride History"
         nxtVC.str_rideid = PaymentInfoArray[sender.tag].booking_id ?? ""
         self.navigationController?.pushViewController(nxtVC, animated: true)
-
-    }
+     }
     
     @objc func viewDetailButtonClicked(sender: UIButton) {
         if let str_BookingType = rideInfoArray[sender.tag].booking_type, str_BookingType == "2" {
@@ -476,7 +503,8 @@ extension RideHistoryViewController: UITableViewDelegate, UITableViewDataSource 
     }
     
     @objc func editRideDetailsButtonClicked(sender: UIButton) {
-        //self.EditRideConformationAPI(RideID:rideInfoArray[sender.tag].id ?? "")
+        self.selectedRideInfoDict = rideInfoArray[sender.tag]
+        self.EditRideConformationAPI(RideID:rideInfoArray[sender.tag].id ?? "")
     }
     
     @objc func futureStopsButtonClicked(sender: UIButton) {
@@ -542,19 +570,19 @@ extension RideHistoryViewController {
                             rideInfoArray = dat
                             str_DriverRating = UserData.rating ?? ""
                             self.tableview_RideInfoRef.reloadData()
-                            self.tableview_RideInfoRef.isHidden = false
-                            self.lbl_NoListRef.isHidden = true
+//                            self.tableview_RideInfoRef.isHidden = false
+//                            self.lbl_NoListRef.isHidden = true
                         }
                     } else{
-                        self.tableview_RideInfoRef.isHidden = true
-                        self.lbl_NoListRef.isHidden = false
+////                        self.tableview_RideInfoRef.isHidden = true
+//                        self.lbl_NoListRef.isHidden = false
                         self.lbl_NoListRef.text = "No Ride History"
                     }
                 }
             } else {
                 DispatchQueue.main.async { [self] in
                     indicator.hideActivityIndicator()
-                    self.showToast(message: error ?? "No Such Email Address Found.", font: .systemFont(ofSize: 12.0))
+                    self.showToast(message: error ?? "Something went wrong.", font: .systemFont(ofSize: 12.0))
                 }
             }
             
@@ -573,21 +601,21 @@ extension RideHistoryViewController {
                     indicator.hideActivityIndicator()
                     if UserData.status == "1" {
                         if let dat = UserData.data {
-                        self.tableview_RideInfoRef.isHidden = false
-                        self.lbl_NoListRef.isHidden = true
+//                        self.tableview_RideInfoRef.isHidden = false
+//                        self.lbl_NoListRef.isHidden = true
                         PaymentInfoArray = dat
                         self.tableview_RideInfoRef.reloadData()
                         }
                     } else{
-                        self.tableview_RideInfoRef.isHidden = true
-                        self.lbl_NoListRef.isHidden = false
+//                        self.tableview_RideInfoRef.isHidden = true
+//                        self.lbl_NoListRef.isHidden = false
                         self.lbl_NoListRef.text = "No Ride History"
                     }
                 }
             } else {
                 DispatchQueue.main.async { [self] in
                     indicator.hideActivityIndicator()
-                    self.showToast(message: error ?? "No Such Email Address Found.", font: .systemFont(ofSize: 12.0))
+                    self.showToast(message: error ?? "Something went wrong.", font: .systemFont(ofSize: 12.0))
                 }
             }
             
@@ -619,7 +647,7 @@ extension RideHistoryViewController {
             } else {
                 DispatchQueue.main.async { [self] in
                     indicator.hideActivityIndicator()
-                    self.showToast(message: error ?? "No Such Email Address Found.", font: .systemFont(ofSize: 12.0))
+                    self.showToast(message: error ?? "Something went wrong.", font: .systemFont(ofSize: 12.0))
                 }
             }
             
@@ -632,17 +660,21 @@ extension RideHistoryViewController {
     //MARK: - Api Intigration
     func EditRideConformationAPI(RideID:String){
         indicator.showActivityIndicator()
-        
         self.viewModel.EditRideConformationApiService(perams: ["ride_id":RideID]) { success, model, error in
             if success  {
                 DispatchQueue.main.async { [self] in
                     indicator.hideActivityIndicator()
-                    self.movetonextvc(id: "BookingReservationViewController", storyBordid: "DashBoard", animated: true)
+                    let Storyboard : UIStoryboard = UIStoryboard(name: "DashBoard", bundle: nil)
+                    let nxtVC = Storyboard.instantiateViewController(withIdentifier: "BookingReservationViewController") as! BookingReservationViewController
+                    nxtVC.dict_SelectedRideDetailsForEdit = selectedRideInfoDict
+                    nxtVC.str_ComingFrom = "RideHistory"
+                    self.navigationController?.pushViewController(nxtVC, animated: true)
                 }
             } else {
                 DispatchQueue.main.async { [self] in
                     indicator.hideActivityIndicator()
-                    self.showToast(message: error ?? "No Such Email Address Found.", font: .systemFont(ofSize: 12.0))
+                    self.ShowAlert(message: error ?? "Not eligible for edit ride information")
+                   // self.showToast(message: error ?? "Not eligible for edit ride information", font: .systemFont(ofSize: 12.0))
                 }
             }
             

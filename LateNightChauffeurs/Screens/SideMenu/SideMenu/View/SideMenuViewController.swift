@@ -59,7 +59,7 @@ class SideMenuViewController: UIViewController {
         
         //User Image
         if let Str_UserImage = UserDefaults.standard.string(forKey: "userProfilepic") {
-            self.imageview_ProfileRef.sd_setImage(with: URL(string: API_URl.API_BASEIMAGE_URL +  Str_UserImage), placeholderImage: UIImage(named: "UserPic"))
+            self.imageview_ProfileRef.sd_setImage(with: URL(string: Str_UserImage), placeholderImage: UIImage(named: "UserPic"))
          }
         
         self.tableview_MenuSliderRef.reloadData()
@@ -132,7 +132,7 @@ extension SideMenuViewController {
             } else {
                 DispatchQueue.main.async { [self] in
                     indicator.hideActivityIndicator()
-                    self.showToast(message: error ?? "No Such Email Address Found.", font: .systemFont(ofSize: 12.0))
+                    self.showToast(message: error ?? "Something went wrong.", font: .systemFont(ofSize: 12.0))
                 }
             }
         }

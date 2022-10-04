@@ -141,6 +141,63 @@ extension UIViewController {
         alertController.addAction(OKAction)
         self.present(alertController, animated: true, completion: nil)
     }
+    
+    func ShowAlertWithLoginPage(message : String){
+           let alertController = UIAlertController(title: kApptitle, message: message, preferredStyle: .alert)
+           let OKAction = UIAlertAction(title: "OK", style: .default) { (UIAlertAction) in
+               self.MoveToLoginPage()
+           }
+           alertController.addAction(OKAction)
+           self.present(alertController, animated: true, completion: nil)
+       }
+    
+    func MoveToLoginPage() {
+        let Storyboard : UIStoryboard = UIStoryboard(name: "Authentication", bundle: nil)
+
+                                let loginVC = Storyboard.instantiateViewController(withIdentifier: "LoginViewController") as! LoginViewController
+        let window = UIApplication.shared.windows.first
+
+        let nav = UINavigationController(rootViewController: loginVC)
+        window?.rootViewController = nav
+
+    }
+    func ShowAlertWithDashBoardPage(message : String){
+           let alertController = UIAlertController(title: kApptitle, message: message, preferredStyle: .alert)
+           let OKAction = UIAlertAction(title: "OK", style: .default) { (UIAlertAction) in
+               self.MoveToDashBoardPage()
+           }
+           alertController.addAction(OKAction)
+           self.present(alertController, animated: true, completion: nil)
+       }
+    func MoveToDashBoardPage() {
+        let Storyboard : UIStoryboard = UIStoryboard(name: "DashBoard", bundle: nil)
+
+                                let loginVC = Storyboard.instantiateViewController(withIdentifier: "DashBoardViewController") as! DashBoardViewController
+        let window = UIApplication.shared.windows.first
+
+        let nav = UINavigationController(rootViewController: loginVC)
+        window?.rootViewController = nav
+
+    }
+    
+    func ShowAlertWithRideInfoPage(message : String){
+           let alertController = UIAlertController(title: kApptitle, message: message, preferredStyle: .alert)
+           let OKAction = UIAlertAction(title: "OK", style: .default) { (UIAlertAction) in
+               self.MoveToRideInfoPage()
+           }
+           alertController.addAction(OKAction)
+           self.present(alertController, animated: true, completion: nil)
+       }
+    func MoveToRideInfoPage() {
+        let Storyboard : UIStoryboard = UIStoryboard(name: "Profile", bundle: nil)
+
+                                let loginVC = Storyboard.instantiateViewController(withIdentifier: "RideHistoryViewController") as! RideHistoryViewController
+        let window = UIApplication.shared.windows.first
+
+        let nav = UINavigationController(rootViewController: loginVC)
+        window?.rootViewController = nav
+
+    }
 }
 extension UIViewController {
     func movetonextvc(id:String,storyBordid : String,animated:Bool?){
@@ -346,5 +403,36 @@ extension UIViewController {
             return outputFormatter.string(from: date)
         }
         return dateString
+    }
+}
+
+extension UIView {
+    
+    @IBInspectable var cornerRadiusV: CGFloat {
+        get {
+            return layer.cornerRadius
+        }
+        set {
+            layer.cornerRadius = newValue
+            layer.masksToBounds = newValue > 0
+        }
+    }
+    
+    @IBInspectable var borderWidthV: CGFloat {
+        get {
+            return layer.borderWidth
+        }
+        set {
+            layer.borderWidth = newValue
+        }
+    }
+    
+    @IBInspectable var borderColorV: UIColor? {
+        get {
+            return UIColor(cgColor: layer.borderColor!)
+        }
+        set {
+            layer.borderColor = newValue?.cgColor
+        }
     }
 }

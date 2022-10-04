@@ -10,7 +10,7 @@ target 'LateNightChauffeurs' do
     pod 'IQKeyboardManager'
     pod 'Reachability'
     pod 'SDWebImage'
-    pod 'Alamofire', '~> 4.9.1’
+    pod 'Alamofire'
     pod 'SideMenu', '~> 6.0'
     
 #    pod 'JJMaterialTextField'

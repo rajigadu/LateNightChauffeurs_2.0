@@ -27,6 +27,7 @@ class AvilableCardsViewController: UIViewController {
         AvilableCardViewMode()
     }()
     var array_AvailableCardList: SecondBookingData?
+    var array_AvailableCardListr :[SecondBookingDatar] = []
     //MARK: - expiry date and year pick
     var expiryMonths: [Int] = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
     var expiryYears: [Int] = [22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40]
@@ -133,18 +134,24 @@ extension AvilableCardsViewController {
             if success, let UserData = model {
                 DispatchQueue.main.async { [self] in
                     indicator.hideActivityIndicator()
+                    if UserData.status == "1" {
                     self.CardName_Tfref.text = ""
                     self.cardNumber_Tfref.text = ""
                     self.Expiry_MY_Tfref.text = ""
                     self.CVV_Tfref.text = ""
                     self.PostalCode_Tfref.text = ""
+                    self.AddCardView_Heaightref.constant = 0
                     self.savedCardListApiCall()
                     self.ShowAlert(message: UserData.message ?? "")
+                    } else {
+                       self.savedCardListApiCall()
+                       self.ShowAlert(message: UserData.message ?? "Something went wrong.")
+                   }
                 }
             } else {
                 DispatchQueue.main.async { [self] in
                     indicator.hideActivityIndicator()
-                    self.showToast(message: error ?? "No Such Email Address Found.", font: .systemFont(ofSize: 12.0))
+                    self.showToast(message: error ?? "Something went wrong.", font: .systemFont(ofSize: 12.0))
                 }
             }
             
@@ -162,12 +169,15 @@ extension AvilableCardsViewController {
                 DispatchQueue.main.async { [self] in
                     indicator.hideActivityIndicator()
                     self.array_AvailableCardList = UserData
+                    if let userData = UserData.data as? [SecondBookingDatar] {
+                        self.array_AvailableCardListr = userData
+                    }
                     self.tableview_SavedCardsRef.reloadData()
                 }
             } else {
                 DispatchQueue.main.async { [self] in
                     indicator.hideActivityIndicator()
-                    self.showToast(message: error ?? "No Such Email Address Found.", font: .systemFont(ofSize: 12.0))
+                    self.showToast(message: error ?? "Something went wrong.", font: .systemFont(ofSize: 12.0))
                 }
             }
             
@@ -180,8 +190,7 @@ extension AvilableCardsViewController {
     func removeCardListApiCall(card_id: String){
         let alertController = UIAlertController(title: kApptitle, message: "Are sure you want Delete this Saved Card?", preferredStyle: .alert)
         let OKAction = UIAlertAction(title: "YES", style: .default) { (UIAlertAction) in
-            
-       
+          
         guard let userID = UserDefaults.standard.string(forKey: "UserLoginID") else {return}
         indicator.showActivityIndicator()
         
@@ -189,13 +198,20 @@ extension AvilableCardsViewController {
             if success, let UserData = model {
                 DispatchQueue.main.async { [self] in
                     indicator.hideActivityIndicator()
+                    if UserData.status == "1" {
+                        self.array_AvailableCardListr.removeAll()
+                        self.tableview_SavedCardsRef.reloadData()
                     self.savedCardListApiCall()
                     self.ShowAlert(message: UserData.message ?? "")
+                } else {
+                    self.savedCardListApiCall()
+                    self.ShowAlert(message: UserData.message ?? "Something went wrong.")
+                }
                 }
             } else {
                 DispatchQueue.main.async { [self] in
                     indicator.hideActivityIndicator()
-                    self.showToast(message: error ?? "No Such Email Address Found.", font: .systemFont(ofSize: 12.0))
+                    self.showToast(message: error ?? "Something went wrong.", font: .systemFont(ofSize: 12.0))
                 }
             }
             
@@ -212,16 +228,16 @@ extension AvilableCardsViewController {
 extension AvilableCardsViewController: UITableViewDelegate,UITableViewDataSource {
    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return array_AvailableCardList?.data?.count ?? 0
+        return self.array_AvailableCardListr.count ?? 0
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell:SavedCardsTableViewCell = tableView.dequeueReusableCell(withIdentifier: "SavedCardsTableViewCell", for: indexPath) as? SavedCardsTableViewCell else {return UITableViewCell()}
-        let cardNumber = array_AvailableCardList?.data?[indexPath.row].token ?? ""
+        let cardNumber = self.array_AvailableCardListr[indexPath.row].token ?? ""
         var showCardNumb = String(cardNumber.suffix(4))
         if cardNumber.count >=  4 {
             showCardNumb = String(cardNumber.suffix(4))
         }
-        let ExpiryDate = array_AvailableCardList?.data?[indexPath.row].expiry ?? ""
+        let ExpiryDate = self.array_AvailableCardListr[indexPath.row].expiry ?? ""
         let yearStr = ExpiryDate.suffix(2)
         let monthStr = ExpiryDate.prefix(2)
 
@@ -238,7 +254,7 @@ extension AvilableCardsViewController: UITableViewDelegate,UITableViewDataSource
     }
     
     @objc func btnRemovecard(sender: UIButton){
-        if let cardid = array_AvailableCardList?.data?[sender.tag].acctid as? String {
+        if let cardid = self.array_AvailableCardListr[sender.tag].acctid as? String {
             self.removeCardListApiCall(card_id: cardid)
         }
     }
