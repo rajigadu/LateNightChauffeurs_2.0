@@ -87,9 +87,8 @@ class BookingReservationViewController: UIViewController, SKUIDatePickerDelegate
         super.viewDidLoad()
         IntialMethod()
         
-        
-        self.txt_FutureBookingDateRef.text = "09-27-2022"
-        self.txt_FutureBookingTimeRef.text = "09:03 AM"
+        self.txt_FutureBookingDateRef.text = "10-03-2022"
+        self.txt_FutureBookingTimeRef.text = "08:15 AM"
         self.txt_PickUpLocationRef.text = "Kommala Padu, Andhra Pradesh 523303, India"
         self.txt_DropLocationRef.text = "Addanki, Andhra Pradesh 523201, India"
         self.textview_Descriptionref.text = "hello sdf"
