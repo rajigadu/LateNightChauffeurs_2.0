@@ -438,9 +438,8 @@ extension SecondBookingViewController {
                         let message5 = "‣ Price does not include gratuity."
                         let message  = message1 + message2 + message3 + message4 + message5
                         let str_MessageTitle = UserData.data?[0].message ?? ""
-                        
                         if str_MessageTitle == "Congratulations! your reservation has been completed." {
-                            self.ShowAlertWithRideInfoPage(message : str_MessageTitle)
+                            self.ShowAlertWithRideInfoPage(message : message)
                         } else {
                             self.ShowAlertWithDashBoardPage(message: str_MessageTitle)
                         }

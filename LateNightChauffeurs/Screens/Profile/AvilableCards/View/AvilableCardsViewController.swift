@@ -102,6 +102,9 @@ class AvilableCardsViewController: UIViewController {
         }
     }
     
+    @IBAction func SideMenuOpen(_ sender: Any) {
+        self.navigateToSideMenu()
+    }
     
     @IBAction func btn_AddCardActionRef(_ sender: Any) {
         AddCardView_Heaightref.constant = 408

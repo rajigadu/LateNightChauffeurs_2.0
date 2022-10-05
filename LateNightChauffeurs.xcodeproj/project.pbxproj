@@ -23,6 +23,8 @@
 		BA2DE99B28E1A5BC003FDB12 /* DriverDetailInFutureBookingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA2DE99A28E1A5BC003FDB12 /* DriverDetailInFutureBookingViewModel.swift */; };
 		BA2DE99D28E1A5D0003FDB12 /* DriverDetailInFutureBookingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA2DE99C28E1A5D0003FDB12 /* DriverDetailInFutureBookingViewController.swift */; };
 		BA2DE99F28E1A5DE003FDB12 /* DriverDetailInFutureBookingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA2DE99E28E1A5DE003FDB12 /* DriverDetailInFutureBookingModel.swift */; };
+		BA3057B228ED863E0091931D /* RideHistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA3057B128ED863E0091931D /* RideHistoryViewController.swift */; };
+		BA3057B428EDD3410091931D /* GetLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA3057B328EDD3410091931D /* GetLocation.swift */; };
 		BA36D84228C8C39800B73053 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA36D84128C8C39800B73053 /* AppDelegate.swift */; };
 		BA36D84928C8C39800B73053 /* DashBoard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BA36D84728C8C39800B73053 /* DashBoard.storyboard */; };
 		BA36D84C28C8C39800B73053 /* LateNightChauffeurs.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = BA36D84A28C8C39800B73053 /* LateNightChauffeurs.xcdatamodeld */; };
@@ -98,7 +100,6 @@
 		BA89EAA928DDA9D5006B65E4 /* AvilableCardsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA89EAA828DDA9D5006B65E4 /* AvilableCardsModel.swift */; };
 		BA89EAAB28DDAD37006B65E4 /* SavedCardsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA89EAAA28DDAD37006B65E4 /* SavedCardsTableViewCell.swift */; };
 		BA89EAB128DDE310006B65E4 /* RideHistoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA89EAB028DDE310006B65E4 /* RideHistoryTableViewCell.swift */; };
-		BA89EAB328DDE33E006B65E4 /* RideHistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA89EAB228DDE33D006B65E4 /* RideHistoryViewController.swift */; };
 		BA89EAB528DDE8B6006B65E4 /* RideHistoryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA89EAB428DDE8B6006B65E4 /* RideHistoryModel.swift */; };
 		BA89EAB728DE13BC006B65E4 /* RideInfoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA89EAB628DE13BC006B65E4 /* RideInfoViewModel.swift */; };
 		BA912F1828E2AB7C007E49AB /* CancelRideViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA912F1728E2AB7C007E49AB /* CancelRideViewModel.swift */; };
@@ -167,6 +168,8 @@
 		BA2DE99A28E1A5BC003FDB12 /* DriverDetailInFutureBookingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriverDetailInFutureBookingViewModel.swift; sourceTree = "<group>"; };
 		BA2DE99C28E1A5D0003FDB12 /* DriverDetailInFutureBookingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriverDetailInFutureBookingViewController.swift; sourceTree = "<group>"; };
 		BA2DE99E28E1A5DE003FDB12 /* DriverDetailInFutureBookingModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriverDetailInFutureBookingModel.swift; sourceTree = "<group>"; };
+		BA3057B128ED863E0091931D /* RideHistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RideHistoryViewController.swift; sourceTree = "<group>"; };
+		BA3057B328EDD3410091931D /* GetLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetLocation.swift; sourceTree = "<group>"; };
 		BA36D83E28C8C39800B73053 /* LateNightChauffeurs.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LateNightChauffeurs.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BA36D84128C8C39800B73053 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BA36D84828C8C39800B73053 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/DashBoard.storyboard; sourceTree = "<group>"; };
@@ -247,7 +250,6 @@
 		BA89EAA828DDA9D5006B65E4 /* AvilableCardsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvilableCardsModel.swift; sourceTree = "<group>"; };
 		BA89EAAA28DDAD37006B65E4 /* SavedCardsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedCardsTableViewCell.swift; sourceTree = "<group>"; };
 		BA89EAB028DDE310006B65E4 /* RideHistoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = RideHistoryTableViewCell.swift; path = LateNightChauffeurs/Screens/Profile/RideInfo/ViewModel/RideHistoryTableViewCell.swift; sourceTree = SOURCE_ROOT; };
-		BA89EAB228DDE33D006B65E4 /* RideHistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = RideHistoryViewController.swift; path = LateNightChauffeurs/Screens/Profile/RideInfo/ViewModel/RideHistoryViewController.swift; sourceTree = SOURCE_ROOT; };
 		BA89EAB428DDE8B6006B65E4 /* RideHistoryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RideHistoryModel.swift; sourceTree = "<group>"; };
 		BA89EAB628DE13BC006B65E4 /* RideInfoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RideInfoViewModel.swift; sourceTree = "<group>"; };
 		BA912F1728E2AB7C007E49AB /* CancelRideViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CancelRideViewModel.swift; sourceTree = "<group>"; };
@@ -434,6 +436,14 @@
 				BA2DE99E28E1A5DE003FDB12 /* DriverDetailInFutureBookingModel.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		BA3057B028ED85FE0091931D /* View */ = {
+			isa = PBXGroup;
+			children = (
+				BA3057B128ED863E0091931D /* RideHistoryViewController.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		BA36D83528C8C39700B73053 = {
@@ -785,6 +795,7 @@
 			children = (
 				BA60F99F28C986E4005D5B58 /* HttpRequestHelper.swift */,
 				BA60F9C828C99987005D5B58 /* LncUserConstants .swift */,
+				BA3057B328EDD3410091931D /* GetLocation.swift */,
 				BA60F9CD28C9A764005D5B58 /* HelperConstants.swift */,
 				BA60F9CF28C9A8E9005D5B58 /* FontFamily */,
 				BA4B3C2E28CAEB04001D48B8 /* TextFieldHelper.swift */,
@@ -1141,8 +1152,8 @@
 		BA89EAAC28DDDDF5006B65E4 /* RideInfo */ = {
 			isa = PBXGroup;
 			children = (
+				BA3057B028ED85FE0091931D /* View */,
 				BA89EAAF28DDE1F2006B65E4 /* Model */,
-				BA89EAAE28DDE1EC006B65E4 /* View */,
 				BA89EAAD28DDE1E3006B65E4 /* ViewModel */,
 			);
 			path = RideInfo;
@@ -1155,14 +1166,6 @@
 				BA89EAB628DE13BC006B65E4 /* RideInfoViewModel.swift */,
 			);
 			path = ViewModel;
-			sourceTree = "<group>";
-		};
-		BA89EAAE28DDE1EC006B65E4 /* View */ = {
-			isa = PBXGroup;
-			children = (
-				BA89EAB228DDE33D006B65E4 /* RideHistoryViewController.swift */,
-			);
-			path = View;
 			sourceTree = "<group>";
 		};
 		BA89EAAF28DDE1F2006B65E4 /* Model */ = {
@@ -1647,6 +1650,7 @@
 				BA7779DC28DED37F00EC8996 /* TipPercentageCollectionViewCell.swift in Sources */,
 				BA60F9CE28C9A764005D5B58 /* HelperConstants.swift in Sources */,
 				BA3F71C828D7F70900B650E9 /* StopsViewController.swift in Sources */,
+				BA3057B228ED863E0091931D /* RideHistoryViewController.swift in Sources */,
 				BA60F9C928C99987005D5B58 /* LncUserConstants .swift in Sources */,
 				BA4B3C3E28CAF54B001D48B8 /* SideMenuViewController.swift in Sources */,
 				BA7779CE28DEBA9200EC8996 /* PaymentSummaryViewModel.swift in Sources */,
@@ -1685,7 +1689,6 @@
 				BA67CD7528D9EC06003127F4 /* SecondBookingModel.swift in Sources */,
 				BADA1AE228D756490016C1AD /* BookingsecondFooterCell.swift in Sources */,
 				BADA1AEE28D759A70016C1AD /* CancelBookingViewModel.swift in Sources */,
-				BA89EAB328DDE33E006B65E4 /* RideHistoryViewController.swift in Sources */,
 				BA51634828CDDF9D008FF4C8 /* TermsAndPrivacyViewController.swift in Sources */,
 				BADA1AE028D756320016C1AD /* BookingsecondHeaderCell.swift in Sources */,
 				BA36D84228C8C39800B73053 /* AppDelegate.swift in Sources */,
@@ -1731,6 +1734,7 @@
 				BAA2D1BC28E32C2D00DD5B8E /* ChatViewModel.swift in Sources */,
 				BA912F1C28E2AB9A007E49AB /* CancelRideModel.swift in Sources */,
 				BA7A86D528EC8FED0036A4B5 /* BannerIDsVC.swift in Sources */,
+				BA3057B428EDD3410091931D /* GetLocation.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1930,7 +1934,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.0.31;
 				PRODUCT_BUNDLE_IDENTIFIER = com.AnaadITSolutions.LateNightChauffeurs;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -1969,7 +1973,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.0.31;
 				PRODUCT_BUNDLE_IDENTIFIER = com.AnaadITSolutions.LateNightChauffeurs;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;

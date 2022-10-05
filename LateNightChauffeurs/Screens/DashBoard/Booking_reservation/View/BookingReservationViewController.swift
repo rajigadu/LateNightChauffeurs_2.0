@@ -73,6 +73,10 @@ class BookingReservationViewController: UIViewController, SKUIDatePickerDelegate
     //step - 2 - Picker and drop location setup
     var selctingPickLocation = ""
     var selctingDropLocation = ""
+    var str_UserCurrentLocationLatitude = ""
+    var str_UserCurrentLocationLongitude = ""
+    var str_UserCurrentLocationAddress = ""
+var str_UserCurrentLocationCity = ""
     //step - 3 - Transmission
     var isTransmission = false
     //step - 4 - Add Stops
@@ -84,6 +88,7 @@ class BookingReservationViewController: UIViewController, SKUIDatePickerDelegate
     var userDroplongitudeStr = String()
     var userDropCityNameStr = String()
     var userPickCityNameStr = String()
+    
     //step - 6 - creating of global dict
     var bookingModel: BookingModel?
     
@@ -91,18 +96,19 @@ class BookingReservationViewController: UIViewController, SKUIDatePickerDelegate
         super.viewDidLoad()
         IntialMethod()
         
-        self.txt_FutureBookingDateRef.text = "10-10-2022"
-        self.txt_FutureBookingTimeRef.text = "05:00 AM"
-        self.txt_PickUpLocationRef.text = "Kommala Padu, Andhra Pradesh 523303, India"
-        self.txt_DropLocationRef.text = "Addanki, Andhra Pradesh 523201, India"
-        self.textview_Descriptionref.text = "hello sdf"
-        self.userPickUplatitudeStr = "16.0294422"
-        self.userPickUplongitudeStr = "79.9447885"
-        self.userDroplatitudeStr = "15.810707"
-        self.userDroplongitudeStr = "79.9724245"
-        self.userDropCityNameStr = "Addanki"
-        self.userPickCityNameStr = "Kommala Padu"
-        self.ary_StopList.append("WXP4+8P2, Kopperapadu, Chinakotha Palle, Andhra Pradesh 523303, India")
+        
+//        self.txt_FutureBookingDateRef.text = "10-10-2022"
+//        self.txt_FutureBookingTimeRef.text = "05:00 AM"
+//        self.txt_PickUpLocationRef.text = "Kommala Padu, Andhra Pradesh 523303, India"
+//        self.txt_DropLocationRef.text = "Addanki, Andhra Pradesh 523201, India"
+//        self.textview_Descriptionref.text = "hello sdf"
+//        self.userPickUplatitudeStr = "16.0294422"
+//        self.userPickUplongitudeStr = "79.9447885"
+//        self.userDroplatitudeStr = "15.810707"
+//        self.userDroplongitudeStr = "79.9724245"
+//        self.userDropCityNameStr = "Addanki"
+//        self.userPickCityNameStr = "Kommala Padu"
+//        self.ary_StopList.append("WXP4+8P2, Kopperapadu, Chinakotha Palle, Andhra Pradesh 523303, India")
         
         if str_ComingFrom == "RideHistory" {
             
@@ -129,6 +135,11 @@ class BookingReservationViewController: UIViewController, SKUIDatePickerDelegate
                 self.CurrentRideStopListAPI(str_rideid: dict_SelectedRideDetailsForEdit?.id ?? "")
            }
             
+        } else  if str_ComingFrom == "HomePage" {
+            self.userPickUplatitudeStr = str_UserCurrentLocationLatitude
+            self.userPickUplongitudeStr = str_UserCurrentLocationLongitude
+            self.userPickCityNameStr = str_UserCurrentLocationCity
+            self.txt_PickUpLocationRef.text = str_UserCurrentLocationAddress
         }
         
     }

@@ -1,17 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "hbg.jpg",
+      "filename" : "navbg.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "hbg@2x.jpg",
+      "filename" : "navbg@2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "hbg@3x.jpg",
+      "filename" : "navbg@3x.png",
       "idiom" : "universal",
       "scale" : "3x"
     }

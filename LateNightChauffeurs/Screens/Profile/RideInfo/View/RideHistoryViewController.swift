@@ -17,6 +17,7 @@ class RideHistoryViewController: UIViewController {
     @IBOutlet weak var lbl_NoListRef:UILabel!
 
     var rideInfoArray:[RideInfoDatar] = []
+    var rideInfoEditButtonStatusArray:[Future_edit_ride_status] = []
     var selectedRideInfoDict:RideInfoDatar?
     var PaymentInfoArray:[PaymentHistoryDatar] = []
     var str_DriverRating = ""
@@ -56,6 +57,10 @@ class RideHistoryViewController: UIViewController {
             self.currentRideWithFutureAcceptedListAPI()
         }
     }
+    
+    @IBAction func MenuBtn(_ sender: Any) {
+        self.navigateToSideMenu()
+    }
 
     @IBAction func btn_UpcomingRef(_ sender: Any){
         
@@ -66,6 +71,7 @@ class RideHistoryViewController: UIViewController {
         self.lbl_HistoryRef.backgroundColor = .white
         //User Ride History API Calling...............
         self.rideInfoArray = []
+        self.rideInfoEditButtonStatusArray = []
         self.PaymentInfoArray = []
         self.tableview_RideInfoRef.reloadData()
         self.userRideListAPI()
@@ -81,6 +87,7 @@ class RideHistoryViewController: UIViewController {
         
         //User current Ride details API Calling...............
         self.rideInfoArray = []
+        self.rideInfoEditButtonStatusArray = []
         self.PaymentInfoArray = []
         self.tableview_RideInfoRef.reloadData()
         self.currentRideWithFutureAcceptedListAPI()
@@ -231,6 +238,26 @@ extension RideHistoryViewController: UITableViewDelegate, UITableViewDataSource 
                             cell.btn_ViewDetailRef.layer.masksToBounds = true
                             cell.btn_ViewDetailRef.tag = indexPath.row
                             cell.btn_ViewDetailRef.setTitle("Edit Ride Info", for: .normal)
+                        }
+                        
+                        if self.rideInfoEditButtonStatusArray.count == rideInfoArray.count {
+                            if let EditButtonStatus = self.rideInfoEditButtonStatusArray[indexPath.row].future_edit_ride_status,let EditButtonStatusId = self.rideInfoEditButtonStatusArray[indexPath.row].id {
+                                
+                                if EditButtonStatusId == rideInfoArray[indexPath.row].id {
+                                    if EditButtonStatus == "1" {
+                                        cell.btn_ViewDetailRef.isHidden = false
+                                        cell.btn_ViewDetailRef.layer.cornerRadius = 5.0
+                                        cell.btn_ViewDetailRef.layer.masksToBounds = true
+                                        cell.btn_ViewDetailRef.tag = indexPath.row
+                                        cell.btn_ViewDetailRef.setTitle("Edit Ride Info", for: .normal)
+                                    } else {
+                                        cell.btn_ViewDetailRef.setTitle("View Detail", for: .normal)
+                                        cell.btn_ViewDetailRef.layer.cornerRadius = 5.0
+                                        cell.btn_ViewDetailRef.layer.masksToBounds = true
+                                        cell.btn_ViewDetailRef.tag = indexPath.row
+                                     }
+                                }
+                            }
                         }
                         
                         if FutureBookingRideStatus == "1" {
@@ -565,13 +592,13 @@ extension RideHistoryViewController {
                 DispatchQueue.main.async { [self] in
                     indicator.hideActivityIndicator()
                     if UserData.status == "1" {
-                        
-                        if let dat = UserData.data {
-                            rideInfoArray = dat
+                        if let dat = UserData.data?.ride {
+                            self.rideInfoArray = dat
+                            if let response = UserData.data?.future_edit_ride_status {
+                                self.rideInfoEditButtonStatusArray = response
+                            }
                             str_DriverRating = UserData.rating ?? ""
                             self.tableview_RideInfoRef.reloadData()
-//                            self.tableview_RideInfoRef.isHidden = false
-//                            self.lbl_NoListRef.isHidden = true
                         }
                     } else{
 ////                        self.tableview_RideInfoRef.isHidden = true

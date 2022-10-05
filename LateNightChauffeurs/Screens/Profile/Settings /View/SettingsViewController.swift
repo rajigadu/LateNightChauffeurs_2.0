@@ -20,7 +20,10 @@ class SettingsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let version = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String
+       // let version = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String
+        // self.str_AppVersion = UserDefaults.standard.string(forKey: "CFBundleShortVersionString") ?? ""
+        let version = Bundle.main.infoDictionary!["CFBundleIdentifier"] as? String ?? ""
+
         lbl_AppVersionRef.text = "Version : \(version ?? "")"
         self.swipeRight()
         navigationController?.isNavigationBarHidden = false //Show

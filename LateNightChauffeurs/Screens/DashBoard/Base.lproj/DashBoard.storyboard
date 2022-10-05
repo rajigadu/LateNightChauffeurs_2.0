@@ -8,117 +8,6 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--BOOK A RESERVATION-->
-        <scene sceneID="9Is-7u-Yuu">
-            <objects>
-                <viewController id="LF4-g2-zey" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="Nue-SI-9c0">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="70x-p0-zjc">
-                                <rect key="frame" x="60" y="648" width="284" height="49"/>
-                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="49" id="taf-me-45w"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
-                                <state key="normal" title="Reservation/Quote">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadiusV">
-                                        <real key="value" value="5"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                                <connections>
-                                    <action selector="bookingReservation:" destination="LF4-g2-zey" eventType="touchUpInside" id="S7I-zr-NSl"/>
-                                </connections>
-                            </button>
-                        </subviews>
-                        <viewLayoutGuide key="safeArea" id="MR7-zC-Eep"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <constraints>
-                            <constraint firstItem="MR7-zC-Eep" firstAttribute="trailing" secondItem="70x-p0-zjc" secondAttribute="trailing" constant="70" id="34n-MJ-rS1"/>
-                            <constraint firstItem="70x-p0-zjc" firstAttribute="leading" secondItem="MR7-zC-Eep" secondAttribute="leading" constant="60" id="9DU-zH-TUD"/>
-                            <constraint firstItem="MR7-zC-Eep" firstAttribute="bottom" secondItem="70x-p0-zjc" secondAttribute="bottom" constant="165" id="Z4e-Uh-LW4"/>
-                        </constraints>
-                    </view>
-                    <navigationItem key="navigationItem" title="BOOK A RESERVATION" id="InR-7P-DuN">
-                        <barButtonItem key="leftBarButtonItem" style="plain" id="llW-Qs-oaM">
-                            <view key="customView" contentMode="scaleToFill" id="sn5-TS-ro1">
-                                <rect key="frame" x="20" y="5.5" width="71" height="33"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="menuicon" translatesAutoresizingMaskIntoConstraints="NO" id="xIz-8n-gWB">
-                                        <rect key="frame" x="0.0" y="0.0" width="40" height="33"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="40" id="6T0-qO-wE1"/>
-                                        </constraints>
-                                    </imageView>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="N4v-Jc-EQN">
-                                        <rect key="frame" x="0.0" y="0.0" width="71" height="33"/>
-                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <state key="normal">
-                                            <color key="titleColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="setupSideMenu:" destination="LF4-g2-zey" eventType="touchUpInside" id="q76-1c-soN"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
-                                <viewLayoutGuide key="safeArea" id="Pcm-Uk-HrZ"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstItem="xIz-8n-gWB" firstAttribute="leading" secondItem="Pcm-Uk-HrZ" secondAttribute="leading" id="6S9-8x-F6z"/>
-                                    <constraint firstItem="N4v-Jc-EQN" firstAttribute="leading" secondItem="sn5-TS-ro1" secondAttribute="leading" id="9Ea-Xb-Gio"/>
-                                    <constraint firstItem="xIz-8n-gWB" firstAttribute="top" secondItem="sn5-TS-ro1" secondAttribute="top" id="Bd0-Br-7Ov"/>
-                                    <constraint firstItem="N4v-Jc-EQN" firstAttribute="top" secondItem="sn5-TS-ro1" secondAttribute="top" id="Pei-mn-7Hf"/>
-                                    <constraint firstAttribute="bottom" secondItem="xIz-8n-gWB" secondAttribute="bottom" id="ZnB-vX-R4z"/>
-                                    <constraint firstAttribute="bottom" secondItem="N4v-Jc-EQN" secondAttribute="bottom" id="brG-9y-OxQ"/>
-                                    <constraint firstAttribute="trailing" secondItem="N4v-Jc-EQN" secondAttribute="trailing" id="gnu-Lu-6DW"/>
-                                </constraints>
-                            </view>
-                        </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" style="plain" id="Z8V-wp-dN3">
-                            <view key="customView" contentMode="scaleToFill" id="mdF-fY-efX">
-                                <rect key="frame" x="323" y="5.5" width="71" height="33"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bellIcon" translatesAutoresizingMaskIntoConstraints="NO" id="Kck-v7-GN1">
-                                        <rect key="frame" x="31" y="0.0" width="40" height="33"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="40" id="AP4-7R-qSJ"/>
-                                        </constraints>
-                                    </imageView>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8EH-3C-DPN">
-                                        <rect key="frame" x="0.0" y="0.0" width="71" height="33"/>
-                                        <state key="normal">
-                                            <color key="titleColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="MovetoAlertNotification:" destination="LF4-g2-zey" eventType="touchUpInside" id="lbz-Mm-jaF"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstItem="Kck-v7-GN1" firstAttribute="top" secondItem="mdF-fY-efX" secondAttribute="top" id="CyC-XM-Yd7"/>
-                                    <constraint firstAttribute="trailing" secondItem="8EH-3C-DPN" secondAttribute="trailing" id="KOc-uP-EYN"/>
-                                    <constraint firstItem="8EH-3C-DPN" firstAttribute="top" secondItem="mdF-fY-efX" secondAttribute="top" id="Plo-4J-L4M"/>
-                                    <constraint firstAttribute="bottom" secondItem="8EH-3C-DPN" secondAttribute="bottom" id="VCi-tm-bdh"/>
-                                    <constraint firstAttribute="trailing" secondItem="Kck-v7-GN1" secondAttribute="trailing" id="ceM-of-XXx"/>
-                                    <constraint firstAttribute="bottom" secondItem="Kck-v7-GN1" secondAttribute="bottom" id="pXG-Eb-uTa"/>
-                                    <constraint firstItem="8EH-3C-DPN" firstAttribute="leading" secondItem="mdF-fY-efX" secondAttribute="leading" id="ssy-Kj-Que"/>
-                                </constraints>
-                            </view>
-                        </barButtonItem>
-                    </navigationItem>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Pmy-eQ-be0" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1605" y="42"/>
-        </scene>
         <!--View Controller-->
         <scene sceneID="hLO-lV-qhR">
             <objects>
@@ -144,25 +33,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hMp-BF-obC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1572" y="712"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="JZY-bv-LEL">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="xym-dL-KjH" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="yUT-KK-FLQ">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                        <color key="barTintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="LF4-g2-zey" kind="relationship" relationship="rootViewController" id="vMv-AZ-hw4"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="QOY-md-6TG" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="908" y="43"/>
         </scene>
         <!--Cancel RideVC-->
         <scene sceneID="Bo5-N3-f2h">
@@ -2489,6 +2359,11 @@
                                 <state key="normal" title="Reservation/Quote">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadiusV">
+                                        <real key="value" value="8"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="bookingReservation:" destination="rSY-9R-VYG" eventType="touchUpInside" id="q7F-WB-tYA"/>
                                 </connections>
@@ -2554,52 +2429,26 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="BOOK A RESERVATION" id="rQq-2m-FVd">
-                        <barButtonItem key="leftBarButtonItem" image="menuicon" id="szS-kM-5wf">
+                        <barButtonItem key="leftBarButtonItem" image="list.bullet" catalog="system" id="jJi-tD-wHL">
                             <connections>
-                                <action selector="setupSideMenu:" destination="rSY-9R-VYG" id="p0V-N7-DKN"/>
+                                <action selector="setupSideMenu:" destination="rSY-9R-VYG" id="LLK-Wl-AgA"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" style="plain" id="Nj3-qU-2Y3">
-                            <view key="customView" contentMode="scaleToFill" id="Pcp-R0-RUp">
-                                <rect key="frame" x="323" y="5.5" width="71" height="33"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dDm-Kw-BTF">
-                                        <rect key="frame" x="0.0" y="0.0" width="71" height="33"/>
-                                        <state key="normal">
-                                            <color key="titleColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="MovetoAlertNotification:" destination="rSY-9R-VYG" eventType="touchUpInside" id="o5U-a8-g82"/>
-                                        </connections>
-                                    </button>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bellIcon" translatesAutoresizingMaskIntoConstraints="NO" id="gGn-9f-6Mo">
-                                        <rect key="frame" x="31" y="0.0" width="40" height="33"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="40" id="9Rg-M5-piB"/>
-                                        </constraints>
-                                    </imageView>
-                                </subviews>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstItem="dDm-Kw-BTF" firstAttribute="top" secondItem="Pcp-R0-RUp" secondAttribute="top" id="1oi-VG-6OZ"/>
-                                    <constraint firstAttribute="trailing" secondItem="dDm-Kw-BTF" secondAttribute="trailing" id="KwH-ST-IhA"/>
-                                    <constraint firstItem="gGn-9f-6Mo" firstAttribute="top" secondItem="Pcp-R0-RUp" secondAttribute="top" id="M3B-aM-f17"/>
-                                    <constraint firstItem="dDm-Kw-BTF" firstAttribute="leading" secondItem="Pcp-R0-RUp" secondAttribute="leading" id="T64-Db-lt4"/>
-                                    <constraint firstAttribute="bottom" secondItem="dDm-Kw-BTF" secondAttribute="bottom" id="gcD-if-wv4"/>
-                                    <constraint firstAttribute="bottom" secondItem="gGn-9f-6Mo" secondAttribute="bottom" id="rtH-nZ-kAg"/>
-                                    <constraint firstAttribute="trailing" secondItem="gGn-9f-6Mo" secondAttribute="trailing" id="xFc-d0-zfn"/>
-                                </constraints>
-                            </view>
+                        <barButtonItem key="rightBarButtonItem" image="bell" catalog="system" id="hFZ-Ib-anm">
+                            <connections>
+                                <action selector="MovetoAlertNotification:" destination="rSY-9R-VYG" id="S5s-hu-tEA"/>
+                            </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="BookingReservationButton" destination="Y83-S1-f5v" id="NY3-MG-ulI"/>
                         <outlet property="btnFutureRideTimeCheck" destination="m8i-MO-feZ" id="iIP-bI-UNx"/>
                         <outlet property="containerViewBannerRef" destination="9Ng-4A-Ybf" id="nnJ-VE-Zpw"/>
                         <outlet property="lbl_FutureRideCheckConstraint" destination="ONV-gS-y8L" id="ttV-Sf-yg9"/>
                         <outlet property="lbl_FutureRideTimeCheck" destination="uaN-3T-ABa" id="KCv-GO-AZC"/>
                         <outlet property="mapView" destination="tnd-nv-FZg" id="7N3-fg-2Vr"/>
                         <outlet property="view_BannerADSViewRef" destination="jqC-RH-WvU" id="jFk-oX-OQe"/>
+                        <outlet property="view_BannerAdsConstraintRef" destination="tHd-d0-bo1" id="Ze7-Gc-dSn"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="V97-e9-wP3" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -2616,6 +2465,7 @@
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sIW-Ac-JKw">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="100"/>
+                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="R29-yP-5hA"/>
@@ -2720,14 +2570,14 @@
         <image name="Circle" width="64" height="64"/>
         <image name="Edit" width="32" height="32"/>
         <image name="backgroundimage" width="400" height="700"/>
-        <image name="bellIcon" width="16" height="16"/>
+        <image name="bell" catalog="system" width="128" height="124"/>
         <image name="checkbox_unchecked" width="30" height="30"/>
         <image name="collapsed.png" width="50" height="50"/>
         <image name="crossIcon" width="24" height="24"/>
         <image name="delete" width="24" height="24"/>
         <image name="emptyCircle" width="64" height="64"/>
         <image name="expanded.png" width="50" height="50"/>
-        <image name="menuicon" width="16" height="16"/>
+        <image name="list.bullet" catalog="system" width="128" height="88"/>
         <systemColor name="darkTextColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

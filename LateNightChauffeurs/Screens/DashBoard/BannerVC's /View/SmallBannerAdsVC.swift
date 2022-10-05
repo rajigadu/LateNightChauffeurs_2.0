@@ -22,7 +22,7 @@ class SmallBannerAdsVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        str_AppVersion = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String ?? ""
+        str_AppVersion = Bundle.main.infoDictionary!["CFBundleIdentifier"] as? String ?? ""
         //Get todays date For Banner api......
         
         let todayDate = Date()
@@ -45,7 +45,9 @@ class SmallBannerAdsVC: UIViewController {
 extension SmallBannerAdsVC {
     func bannerADAPI(str_CurrentDate: String) {
         guard let str_userID = UserDefaults.standard.string(forKey: "UserLoginID") else{return}
-        guard let FCMDeviceToken = UserDefaults.standard.string(forKey: "FCMDeviceToken") else{return}
+       // guard
+            let FCMDeviceToken = "435678"
+                //UserDefaults.standard.string(forKey: "FCMDeviceToken") else{return}
 
         indicator.showActivityIndicator()
         

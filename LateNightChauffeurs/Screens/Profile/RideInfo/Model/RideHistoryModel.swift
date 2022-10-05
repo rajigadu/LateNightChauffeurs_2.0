@@ -14,7 +14,7 @@ struct RideInfoModel : Codable {
     let status : String?
     let bannercount : String?
     let rating : String?
-    let data : [RideInfoDatar]?
+    let data : FutureRideInfoDatarrrr?
 
     enum CodingKeys: String, CodingKey {
 
@@ -31,7 +31,43 @@ struct RideInfoModel : Codable {
         status = try values.decodeIfPresent(String.self, forKey: .status)
         bannercount = try values.decodeIfPresent(String.self, forKey: .bannercount)
         rating = try values.decodeIfPresent(String.self, forKey: .rating)
-        data = try values.decodeIfPresent([RideInfoDatar].self, forKey: .data)
+        data = try values.decodeIfPresent(FutureRideInfoDatarrrr.self, forKey: .data)
+    }
+
+}
+
+struct FutureRideInfoDatarrrr : Codable {
+    let future_edit_ride_status : [Future_edit_ride_status]?
+    let ride : [RideInfoDatar]?
+
+    enum CodingKeys: String, CodingKey {
+
+        case future_edit_ride_status = "future_edit_ride_status"
+        case ride = "ride"
+    }
+
+    init(from decoder: Decoder) throws {
+        let values = try decoder.container(keyedBy: CodingKeys.self)
+        future_edit_ride_status = try values.decodeIfPresent([Future_edit_ride_status].self, forKey: .future_edit_ride_status)
+        ride = try values.decodeIfPresent([RideInfoDatar].self, forKey: .ride)
+    }
+
+}
+
+struct Future_edit_ride_status : Codable {
+    let future_edit_ride_status : String?
+    let id : String?
+
+    enum CodingKeys: String, CodingKey {
+
+        case future_edit_ride_status = "future_edit_ride_status"
+        case id = "id"
+    }
+
+    init(from decoder: Decoder) throws {
+        let values = try decoder.container(keyedBy: CodingKeys.self)
+        future_edit_ride_status = try values.decodeIfPresent(String.self, forKey: .future_edit_ride_status)
+        id = try values.decodeIfPresent(String.self, forKey: .id)
     }
 
 }
@@ -206,6 +242,8 @@ struct RideInfoDatar : Codable {
     }
 
 }
+
+//MARK : ----  ------------------------------------------------------------------------------------------
 
 typealias PaymentHistoryData = PaymentHistoryModel
 

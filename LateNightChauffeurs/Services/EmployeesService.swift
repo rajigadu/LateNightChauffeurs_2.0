@@ -61,7 +61,16 @@ protocol LateNightChauffeursUSERServiceProtocol {
     func requestForNotificationServices(_ perams: Dictionary<String, String>, completion: @escaping (Bool, NotificationData?, String?) -> ())
     //MARK: - Banner Data 1
     func requestForbannerServices(_ perams: Dictionary<String, String>, completion: @escaping (Bool, BannerData?, String?) -> ())
-        
+    
+    //MARK: - get Google key
+    func requestForgetgooglekeyListAPIServices(_ perams: Dictionary<String, String>, completion: @escaping (Bool, DashBoardUserData?, String?) -> ())
+    
+    //MARK: - CURRENT RIDE INFO API
+    func requestForCURRENTRIDEINFOAPIServices(_ perams: Dictionary<String, String>, completion: @escaping (Bool, currentRideData?, String?) -> ())
+    
+    //MARK: - ONGOING RIDE REQUEST API
+    func requestForONGOINGRIDEREQUESTAPIServices(_ perams: Dictionary<String, String>, completion: @escaping (Bool, OngoingRequestRideStatusData?, String?) -> ())
+    
 }
 
 
@@ -632,6 +641,69 @@ extension ApiService {
             if success {
                 do {
                     let model = try JSONDecoder().decode(BannerData.self, from: data!)
+                    completion(true, model, nil)
+                } catch {
+                    completion(false, nil, I18n.ModelDecodeErrorString)
+                }
+            } else {
+                completion(false, nil, I18n.GetRequestFailedString)
+            }
+        }
+    }
+}
+//MARK: - get Google key
+extension ApiService {
+    //MARK: - get Create New Ride
+    func requestForgetgooglekeyListAPIServices(_ perams: Dictionary<String, String>, completion: @escaping (Bool, DashBoardUserData?, String?) -> ()) {
+        if Connectivity.isNotConnectedToInternet{
+            completion(false, nil, I18n.NoInterNetString)
+        }
+        HttpRequestHelper().POST(url: API_URl.Api_GET_GOOLE_KEY, params: perams, httpHeader: .application_json) { success, data in
+            if success {
+                do {
+                    let model = try JSONDecoder().decode(DashBoardUserData.self, from: data!)
+                    completion(true, model, nil)
+                } catch {
+                    completion(false, nil, I18n.ModelDecodeErrorString)
+                }
+            } else {
+                completion(false, nil, I18n.GetRequestFailedString)
+            }
+        }
+    }
+}
+//MARK: - CURRENT RIDE INFO API
+extension ApiService {
+    //MARK: - get Create New Ride
+    func requestForCURRENTRIDEINFOAPIServices(_ perams: Dictionary<String, String>, completion: @escaping (Bool, currentRideData?, String?) -> ()) {
+        if Connectivity.isNotConnectedToInternet{
+            completion(false, nil, I18n.NoInterNetString)
+        }
+        HttpRequestHelper().POST(url: API_URl.API_USER_CURRENTRIDEDETAILS_URL, params: perams, httpHeader: .application_json) { success, data in
+            if success {
+                do {
+                    let model = try JSONDecoder().decode(currentRideData.self, from: data!)
+                    completion(true, model, nil)
+                } catch {
+                    completion(false, nil, I18n.ModelDecodeErrorString)
+                }
+            } else {
+                completion(false, nil, I18n.GetRequestFailedString)
+            }
+        }
+    }
+}
+//MARK: - ONGOING RIDE REQUEST API
+extension ApiService {
+    //MARK: - get Create New Ride
+    func requestForONGOINGRIDEREQUESTAPIServices(_ perams: Dictionary<String, String>, completion: @escaping (Bool, OngoingRequestRideStatusData?, String?) -> ()) {
+        if Connectivity.isNotConnectedToInternet{
+            completion(false, nil, I18n.NoInterNetString)
+        }
+        HttpRequestHelper().POST(url: API_URl.API_ONGOING_REQUESTSRIDE, params: perams, httpHeader: .application_json) { success, data in
+            if success {
+                do {
+                    let model = try JSONDecoder().decode(OngoingRequestRideStatusData.self, from: data!)
                     completion(true, model, nil)
                 } catch {
                     completion(false, nil, I18n.ModelDecodeErrorString)
