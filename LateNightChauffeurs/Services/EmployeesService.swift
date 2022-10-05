@@ -59,6 +59,8 @@ protocol LateNightChauffeursUSERServiceProtocol {
     func requestForChatViewServices(_ perams: Dictionary<String, String>, completion: @escaping (Bool, UserChatData?, String?) -> ())
     //MARK: - Notification List
     func requestForNotificationServices(_ perams: Dictionary<String, String>, completion: @escaping (Bool, NotificationData?, String?) -> ())
+    //MARK: - Banner Data 1
+    func requestForbannerServices(_ perams: Dictionary<String, String>, completion: @escaping (Bool, BannerData?, String?) -> ())
         
 }
 
@@ -619,3 +621,24 @@ extension ApiService {
     }
 }
    
+//MARK: - Banner Data 1
+extension ApiService {
+    //MARK: - get Create New Ride
+    func requestForbannerServices(_ perams: Dictionary<String, String>, completion: @escaping (Bool, BannerData?, String?) -> ()) {
+        if Connectivity.isNotConnectedToInternet{
+            completion(false, nil, I18n.NoInterNetString)
+        }
+        HttpRequestHelper().POST(url: API_URl.API_BANNERADS_URL, params: perams, httpHeader: .application_json) { success, data in
+            if success {
+                do {
+                    let model = try JSONDecoder().decode(BannerData.self, from: data!)
+                    completion(true, model, nil)
+                } catch {
+                    completion(false, nil, I18n.ModelDecodeErrorString)
+                }
+            } else {
+                completion(false, nil, I18n.GetRequestFailedString)
+            }
+        }
+    }
+}

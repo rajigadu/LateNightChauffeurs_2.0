@@ -89,6 +89,10 @@
 		BA7779D828DEC96A00EC8996 /* RideHistoryTipViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA7779D728DEC96A00EC8996 /* RideHistoryTipViewController.swift */; };
 		BA7779DA28DEC97900EC8996 /* RideHistoryTipModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA7779D928DEC97900EC8996 /* RideHistoryTipModel.swift */; };
 		BA7779DC28DED37F00EC8996 /* TipPercentageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA7779DB28DED37F00EC8996 /* TipPercentageCollectionViewCell.swift */; };
+		BA7A86D528EC8FED0036A4B5 /* BannerIDsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA7A86D428EC8FED0036A4B5 /* BannerIDsVC.swift */; };
+		BA7A86D728EC90070036A4B5 /* SmallBannerAdsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA7A86D628EC90070036A4B5 /* SmallBannerAdsVC.swift */; };
+		BA7A86D928EC99370036A4B5 /* BannerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA7A86D828EC99370036A4B5 /* BannerModel.swift */; };
+		BA7A86DE28EC99600036A4B5 /* BannerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA7A86DD28EC99600036A4B5 /* BannerViewModel.swift */; };
 		BA89EAA528DDA9A0006B65E4 /* AvilableCardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA89EAA428DDA9A0006B65E4 /* AvilableCardViewModel.swift */; };
 		BA89EAA728DDA9C0006B65E4 /* AvilableCardsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA89EAA628DDA9C0006B65E4 /* AvilableCardsViewController.swift */; };
 		BA89EAA928DDA9D5006B65E4 /* AvilableCardsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA89EAA828DDA9D5006B65E4 /* AvilableCardsModel.swift */; };
@@ -234,6 +238,10 @@
 		BA7779D728DEC96A00EC8996 /* RideHistoryTipViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RideHistoryTipViewController.swift; sourceTree = "<group>"; };
 		BA7779D928DEC97900EC8996 /* RideHistoryTipModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RideHistoryTipModel.swift; sourceTree = "<group>"; };
 		BA7779DB28DED37F00EC8996 /* TipPercentageCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TipPercentageCollectionViewCell.swift; sourceTree = "<group>"; };
+		BA7A86D428EC8FED0036A4B5 /* BannerIDsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerIDsVC.swift; sourceTree = "<group>"; };
+		BA7A86D628EC90070036A4B5 /* SmallBannerAdsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmallBannerAdsVC.swift; sourceTree = "<group>"; };
+		BA7A86D828EC99370036A4B5 /* BannerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerModel.swift; sourceTree = "<group>"; };
+		BA7A86DD28EC99600036A4B5 /* BannerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerViewModel.swift; sourceTree = "<group>"; };
 		BA89EAA428DDA9A0006B65E4 /* AvilableCardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvilableCardViewModel.swift; sourceTree = "<group>"; };
 		BA89EAA628DDA9C0006B65E4 /* AvilableCardsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvilableCardsViewController.swift; sourceTree = "<group>"; };
 		BA89EAA828DDA9D5006B65E4 /* AvilableCardsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvilableCardsModel.swift; sourceTree = "<group>"; };
@@ -614,6 +622,7 @@
 		BA50B2E328CAE57500EF116F /* DashBoard */ = {
 			isa = PBXGroup;
 			children = (
+				BA7A86D328EC8FC70036A4B5 /* BannerVC's  */,
 				BA3F71C128D7F68C00B650E9 /* Stops */,
 				BA3F71B528D7EDBB00B650E9 /* AddressLists */,
 				BADA1AE528D759200016C1AD /* CancelBooking */,
@@ -1057,6 +1066,41 @@
 				BA7779D928DEC97900EC8996 /* RideHistoryTipModel.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		BA7A86D328EC8FC70036A4B5 /* BannerVC's  */ = {
+			isa = PBXGroup;
+			children = (
+				BA7A86DC28EC994E0036A4B5 /* ViewModel */,
+				BA7A86DB28EC99450036A4B5 /* View */,
+				BA7A86DA28EC993B0036A4B5 /* Model */,
+			);
+			path = "BannerVC's ";
+			sourceTree = "<group>";
+		};
+		BA7A86DA28EC993B0036A4B5 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				BA7A86D828EC99370036A4B5 /* BannerModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		BA7A86DB28EC99450036A4B5 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				BA7A86D428EC8FED0036A4B5 /* BannerIDsVC.swift */,
+				BA7A86D628EC90070036A4B5 /* SmallBannerAdsVC.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		BA7A86DC28EC994E0036A4B5 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				BA7A86DD28EC99600036A4B5 /* BannerViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		BA89EAA028DDA94D006B65E4 /* AvilableCards */ = {
@@ -1596,6 +1640,7 @@
 			files = (
 				BA1181B728CDFE0E00F61CD5 /* ImagePickerManager.swift in Sources */,
 				BA7779CC28DEAFF200EC8996 /* PaymentSummaryViewController.swift in Sources */,
+				BA7A86DE28EC99600036A4B5 /* BannerViewModel.swift in Sources */,
 				BA60F9AD28C98914005D5B58 /* LoginViewController.swift in Sources */,
 				BAB3180C28DF0BA600A7047E /* RiseHistoryFeedBackViewController.swift in Sources */,
 				BA4B3C3528CAEDE1001D48B8 /* DashBoardViewModel.swift in Sources */,
@@ -1627,6 +1672,7 @@
 				BA36D84C28C8C39800B73053 /* LateNightChauffeurs.xcdatamodeld in Sources */,
 				BA67CD7328D9EBF9003127F4 /* SecondBookingViewController.swift in Sources */,
 				BA7779D628DEC95A00EC8996 /* RideHistoryTipViewModel.swift in Sources */,
+				BA7A86D728EC90070036A4B5 /* SmallBannerAdsVC.swift in Sources */,
 				BAB3181028DF202D00A7047E /* StopsViewModel.swift in Sources */,
 				BAA2D1CC28E348A500DD5B8E /* NotificationViewController.swift in Sources */,
 				BAA2D1BE28E32C4400DD5B8E /* ChatViewController.swift in Sources */,
@@ -1656,6 +1702,7 @@
 				BADA1AE428D756690016C1AD /* BookingReservationViewModel.swift in Sources */,
 				BA2DE99D28E1A5D0003FDB12 /* DriverDetailInFutureBookingViewController.swift in Sources */,
 				BA1181AC28CDF44600F61CD5 /* ChangePasswordUserData.swift in Sources */,
+				BA7A86D928EC99370036A4B5 /* BannerModel.swift in Sources */,
 				BAA2D1C028E32C5300DD5B8E /* ChatModel.swift in Sources */,
 				BA3F71C028D7EE5700B650E9 /* AddressListTableViewCell.swift in Sources */,
 				BAA2D1CE28E348BB00DD5B8E /* NotificationModel.swift in Sources */,
@@ -1683,6 +1730,7 @@
 				BA3F71C628D7F6B900B650E9 /* StopsTableViewCell.swift in Sources */,
 				BAA2D1BC28E32C2D00DD5B8E /* ChatViewModel.swift in Sources */,
 				BA912F1C28E2AB9A007E49AB /* CancelRideModel.swift in Sources */,
+				BA7A86D528EC8FED0036A4B5 /* BannerIDsVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

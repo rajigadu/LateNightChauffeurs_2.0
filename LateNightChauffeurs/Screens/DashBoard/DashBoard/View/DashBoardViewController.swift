@@ -21,7 +21,7 @@ class DashBoardViewController: UIViewController {
     //MARK: - Class Propeties
    // var locationManager = CLLocationManager()
     let didFindMyLocation = false
-
+var bannersCount = 0
     
     //MARK: - View life cycle
     
@@ -95,5 +95,25 @@ extension DashBoardViewController: SideMenuNavigationControllerDelegate {
 extension DashBoardViewController {
     @IBAction func btnFutureRideTimeCheckAction(_ sender: Any) {
         
+    }
+}
+
+
+extension DashBoardViewController {
+    func showMessageForFullBanners(message : String){
+        let alertController = UIAlertController(title: kApptitle, message: message, preferredStyle: .alert)
+        let OKAction = UIAlertAction(title: "OK", style: .default) { (UIAlertAction) in
+            if self.bannersCount <= 0 {
+            } else {
+                self.loadingBannerViewController()
+            }
+        }
+        alertController.addAction(OKAction)
+        self.present(alertController, animated: true, completion: nil)
+    }
+    func loadingBannerViewController() {
+        let Storyboard : UIStoryboard = UIStoryboard(name: "DashBoard", bundle: nil)
+        let nxtVC = Storyboard.instantiateViewController(withIdentifier: "BannerIDsVC") as! BannerIDsVC
+        self.present(nxtVC, animated: true)
     }
 }
