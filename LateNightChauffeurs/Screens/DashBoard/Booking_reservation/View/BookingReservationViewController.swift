@@ -234,6 +234,7 @@ var str_UserCurrentLocationCity = ""
     
     @IBAction func pickUpLocationBtn_ref(_ sender: Any) {
         selctingPickLocation = "yes"
+        selctingDropLocation = "no"
         let acController = GMSAutocompleteViewController()
         
         let searchBarTextAttributes: [NSAttributedString.Key : AnyObject] = [NSAttributedString.Key(rawValue: NSAttributedString.Key.foregroundColor.rawValue): UIColor.white, NSAttributedString.Key(rawValue: NSAttributedString.Key.font.rawValue): UIFont.systemFont(ofSize: UIFont.systemFontSize)]
@@ -247,6 +248,7 @@ var str_UserCurrentLocationCity = ""
     
     @IBAction func dropLocationBtn_ref(_ sender: Any) {
         selctingDropLocation = "yes"
+        selctingPickLocation = "no"
         let acController = GMSAutocompleteViewController()
         
         let searchBarTextAttributes: [NSAttributedString.Key : AnyObject] = [NSAttributedString.Key(rawValue: NSAttributedString.Key.foregroundColor.rawValue): UIColor.white, NSAttributedString.Key(rawValue: NSAttributedString.Key.font.rawValue): UIFont.systemFont(ofSize: UIFont.systemFontSize)]

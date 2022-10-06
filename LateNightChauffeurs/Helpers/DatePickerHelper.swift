@@ -21,7 +21,7 @@ protocol SKUITimePickerDelegate:AnyObject {
 class SKUIDatePicker:UIView {
     
     private let datePicker = UIDatePicker()
-    private var dateFormate = "dd-MM-yyyy"
+    private var dateFormate = "MM-dd-yyyy"
     weak var delegate:SKUIDatePickerDelegate?
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -73,7 +73,7 @@ class SKUITimePicker:UIView {
     private var timeFormate = "hh:mm a"
     weak var delegate:SKUITimePickerDelegate?
     
-    private var dateFormate = "dd-MM-yyyy"
+    private var dateFormate = "MM-dd-yyyy"
    // var selectedDate: Date?
     
     override init(frame: CGRect ) {
