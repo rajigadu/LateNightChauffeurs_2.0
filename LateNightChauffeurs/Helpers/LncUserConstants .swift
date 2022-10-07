@@ -44,19 +44,11 @@ static let kGeoCodingString                           = "https://maps.google.com
 }
 
 class API_URl  {
-//AIzaSyBDybITlSnO_Im4sa0ykNi-euAc1Srrxaw
-//#define GOOGLEMAPS_KEY                             = "AIzaSyDqJTzOGiWP4_1eedeVgfMUJV5thablGck""AIzaSyDac9yBJCmt8Tyry6JJ6GOvNQPx0_j76-o"
-//#define GOOGLEADSKEY_URL                           = "ca-app-pub-4390509928498561/9249929325"
-//#define API_SERVER_URL                             = "https://www.latenightchauffeurs.com/lnc-administrator/ios/"
 static let API_SERVER_URL                             = "https://lnc.latenightchauffeurs.com/lnc-administrator/ios-test/"
 static let API_SERVER_URL2                            = "https://lnc.latenightchauffeurs.com/lnc-administrator/ios-test/"
-//#define API_SERVER_URL2                            = "https://www.latenightchauffeurs.com/lnc-administrator/ios/"
-//#define API_BASEIMAGE_URL                          = "https://www.latenightchauffeurs.com/lnc-administrator/uploads/"
-//#define API_BANNERIMAGEBASE_URL                    = "https://www.latenightchauffeurs.com/lnc-administrator/admin/images/"
 static let API_BASEIMAGE_URL                          = "https://lnc.latenightchauffeurs.com/lnc-administrator/uploads/"
 static let API_BANNERIMAGEBASE_URL                    = "https://lnc.latenightchauffeurs.com/lnc-administrator/admin/images/"
-
-static let API_GoogleEstimatedistancepriceapi         = "https://maps.googleapis.com/maps/api/distancematrix/json?"
+ static let API_GoogleEstimatedistancepriceapi         = "https://maps.googleapis.com/maps/api/distancematrix/json?"
 //
 static let  API_LOGIN_URL                              = API_URl.API_SERVER_URL + "login.php?"
 static let  API_REGISTRATION_URL                       = API_URl.API_SERVER_URL + "signup.php?"

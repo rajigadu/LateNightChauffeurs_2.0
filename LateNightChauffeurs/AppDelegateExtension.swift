@@ -67,7 +67,7 @@ extension AppDelegate : MessagingDelegate{
     func FireBaseAppDelegateDidFineshMethod(application : UIApplication,launchOptions : [UIApplication.LaunchOptionsKey: Any]?){
         
         // Override point for customization after application launch.
-        FirebaseApp.configure()
+       
         Messaging.messaging().delegate = self
         
         

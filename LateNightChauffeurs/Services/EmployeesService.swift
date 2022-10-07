@@ -653,8 +653,7 @@ extension ApiService {
 }
 //MARK: - get Google key
 extension ApiService {
-    //MARK: - get Create New Ride
-    func requestForgetgooglekeyListAPIServices(_ perams: Dictionary<String, String>, completion: @escaping (Bool, DashBoardUserData?, String?) -> ()) {
+     func requestForgetgooglekeyListAPIServices(_ perams: Dictionary<String, String>, completion: @escaping (Bool, DashBoardUserData?, String?) -> ()) {
         if Connectivity.isNotConnectedToInternet{
             completion(false, nil, I18n.NoInterNetString)
         }

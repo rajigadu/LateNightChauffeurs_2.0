@@ -138,6 +138,7 @@ class DashBoardViewController: UIViewController {
     
     @IBAction func setupSideMenu(_ sender : Any){
         self.navigateToSideMenu()
+       
     }
     
     @IBAction func bookingReservation(_ sender: Any) {
