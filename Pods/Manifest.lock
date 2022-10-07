@@ -126,6 +126,7 @@ DEPENDENCIES:
   - Alamofire
   - Cosmos (~> 23.0)
   - Firebase/Analytics
+  - Firebase/Core
   - Firebase/Messaging
   - GoogleMaps
   - GooglePlacePicker
@@ -185,6 +186,6 @@ SPEC CHECKSUMS:
   SDWebImage: e5cc87bf736e60f49592f307bdf9e157189298a3
   SideMenu: f583187d21c5b1dd04c72002be544b555a2627a2
 
-PODFILE CHECKSUM: dd12f737d3e87f8a91df8a5a72e545f3ccbfd3cb
+PODFILE CHECKSUM: 1a554f09202c6553ecba8e264a866a0633097570
 
 COCOAPODS: 1.11.3

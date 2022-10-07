@@ -27,7 +27,6 @@
 		BA3057B428EDD3410091931D /* GetLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA3057B328EDD3410091931D /* GetLocation.swift */; };
 		BA3057B628EDE51C0091931D /* AppDelegateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA3057B528EDE51C0091931D /* AppDelegateExtension.swift */; };
 		BA3057B828EDE7FA0091931D /* VersionCheckingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA3057B728EDE7FA0091931D /* VersionCheckingModel.swift */; };
-		BA3057BA28EDEA2A0091931D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = BA3057B928EDEA2A0091931D /* GoogleService-Info.plist */; };
 		BA36D84228C8C39800B73053 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA36D84128C8C39800B73053 /* AppDelegate.swift */; };
 		BA36D84928C8C39800B73053 /* DashBoard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BA36D84728C8C39800B73053 /* DashBoard.storyboard */; };
 		BA36D84C28C8C39800B73053 /* LateNightChauffeurs.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = BA36D84A28C8C39800B73053 /* LateNightChauffeurs.xcdatamodeld */; };
@@ -98,6 +97,7 @@
 		BA7A86D728EC90070036A4B5 /* SmallBannerAdsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA7A86D628EC90070036A4B5 /* SmallBannerAdsVC.swift */; };
 		BA7A86D928EC99370036A4B5 /* BannerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA7A86D828EC99370036A4B5 /* BannerModel.swift */; };
 		BA7A86DE28EC99600036A4B5 /* BannerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA7A86DD28EC99600036A4B5 /* BannerViewModel.swift */; };
+		BA7BB7B428F035C600E0561B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = BA7BB7B328F035C600E0561B /* GoogleService-Info.plist */; };
 		BA89EAA528DDA9A0006B65E4 /* AvilableCardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA89EAA428DDA9A0006B65E4 /* AvilableCardViewModel.swift */; };
 		BA89EAA728DDA9C0006B65E4 /* AvilableCardsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA89EAA628DDA9C0006B65E4 /* AvilableCardsViewController.swift */; };
 		BA89EAA928DDA9D5006B65E4 /* AvilableCardsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA89EAA828DDA9D5006B65E4 /* AvilableCardsModel.swift */; };
@@ -175,7 +175,6 @@
 		BA3057B328EDD3410091931D /* GetLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetLocation.swift; sourceTree = "<group>"; };
 		BA3057B528EDE51C0091931D /* AppDelegateExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegateExtension.swift; sourceTree = "<group>"; };
 		BA3057B728EDE7FA0091931D /* VersionCheckingModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VersionCheckingModel.swift; sourceTree = "<group>"; };
-		BA3057B928EDEA2A0091931D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		BA36D83E28C8C39800B73053 /* LateNightChauffeurs.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LateNightChauffeurs.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BA36D84128C8C39800B73053 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BA36D84828C8C39800B73053 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/DashBoard.storyboard; sourceTree = "<group>"; };
@@ -251,6 +250,7 @@
 		BA7A86D628EC90070036A4B5 /* SmallBannerAdsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmallBannerAdsVC.swift; sourceTree = "<group>"; };
 		BA7A86D828EC99370036A4B5 /* BannerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerModel.swift; sourceTree = "<group>"; };
 		BA7A86DD28EC99600036A4B5 /* BannerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerViewModel.swift; sourceTree = "<group>"; };
+		BA7BB7B328F035C600E0561B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		BA89EAA428DDA9A0006B65E4 /* AvilableCardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvilableCardViewModel.swift; sourceTree = "<group>"; };
 		BA89EAA628DDA9C0006B65E4 /* AvilableCardsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvilableCardsViewController.swift; sourceTree = "<group>"; };
 		BA89EAA828DDA9D5006B65E4 /* AvilableCardsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvilableCardsModel.swift; sourceTree = "<group>"; };
@@ -489,8 +489,8 @@
 				BA726CFF28C8D3EB00E8D351 /* background.png */,
 				BA726D0328C8D4E000E8D351 /* collapsed.png */,
 				BA726D0228C8D4DF00E8D351 /* expanded.png */,
-				BA3057B928EDEA2A0091931D /* GoogleService-Info.plist */,
 				BA36D85228C8C3A300B73053 /* Info.plist */,
+				BA7BB7B328F035C600E0561B /* GoogleService-Info.plist */,
 				BA36D84A28C8C39800B73053 /* LateNightChauffeurs.xcdatamodeld */,
 			);
 			path = LateNightChauffeurs;
@@ -1453,6 +1453,10 @@
 				Base,
 			);
 			mainGroup = BA36D83528C8C39700B73053;
+			packageReferences = (
+				BA7BB7B528F0399500E0561B /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				BA7BB7B628F03A0C00E0561B /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+			);
 			productRefGroup = BA36D83F28C8C39800B73053 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -1489,7 +1493,7 @@
 				BA60F9E128C9A8E9005D5B58 /* Lato-Regular.ttf in Resources */,
 				BA60F9DD28C9A8E9005D5B58 /* Lato-LightItalic.ttf in Resources */,
 				BA36D84928C8C39800B73053 /* DashBoard.storyboard in Resources */,
-				BA3057BA28EDEA2A0091931D /* GoogleService-Info.plist in Resources */,
+				BA7BB7B428F035C600E0561B /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1947,7 +1951,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0.31;
-				PRODUCT_BUNDLE_IDENTIFIER = com.AnaadITSolutions.LateNightChauffeurs;
+				PRODUCT_BUNDLE_IDENTIFIER = com.Latenightchauffeurs.LNCUser;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -1986,7 +1990,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0.31;
-				PRODUCT_BUNDLE_IDENTIFIER = com.AnaadITSolutions.LateNightChauffeurs;
+				PRODUCT_BUNDLE_IDENTIFIER = com.Latenightchauffeurs.LNCUser;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -2114,6 +2118,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		BA7BB7B528F0399500E0561B /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+		BA7BB7B628F03A0C00E0561B /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 9.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCVersionGroup section */
 		BA36D84A28C8C39800B73053 /* LateNightChauffeurs.xcdatamodeld */ = {

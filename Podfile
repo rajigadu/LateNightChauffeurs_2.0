@@ -13,12 +13,14 @@ target 'LateNightChauffeurs' do
     pod 'Alamofire'
     pod 'SideMenu', '~> 6.0'
     
+   # pod 'Firebase/Core'
+    
 #    pod 'JJMaterialTextField'
      pod 'GoogleMaps'
      pod 'GooglePlaces'
      pod 'GooglePlacePicker'
-#     pod 'Firebase/Core'
-#     pod 'Firebase/Messaging'
+     pod 'Firebase/Core'
+     pod 'Firebase/Messaging'
      
      pod 'Firebase/Analytics'
      pod 'Firebase/Messaging'

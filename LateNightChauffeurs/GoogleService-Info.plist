@@ -2,39 +2,33 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>AD_UNIT_ID_FOR_BANNER_TEST</key>
-	<string>ca-app-pub-3940256099942544/2934735716</string>
-	<key>AD_UNIT_ID_FOR_INTERSTITIAL_TEST</key>
-	<string>ca-app-pub-3940256099942544/4411468910</string>
 	<key>CLIENT_ID</key>
-	<string>941554965534-d7akgrol8nf7natu8rvp59am95u2mu98.apps.googleusercontent.com</string>
+	<string>12677790788-vkkjt8gofdmkhlr2rfp1vb3dtli03drm.apps.googleusercontent.com</string>
 	<key>REVERSED_CLIENT_ID</key>
-	<string>com.googleusercontent.apps.941554965534-d7akgrol8nf7natu8rvp59am95u2mu98</string>
+	<string>com.googleusercontent.apps.12677790788-vkkjt8gofdmkhlr2rfp1vb3dtli03drm</string>
 	<key>API_KEY</key>
-	<string>AIzaSyDqJTzOGiWP4_1eedeVgfMUJV5thablGck</string>
+	<string>AIzaSyBd2UhK8KZ2-ggBYRxKKKuDlBQJkWRhV2k</string>
 	<key>GCM_SENDER_ID</key>
-	<string>941554965534</string>
+	<string>12677790788</string>
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
 	<string>com.Latenightchauffeurs.LNCUser</string>
 	<key>PROJECT_ID</key>
-	<string>latenightchauffeurs-8e5c1</string>
+	<string>latenightchauffeurs-8e22d</string>
 	<key>STORAGE_BUCKET</key>
-	<string>latenightchauffeurs-8e5c1.appspot.com</string>
+	<string>latenightchauffeurs-8e22d.appspot.com</string>
 	<key>IS_ADS_ENABLED</key>
-	<true/>
+	<false></false>
 	<key>IS_ANALYTICS_ENABLED</key>
-	<false/>
+	<false></false>
 	<key>IS_APPINVITE_ENABLED</key>
-	<false/>
+	<true></true>
 	<key>IS_GCM_ENABLED</key>
-	<true/>
+	<true></true>
 	<key>IS_SIGNIN_ENABLED</key>
-	<true/>
+	<true></true>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:941554965534:ios:197336d9281b3f7a</string>
-	<key>DATABASE_URL</key>
-	<string>https://latenightchauffeurs-8e5c1.firebaseio.com</string>
+	<string>1:12677790788:ios:8a5a1b486b533fe9149011</string>
 </dict>
 </plist>
