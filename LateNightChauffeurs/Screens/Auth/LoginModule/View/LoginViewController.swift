@@ -22,8 +22,8 @@ class LoginViewController: UIViewController {
     //MARK: - Life Cycle Start
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.txt_PasswordRef.text = "123"
-        self.txt_UserMailRef.text = "harvinder@anaad.net"
+//        self.txt_PasswordRef.text = "123"
+//        self.txt_UserMailRef.text = "harvinder@anaad.net"
         // Do any additional setup after loading the view.
     }
     

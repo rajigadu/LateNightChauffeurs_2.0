@@ -35,7 +35,7 @@ class ChatViewController: UIViewController {
         self.tableRef.backgroundView?.backgroundColor = .darkGray
         
         //API Intigration
-        self.getChatHistoryList(msg: "")
+        self.getChatHistoryList(msg: "", str_rdateTime: str_dateTime)
         
         //self.navigationController?.navigationBar.topItem?.title = "Notifications"
         var imagestr = UIImage(named: "leftarrow")
@@ -56,9 +56,17 @@ class ChatViewController: UIViewController {
 
    
     @IBAction func sendBtnRef(_ sender: Any) {
-        guard let messagestr = msgTextRef.text, messagestr != "" else {
-            self.ShowAlert(message: "Please add your message!")
+        let currDate = Date()
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "MM-dd-yyyy hh:mm a"
+        str_dateTime = dateFormatter.string(from: currDate)
+
+        if msgTextRef.text?.count ?? 0 <= 0 {
             return
+        } else {
+           
+            self.getChatHistoryList(msg: msgTextRef.text ?? "",str_rdateTime: str_dateTime)
+           
         }
     }
     
@@ -142,14 +150,14 @@ extension ChatViewController : UITableViewDataSource,UITableViewDelegate{
 }
 
 extension ChatViewController {
-    func getChatHistoryList(msg: String) {
+    func getChatHistoryList(msg: String,str_rdateTime: String) {
         
         indicator.showActivityIndicator()
         let perams = [ "senderid":str_userID,
                        "recieverid":str_DriverID,
                        "msg":msg,
                        "keyvalue":"user",
-                       "date_time":str_dateTime
+                       "date_time":str_rdateTime
         ]
         self.viewModel.requestForChatViewAPIServices(perams: perams) { success, model, error in
             if success, let UserData = model {
