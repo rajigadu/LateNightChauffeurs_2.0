@@ -2792,13 +2792,20 @@
                             <constraint firstItem="SJK-de-CHF" firstAttribute="top" secondItem="KZ7-n6-5NG" secondAttribute="top" id="hfr-O0-dem"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="czF-Hu-dmx">
+                        <barButtonItem key="leftBarButtonItem" image="chevron.backward" catalog="system" id="a58-Pb-Q0A">
+                            <connections>
+                                <action selector="backBtnref:" destination="6Uj-Wv-fMY" id="lBz-c7-Zmm"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="tableviewref" destination="SJK-de-CHF" id="Hpa-9i-uV7"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GtN-dW-Bj6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="9605.7971014492759" y="253.79464285714283"/>
+            <point key="canvasLocation" x="10515.942028985508" y="253.79464285714283"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="oAC-0N-Pw1">
@@ -2837,11 +2844,20 @@
             <point key="canvasLocation" x="7092.753623188406" y="253.79464285714283"/>
         </scene>
     </scenes>
+    <designables>
+        <designable name="V5A-UO-PtR">
+            <size key="intrinsicContentSize" width="170" height="30"/>
+        </designable>
+        <designable name="vGx-gd-5nK">
+            <size key="intrinsicContentSize" width="170" height="30"/>
+        </designable>
+    </designables>
     <resources>
         <image name="appLogo" width="260" height="94"/>
         <image name="backgroundimage" width="400" height="700"/>
         <image name="card" width="24" height="24"/>
         <image name="chat" width="32" height="32"/>
+        <image name="chevron.backward" catalog="system" width="96" height="128"/>
         <image name="delete" width="24" height="24"/>
         <image name="down" width="19" height="19"/>
         <image name="emptyCircle" width="64" height="64"/>

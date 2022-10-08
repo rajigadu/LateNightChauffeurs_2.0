@@ -57,9 +57,7 @@ class BannerIDsVC: UIViewController {
 extension BannerIDsVC {
     func bannerADAPI(str_CurrentDate: String) {
         guard let str_userID = UserDefaults.standard.string(forKey: "UserLoginID") else{return}
-      //  guard
-            let FCMDeviceToken = "435"
-                //UserDefaults.standard.string(forKey: "FCMDeviceToken") else{return}
+        guard let FCMDeviceToken = UserDefaults.standard.string(forKey: "FCMDeviceToken") else{return}
 
         indicator.showActivityIndicator()
         

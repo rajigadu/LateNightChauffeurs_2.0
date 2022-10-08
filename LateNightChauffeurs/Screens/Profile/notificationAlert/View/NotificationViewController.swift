@@ -16,13 +16,27 @@ class NotificationViewController: UIViewController {
     }()
     var notificationListHistory: [NotificationDatar] = []
     var str_userID = ""
+    var vcCmgFrom = ""
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "Notifications"
         str_userID = UserDefaults.standard.string(forKey: "UserLoginID") ?? ""
         
         self.getNotificationList()
+
+   }
+  
+    @IBAction func backBtnref(_ sender: Any) {
+        if vcCmgFrom == "AppDelegate" {
+            let appDelegate = UIApplication.shared.delegate as! AppDelegate
+            appDelegate.moveToDashBoard()
+           // self.movetonextvc(id: "DashBoardViewController", storyBordid: "DashBoard", animated: true)
+        } else {
+            self.popToBackVC()
+        }
     }
+
+
     
 }
 extension NotificationViewController : UITableViewDataSource,UITableViewDelegate{

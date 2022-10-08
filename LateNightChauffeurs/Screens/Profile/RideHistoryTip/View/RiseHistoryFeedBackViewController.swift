@@ -38,7 +38,7 @@ class RiseHistoryFeedBackViewController: UIViewController {
     lazy var viewModel = {
         RideHistoryTipViewModel()
     }()
-
+       var vcCmgFrom = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -64,7 +64,23 @@ class RiseHistoryFeedBackViewController: UIViewController {
 
         }
 
-    }
+        //self.navigationController?.navigationBar.topItem?.title = "Notifications"
+        var imagestr = UIImage(named: "leftarrow")
+
+        imagestr = imagestr?.withRenderingMode(UIImage.RenderingMode.alwaysOriginal)
+
+        self.navigationItem.leftBarButtonItem = UIBarButtonItem(image: imagestr, style: UIBarButtonItem.Style.plain, target: self, action: #selector(back) )
+   }
+
+   @objc func back() {
+       if vcCmgFrom == "AppDelegate" {
+           let appDelegate = UIApplication.shared.delegate as! AppDelegate
+           appDelegate.goToUserRideHistory()
+       } else {
+           self.popToBackVC()
+       }
+   }
+
     
     func cosmosViewSetUP(){
         // Change the cosmos view rating

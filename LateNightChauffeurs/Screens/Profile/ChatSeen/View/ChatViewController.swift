@@ -19,7 +19,7 @@ class ChatViewController: UIViewController {
     var str_userID = String()
     var str_DriverID = String()
     var str_dateTime = String()
-    
+    var vcCmgFrom = ""
     var chatListHistory: [UserChatDatar] = []
 
     override func viewDidLoad() {
@@ -37,7 +37,22 @@ class ChatViewController: UIViewController {
         //API Intigration
         self.getChatHistoryList(msg: "")
         
-    }
+        //self.navigationController?.navigationBar.topItem?.title = "Notifications"
+        var imagestr = UIImage(named: "leftarrow")
+
+        imagestr = imagestr?.withRenderingMode(UIImage.RenderingMode.alwaysOriginal)
+
+        self.navigationItem.leftBarButtonItem = UIBarButtonItem(image: imagestr, style: UIBarButtonItem.Style.plain, target: self, action: #selector(back) )
+   }
+
+   @objc func back() {
+       if vcCmgFrom == "AppDelegate" {
+           let appDelegate = UIApplication.shared.delegate as! AppDelegate
+           appDelegate.goToUserRideHistory()
+       } else {
+           self.popToBackVC()
+       }
+   }
 
    
     @IBAction func sendBtnRef(_ sender: Any) {

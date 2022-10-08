@@ -348,9 +348,7 @@ extension DashBoardViewController {
 extension DashBoardViewController {
     //MARK: - CURRENT RIDE INFO API
     func currentRideInfoAPI() {
-        //guard
-            let deviceToken = "567890876"
-                //UserDefaults.standard.string(forKey: "FCMDeviceToken") as? String else {return}
+        guard let deviceToken = UserDefaults.standard.string(forKey: "FCMDeviceToken") as? String else {return}
         indicator.showActivityIndicator()
         self.viewModel.requestForCURRENTRIDEINFOAPIServices(perams: ["userid":self.str_UserLoginID,"app_version": str_AppVersion,"devicetoken":deviceToken,"device_type":"ios"]) { success, model, error in
             if success, let UserData = model {

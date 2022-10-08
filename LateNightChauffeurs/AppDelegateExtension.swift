@@ -109,16 +109,54 @@ extension AppDelegate : MessagingDelegate{
         
         // Check if launched from the remote notification and application is close
         
-        if let remoteNotification = launchOptions?[.remoteNotification] as?  [AnyHashable : Any] {
+            if let remoteNotification = launchOptions?[.remoteNotification] as?  [AnyHashable : Any] {
             
             let result = remoteNotification as! Dictionary<String,AnyObject>
             
             print(result)
             
-            if let alert = result["type"] as? String {
-                
-            
-        }
+                if let dict = remoteNotification as? [String:Any] {
+                   if let dataDictstr = dict["gcm.notification.data"] as? String {
+                       //ChatNotificationData
+                       do {
+                          let alertstr = try? JSONDecoder().decode([ChatNotificationData].self,from:dataDictstr.data(using:.utf8)!)
+    
+                           //MARK: - Messages
+                           if let ride = alertstr?[0].ride as? String, ride == "newusermessage" {
+                          if let message = alertstr?[0].message as? String,
+                             let userid = alertstr?[0].userid as? String,
+                             let driver_id = alertstr?[0].driver_id as? String
+                              {
+                              print(message,userid,driver_id,ride)
+                              //self.MoveChatScreen(DriverId: driver_id)
+    
+                         }
+                           //MARK: - Notification FOR CHAT.........
+                           } else if let userNotification = alertstr?[0].user as? String, userNotification == "future complete" || userNotification == "complete" {
+                               if let str_RideIDr = alertstr?[0].str_RideIDr as? String,
+                                  let str_UserIDr = alertstr?[0].str_UserIDr as? String,
+                                  let str_SelectedDriverFirstNameget = alertstr?[0].str_SelectedDriverFirstNameget as? String,
+                                   let str_SelectedDriverLastNameget = alertstr?[0].str_SelectedDriverLastNameget as? String,
+                                  let str_SelectedDriverProfilepicget = alertstr?[0].str_SelectedDriverProfilepicget as? String
+                                  
+                                   {
+                              // self.goToUserFeedBackPage(str_RideIDr:str_RideIDr,str_UserIDr: str_UserIDr,str_SelectedDriverFirstNameget: str_SelectedDriverFirstNameget , str_SelectedDriverLastNameget: str_SelectedDriverLastNameget,str_SelectedDriverProfilepicget: str_SelectedDriverProfilepicget)
+                               }
+                            }
+                           //MARK: - Accepted New Future.........
+                           else if let userNotification = alertstr?[0].user as? String, userNotification == "newfutureride" || userNotification == "nodriver" || userNotification == "newride" {
+                               //goToUserRideHistory()
+                           }
+                           //MARK: - Rich Notifications.........
+                           else if let userNotification = alertstr?[0].user as? String, userNotification == "richnotification" {
+                               //self.goToUserRichNotifications()
+                           }
+
+                      } catch  {
+                          print("")
+                      }
+                   }
+               }
         }
     }
     
@@ -147,54 +185,37 @@ extension AppDelegate: UNUserNotificationCenterDelegate{
                      
                      fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
         
-        Messaging.messaging().delegate = self
-        Messaging.messaging().appDidReceiveMessage(userInfo)
-//        if userInfo[gcmMessageIDKey] {
-//            print("Message ID: \(userInfo[gcmMessageIDKey])")
-//        }
+        print("tap on on forground app",userInfo)
         
-        completionHandler(UIBackgroundFetchResult.newData)
-        if UIApplication.shared.applicationState == .inactive {
-            completionHandler(UIBackgroundFetchResult.newData)
-        } else if UIApplication.shared.applicationState == .background {
-            completionHandler(UIBackgroundFetchResult.newData)
-        } else if UIApplication.shared.applicationState == .active {
-            completionHandler(UIBackgroundFetchResult.newData)
-        } else {
-            completionHandler(UIBackgroundFetchResult.newData)
+        let result = userInfo as! Dictionary<String,AnyObject>
+        
+        print(result)
+        
+        let state = UIApplication.shared.applicationState
+         if let dict = userInfo as? [String:Any] {
+            if let dataDictstr = dict["gcm.notification.data"] as? String {
+                //ChatNotificationData
+                 do {
+                    let alertstr = try? JSONDecoder().decode([ChatNotificationData].self,from:dataDictstr.data(using:.utf8)!)
+                    
+                     if let ride = alertstr?[0].ride as? String, ride == "newusermessage" {
+                    if let message = alertstr?[0].message as? String,
+                       let userid = alertstr?[0].userid as? String,
+                       let driver_id = alertstr?[0].driver_id as? String
+                        {
+                     print(message,userid,driver_id,ride)
+                   }
+                     } else if let userNotification = alertstr?[0].user as? String, userNotification == "richnotification" {
+                         print("richNotification")
+                     }
+
+                } catch  {
+                    print("")
+                }
+            }
         }
         
-        
-        let aps = userInfo["aps"] as? [AnyHashable : Any]
-//        let bodyMessage = (aps?["alert"] as? NSObject)?.value(forKey: "body") as? String
-//        let str_NotificationTitle = (aps?["alert"] as? NSObject)?.value(forKey: "title") as? String
-//        let jsonString = userInfo.value(forKey: "gcm.notification.data") as? String
-//        var aryNotificationResponse: [AnyHashable]? = nil
-//        do {
-//            if let JsonData = jsonString?.data(using: .utf8) {
-//                aryNotificationResponse = try JSONSerialization.jsonObject(with: JsonData, options: []) as? [AnyHashable]
-//            }
-//        } catch {
-//        }
-//        let str_RideType = (aryNotificationResponse?[0] as? NSObject).value(forKey: "ride") as? String
-        
-//        print("tap on on forground app",userInfo)
-//
-//        let result = userInfo as! Dictionary<String,AnyObject>
-//
-//        print(result)
-//
-//        let state = UIApplication.shared.applicationState
-//
-//        if state == .background{
-//
-//
-//        }else if state == .active {
-//
-//
-//        }
-        
-       // completionHandler(UIBackgroundFetchResult.newData)
+        completionHandler(UIBackgroundFetchResult.newData)
         
     }
     
@@ -272,35 +293,71 @@ extension AppDelegate: UNUserNotificationCenterDelegate{
         let content = notification.request.content
         
         print("\(content.userInfo)")
-        
-        
-        
         print("GOT A NOTIFICATION")
-        
-        
+
         let result = content.userInfo as! Dictionary<String,AnyObject>
         
         print(result)
         
         let state = UIApplication.shared.applicationState
         
-        if state == .background{
+        if state == .background  || state == .inactive {
             
-          
+            if let dict = content.userInfo as? [String:Any] {
+               if let dataDictstr = dict["gcm.notification.data"] as? String {
+                   //ChatNotificationData
+                    do {
+                       let alertstr = try? JSONDecoder().decode([ChatNotificationData].self,from:dataDictstr.data(using:.utf8)!)
+ 
+                        //MARK: - Messages
+                        if let ride = alertstr?[0].ride as? String, ride == "newusermessage" {
+                       if let message = alertstr?[0].message as? String,
+                          let userid = alertstr?[0].userid as? String,
+                          let driver_id = alertstr?[0].driver_id as? String
+                           {
+                           print(message,userid,driver_id,ride)
+                           //self.MoveChatScreen(DriverId: driver_id)
+ 
+                      }
+                        //MARK: - Notification FOR CHAT.........
+                        } else if let userNotification = alertstr?[0].user as? String, userNotification == "future complete" || userNotification == "complete" {
+                            if let str_RideIDr = alertstr?[0].str_RideIDr as? String,
+                               let str_UserIDr = alertstr?[0].str_UserIDr as? String,
+                               let str_SelectedDriverFirstNameget = alertstr?[0].str_SelectedDriverFirstNameget as? String,
+                                let str_SelectedDriverLastNameget = alertstr?[0].str_SelectedDriverLastNameget as? String,
+                               let str_SelectedDriverProfilepicget = alertstr?[0].str_SelectedDriverProfilepicget as? String
+                               
+                                {
+                           // self.goToUserFeedBackPage(str_RideIDr:str_RideIDr,str_UserIDr: str_UserIDr,str_SelectedDriverFirstNameget: str_SelectedDriverFirstNameget , str_SelectedDriverLastNameget: str_SelectedDriverLastNameget,str_SelectedDriverProfilepicget: str_SelectedDriverProfilepicget)
+                            }
+                         }
+                        //MARK: - Accepted New Future.........
+                        else if let userNotification = alertstr?[0].user as? String, userNotification == "newfutureride" || userNotification == "nodriver" || userNotification == "newride" {
+                            //goToUserRideHistory()
+                        }
+                        //MARK: - Rich Notifications.........
+                        else if let userNotification = alertstr?[0].user as? String, userNotification == "richnotification" {
+                            //self.goToUserRichNotifications()
+                        }
+
+                   } catch  {
+                       print("")
+                   }
+               }
+           }
             
         }else if state == .active {
             
         
         }
-        
-        
-//        if self.window?.rootViewController?.topViewController is ConversationVC {
-//            completionHandler([])
-//        } else {
+
+        if self.window?.rootViewController?.topMostViewController() is ChatViewController {
+            completionHandler([])
+        } else {
             completionHandler([.alert, .badge, .sound])
-       // }
+        }
         
-        //completionHandler([.alert, .sound])
+        completionHandler([.alert, .sound])
         
     }
     
@@ -332,5 +389,97 @@ extension AppDelegate: UNUserNotificationCenterDelegate{
         
         // show the alert
         self.window?.rootViewController?.present(alert, animated: true, completion: nil)
+    }
+}
+
+
+//[AnyHashable("gcm.notification.data"): [{
+//"message":"bbbh",
+//"userid":"701",
+//"driver_id":"255",
+//"ride":"newusermessage"}], AnyHashable("google.c.a.e"): 1, AnyHashable("google.c.sender.id"): 12677790788, AnyHashable("google.c.fid"): eHQT-ozhfkLDg9jW0xWaan, AnyHashable("gcm.notification.text"): bbbh, AnyHashable("gcm.message_id"): 1665204998615448, AnyHashable("aps"): {
+//alert =     {
+//title = "New Message";
+//};
+//sound = default;
+//}]
+func convertStringToDictionary(text: String) -> [String:AnyObject]? {
+    if let data = text.data(using: .utf8) {
+        do {
+            let json = try JSONSerialization.jsonObject(with: data, options: .mutableContainers) as? [String:AnyObject]
+            return json
+        } catch {
+            print("Something went wrong")
+        }
+    }
+    return nil
+}
+
+
+
+
+// Extension
+extension AppDelegate {
+    // Move to Chat Screen
+    func MoveChatScreen(DriverId: String){
+        var navigation = UINavigationController()
+        let mainStoryboardIpad : UIStoryboard = UIStoryboard(name: "Profile", bundle: nil)
+        let initialViewControlleripad : ChatViewController = mainStoryboardIpad.instantiateViewController(withIdentifier: "ChatViewController") as! ChatViewController
+        initialViewControlleripad.str_DriverID = DriverId
+        initialViewControlleripad.vcCmgFrom = "AppDelegate"
+        self.window = UIWindow(frame: UIScreen.main.bounds)
+        navigation = UINavigationController(rootViewController: initialViewControlleripad)
+        
+        self.window?.rootViewController = navigation
+        self.window?.makeKeyAndVisible()
+
+    }
+    
+    // Move to ride history
+    func goToUserRideHistory() {
+        var navigation = UINavigationController()
+        let mainStoryboardIpad : UIStoryboard = UIStoryboard(name: "Profile", bundle: nil)
+        
+        let initialViewControlleripad : RideHistoryViewController = mainStoryboardIpad.instantiateViewController(withIdentifier: "RideHistoryViewController") as! RideHistoryViewController
+        self.window = UIWindow(frame: UIScreen.main.bounds)
+        navigation = UINavigationController(rootViewController: initialViewControlleripad)
+        self.window?.rootViewController = navigation
+        self.window?.makeKeyAndVisible()
+    }
+    
+    // Move to rich Notifications
+    func goToUserRichNotifications() {
+        var navigation = UINavigationController()
+        let mainStoryboardIpad : UIStoryboard = UIStoryboard(name: "Profile", bundle: nil)
+        
+        let initialViewControlleripad : NotificationViewController = mainStoryboardIpad.instantiateViewController(withIdentifier: "NotificationViewController") as! NotificationViewController
+        initialViewControlleripad.vcCmgFrom = "AppDelegate"
+        self.window = UIWindow(frame: UIScreen.main.bounds)
+        navigation = UINavigationController(rootViewController: initialViewControlleripad)
+       
+        self.window?.rootViewController = navigation
+        self.window?.makeKeyAndVisible()
+
+    }
+    
+    // Move to Feed back Page
+    func goToUserFeedBackPage(str_RideIDr:String,str_UserIDr: String,str_SelectedDriverFirstNameget: String , str_SelectedDriverLastNameget: String,str_SelectedDriverProfilepicget: String) {
+        var navigation = UINavigationController()
+        let mainStoryboardIpad : UIStoryboard = UIStoryboard(name: "Profile", bundle: nil)
+        
+        let nxtVC : RiseHistoryFeedBackViewController = mainStoryboardIpad.instantiateViewController(withIdentifier: "RiseHistoryFeedBackViewController") as! RiseHistoryFeedBackViewController
+        nxtVC.str_ComingFrom = "RideHistory"
+        nxtVC.str_RideIDr = str_RideIDr
+        nxtVC.str_UserIDr = str_UserIDr
+        nxtVC.str_SelectedDriverFirstNameget = str_SelectedDriverFirstNameget
+        nxtVC.str_SelectedDriverLastNameget = str_SelectedDriverLastNameget
+        nxtVC.str_SelectedDriverProfilepicget = str_SelectedDriverProfilepicget
+        nxtVC.vcCmgFrom = "AppDelegate"
+        self.window = UIWindow(frame: UIScreen.main.bounds)
+        navigation = UINavigationController(rootViewController: nxtVC)
+        
+        self.window?.rootViewController = navigation
+        self.window?.makeKeyAndVisible()
+
     }
 }
