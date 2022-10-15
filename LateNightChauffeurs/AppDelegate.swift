@@ -33,11 +33,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         setupIQKeyboardManager()
         FirebaseApp.configure()
         self.FireBaseAppDelegateDidFineshMethod(application : application, launchOptions: launchOptions)
-        
-        
-        //navigateToRespectivePage()
-        goToUserRichNotifications()
-        
+ 
+        navigateToRespectivePage()
+        //goToUserRichNotifications()
         if let GoogleKey = UserDefaults.standard.string(forKey: "Googlekeyvalue") as? String {
             GOOGLE_API_KEY = GoogleKey
         } else {
