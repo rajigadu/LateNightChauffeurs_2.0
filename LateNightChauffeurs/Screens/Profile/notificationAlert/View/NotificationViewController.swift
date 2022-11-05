@@ -21,22 +21,36 @@ class NotificationViewController: UIViewController {
         super.viewDidLoad()
         self.title = "Notifications"
         str_userID = UserDefaults.standard.string(forKey: "UserLoginID") ?? ""
-        
+        if vcCmgFrom == "AppDelegate" {
+         self.navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "list.bullet"), style: .plain, target: self, action: #selector(backToMenu))
+
+        } else {
+            self.navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "arrow.backward"), style: .plain, target: self, action: #selector(backToDashboard))
+            navigationController?.navigationBar.barTintColor = UIColor.black
+
+        }
+
         self.getNotificationList()
 
    }
   
     @IBAction func backBtnref(_ sender: Any) {
-        if vcCmgFrom == "AppDelegate" {
-            let appDelegate = UIApplication.shared.delegate as! AppDelegate
-            appDelegate.moveToDashBoard()
-           // self.movetonextvc(id: "DashBoardViewController", storyBordid: "DashBoard", animated: true)
-        } else {
-            self.popToBackVC()
-        }
+//        if vcCmgFrom == "AppDelegate" {
+//            let appDelegate = UIApplication.shared.delegate as! AppDelegate
+//            appDelegate.moveToDashBoard()
+//           // self.movetonextvc(id: "DashBoardViewController", storyBordid: "DashBoard", animated: true)
+//        } else {
+//            self.popToBackVC()
+//        }
+    }
+    
+    @objc func backToMenu() {
+        self.navigateToSideMenu()
     }
 
-
+    @objc func backToDashboard() {
+        self.popToBackVC()
+    }
     
 }
 extension NotificationViewController : UITableViewDataSource,UITableViewDelegate{

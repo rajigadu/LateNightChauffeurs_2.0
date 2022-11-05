@@ -20,12 +20,11 @@ target 'LateNightChauffeurs' do
      pod 'GooglePlaces'
      pod 'GooglePlacePicker'
      
-     
-#     pod 'Firebase/Core'
-    # pod 'Firebase/Messaging'
-     
-#     pod 'Firebase/Analytics'
-#     pod 'Firebase/Messaging'
+     pod 'Firebase/Core'
+     pod 'Firebase/Messaging'
+     pod 'Firebase/Crashlytics'
+     pod 'Firebase/Analytics'
+     pod 'Firebase/Messaging'
 #    pod 'JCNotificationBannerPresenter'
 #
 #    pod 'GoogleSignIn'

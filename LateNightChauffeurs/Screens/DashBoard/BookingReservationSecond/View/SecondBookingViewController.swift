@@ -125,13 +125,15 @@ class SecondBookingViewController: UIViewController {
     }
     
     @IBAction func BookMyChauffer(_ sender: Any) {
-        
-        if str_ComingFrom == "RideHistory" {
-            EditRideApiCall()
+        if self.str_SelectedCardID == "" {
+            self.ShowAlert(message: "Please select payment card.")
         } else {
-            createNewRideApiCall()
+            if str_ComingFrom == "RideHistory" {
+                EditRideApiCall()
+            } else {
+                createNewRideApiCall()
+            }
         }
-        
     }
     
     //    @IBAction func btnTapShowHideSection(_ sender: Any) {

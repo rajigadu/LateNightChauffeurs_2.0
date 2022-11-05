@@ -15,6 +15,11 @@ import FirebaseMessaging
 
 extension AppDelegate {
     func setupIQKeyboardManager(){
+        UINavigationBar.appearance().isTranslucent = false
+        UINavigationBar.appearance().barTintColor = .clear
+        UINavigationBar.appearance().tintColor = UIColor.white
+        UINavigationBar.appearance().titleTextAttributes = [NSAttributedString.Key.foregroundColor:UIColor.white]
+        
         IQKeyboardManager.shared().isEnabled = true
         IQKeyboardManager.shared().resignFirstResponder()
         IQKeyboardManager.shared().isEnableAutoToolbar = true
@@ -23,11 +28,6 @@ extension AppDelegate {
 }
 extension AppDelegate {
     func navigateToRespectivePage(){
-        UINavigationBar.appearance().isTranslucent = false
-        UINavigationBar.appearance().barTintColor = .clear
-        UINavigationBar.appearance().tintColor = UIColor.white
-        UINavigationBar.appearance().titleTextAttributes = [NSAttributedString.Key.foregroundColor:UIColor.white]
-
         if UserDefaults.standard.bool(forKey: "IsUserLogined") {
             moveToDashBoard()
         }else {
@@ -378,9 +378,6 @@ extension AppDelegate: UNUserNotificationCenterDelegate{
         NotificationCenter.default.post(name: NSNotification.Name(rawValue: "IGotChatMSG"), object: nil,userInfo: ["ChatID" : ChatID])
     }
   
-  
-    
-    
     func alerfunc(msg : String){
         let alert = UIAlertController(title: kApptitle, message:msg, preferredStyle: UIAlertController.Style.alert)
         
@@ -414,9 +411,6 @@ func convertStringToDictionary(text: String) -> [String:AnyObject]? {
     }
     return nil
 }
-
-
-
 
 // Extension
 extension AppDelegate {
