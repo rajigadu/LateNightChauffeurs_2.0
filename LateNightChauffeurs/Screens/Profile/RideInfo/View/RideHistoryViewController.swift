@@ -31,7 +31,7 @@ class RideHistoryViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        self.swipeRight()
         
         self.tableview_RideInfoRef.estimatedRowHeight = 1000
         self.tableview_RideInfoRef.rowHeight = UITableView.automaticDimension
@@ -269,9 +269,12 @@ extension RideHistoryViewController: UITableViewDelegate, UITableViewDataSource 
                     
                     // Distance and Price
                     if let Distance = rideInfoArray[indexPath.row].distance,let price = rideInfoArray[indexPath.row].estimation_price {
-                        let Distancestr = Float(Distance) ?? 0.0
-                        
-                        let AttributeStr = "Distance : " + "\(Distancestr) Miles" + "\nRide Price : $" + price
+                         var distanceStr = ""
+                        if let rideDoubleValue = Double(Distance) as? Double {
+                        let rideDistance  = String(format:"%.2f", rideDoubleValue)
+                            distanceStr =  rideDistance
+                        }
+                        let AttributeStr = "Distance : " + "\(distanceStr) Miles" + "\nRide Price : $" + price
                         
                         let attrStri = NSMutableAttributedString.init(string:AttributeStr)
                         
@@ -361,9 +364,9 @@ extension RideHistoryViewController: UITableViewDelegate, UITableViewDataSource 
                     str_RideTipAmount = "0"
                     str_CompleteRideAmountWithTip = str_RideCompleteAmount
                 } else {
-                    let tipAmount : Int = Int(str_RideTipAmount ?? "") ?? 0
-                    let totalamount: Int = Int(str_RideCompleteAmount ?? "") ?? 0
-                    let RideAmountWithTips: Int = tipAmount + totalamount
+                    let tipAmount : Double = Double(str_RideTipAmount ?? "") ?? 0.0
+                    let totalamount: Double = Double(str_RideCompleteAmount ?? "") ?? 0.0
+                    let RideAmountWithTips: Double = tipAmount + totalamount
                     
                     str_CompleteRideAmountWithTip = String(RideAmountWithTips)
                 }
@@ -378,7 +381,7 @@ extension RideHistoryViewController: UITableViewDelegate, UITableViewDataSource 
                         distanceStr =  rideDistance
                     }
                     
-                    var JourneyDistance = "Distance : " + "\(distanceStr)" + " Miles\nTransaction ID : " + str_RideTransactionID + "\nPromo Code : $" + Str_promoCodevalue + "\nTip Amount : $" + str_RideTipAmount + "\nRide Total Cost: $" + str_CompleteRideAmountWithTip
+                    var JourneyDistance = "Distance : " + "\(distanceStr)" + " Miles\nTransaction ID : " + str_RideTransactionID + "\nPromo Code : $" + Str_promoCodevalue + "\nTip Amount : $" + str_RideTipAmount + "\nRide Total Cost : $" + str_CompleteRideAmountWithTip
                     
                     let attrStri = NSMutableAttributedString.init(string:JourneyDistance)
                     

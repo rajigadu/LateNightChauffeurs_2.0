@@ -68,13 +68,17 @@ class PaymentSummaryViewController: UIViewController {
                 //self.lbl_Adminfareref.text = str_AdmnFare
             }
             // base Price
-            var result : Int = Int(Str_BAsePrice) ?? 0
-            result += Int(str_AdmnFare) ?? 0
+            //var result : Int = Int(Str_BAsePrice) ?? 0 city_charges
+            var result : Double = Double(PaymentInfoDict?.ride_amt ?? "0") ?? 0.0
+            result += Double(str_AdmnFare) ?? 0
+            result += Double(PaymentInfoDict?.city_charges ?? "0") ?? 0
             
             self.lbl_BasePriceRef.text = ": $" + String(result)
             
             // Total fare
-            self.lbl_FinalPriceRef.text = ": $" + Str_Totalfare
+            var result2 : Double = Double(PaymentInfoDict?.tip_amount ?? "0") ?? 0
+            result2 += Double(PaymentInfoDict?.amount ?? "0") ?? 0
+            self.lbl_FinalPriceRef.text = ": $" + String(result2)//Str_Totalfare
             
             // Promo Code
             let str_PromoCode = PaymentInfoDict?.promo_amt ?? "0"

@@ -79,15 +79,12 @@ class AvilableCardsViewController: UIViewController {
         self.savedCardListApiCall()
     }
 
-
     @objc override func respondToSwipeGesture(gesture: UIGestureRecognizer) {
-
         if let swipeGesture = gesture as? UISwipeGestureRecognizer {
-
             switch swipeGesture.direction {
             case .right:
                 print("Swiped right")
-                
+                self.navigateToSideMenu()
             case .down:
                 print("Swiped down")
                 AddCardView_Heaightref.constant = 0

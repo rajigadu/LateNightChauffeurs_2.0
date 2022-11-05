@@ -45,7 +45,7 @@ class DashBoardViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
        // setupSideMenu()
-       // self.swipeRight()
+        self.swipeRight()
         initializeTheLocationManager()
         self.str_UserLoginID = UserDefaults.standard.string(forKey: "UserLoginID") ?? ""
        // self.str_AppVersion = UserDefaults.standard.string(forKey: "CFBundleShortVersionString") ?? ""
