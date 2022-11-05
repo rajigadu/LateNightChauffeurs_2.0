@@ -12,7 +12,7 @@ typealias PaymentSummaryData = PaymentSummaryModel
 struct PaymentSummaryModel : Codable {
     let message : String?
     let status : String?
-    let data : [PaymentSummaryDatar]?
+    let data : Future_edit_ride_data?
     let base_price : String?
     let total_fare : String?
 
@@ -29,12 +29,27 @@ struct PaymentSummaryModel : Codable {
         let values = try decoder.container(keyedBy: CodingKeys.self)
         message = try values.decodeIfPresent(String.self, forKey: .message)
         status = try values.decodeIfPresent(String.self, forKey: .status)
-        data = try values.decodeIfPresent([PaymentSummaryDatar].self, forKey: .data)
+        data = try values.decodeIfPresent(Future_edit_ride_data.self, forKey: .data)
         base_price = try values.decodeIfPresent(String.self, forKey: .base_price)
         total_fare = try values.decodeIfPresent(String.self, forKey: .total_fare)
     }
 
 }
+
+struct Future_edit_ride_data : Codable {
+     let ride : [PaymentSummaryDatar]?
+
+    enum CodingKeys: String, CodingKey {
+          case ride = "ride"
+    }
+
+    init(from decoder: Decoder) throws {
+        let values = try decoder.container(keyedBy: CodingKeys.self)
+         ride = try values.decodeIfPresent([PaymentSummaryDatar].self, forKey: .ride)
+    }
+
+}
+
 struct PaymentSummaryDatar : Codable {
     let tip_amount : String?
     let status : String?

@@ -665,7 +665,7 @@ extension RideHistoryViewController {
                     let nxtVC = Storyboard.instantiateViewController(withIdentifier: "PaymentSummaryViewController") as! PaymentSummaryViewController
                     nxtVC.Str_BAsePrice = UserData.base_price ?? ""
                     nxtVC.Str_Totalfare = UserData.total_fare ?? ""
-                    if let response = UserData.data?[0] {
+                    if let response = UserData.data?.ride?[0] {
                     nxtVC.PaymentInfoDict = response
                     }
                     self.navigationController?.pushViewController(nxtVC, animated: true)

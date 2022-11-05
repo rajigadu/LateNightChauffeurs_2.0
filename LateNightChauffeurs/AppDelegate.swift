@@ -12,6 +12,7 @@ import GoogleMaps
 import FirebaseCore
 import Firebase
 import FirebaseMessaging
+import SideMenu
 var LognedUserType = ""
 var newDeviceId = ""
 var inServerSavedDeviceId = ""
@@ -34,8 +35,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         FirebaseApp.configure()
         self.FireBaseAppDelegateDidFineshMethod(application : application, launchOptions: launchOptions)
  
-        //navigateToRespectivePage()
-        goToUserRichNotifications()
+        navigateToRespectivePage()
         if let GoogleKey = UserDefaults.standard.string(forKey: "Googlekeyvalue") as? String {
             GOOGLE_API_KEY = GoogleKey
         } else {
@@ -46,6 +46,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             GMSServices.provideAPIKey(GOOGLE_API_KEY)
             GMSPlacesClient.provideAPIKey(GOOGLE_API_KEY)
         }
+        
         return true
     }
     

@@ -21,9 +21,17 @@ class ChatViewController: UIViewController {
     var str_dateTime = String()
     var vcCmgFrom = ""
     var chatListHistory: [UserChatDatar] = []
-
+    var spinner = UIActivityIndicatorView()
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        spinner = UIActivityIndicatorView(style: .large)
+        spinner.stopAnimating()
+        spinner.hidesWhenStopped = true
+        spinner.frame = CGRect(x: 0, y: 0, width: UIScreen.main.bounds.size.width, height: 60)
+        tableRef.tableFooterView = spinner
+        
         
         let dateFormat = DateFormatter()
         dateFormat.dateFormat = "yyyy-MM-dd hh:mm a"
@@ -39,34 +47,39 @@ class ChatViewController: UIViewController {
         
         //self.navigationController?.navigationBar.topItem?.title = "Notifications"
         var imagestr = UIImage(named: "leftarrow")
-
+        
         imagestr = imagestr?.withRenderingMode(UIImage.RenderingMode.alwaysOriginal)
-
-        self.navigationItem.leftBarButtonItem = UIBarButtonItem(image: imagestr, style: UIBarButtonItem.Style.plain, target: self, action: #selector(back) )
-   }
-
-   @objc func back() {
-       if vcCmgFrom == "AppDelegate" {
-           let appDelegate = UIApplication.shared.delegate as! AppDelegate
-           appDelegate.goToUserRideHistory()
-       } else {
-           self.popToBackVC()
-       }
-   }
-
-   
+        
+        
+        if vcCmgFrom == "AppDelegate" {
+            self.navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "list.bullet"), style: .plain, target: self, action: #selector(backToMenu))
+            
+        } else {
+            self.navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "arrow.backward"), style: .plain, target: self, action: #selector(backToDashboard))
+            navigationController?.navigationBar.barTintColor = UIColor.black
+        }
+    }
+    
+    @objc func backToMenu() {
+        self.navigateToSideMenu()
+    }
+    
+    @objc func backToDashboard() {
+        self.popToBackVC()
+    }
+    
     @IBAction func sendBtnRef(_ sender: Any) {
         let currDate = Date()
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "MM-dd-yyyy hh:mm a"
         str_dateTime = dateFormatter.string(from: currDate)
-
+        
         if msgTextRef.text?.count ?? 0 <= 0 {
             return
         } else {
-           
+            
             self.getChatHistoryList(msg: msgTextRef.text ?? "",str_rdateTime: str_dateTime)
-           
+            
         }
     }
     
@@ -93,7 +106,7 @@ extension ChatViewController : UITableViewDataSource,UITableViewDelegate{
             //User Image
             if let Str_senderImage = self.chatListHistory[indexPath.row].profileImageSender as? String {
                 cell.SenprofileImgRef.sd_setImage(with: URL(string: API_URl.API_BASEIMAGE_URL +  Str_senderImage), placeholderImage: UIImage(named: "UserPic"))
-             }
+            }
             cell.SenmsgRef.text = self.chatListHistory[indexPath.row].mesage as? String ?? ""
             
             // Date Convertion
@@ -111,7 +124,7 @@ extension ChatViewController : UITableViewDataSource,UITableViewDelegate{
             cell.SenprofileImgRef.layer.borderWidth = 1
             cell.SenprofileImgRef.layer.cornerRadius = cell.ResprofileImgRef.frame.size.width/2;
             cell.SenprofileImgRef.layer.masksToBounds = true
-
+            
         } else {
             cell.SenprofileImgRef.isHidden = true
             cell.senBagRef.isHidden = true
@@ -121,8 +134,8 @@ extension ChatViewController : UITableViewDataSource,UITableViewDelegate{
             //User Image
             if let Str_senderImage = self.chatListHistory[indexPath.row].profileImageReciever as? String {
                 cell.SenprofileImgRef.sd_setImage(with: URL(string: API_URl.API_BASEIMAGE_URL +  Str_senderImage), placeholderImage: UIImage(named: "UserPic"))
-             }
-            cell.SenmsgRef.text = self.chatListHistory[indexPath.row].mesage as? String ?? ""
+            }
+            cell.ResmsgRef.text = self.chatListHistory[indexPath.row].mesage ?? ""
             
             // Date Convertion
             if let datestr = self.chatListHistory[indexPath.row].date_time,datestr != "" as? String {
@@ -139,7 +152,7 @@ extension ChatViewController : UITableViewDataSource,UITableViewDelegate{
             cell.ResprofileImgRef.layer.borderWidth = 1
             cell.ResprofileImgRef.layer.cornerRadius = cell.ResprofileImgRef.frame.size.width/2;
             cell.ResprofileImgRef.layer.masksToBounds = true
-
+            
         }
         
         return cell
@@ -164,9 +177,11 @@ extension ChatViewController {
                 DispatchQueue.main.async { [self] in
                     indicator.hideActivityIndicator()
                     if let strUserdat = UserData.data as? [UserChatDatar]{
-                    self.chatListHistory = strUserdat
+                        self.chatListHistory = strUserdat
                     }
+                    
                     self.tableRef.reloadData()
+                    self.scrollToBottom()
                 }
             } else {
                 DispatchQueue.main.async { [self] in
@@ -176,6 +191,35 @@ extension ChatViewController {
             }
             
         }
+    }
+    
+    func scrollToBottom(){
+        DispatchQueue.main.async {
+            let indexPath = IndexPath(row: self.chatListHistory.count-1, section: 0)
+            self.tableRef.scrollToRow(at: indexPath, at: .bottom, animated: true)
+        }
+    }
+    
+    func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
+        let offset = scrollView.contentOffset
+        let bounds = scrollView.bounds
+        let size = scrollView.contentSize
+        let inset = scrollView.contentInset
+        
+        let y = offset.y + bounds.size.height - inset.bottom
+        let h = size.height
+        
+        let reloadDistance = CGFloat(30.0)
+        if y > h + reloadDistance {
+            print("fetch more data")
+            //API Intigration
+            self.getChatHistoryList(msg: "", str_rdateTime: str_dateTime)
+            spinner.startAnimating()
+        }
+    }
+    
+    enum scrollsTo {
+        case top,bottom
     }
 }
 

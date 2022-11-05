@@ -6,7 +6,7 @@
 //
 
 import UIKit
-
+import SideMenu
 class SideMenuViewController: UIViewController {
     
     //MARK: - Class outlets

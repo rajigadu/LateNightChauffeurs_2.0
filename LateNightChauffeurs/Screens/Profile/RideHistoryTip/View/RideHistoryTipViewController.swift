@@ -34,7 +34,7 @@ class RideHistoryTipViewController: UIViewController {
     var  selectedIndex = 0
     var str_SelectedTipOption = ""
     var Str_DriverCmgHistory = ""
-    
+    var vcCmgFrom = ""  
     lazy var viewModel = {
         RideHistoryTipViewModel()
     }()
@@ -63,7 +63,25 @@ class RideHistoryTipViewController: UIViewController {
 
         }
         // Do any additional setup after loading the view.
+        if vcCmgFrom == "AppDelegate" {
+         self.navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "list.bullet"), style: .plain, target: self, action: #selector(backToMenu))
+
+        } else {
+            self.navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "arrow.backward"), style: .plain, target: self, action: #selector(backToDashboard))
+            navigationController?.navigationBar.barTintColor = UIColor.black
+
+        }
+
+   }
+  
+    @objc func backToMenu() {
+        self.navigateToSideMenu()
     }
+
+    @objc func backToDashboard() {
+        self.popToBackVC()
+    }
+
     
     @IBAction func btn_DriverForSubmitFeedbackRef(_ sender: Any) {
         if str_SelectedTipOption == "" {

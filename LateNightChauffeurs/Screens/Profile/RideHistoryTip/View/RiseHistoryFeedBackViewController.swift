@@ -65,26 +65,29 @@ class RiseHistoryFeedBackViewController: UIViewController {
         }
 
         //self.navigationController?.navigationBar.topItem?.title = "Notifications"
-        var imagestr = UIImage(named: "leftarrow")
+        if vcCmgFrom == "AppDelegate" {
+         self.navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "list.bullet"), style: .plain, target: self, action: #selector(backToMenu))
 
-        imagestr = imagestr?.withRenderingMode(UIImage.RenderingMode.alwaysOriginal)
+        } else {
+            self.navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "arrow.backward"), style: .plain, target: self, action: #selector(backToDashboard))
+            navigationController?.navigationBar.barTintColor = UIColor.black
 
-        self.navigationItem.leftBarButtonItem = UIBarButtonItem(image: imagestr, style: UIBarButtonItem.Style.plain, target: self, action: #selector(back) )
+        }
+
    }
+  
+    @objc func backToMenu() {
+        self.navigateToSideMenu()
+    }
 
-   @objc func back() {
-       if vcCmgFrom == "AppDelegate" {
-           let appDelegate = UIApplication.shared.delegate as! AppDelegate
-           appDelegate.goToUserRideHistory()
-       } else {
-           self.popToBackVC()
-       }
-   }
+    @objc func backToDashboard() {
+        self.popToBackVC()
+    }
 
     
     func cosmosViewSetUP(){
         // Change the cosmos view rating
-        viewRating_DriverForFeedbackRef.rating = 5
+        viewRating_DriverForFeedbackRef.rating = 0
 
         // Change the text
        // viewRating_DriverForFeedbackRef.text = "(123)"

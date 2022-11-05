@@ -135,10 +135,7 @@ class SecondBookingViewController: UIViewController {
             }
         }
     }
-    
-    //    @IBAction func btnTapShowHideSection(_ sender: Any) {
-    //
-    //    }
+
 }
 extension SecondBookingViewController: UITableViewDelegate,UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {

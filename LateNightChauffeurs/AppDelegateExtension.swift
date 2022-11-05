@@ -12,7 +12,6 @@ import FirebaseCore
 import Firebase
 import FirebaseMessaging
 
-
 extension AppDelegate {
     func setupIQKeyboardManager(){
         UINavigationBar.appearance().isTranslucent = false
@@ -128,7 +127,7 @@ extension AppDelegate : MessagingDelegate{
                              let driver_id = alertstr?[0].driver_id as? String
                               {
                               print(message,userid,driver_id,ride)
-                              //self.MoveChatScreen(DriverId: driver_id)
+                              self.MoveChatScreen(DriverId: driver_id)
     
                          }
                            //MARK: - Notification FOR CHAT.........
@@ -140,16 +139,16 @@ extension AppDelegate : MessagingDelegate{
                                   let str_SelectedDriverProfilepicget = alertstr?[0].str_SelectedDriverProfilepicget as? String
                                   
                                    {
-                              // self.goToUserFeedBackPage(str_RideIDr:str_RideIDr,str_UserIDr: str_UserIDr,str_SelectedDriverFirstNameget: str_SelectedDriverFirstNameget , str_SelectedDriverLastNameget: str_SelectedDriverLastNameget,str_SelectedDriverProfilepicget: str_SelectedDriverProfilepicget)
+                               self.goToUserFeedBackPage(str_RideIDr:str_RideIDr,str_UserIDr: str_UserIDr,str_SelectedDriverFirstNameget: str_SelectedDriverFirstNameget , str_SelectedDriverLastNameget: str_SelectedDriverLastNameget,str_SelectedDriverProfilepicget: str_SelectedDriverProfilepicget)
                                }
                             }
                            //MARK: - Accepted New Future.........
                            else if let userNotification = alertstr?[0].user as? String, userNotification == "newfutureride" || userNotification == "nodriver" || userNotification == "newride" {
-                               //goToUserRideHistory()
+                               self.goToUserRideHistory()
                            }
                            //MARK: - Rich Notifications.........
                            else if let userNotification = alertstr?[0].user as? String, userNotification == "richnotification" {
-                               //self.goToUserRichNotifications()
+                               self.goToUserRichNotifications()
                            }
 
                       } catch  {
@@ -204,9 +203,11 @@ extension AppDelegate: UNUserNotificationCenterDelegate{
                        let driver_id = alertstr?[0].driver_id as? String
                         {
                      print(message,userid,driver_id,ride)
+                        self.MoveChatScreen(DriverId: driver_id)
                    }
                      } else if let userNotification = alertstr?[0].user as? String, userNotification == "richnotification" {
                          print("richNotification")
+                         self.goToUserRichNotifications()
                      }
 
                 } catch  {
@@ -298,7 +299,7 @@ extension AppDelegate: UNUserNotificationCenterDelegate{
         let result = content.userInfo as! Dictionary<String,AnyObject>
         
         print(result)
-        
+        print(UIApplication.shared.applicationState)
         let state = UIApplication.shared.applicationState
         
         if state == .background  || state == .inactive {
@@ -316,7 +317,7 @@ extension AppDelegate: UNUserNotificationCenterDelegate{
                           let driver_id = alertstr?[0].driver_id as? String
                            {
                            print(message,userid,driver_id,ride)
-                           //self.MoveChatScreen(DriverId: driver_id)
+                           self.MoveChatScreen(DriverId: driver_id)
  
                       }
                         //MARK: - Notification FOR CHAT.........
@@ -328,16 +329,16 @@ extension AppDelegate: UNUserNotificationCenterDelegate{
                                let str_SelectedDriverProfilepicget = alertstr?[0].str_SelectedDriverProfilepicget as? String
                                
                                 {
-                           // self.goToUserFeedBackPage(str_RideIDr:str_RideIDr,str_UserIDr: str_UserIDr,str_SelectedDriverFirstNameget: str_SelectedDriverFirstNameget , str_SelectedDriverLastNameget: str_SelectedDriverLastNameget,str_SelectedDriverProfilepicget: str_SelectedDriverProfilepicget)
+                            self.goToUserFeedBackPage(str_RideIDr:str_RideIDr,str_UserIDr: str_UserIDr,str_SelectedDriverFirstNameget: str_SelectedDriverFirstNameget , str_SelectedDriverLastNameget: str_SelectedDriverLastNameget,str_SelectedDriverProfilepicget: str_SelectedDriverProfilepicget)
                             }
                          }
                         //MARK: - Accepted New Future.........
                         else if let userNotification = alertstr?[0].user as? String, userNotification == "newfutureride" || userNotification == "nodriver" || userNotification == "newride" {
-                            //goToUserRideHistory()
+                            self.goToUserRideHistory()
                         }
                         //MARK: - Rich Notifications.........
                         else if let userNotification = alertstr?[0].user as? String, userNotification == "richnotification" {
-                            //self.goToUserRichNotifications()
+                            self.goToUserRichNotifications()
                         }
 
                    } catch  {
@@ -347,8 +348,8 @@ extension AppDelegate: UNUserNotificationCenterDelegate{
            }
             
         }else if state == .active {
-            
-        
+
+
         }
 
         if self.window?.rootViewController?.topMostViewController() is ChatViewController {
@@ -477,3 +478,16 @@ extension AppDelegate {
 
     }
 }
+/*
+ 
+ ["gcm.notification.text": hi, "aps": {
+     alert =     {
+         title = "New Message";
+     };
+     sound = default;
+ }, "google.c.fid": e69zGq0T1UaWl0Pdi2HYLr, "google.c.sender.id": 12677790788, "google.c.a.e": 1, "gcm.message_id": 1667643059788532, "gcm.notification.data": [{
+                     "message":"hi",
+                     "userid":"701",
+                     "driver_id":"24",
+                     "ride":"newusermessage"}]]
+ */
