@@ -7,304 +7,176 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "F2CFB57D-ED89-4484-9D27-F257794405DF"
+            uuid = "C682149F-5967-404B-BC63-C7FBCFF594CF"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "LateNightChauffeurs/AppDelegateExtension.swift"
+            filePath = "LateNightChauffeurs/Screens/Profile/DriverDetails/View/DriverDetailInFutureBookingViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "351"
-            endingLineNumber = "351"
-            landmarkName = "userNotificationCenter(_:willPresent:withCompletionHandler:)"
+            startingLineNumber = "192"
+            endingLineNumber = "192"
+            landmarkName = "futureRideDriverDetailsAPIwithLogin()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "7E3D866E-F73C-4FCE-9D6E-46E64CFDE5D5"
+            uuid = "6F7770F7-A34D-435E-AB37-FD1D0DF5A86C"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "LateNightChauffeurs/AppDelegateExtension.swift"
+            filePath = "LateNightChauffeurs/Screens/Profile/DriverDetails/View/DriverDetailInFutureBookingViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "308"
-            endingLineNumber = "308"
-            landmarkName = "userNotificationCenter(_:willPresent:withCompletionHandler:)"
+            startingLineNumber = "194"
+            endingLineNumber = "194"
+            landmarkName = "futureRideDriverDetailsAPIwithLogin()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "8F667CE2-1945-4A11-B8E5-875A0E473A31"
+            uuid = "89A2A3F0-7095-4E9F-9ACA-BC02ACCE5222"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "LateNightChauffeurs/AppDelegateExtension.swift"
+            filePath = "LateNightChauffeurs/Screens/Profile/DriverDetails/View/DriverDetailInFutureBookingViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "305"
-            endingLineNumber = "305"
-            landmarkName = "userNotificationCenter(_:willPresent:withCompletionHandler:)"
+            startingLineNumber = "196"
+            endingLineNumber = "196"
+            landmarkName = "futureRideDriverDetailsAPIwithLogin()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "B9D91971-734C-4939-9471-BC7CA56751CA"
+            uuid = "1C61B069-FDCA-4B13-A02A-5FB0EAB7DF36"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "LateNightChauffeurs/AppDelegateExtension.swift"
+            filePath = "LateNightChauffeurs/Screens/Profile/DriverDetails/View/DriverDetailInFutureBookingViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "302"
-            endingLineNumber = "302"
-            landmarkName = "userNotificationCenter(_:willPresent:withCompletionHandler:)"
+            startingLineNumber = "195"
+            endingLineNumber = "195"
+            landmarkName = "futureRideDriverDetailsAPIwithLogin()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "CBA27D28-5451-42C1-84DB-6387BD7DA420"
+            uuid = "1F3B514B-E97A-40AF-96D1-4ED4C19C8781"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "LateNightChauffeurs/AppDelegateExtension.swift"
+            filePath = "LateNightChauffeurs/Screens/Profile/DriverDetails/View/DriverDetailInFutureBookingViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "301"
-            endingLineNumber = "301"
-            landmarkName = "userNotificationCenter(_:willPresent:withCompletionHandler:)"
+            startingLineNumber = "193"
+            endingLineNumber = "193"
+            landmarkName = "futureRideDriverDetailsAPIwithLogin()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "C51BCF0F-6740-47FB-9E44-A7C64CAC2E7D"
+            uuid = "F2A54336-C815-4A18-B80B-A0F6DF1DA347"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "LateNightChauffeurs/AppDelegateExtension.swift"
+            filePath = "LateNightChauffeurs/Screens/Profile/DriverDetails/View/DriverDetailInFutureBookingViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "299"
-            endingLineNumber = "299"
-            landmarkName = "userNotificationCenter(_:willPresent:withCompletionHandler:)"
+            startingLineNumber = "178"
+            endingLineNumber = "178"
+            landmarkName = "futureRideDriverDetailsAPIwithLogin()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "E9B4394C-4132-4BA3-9A4B-C127B7CA4AD0"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "LateNightChauffeurs/Screens/Profile/PaymentSummary /Model/PaymentSummaryModel.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "19"
-            endingLineNumber = "19"
-            landmarkName = "CodingKeys"
-            landmarkType = "13">
-            <Locations>
-               <Location
-                  uuid = "E9B4394C-4132-4BA3-9A4B-C127B7CA4AD0 - 5de3c70dc9e5bafc"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "LateNightChauffeurs.PaymentSummaryModel.CodingKeys.init(rawValue: Swift.String) -&gt; Swift.Optional&lt;LateNightChauffeurs.PaymentSummaryModel.CodingKeys&gt;"
-                  moduleName = "LateNightChauffeurs"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/rajeshgandru/Documents/IOS%20LNC/LNC_User_2.0/LateNightChauffeurs/Screens/Profile/PaymentSummary%20/Model/PaymentSummaryModel.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "21"
-                  endingLineNumber = "21"
-                  offsetFromSymbolStart = "124">
-               </Location>
-               <Location
-                  uuid = "E9B4394C-4132-4BA3-9A4B-C127B7CA4AD0 - b6ce25dd98b11ce9"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "LateNightChauffeurs.PaymentSummaryModel.CodingKeys.rawValue.getter : Swift.String"
-                  moduleName = "LateNightChauffeurs"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/rajeshgandru/Documents/IOS%20LNC/LNC_User_2.0/LateNightChauffeurs/Screens/Profile/PaymentSummary%20/Model/PaymentSummaryModel.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "21"
-                  endingLineNumber = "21"
-                  offsetFromSymbolStart = "84">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "6870C539-2B31-4FBD-9DB0-FDCDB877E91C"
+            uuid = "1A3D7742-2C16-4E79-8220-F8127A40799D"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "LateNightChauffeurs/Screens/Profile/Settings /View/SettingsViewController.swift"
+            filePath = "LateNightChauffeurs/Screens/Profile/DriverDetails/View/DriverDetailInFutureBookingViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "25"
-            endingLineNumber = "25"
-            landmarkName = "viewDidLoad()"
+            startingLineNumber = "180"
+            endingLineNumber = "180"
+            landmarkName = "futureRideDriverDetailsAPIwithLogin()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "BC6CC2C7-F580-4BA0-A98E-51AE6A967432"
+            uuid = "98068C50-B575-4E35-AC76-C6C7266B88AC"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "LateNightChauffeurs/Screens/Profile/PaymentSummary /View/PaymentSummaryViewController.swift"
+            filePath = "LateNightChauffeurs/Screens/Profile/DriverDetails/View/DriverDetailInFutureBookingViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "81"
-            endingLineNumber = "81"
-            landmarkName = "viewDidLoad()"
+            startingLineNumber = "179"
+            endingLineNumber = "179"
+            landmarkName = "futureRideDriverDetailsAPIwithLogin()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "F62479E6-191B-4114-9F2E-2C42526D0E65"
+            uuid = "45ACE2A6-AA66-4F0D-A612-DB084554E695"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "LateNightChauffeurs/Screens/Profile/PaymentSummary /View/PaymentSummaryViewController.swift"
+            filePath = "LateNightChauffeurs/Screens/Profile/DriverDetails/View/DriverDetailInFutureBookingViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "71"
-            endingLineNumber = "71"
-            landmarkName = "viewDidLoad()"
+            startingLineNumber = "181"
+            endingLineNumber = "181"
+            landmarkName = "futureRideDriverDetailsAPIwithLogin()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "7CFDA93E-9886-4161-9D37-B8FB43F4A099"
+            uuid = "14BBDAE4-B72C-453B-B60D-C8549146D38C"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "LateNightChauffeurs/Screens/Profile/PaymentSummary /View/PaymentSummaryViewController.swift"
+            filePath = "LateNightChauffeurs/Screens/Profile/DriverDetails/View/DriverDetailInFutureBookingViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "73"
-            endingLineNumber = "73"
-            landmarkName = "viewDidLoad()"
+            startingLineNumber = "183"
+            endingLineNumber = "183"
+            landmarkName = "futureRideDriverDetailsAPIwithLogin()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "F37DA24A-5982-4FCF-86E8-170C727C546A"
+            uuid = "27997401-434B-450A-8B46-823EEAAEE50E"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "LateNightChauffeurs/Screens/Profile/PaymentSummary /View/PaymentSummaryViewController.swift"
+            filePath = "LateNightChauffeurs/Screens/Profile/DriverDetails/View/DriverDetailInFutureBookingViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "100"
-            endingLineNumber = "100"
-            landmarkName = "viewDidLoad()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "94AE01EC-D6BA-46A7-A060-6CC32B3166CA"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "LateNightChauffeurs/Screens/Profile/PaymentSummary /View/PaymentSummaryViewController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "101"
-            endingLineNumber = "101"
-            landmarkName = "viewDidLoad()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "B1937B4B-0D22-417B-BD59-C50403D34EC6"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "LateNightChauffeurs/Screens/Profile/PaymentSummary /View/PaymentSummaryViewController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "70"
-            endingLineNumber = "70"
-            landmarkName = "viewDidLoad()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "FF199743-6AF1-4837-8E44-4FE4EDCA9B47"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "LateNightChauffeurs/Screens/Profile/PaymentSummary /View/PaymentSummaryViewController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "78"
-            endingLineNumber = "78"
-            landmarkName = "viewDidLoad()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "432F3998-5128-429A-8D2C-101EF35A42AB"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "LateNightChauffeurs/Screens/Profile/PaymentSummary /View/PaymentSummaryViewController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "79"
-            endingLineNumber = "79"
-            landmarkName = "viewDidLoad()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "6C1566AA-7D39-4549-BDBD-04A15B4A1B83"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "LateNightChauffeurs/Screens/Profile/PaymentSummary /View/PaymentSummaryViewController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "80"
-            endingLineNumber = "80"
-            landmarkName = "viewDidLoad()"
+            startingLineNumber = "182"
+            endingLineNumber = "182"
+            landmarkName = "futureRideDriverDetailsAPIwithLogin()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

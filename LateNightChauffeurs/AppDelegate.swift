@@ -50,6 +50,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return true
     }
     
+    func applicationDidBecomeActive(_ application: UIApplication) {
+        AppUpdater.shared.showUpdate(withConfirmation: false)
+    }
     
 
     // MARK: - Core Data stack

@@ -151,6 +151,8 @@ extension StopsViewController {
                                 }
                             }
                             self.tableview_StopshistoryRef.reloadData()
+                        } else {
+                            self.showToast(message: "no record found.", font: .systemFont(ofSize: 12.0))
                         }
                     }
                 } else {

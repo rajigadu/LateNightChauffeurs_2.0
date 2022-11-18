@@ -122,7 +122,7 @@ extension RiseHistoryFeedBackViewController {
         var discription = self.textview_DriverForFeedbackRef.text ?? ""
        let perams = [ "driverid":Str_DriverCmgHistory,
         "rideid":str_CurrentRideID,
-        "userid":"701",//str_UserLoginID,
+        "userid":str_UserLoginID,
         "msg":discription,
         "tip":"",
         "percentage":"",
@@ -132,7 +132,11 @@ extension RiseHistoryFeedBackViewController {
             if success, let UserData = model {
                 DispatchQueue.main.async { [self] in
                     indicator.hideActivityIndicator()
+                    if UserData.loginStatus == "1" {
                     self.ShowAlertWithPop(message: UserData.userData?[0].Message ?? "Your tip has been submitted.")
+                    } else {
+                        self.ShowAlertWithPop(message: UserData.userData?[0].Message ?? "no records found.")
+                    }
                 }
             } else {
                 DispatchQueue.main.async { [self] in

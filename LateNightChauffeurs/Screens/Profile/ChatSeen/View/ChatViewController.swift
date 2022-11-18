@@ -26,6 +26,10 @@ class ChatViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // Do any additional setup after loading the view.
+    }
+    override func viewWillAppear(_ animated: Bool) {
         spinner = UIActivityIndicatorView(style: .large)
         spinner.stopAnimating()
         spinner.hidesWhenStopped = true
@@ -37,8 +41,7 @@ class ChatViewController: UIViewController {
         dateFormat.dateFormat = "yyyy-MM-dd hh:mm a"
         str_dateTime = dateFormat.string(from: Date())
         
-        self.str_userID = "701"
-        //UserDefaults.standard.string(forKey: "UserLoginID") ?? ""
+        self.str_userID = UserDefaults.standard.string(forKey: "UserLoginID") ?? ""
         self.tableRef.backgroundColor = .darkGray
         self.tableRef.backgroundView?.backgroundColor = .darkGray
         

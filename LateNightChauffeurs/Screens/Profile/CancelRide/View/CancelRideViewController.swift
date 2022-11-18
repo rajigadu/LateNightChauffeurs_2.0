@@ -83,7 +83,11 @@ extension CancelRideViewController {
             if success, let UserData = model {
                 DispatchQueue.main.async { [self] in
                     indicator.hideActivityIndicator()
+                    if UserData.loginStatus == "1" {
                     self.ShowAlertWithDashBoardPage(message : UserData.userData?[0].Message ?? "")
+                    } else {
+                        self.ShowAlert(message : UserData.userData?[0].Message ?? "")
+                    }
                 }
             } else {
                 DispatchQueue.main.async { [self] in
@@ -103,10 +107,13 @@ extension CancelRideViewController {
             if success, let UserData = model {
                 DispatchQueue.main.async { [self] in
                     indicator.hideActivityIndicator()
-                    
+                    if UserData.loginStatus == "1" {
                     self.RideCancelAmountint = UserData.cancelAmount ?? ""
                     self.str_RideAmount = self.RideCancelAmountint
                     self.str_CancelRideAmount = "$\(str_RideAmount) will be charged for Ride Cancellation."
+                    } else {
+                        self.showToast(message: "Something went wrong.", font: .systemFont(ofSize: 12.0))
+                    }
                 }
             } else {
                 DispatchQueue.main.async { [self] in

@@ -114,7 +114,6 @@ class AvilableCardsViewController: UIViewController {
     @IBAction func AddCard_fromSavedCardVC_btnref(_ sender: Any) {
         AddCardApiCall()
     }
-    
 }
 extension AvilableCardsViewController {
     //MARK: - Add card Api Intigration
@@ -164,15 +163,19 @@ extension AvilableCardsViewController {
         guard let userID = UserDefaults.standard.string(forKey: "UserLoginID") else {return}
         indicator.showActivityIndicator()
         
-        self.viewModel.requestForsavedCardListAPIServices(perams: ["userid":"701"]) { success, model, error in
+        self.viewModel.requestForsavedCardListAPIServices(perams: ["userid":userID]) { success, model, error in
             if success, let UserData = model {
                 DispatchQueue.main.async { [self] in
-                    indicator.hideActivityIndicator()
+                     indicator.hideActivityIndicator()
+                    if UserData.status == "1" {
                     self.array_AvailableCardList = UserData
                     if let userData = UserData.data as? [SecondBookingDatar] {
                         self.array_AvailableCardListr = userData
                     }
                     self.tableview_SavedCardsRef.reloadData()
+                    } else {
+                        self.showToast(message: "No record found.", font: .systemFont(ofSize: 12.0))
+                    }
                 }
             } else {
                 DispatchQueue.main.async { [self] in
@@ -194,7 +197,7 @@ extension AvilableCardsViewController {
         guard let userID = UserDefaults.standard.string(forKey: "UserLoginID") else {return}
         indicator.showActivityIndicator()
         
-        self.viewModel.requestForRemoveCardAPIServices(perams: ["userid":"701","card_id":card_id]) { success, model, error in
+        self.viewModel.requestForRemoveCardAPIServices(perams: ["userid":userID,"card_id":card_id]) { success, model, error in
             if success, let UserData = model {
                 DispatchQueue.main.async { [self] in
                     indicator.hideActivityIndicator()

@@ -276,7 +276,7 @@ extension SecondBookingViewController {
         guard let userID = UserDefaults.standard.string(forKey: "UserLoginID") else {return}
         indicator.showActivityIndicator()
         
-        self.viewModel.requestForsavedCardListAPIServices(perams: ["userid":"701"]) { success, model, error in
+        self.viewModel.requestForsavedCardListAPIServices(perams: ["userid":userID]) { success, model, error in
             if success, let UserData = model {
                 DispatchQueue.main.async { [self] in
                     indicator.hideActivityIndicator()
@@ -288,20 +288,17 @@ extension SecondBookingViewController {
                         self.tableviewHeightref.constant = CGFloat((self.array_AvailableCardList?.data?.count ?? 0) * 82 + (arrSelectedSectionIndex.count * 50))
                     } else {
                         self.tableviewHeightref.constant = CGFloat((self.array_AvailableCardList?.data?.count ?? 0) * 82)
-                        
-                    }
+                     }
                     self.tblView.setNeedsLayout()
                     self.tblView.reloadData()
-                    
-                }
+                 }
             } else {
                 DispatchQueue.main.async { [self] in
                     indicator.hideActivityIndicator()
                     self.showToast(message: error ?? "Something went wrong.", font: .systemFont(ofSize: 12.0))
                 }
             }
-            
-        }
+         }
     }
 }
 
@@ -384,10 +381,9 @@ extension SecondBookingViewController {
         guard let date = self.bookingModel2?.date as? String else {return}
         guard let time = self.bookingModel2?.time as? String else {return}
         guard let transmission = self.bookingModel2?.transmission as? String else {return}
-
-
+ 
         let perams = [
-            "userid": "701",//userid,
+            "userid": userid,
             "card_id": card_id,
             "acctid": acctid,
             "nstops": nstops,

@@ -48,8 +48,7 @@ class DashBoardViewController: UIViewController {
         self.swipeRight()
         initializeTheLocationManager()
         self.str_UserLoginID = UserDefaults.standard.string(forKey: "UserLoginID") ?? ""
-       // self.str_AppVersion = UserDefaults.standard.string(forKey: "CFBundleShortVersionString") ?? ""
-        self.str_AppVersion = Bundle.main.infoDictionary!["CFBundleIdentifier"] as? String ?? ""
+        self.str_AppVersion = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String ?? ""
  
         do {
               // Set the map style by passing the URL of the local file.
@@ -288,6 +287,8 @@ extension DashBoardViewController {
                     indicator.hideActivityIndicator()
                     if UserData.status == "1" {
                         UserDefaults.standard.set(UserData.data?.key ?? "", forKey: "Googlekeyvalue")
+                    } else {
+                        self.ShowAlert(message: UserData.msg ?? "no record found.")
                     }
                 }
             } else {
@@ -421,6 +422,9 @@ extension DashBoardViewController {
                                 self.lbl_FutureRideCheckConstraint.constant = 50
                             }
                         }
+                    } else {
+                        self.showToast(message: "no record found.", font: .systemFont(ofSize: 12.0))
+
                     }
                 }
             } else {

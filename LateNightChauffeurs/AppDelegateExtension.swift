@@ -267,15 +267,14 @@ extension AppDelegate: UNUserNotificationCenterDelegate{
 
 //      let dataDict:[String: String] = ["token": fcmToken ?? ""]
 //      NotificationCenter.default.post(name: Notification.Name("FCMToken"), object: nil, userInfo: dataDict)
-        
-        
+ 
         print("Firebase registration token: \(fcmToken)")
         if let fcmTokenstr = fcmToken {
         newDeviceId = fcmTokenstr
-        UserDefaults.standard.set(newDeviceId, forKey:"device_id")
+        UserDefaults.standard.set(newDeviceId, forKey:"FCMDeviceToken")
         UserDefaults.standard.synchronize()
         let devicetoken : String!
-        devicetoken = UserDefaults.standard.string(forKey:"device_id") as String?
+        devicetoken = UserDefaults.standard.string(forKey:"FCMDeviceToken") as String?
         print(devicetoken)
         }
       // TODO: If necessary send token to application server.

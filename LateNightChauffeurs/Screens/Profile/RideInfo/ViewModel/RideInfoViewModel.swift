@@ -10,7 +10,7 @@ import Foundation
 class RideInfoViewModel: NSObject {
     
     private var RideInfoServices: LateNightChauffeursUSERServiceProtocol
-        
+    
     init(ApiService: LateNightChauffeursUSERServiceProtocol = ApiService()) {
         self.RideInfoServices = ApiService
     }
@@ -18,25 +18,17 @@ class RideInfoViewModel: NSObject {
     func RideInfoApiService(perams: Dictionary<String,String>, completion: @escaping (Bool, RideInfoData?, String?) -> ()) {
         RideInfoServices.requestForRideInfoServices(perams) { success, model, error in
             if success, let UserData = model {
-                if UserData.status == "1" {
-                    completion(true, UserData, nil)
-                } else {
-                    completion(false, nil, UserData.message)
-                }
+                completion(true, UserData, nil)
             } else {
                 completion(false, nil, error)
             }
         }
     }
-        
+    
     func requestForPaymentHistoryAPIServices(perams: Dictionary<String,String>, completion: @escaping (Bool, PaymentHistoryData?, String?) -> ()) {
         RideInfoServices.requestForPaymentHistoryServices(perams) { success, model, error in
             if success, let UserData = model {
-                if UserData.status == "1" {
-                    completion(true, UserData, nil)
-                } else {
-                    completion(false, UserData, nil)
-                }
+                completion(true, UserData, nil)
             } else {
                 completion(false, nil, error)
             }
@@ -46,11 +38,7 @@ class RideInfoViewModel: NSObject {
     func PaymentSummaryApiService(perams: Dictionary<String,String>, completion: @escaping (Bool, PaymentSummaryData?, String?) -> ()) {
         RideInfoServices.requestForPaymentSummaryServices(perams) { success, model, error in
             if success, let UserData = model {
-                if UserData.status == "1" {
-                    completion(true, UserData, nil)
-                } else {
-                    completion(false, nil, UserData.message)
-                }
+                completion(true, UserData, nil)
             } else {
                 completion(false, nil, error)
             }

@@ -137,7 +137,7 @@ extension DriverDetailInFutureBookingViewController {
     func futureRideDriverDetailsAPIwithLogin(){
          indicator.showActivityIndicator()
 //       let perams = [ "user_id":str_UserID,"ride_id":self.str_FutureRideID]
-        let perams = [ "user_id":"701","ride_id":self.str_FutureRideID]
+        let perams = [ "user_id":str_UserID,"ride_id":self.str_FutureRideID]
         self.viewModel.requestForDriverDetailInFutureBookingAPIServices(perams: perams) { success, model, error in
             if success, let UserData = model {
                 DispatchQueue.main.async { [self] in
@@ -192,10 +192,9 @@ extension DriverDetailInFutureBookingViewController {
                         //Rating...
                         self.view_RatingViewRef.rating = 0
                         
-                        if let rating = UserData.data?.driver_rating {
+                        if let rating = UserData.data?.driver_rating, rating != "NAN" {
                             self.view_RatingViewRef.rating = Double(rating) ?? 0.00
                         }
-                        
                         
                     } else {
                         self.view_DriverDetailsRef.isHidden = true

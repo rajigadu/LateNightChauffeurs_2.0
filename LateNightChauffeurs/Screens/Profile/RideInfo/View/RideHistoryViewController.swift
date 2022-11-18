@@ -590,7 +590,7 @@ extension RideHistoryViewController {
         guard let userID = UserDefaults.standard.string(forKey: "UserLoginID") else {return}
         indicator.showActivityIndicator()
         
-        self.viewModel.RideInfoApiService(perams: ["userid":"701"]) { success, model, error in
+        self.viewModel.RideInfoApiService(perams: ["userid":userID]) { success, model, error in
             if success, let UserData = model {
                 DispatchQueue.main.async { [self] in
                     indicator.hideActivityIndicator()
@@ -625,7 +625,7 @@ extension RideHistoryViewController {
         guard let userID = UserDefaults.standard.string(forKey: "UserLoginID") else {return}
         indicator.showActivityIndicator()
         
-        self.viewModel.requestForPaymentHistoryAPIServices(perams: ["userid":"701"]) { success, model, error in
+        self.viewModel.requestForPaymentHistoryAPIServices(perams: ["userid":userID]) { success, model, error in
             if success, let UserData = model {
                 DispatchQueue.main.async { [self] in
                     indicator.hideActivityIndicator()
@@ -660,10 +660,11 @@ extension RideHistoryViewController {
         guard let userID = UserDefaults.standard.string(forKey: "UserLoginID") else {return}
         indicator.showActivityIndicator()
         
-        self.viewModel.PaymentSummaryApiService(perams: ["userid":"701","ride_id":self.str_BookingId]) { success, model, error in
+        self.viewModel.PaymentSummaryApiService(perams: ["userid":userID,"ride_id":self.str_BookingId]) { success, model, error in
             if success, let UserData = model {
                 DispatchQueue.main.async { [self] in
                     indicator.hideActivityIndicator()
+                    if UserData.status == "1" {
                     let Storyboard : UIStoryboard = UIStoryboard(name: "Profile", bundle: nil)
                     let nxtVC = Storyboard.instantiateViewController(withIdentifier: "PaymentSummaryViewController") as! PaymentSummaryViewController
                     nxtVC.Str_BAsePrice = UserData.base_price ?? ""
@@ -672,7 +673,9 @@ extension RideHistoryViewController {
                     nxtVC.PaymentInfoDict = response
                     }
                     self.navigationController?.pushViewController(nxtVC, animated: true)
-
+                    } else {
+                        self.showToast(message: UserData.message ?? "No records found.", font: .systemFont(ofSize: 12.0))
+                    }
                 }
             } else {
                 DispatchQueue.main.async { [self] in

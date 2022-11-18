@@ -64,7 +64,7 @@ class PaymentSummaryViewController: UIViewController {
             let str_AdmnFare = PaymentInfoDict?.extra_charge ?? "0"
             if str_AdmnFare == "" {
                 self.lbl_Adminfareref.text = ""
-            } else {
+             } else {
                 //self.lbl_Adminfareref.text = str_AdmnFare
             }
             // base Price
