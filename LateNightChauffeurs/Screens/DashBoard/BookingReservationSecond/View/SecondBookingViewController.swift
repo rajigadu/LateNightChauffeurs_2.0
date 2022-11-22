@@ -407,14 +407,14 @@ extension SecondBookingViewController {
         var peram2 = savedrop as? [String]
         var allStops : [String] = []
         for peram in savedrop {
-            allStops.append(peram.removeWhitespace())
+            allStops.append(peram)
         }
         
         var str1 = json(from: perams) ?? ""
         var str2 = json(from: peram2) ?? ""
         
         indicator.showActivityIndicator()
-        self.viewModel.requestForcreateNewRideAPIServices(perams: ["json":str1.removeWhitespace(), "jsonstops":allStops]) { success, model, error in
+        self.viewModel.requestForcreateNewRideAPIServices(perams: ["json":str1, "jsonstops":allStops]) { success, model, error in
             if success, let UserData = model {
                 DispatchQueue.main.async { [self] in
                     indicator.hideActivityIndicator()
@@ -502,14 +502,14 @@ extension SecondBookingViewController {
         var peram2 = savedrop as? [String]
         var allStops : [String] = []
         for peram in savedrop {
-            allStops.append(peram.removeWhitespace())
+            allStops.append(peram)
         }
         
         var str1 = json(from: perams) ?? ""
         var str2 = json(from: peram2) ?? ""
         
         indicator.showActivityIndicator()
-        self.viewModel.requestForEditRideAPIServices(perams: ["json":str1.removeWhitespace(), "jsonstops":allStops]) { success, model, error in
+        self.viewModel.requestForEditRideAPIServices(perams: ["json":str1, "jsonstops":allStops]) { success, model, error in
             if success, let UserData = model {
                 DispatchQueue.main.async { [self] in
                     indicator.hideActivityIndicator()
