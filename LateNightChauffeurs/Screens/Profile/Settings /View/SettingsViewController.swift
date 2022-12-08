@@ -17,6 +17,9 @@ class SettingsViewController: UIViewController {
     let arrayResponse = ["Edit Profile Info","Change Password","Contact Us","Privacy Policy","Terms & Conditions"]
     
     //MARK: - View life cycle
+    lazy var viewModel = {
+        MenuSliderViewModel()
+    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -44,6 +47,9 @@ class SettingsViewController: UIViewController {
         self.navigateToSideMenu()
     }
     
+    @IBAction func deleteAccountBtnref(_ sender: Any) {
+        self.callDeleteAccountAction()
+    }
 }
 
 extension SettingsViewController: UITableViewDelegate,UITableViewDataSource {
@@ -75,6 +81,45 @@ extension SettingsViewController: UITableViewDelegate,UITableViewDataSource {
             self.movetonextvc(id: "ChangePasswordViewController", storyBordid: "Profile", animated: true)
         }else if arrayResponse[indexPath.row] == "Edit Profile Info" {
             self.movetonextvc(id: "ProfileViewController", storyBordid: "Profile", animated: true)
+        }
+    }
+
+}
+extension SettingsViewController {
+    func callDeleteAccountAction() {
+        let alertController = UIAlertController(title: I18n.deleteAccountTitle, message: I18n.DeleteAccountAlert, preferredStyle: .alert)
+        let cancelAction = UIAlertAction(title: "Cancel", style: .default, handler: nil)
+        let okAction = UIAlertAction(title: "Delete", style: .destructive, handler: { action in
+            self.deleteAccountApiCalling()
+        })
+        alertController.addAction(cancelAction)
+        alertController.addAction(okAction)
+        self.present(alertController, animated: true, completion: nil)
+    }
+    
+    //Logout Api Intigartion
+    func deleteAccountApiCalling(){
+        guard let userID = UserDefaults.standard.string(forKey: "UserLoginID") else{return}
+        indicator.showActivityIndicator()
+        self.viewModel.requestForDeleteAccountServices(perams: ["user_id":userID]) { success, model, error in
+            if success {
+                DispatchQueue.main.async { [self] in
+                    indicator.hideActivityIndicator()
+                    UserDefaults.standard.set("", forKey: "UserLoginID")
+                    UserDefaults.standard.set("", forKey: "RideRequestProcessingCheck")
+                    UserDefaults.standard.set("", forKey: "CurrentNotificationTitle")
+                    UserDefaults.standard.set("", forKey: "SelectedCardDetails")
+                    self.resetDefaults()
+                    if let delegate = UIApplication.shared.delegate as? AppDelegate {
+                        delegate.MoveToLogin()
+                    }
+                }
+            } else {
+                DispatchQueue.main.async { [self] in
+                    indicator.hideActivityIndicator()
+                    self.showToast(message: error ?? "Something went wrong.", font: .systemFont(ofSize: 12.0))
+                }
+            }
         }
     }
 

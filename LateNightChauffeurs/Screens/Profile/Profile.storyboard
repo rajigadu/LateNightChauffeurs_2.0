@@ -24,8 +24,34 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="backgroundimage" translatesAutoresizingMaskIntoConstraints="NO" id="DfW-Na-1DK">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="862"/>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="igi-et-5lo">
+                                <rect key="frame" x="8" y="773.5" width="398" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="C7I-hH-UyN"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="50" id="g7o-QP-E4E"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" title="Delete Account">
+                                    <color key="titleColor" systemColor="systemRedColor"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadiusV">
+                                        <real key="value" value="8"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidthV">
+                                        <real key="value" value="2"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColorV">
+                                        <color key="value" systemColor="systemRedColor"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="deleteAccountBtnref:" destination="ONi-Rd-mLc" eventType="touchUpInside" id="lzr-4k-4lB"/>
+                                </connections>
+                            </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="61" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="RdF-lv-ifb">
-                                <rect key="frame" x="0.0" y="108" width="414" height="722.5"/>
+                                <rect key="frame" x="0.0" y="108" width="414" height="649.5"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <view key="tableHeaderView" contentMode="scaleToFill" id="aTr-Md-daV">
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="130"/>
@@ -116,10 +142,13 @@
                             <constraint firstItem="7PD-d7-exh" firstAttribute="top" secondItem="DfW-Na-1DK" secondAttribute="bottom" id="LM6-iF-Fm4"/>
                             <constraint firstItem="MEx-cB-zvo" firstAttribute="trailing" secondItem="oaX-Dr-WZl" secondAttribute="trailing" constant="5" id="O9j-3Z-kI4"/>
                             <constraint firstItem="RdF-lv-ifb" firstAttribute="trailing" secondItem="MEx-cB-zvo" secondAttribute="trailing" id="SXR-ss-rf0"/>
+                            <constraint firstItem="igi-et-5lo" firstAttribute="leading" secondItem="MEx-cB-zvo" secondAttribute="leading" constant="8" id="UA0-cF-aQA"/>
+                            <constraint firstItem="oaX-Dr-WZl" firstAttribute="top" secondItem="igi-et-5lo" secondAttribute="bottom" constant="12" id="Xkm-9q-pbg"/>
                             <constraint firstItem="7PD-d7-exh" firstAttribute="top" secondItem="oaX-Dr-WZl" secondAttribute="bottom" constant="5" id="abB-dt-fFg"/>
-                            <constraint firstItem="oaX-Dr-WZl" firstAttribute="top" secondItem="RdF-lv-ifb" secondAttribute="bottom" constant="5" id="gLe-kL-eAZ"/>
                             <constraint firstItem="RdF-lv-ifb" firstAttribute="leading" secondItem="MEx-cB-zvo" secondAttribute="leading" id="l9o-L8-c8i"/>
+                            <constraint firstItem="igi-et-5lo" firstAttribute="top" secondItem="RdF-lv-ifb" secondAttribute="bottom" constant="16" id="mBu-CM-x2B"/>
                             <constraint firstItem="DfW-Na-1DK" firstAttribute="trailing" secondItem="MEx-cB-zvo" secondAttribute="trailing" id="np0-8O-Np0"/>
+                            <constraint firstItem="MEx-cB-zvo" firstAttribute="trailing" secondItem="igi-et-5lo" secondAttribute="trailing" constant="8" id="oqT-yV-6x7"/>
                             <constraint firstItem="DfW-Na-1DK" firstAttribute="leading" secondItem="MEx-cB-zvo" secondAttribute="leading" id="svl-mm-dGE"/>
                             <constraint firstItem="RdF-lv-ifb" firstAttribute="top" secondItem="JPg-1h-tV2" secondAttribute="bottom" constant="20" id="u1K-k4-SLI"/>
                         </constraints>
@@ -138,7 +167,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kqM-5Y-Ah3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4464" y="-472"/>
+            <point key="canvasLocation" x="4462.3188405797109" y="-472.09821428571428"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="bfG-wn-yJV">
@@ -2870,6 +2899,9 @@
         <image name="whitebubble" width="320" height="100"/>
         <systemColor name="groupTableViewBackgroundColor">
             <color red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemRedColor">
+            <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemYellowColor">
             <color red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

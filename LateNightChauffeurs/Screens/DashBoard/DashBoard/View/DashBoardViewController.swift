@@ -360,6 +360,10 @@ extension DashBoardViewController {
                             timer_ForGettingDriverCurrentLocationFromServer = nil
                         }
                     
+                    if UserData.status == "3" {
+                        self.moveToLogOutPage()
+                    }
+                    
                     if UserData.status != "1" {
                         if let responseData = UserData.data as? [currentRideDatar] {
                             self.currentRideData = responseData

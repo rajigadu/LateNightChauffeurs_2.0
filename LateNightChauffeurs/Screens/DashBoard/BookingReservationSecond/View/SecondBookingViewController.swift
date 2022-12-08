@@ -340,6 +340,7 @@ extension SecondBookingViewController {
             if success, let UserData = model {
                 DispatchQueue.main.async { [self] in
                     indicator.hideActivityIndicator()
+                    if UserData.status == "1" {
                     self.CardName_Tfref.text = ""
                     self.cardNumber_Tfref.text = ""
                     self.Expiry_MY_Tfref.text = ""
@@ -347,6 +348,11 @@ extension SecondBookingViewController {
                     self.PostalCode_Tfref.text = ""
 
                     self.ShowAlert(message: UserData.message ?? "")
+                    } else if UserData.status == "3" {
+                            self.moveToLogOutPage()
+                    } else {
+                        self.showToast(message: error ?? "Something went wrong.", font: .systemFont(ofSize: 12.0))
+                    }
                 }
             } else {
                 DispatchQueue.main.async { [self] in

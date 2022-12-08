@@ -38,6 +38,11 @@ class SideMenuViewController: UIViewController {
         self.loadUserData()
         //self.navigationController?.setNavigationBarHidden(true, animated: true)
     }
+    
+    @IBAction func deleteAccountBtnref(_ sender: Any) {
+        self.callDeleteAccountAction()
+    }
+    
 //
 //    override func viewWillDisappear(_ animated: Bool) {
 //        super.viewWillDisappear(true)
@@ -112,6 +117,16 @@ extension SideMenuViewController {
         self.present(alertController, animated: true, completion: nil)
     }
     
+    func callDeleteAccountAction() {
+        let alertController = UIAlertController(title: I18n.deleteAccountTitle, message: I18n.DeleteAccountAlert, preferredStyle: .alert)
+        let cancelAction = UIAlertAction(title: "Cancel", style: .default, handler: nil)
+        let okAction = UIAlertAction(title: "Delete", style: .destructive, handler: { action in
+            self.deleteAccountApiCalling()
+        })
+        alertController.addAction(cancelAction)
+        alertController.addAction(okAction)
+        self.present(alertController, animated: true, completion: nil)
+    }
     //Logout Api Intigartion
     func logoutApiCalling(){
         guard let userID = UserDefaults.standard.string(forKey: "UserLoginID") else{return}
@@ -128,6 +143,33 @@ extension SideMenuViewController {
                     if let delegate = UIApplication.shared.delegate as? AppDelegate {
                         delegate.MoveToLogin()
                     }
+                }
+            } else {
+                DispatchQueue.main.async { [self] in
+                    indicator.hideActivityIndicator()
+                    self.showToast(message: error ?? "Something went wrong.", font: .systemFont(ofSize: 12.0))
+                }
+            }
+        }
+    }
+    
+    //Logout Api Intigartion
+    func deleteAccountApiCalling(){
+        guard let userID = UserDefaults.standard.string(forKey: "UserLoginID") else{return}
+        indicator.showActivityIndicator()
+        self.viewModel.requestForDeleteAccountServices(perams: ["userid":userID]) { success, model, error in
+            if success {
+                DispatchQueue.main.async { [self] in
+                    indicator.hideActivityIndicator()
+//                    UserDefaults.standard.set("", forKey: "UserLoginID")
+//                    UserDefaults.standard.set("", forKey: "RideRequestProcessingCheck")
+//                    UserDefaults.standard.set("", forKey: "CurrentNotificationTitle")
+//                    UserDefaults.standard.set("", forKey: "SelectedCardDetails")
+//                    self.resetDefaults()
+//                    if let delegate = UIApplication.shared.delegate as? AppDelegate {
+//                        delegate.MoveToLogin()
+//                    }
+                    self.moveToLogOutPage()
                 }
             } else {
                 DispatchQueue.main.async { [self] in
