@@ -45,6 +45,7 @@ class DashBoardViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
        // setupSideMenu()
+        self.getgooglekeyListAPI()
         self.swipeRight()
         initializeTheLocationManager()
         self.str_UserLoginID = UserDefaults.standard.string(forKey: "UserLoginID") ?? ""
@@ -112,6 +113,7 @@ class DashBoardViewController: UIViewController {
         } else {
             // Current Ride API Calling..............
              self.currentRideInfoAPI()
+            
         }
     }
 

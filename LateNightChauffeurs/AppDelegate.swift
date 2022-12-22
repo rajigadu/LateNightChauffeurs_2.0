@@ -16,7 +16,7 @@ import SideMenu
 var LognedUserType = ""
 var newDeviceId = ""
 var inServerSavedDeviceId = ""
-var GOOGLE_API_KEY = "AIzaSyAK7N4kOTSAWpSlzoOQk9_dKp9Sci2sshY"
+var GOOGLE_API_KEY = "AIzaSyCNjXOJCvESsba4C2xYW208pVngaJyRGEY"
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
     
@@ -52,6 +52,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func applicationDidBecomeActive(_ application: UIApplication) {
         AppUpdater.shared.showUpdate(withConfirmation: false)
+        if GOOGLE_API_KEY != "" {
+            GMSServices.provideAPIKey(GOOGLE_API_KEY)
+            GMSPlacesClient.provideAPIKey(GOOGLE_API_KEY)
+        }
     }
     
 
