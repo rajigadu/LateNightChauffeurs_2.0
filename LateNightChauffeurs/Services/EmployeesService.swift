@@ -285,6 +285,9 @@ extension ApiService {
         if Connectivity.isNotConnectedToInternet{
             completion(false, nil, I18n.NoInterNetString)
         }
+        
+        print(perams)
+        print(API_URl.API_ESTIMATEDPRICE_URL)
         HttpRequestHelper().GET(url: API_URl.API_ESTIMATEDPRICE_URL, params: perams, httpHeader: .application_json) { success, data in
             if success {
                 do {

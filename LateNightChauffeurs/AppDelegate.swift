@@ -52,6 +52,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func applicationDidBecomeActive(_ application: UIApplication) {
         AppUpdater.shared.showUpdate(withConfirmation: false)
+        if let GoogleKey = UserDefaults.standard.string(forKey: "Googlekeyvalue") as? String {
+            GOOGLE_API_KEY = GoogleKey
+        } else {
+            self.getgooglekeyListAPI()
+        }
         if GOOGLE_API_KEY != "" {
             GMSServices.provideAPIKey(GOOGLE_API_KEY)
             GMSPlacesClient.provideAPIKey(GOOGLE_API_KEY)
