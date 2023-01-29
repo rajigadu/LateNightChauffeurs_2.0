@@ -370,6 +370,8 @@ extension ApiService {
         if Connectivity.isNotConnectedToInternet{
             completion(false, nil, I18n.NoInterNetString)
         }
+        print(perams)
+        print(API_URl.API_USERRIDEREQUEST_URL)
         HttpRequestHelper().POST(url: API_URl.API_USERRIDEREQUEST_URL, params: perams, httpHeader: .application_json) { success, data in
             if success {
                 do {

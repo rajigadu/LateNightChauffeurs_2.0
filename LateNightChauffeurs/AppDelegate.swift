@@ -47,7 +47,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             GMSPlacesClient.provideAPIKey(GOOGLE_API_KEY)
         }
         
-        return true
+        return true   
     }
     
     func applicationDidBecomeActive(_ application: UIApplication) {
