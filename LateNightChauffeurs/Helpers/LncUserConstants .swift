@@ -77,7 +77,9 @@ static let  API_FEEDBACK_URL                           = API_URl.API_SERVER_URL 
 //NORMAL PROCESS API'S....
 static let API_LOCATIONLIST_URL                        = API_URl.API_SERVER_URL + "location.php"
 static let API_USERRIDEREQUEST_URL                     = API_URl.API_SERVER_URL + "booking-reservation.php"  // = "booking-reservation.php"
+static let API_USER_DBH_RIDEREQUEST_URL                     = API_URl.API_SERVER_URL + "dbh-booking-reservation.php"  // = "booking-reservation.php"
 static let API_EDITUSERRIDEREQUEST_URL                 = API_URl.API_SERVER_URL + "edit-ride.php?"
+    static let API_EDIT_USER_DBH_RIDEREQUEST_URL                 = API_URl.API_SERVER_URL + "dbh_edit_ride.php?"
 static let API_USERRIDELIST_URL                        = API_URl.API_SERVER_URL + "payment-history-complete-cancel.php?"// = "ride-history.php?"
 static let API_USERFUTURERIDEHISTORY_URL               = API_URl.API_SERVER_URL + "future-ride-history.php?"
 static let API_USERPAYMENTSUMMARY_URL                  = API_URl.API_SERVER_URL + "payment-details.php?"
@@ -103,9 +105,12 @@ static let API_CANCELRIDE_URL                          = API_URl.API_SERVER_URL 
 static let API_ONGOING_REQUESTSRIDE                    = API_URl.API_SERVER_URL + "auto-cancel.php?"//ongoing-request-remove.php
 static let API_PROMOTIONSLIST_URL                      = API_URl.API_SERVER_URL + "offer-messages.php?"
 static let API_CURRENTFUTURERIDE_URL                   = API_URl.API_SERVER_URL + "ride-info.php?"
+    static let API_DBHCURRENTFUTURERIDE_URL                   = API_URl.API_SERVER_URL + "dbh-ride-info.php?"
 static let API_CANCELRIDEAMOUNT_URL                    = API_URl.API_SERVER_URL + "cancel-ride-amount.php?"
 static let API_Promocode_URL                           = API_URl.API_SERVER_URL + "promo-check.php?"
+    static let API_DBH_Promocode_URL                           = API_URl.API_SERVER_URL + "dbh_promo_check.php"
 static let API_IS_EDITABLE_RIDEINFO_URL                = API_URl.API_SERVER_URL + "edit-ride-difference.php?"
+static let API_IS_DBH_EDITABLE_RIDEINFO_URL                = API_URl.API_SERVER_URL + "dbh-edit-ride-difference.php"
 static let API_RichNotification_url                    = API_URl.API_SERVER_URL + "notification-message-list.php?"
 //https://www.latenightchauffeurs.com/lnc-administrator/ios/edit-ride-difference.php?ride_id=5621  http://lnc.latenightchauffeurs.com/lnc-administrator/ios/notification-message-list.php
 }

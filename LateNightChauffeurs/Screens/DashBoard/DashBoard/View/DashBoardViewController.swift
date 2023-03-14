@@ -142,8 +142,22 @@ class DashBoardViewController: UIViewController {
        
     }
     
+    
+    @IBAction func BookDriverByTheHourBTnref(_ sender: Any) {
+        let Storyboard : UIStoryboard = UIStoryboard(name: "DashBoard", bundle: nil)
+        let nxtVC = Storyboard.instantiateViewController(withIdentifier: "ReservationForDriverByTheHour") as! ReservationForDriverByTheHour
+        if str_UserCurrentLocationAddress != "" {
+        nxtVC.str_UserCurrentLocationLatitude = str_UserCurrentLocationLatitude
+        nxtVC.str_UserCurrentLocationLongitude = str_UserCurrentLocationLongitude
+        nxtVC.str_UserCurrentLocationAddress = str_UserCurrentLocationAddress
+            nxtVC.str_UserCurrentLocationCity = str_UserCurrentLocationCity
+        nxtVC.str_ComingFrom = "HomePage"
+    }
+        self.navigationController?.pushViewController(nxtVC, animated: true)
+
+    }
+    
     @IBAction func bookingReservation(_ sender: Any) {
-//        self.movetonextvc(id: "BookingReservationViewController", storyBordid: "DashBoard", animated: true)
         
         let Storyboard : UIStoryboard = UIStoryboard(name: "DashBoard", bundle: nil)
         let nxtVC = Storyboard.instantiateViewController(withIdentifier: "BookingReservationViewController") as! BookingReservationViewController

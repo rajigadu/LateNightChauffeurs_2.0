@@ -1,13 +1,14 @@
 //
-//  SecondBookingViewController.swift
+//  SecondBookingViewController_DBH.swift
 //  LateNightChauffeurs
 //
-//  Created by rajesh gandru on 20/09/22.
+//  Created by rajesh gandru on 12/03/23.
 //
+
 
 import UIKit
 
-class SecondBookingViewController: UIViewController {
+class SecondBookingViewController_DBH: UIViewController {
     
     @IBOutlet weak var promoCodeButtonref: UIButton!
     @IBOutlet weak var PromoApplyBtnref: UIButton!
@@ -27,10 +28,10 @@ class SecondBookingViewController: UIViewController {
     
     @IBOutlet weak var tableviewHeightref: NSLayoutConstraint!
     lazy var viewModel = {
-        SecondBookingViewModel()
+        SecondBookingViewModel_DBH()
     }()
     var array_AvailableCardList: SecondBookingData?
-    var dict_SelectedRideDetailsForEdit :RideInfoDatar?
+    var dict_SelectedRideDetailsForEdit :DBH_RideHistoryDataR?
     var arrSelectedSectionIndex:[Int] = []
     var SelectedIndex:[Int] = []
     var str_SelectedAccountID = ""
@@ -39,7 +40,7 @@ class SecondBookingViewController: UIViewController {
     var cellIndex = 0
     var isMultipleExpansionAllowed = true
     var str_PromoCodeStr = ""
-        
+    
     //MARK: - expiry date and year pick
     var expiryMonths: [Int] = [01, 02, 03, 04, 05, 06, 07, 08, 09, 10, 11, 12]
     var expiryYears: [Int] = [23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40]
@@ -54,32 +55,33 @@ class SecondBookingViewController: UIViewController {
     var str_ComingFrom = ""
     
     //step - 6 - creating of global dict
-    var bookingModel: BookingModel?
-    var bookingModel2: BookingModel?
-
+    var bookingModel: DBHBookingModel?
+    var bookingModel2: DBHBookingModel?
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        if str_ComingFrom == "RideHistory" {
-        self.ProMoCodeTf_ref.text = dict_SelectedRideDetailsForEdit?.promo ?? ""
+        self.title = "Driver By The Hour"
+        if str_ComingFrom == "DBHRideHistory" {
+            self.ProMoCodeTf_ref.text = dict_SelectedRideDetailsForEdit?.promo ?? ""
         }
         self.bookingModel2 = self.bookingModel
-
+        
         self.savedCardListApiCall()
         AddCardView_Heaightref.constant = 0
         addCardView_ref.isHidden = true
         
         //tableView.contentInset = UIEdgeInsets.zero
-
-     
+        
+        
         // tblView.estimatedRowHeight = 1000
         // Do any additional setup after loading the view.
         
         expiryDatePicker = UIPickerView()
-
+        
         expiryDatePicker.dataSource = self
         expiryDatePicker.delegate = self
-
+        
         Expiry_MY_Tfref.inputView = expiryDatePicker
         self.expMonth = "\(expiryMonths[0])"
         self.expYear = "\(expiryYears[0])"
@@ -128,16 +130,16 @@ class SecondBookingViewController: UIViewController {
         if self.str_SelectedCardID == "" {
             self.ShowAlert(message: "Please select payment card.")
         } else {
-            if str_ComingFrom == "RideHistory" {
+            if str_ComingFrom == "DBHRideHistory" {
                 EditRideApiCall()
             } else {
                 createNewRideApiCall()
             }
         }
     }
-
+    
 }
-extension SecondBookingViewController: UITableViewDelegate,UITableViewDataSource {
+extension SecondBookingViewController_DBH: UITableViewDelegate,UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
         return self.array_AvailableCardList?.data?.count ?? 0
     }
@@ -176,7 +178,7 @@ extension SecondBookingViewController: UITableViewDelegate,UITableViewDataSource
         
         print("\(cardData?.accttype ?? "")      XXXXXXX\(showCardNumb)     \(monthStr)/\(yearStr)")
         headerView.CardTypeCardNameref.text =
-           "\(cardData?.accttype ?? "")      XXXXXXX\(showCardNumb)     \(monthStr)/\(yearStr)"
+        "\(cardData?.accttype ?? "")      XXXXXXX\(showCardNumb)     \(monthStr)/\(yearStr)"
         //        headerView.CvvNumberLblref.text = ""
         //        headerView.
         
@@ -234,13 +236,12 @@ extension SecondBookingViewController: UITableViewDelegate,UITableViewDataSource
         self.tblView.reloadData()
     }
 }
-extension SecondBookingViewController: UIPickerViewDelegate, UIPickerViewDataSource{
-   
-
+extension SecondBookingViewController_DBH: UIPickerViewDelegate, UIPickerViewDataSource{
+ 
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 2
     }
-
+    
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         if component == 0 {
             return expiryMonths.count
@@ -248,7 +249,7 @@ extension SecondBookingViewController: UIPickerViewDelegate, UIPickerViewDataSou
             return expiryYears.count
         }
     }
-
+    
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         if component == 0 {
             return "\(expiryMonths[row])"
@@ -256,7 +257,7 @@ extension SecondBookingViewController: UIPickerViewDelegate, UIPickerViewDataSou
             return "\(expiryYears[row])"
         }
     }
-
+    
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         if component == 0 {
             print("\(expiryMonths[row])")
@@ -270,7 +271,7 @@ extension SecondBookingViewController: UIPickerViewDelegate, UIPickerViewDataSou
     }
 }
 
-extension SecondBookingViewController {
+extension SecondBookingViewController_DBH {
     //MARK: - Api Intigration
     func savedCardListApiCall(){
         guard let userID = UserDefaults.standard.string(forKey: "UserLoginID") else {return}
@@ -288,21 +289,21 @@ extension SecondBookingViewController {
                         self.tableviewHeightref.constant = CGFloat((self.array_AvailableCardList?.data?.count ?? 0) * 82 + (arrSelectedSectionIndex.count * 50))
                     } else {
                         self.tableviewHeightref.constant = CGFloat((self.array_AvailableCardList?.data?.count ?? 0) * 82)
-                     }
+                    }
                     self.tblView.setNeedsLayout()
                     self.tblView.reloadData()
-                 }
+                }
             } else {
                 DispatchQueue.main.async { [self] in
                     indicator.hideActivityIndicator()
                     self.showToast(message: error ?? "Something went wrong.", font: .systemFont(ofSize: 12.0))
                 }
             }
-         }
+        }
     }
 }
 
-extension SecondBookingViewController {
+extension SecondBookingViewController_DBH {
     //MARK: - Promo Code Api Intigration
     func promoCodeValidationApiCall(){
         guard let userID = UserDefaults.standard.string(forKey: "UserLoginID") else {return}
@@ -326,7 +327,7 @@ extension SecondBookingViewController {
     }
 }
 
-extension SecondBookingViewController {
+extension SecondBookingViewController_DBH {
     //MARK: - Add card Api Intigration
     func AddCardApiCall(){
         guard let userID = UserDefaults.standard.string(forKey: "UserLoginID") else {return}
@@ -341,15 +342,15 @@ extension SecondBookingViewController {
                 DispatchQueue.main.async { [self] in
                     indicator.hideActivityIndicator()
                     if UserData.status == "1" {
-                    self.CardName_Tfref.text = ""
-                    self.cardNumber_Tfref.text = ""
-                    self.Expiry_MY_Tfref.text = ""
-                    self.CVV_Tfref.text = ""
-                    self.PostalCode_Tfref.text = ""
-
-                    self.ShowAlert(message: UserData.message ?? "")
+                        self.CardName_Tfref.text = ""
+                        self.cardNumber_Tfref.text = ""
+                        self.Expiry_MY_Tfref.text = ""
+                        self.CVV_Tfref.text = ""
+                        self.PostalCode_Tfref.text = ""
+                        
+                        self.ShowAlert(message: UserData.message ?? "")
                     } else if UserData.status == "3" {
-                            self.moveToLogOutPage()
+                        self.moveToLogOutPage()
                     } else {
                         self.showToast(message: error ?? "Something went wrong.", font: .systemFont(ofSize: 12.0))
                     }
@@ -365,43 +366,43 @@ extension SecondBookingViewController {
     }
 }
 
-extension SecondBookingViewController {
+extension SecondBookingViewController_DBH {
     //MARK: - createNewRide
     func createNewRideApiCall(){
         guard let strPromoCode = self.ProMoCodeTf_ref.text else{ return }
         guard let userid = self.bookingModel2?.userid as? String else {return}
         guard let card_id = self.str_SelectedCardID as? String else {return}
         guard let acctid = self.str_SelectedAccountID as? String else {return}
-        guard let nstops = self.bookingModel2?.nstops as? String else {return}
-        guard let savedrop = self.bookingModel2?.savedrop as? [String] else {return}
+//        guard let nstops = self.bookingModel2?.nstops as? String else {return}
+//        guard let savedrop = self.bookingModel2?.savedrop as? [String] else {return}
         guard let platitude = self.bookingModel2?.platitude as? String else {return}
         guard let plongitude = self.bookingModel2?.plongitude as? String else {return}
         guard let pickup_address = self.bookingModel2?.pickup_address as? String else {return}
         guard let pickup_city = self.bookingModel2?.pickup_city as? String else {return}
-        guard let drop_address = self.bookingModel2?.drop_address as? String else {return}
-        guard let dlatitude = self.bookingModel2?.dlatitude as? String else {return}
-        guard let dlongitude = self.bookingModel2?.dlongitude as? String else {return}
-        guard let drop_city = self.bookingModel2?.drop_city as? String else {return}
+//        guard let drop_address = self.bookingModel2?.drop_address as? String else {return}
+//        guard let dlatitude = self.bookingModel2?.dlatitude as? String else {return}
+//        guard let dlongitude = self.bookingModel2?.dlongitude as? String else {return}
+//        guard let drop_city = self.bookingModel2?.drop_city as? String else {return}
         guard let notes = self.bookingModel2?.notes as? String else {return}
         guard let booking_type = self.bookingModel2?.booking_type as? String else {return}
         guard let date = self.bookingModel2?.date as? String else {return}
         guard let time = self.bookingModel2?.time as? String else {return}
         guard let transmission = self.bookingModel2?.transmission as? String else {return}
- 
+        
         let perams = [
             "userid": userid,
             "card_id": card_id,
             "acctid": acctid,
-            "nstops": nstops,
-            "savedrop": savedrop,
+//            "nstops": nstops,
+//            "savedrop": savedrop,
             "platitude": platitude,
             "plongitude": plongitude,
             "pickup_address": pickup_address,
             "pickup_city": pickup_city,
-            "drop_address": drop_address,
-            "dlatitude": dlatitude,
-            "dlongitude": dlongitude,
-            "drop_city": drop_city,
+//            "drop_address": drop_address,
+//            "dlatitude": dlatitude,
+//            "dlongitude": dlongitude,
+//            "drop_city": drop_city,
             "notes": notes,
             "booking_type": booking_type,
             "date": date,
@@ -410,17 +411,17 @@ extension SecondBookingViewController {
             "promo": strPromoCode,
             "version": "yes"
         ] as? [String: Any]
-        var peram2 = savedrop as? [String]
-        var allStops : [String] = []
-        for peram in savedrop {
-            allStops.append(peram)
-        }
+//        var peram2 = savedrop as? [String]
+//        var allStops : [String] = []
+//        for peram in savedrop {
+//            allStops.append(peram)
+//        }
         
         var str1 = json(from: perams) ?? ""
-        var str2 = json(from: peram2) ?? ""
+        //var str2 = json(from: peram2) ?? ""
         
         indicator.showActivityIndicator()
-        self.viewModel.requestForcreateNewRideAPIServices(perams: ["json":str1, "jsonstops":allStops]) { success, model, error in
+        self.viewModel.requestForcreateNewRideAPIServices(perams: ["json":str1]) { success, model, error in
             if success, let UserData = model {
                 DispatchQueue.main.async { [self] in
                     indicator.hideActivityIndicator()
@@ -440,7 +441,7 @@ extension SecondBookingViewController {
                         let message  = message1 + message2 + message3 + message4 + message5
                         let str_MessageTitle = UserData.data?[0].message ?? ""
                         if str_MessageTitle == "Congratulations! your reservation has been completed." {
-                            self.ShowAlertWithRideInfoPage(message : message)
+                            self.ShowAlertWithDBHRideInfoPage(message : message)
                         } else {
                             self.ShowAlertWithDashBoardPage(message: str_MessageTitle)
                         }
@@ -458,64 +459,52 @@ extension SecondBookingViewController {
 }
 
 
-extension SecondBookingViewController {
+extension SecondBookingViewController_DBH {
     //MARK: - Edit Ride
     func EditRideApiCall(){
         guard let strPromoCode = self.ProMoCodeTf_ref.text else{ return }
         guard let userid = self.bookingModel2?.userid as? String else {return}
         guard let card_id = self.str_SelectedCardID as? String else {return}
         guard let acctid = self.str_SelectedAccountID as? String else {return}
-        guard let nstops = self.bookingModel2?.nstops as? String else {return}
-        guard let savedrop = self.bookingModel2?.savedrop as? [String] else {return}
         guard let platitude = self.bookingModel2?.platitude as? String else {return}
         guard let plongitude = self.bookingModel2?.plongitude as? String else {return}
         guard let pickup_address = self.bookingModel2?.pickup_address as? String else {return}
         guard let pickup_city = self.bookingModel2?.pickup_city as? String else {return}
-        guard let drop_address = self.bookingModel2?.drop_address as? String else {return}
-        guard let dlatitude = self.bookingModel2?.dlatitude as? String else {return}
-        guard let dlongitude = self.bookingModel2?.dlongitude as? String else {return}
-        guard let drop_city = self.bookingModel2?.drop_city as? String else {return}
         guard let notes = self.bookingModel2?.notes as? String else {return}
         guard let booking_type = self.bookingModel2?.booking_type as? String else {return}
         guard let date = self.bookingModel2?.date as? String else {return}
         guard let time = self.bookingModel2?.time as? String else {return}
         guard let transmission = self.bookingModel2?.transmission as? String else {return}
         guard let bookingID = self.dict_SelectedRideDetailsForEdit?.id as? String else {return}
-
+        
         let perams = [
             "booking_id":bookingID,
             "userid": userid,
             "card_id": card_id,
             "acctid": acctid,
-            "nstops": nstops,
-            "savedrop": savedrop,
             "platitude": platitude,
             "plongitude": plongitude,
             "pickup_address": pickup_address,
             "pickup_city": pickup_city,
-            "drop_address": drop_address,
-            "dlatitude": dlatitude,
-            "dlongitude": dlongitude,
-            "drop_city": drop_city,
             "notes": notes,
             "booking_type": booking_type,
             "date": date,
             "time": time,
-            "transmission": transmission,
+           // "transmission": transmission,
             "promo": strPromoCode,
             "version": "yes"
         ] as? [String: Any]
-        var peram2 = savedrop as? [String]
-        var allStops : [String] = []
-        for peram in savedrop {
-            allStops.append(peram)
-        }
+//        var peram2 = savedrop as? [String]
+//        var allStops : [String] = []
+//        for peram in savedrop {
+//            allStops.append(peram)
+//        }
         
         var str1 = json(from: perams) ?? ""
-        var str2 = json(from: peram2) ?? ""
+        //var str2 = json(from: peram2) ?? ""
         
         indicator.showActivityIndicator()
-        self.viewModel.requestForEditRideAPIServices(perams: ["json":str1, "jsonstops":allStops]) { success, model, error in
+        self.viewModel.requestForEditRideAPIServices(perams: ["json":str1]) { success, model, error in
             if success, let UserData = model {
                 DispatchQueue.main.async { [self] in
                     indicator.hideActivityIndicator()
@@ -525,7 +514,7 @@ extension SecondBookingViewController {
                         self.ShowAlertWithDashBoardPage(message: "Success")
                         //self.movetonextvc(id: "DashBoardViewController", storyBordid: "DashBoard", animated: true)
                     } else if UserData.status == "3" {
-                        self.ShowAlertWithRideInfoPage(message: UserData.data?[0].message ?? "")
+                        self.ShowAlertWithDBHRideInfoPage(message: UserData.data?[0].message ?? "")
                     } else if UserData.status == "0" {
                         let message1 = "Congratulations! your reservation has been completed."
                         let message2 = "‣ Reservation is Subject to Our availability."
@@ -536,7 +525,7 @@ extension SecondBookingViewController {
                         let str_MessageTitle = UserData.data?[0].message ?? ""
                         
                         if str_MessageTitle == "Congratulations! your reservation has been completed." {
-                            self.ShowAlertWithRideInfoPage(message : str_MessageTitle)
+                            self.ShowAlertWithDBHRideInfoPage(message : str_MessageTitle)
                         } else {
                             self.ShowAlertWithDashBoardPage(message: str_MessageTitle)
                         }

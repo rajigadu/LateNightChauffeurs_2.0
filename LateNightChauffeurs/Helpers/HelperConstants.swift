@@ -209,6 +209,26 @@ extension UIViewController {
         window?.rootViewController = nav
 
     }
+    
+    func ShowAlertWithDBHRideInfoPage(message : String){
+           let alertController = UIAlertController(title: kApptitle, message: message, preferredStyle: .alert)
+           let OKAction = UIAlertAction(title: "OK", style: .default) { (UIAlertAction) in
+               self.MoveToDBHRideInfoPage()
+           }
+           alertController.addAction(OKAction)
+           self.present(alertController, animated: true, completion: nil)
+       }
+    
+    func MoveToDBHRideInfoPage() {
+        let Storyboard : UIStoryboard = UIStoryboard(name: "Profile", bundle: nil)
+
+                                let loginVC = Storyboard.instantiateViewController(withIdentifier: "DBHRideHistoryViewController") as! DBHRideHistoryViewController
+        let window = UIApplication.shared.windows.first
+
+        let nav = UINavigationController(rootViewController: loginVC)
+        window?.rootViewController = nav
+
+    }
 }
 extension UIViewController {
     func movetonextvc(id:String,storyBordid : String,animated:Bool?){

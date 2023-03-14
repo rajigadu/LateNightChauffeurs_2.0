@@ -150,3 +150,20 @@ struct BookingModel {
     version: String
 }
 
+
+struct DBHBookingModel {
+    var userid: String,
+    card_id: String,
+    acctid: String,
+    platitude: String,
+    plongitude: String,
+    pickup_address: String,
+    pickup_city: String,
+    notes: String,
+    booking_type: String,
+    date: String,
+    time: String,
+    transmission: String,
+    promo: String,
+    version: String
+}

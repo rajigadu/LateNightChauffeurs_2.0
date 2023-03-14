@@ -21,8 +21,8 @@ class SideMenuViewController: UIViewController {
     lazy var viewModel = {
         MenuSliderViewModel()
     }()
-    var arrayResponse = ["Book a Reservation","Ride Info","Available Cards","Settings","Logout"];//@"Future Ride Info",@"Future Ride History",
-    var arr_images = [UIImage(named :"route"),UIImage(named :"home"),UIImage(named :"payment"),UIImage(named :"tools"),UIImage(named :"exit")];//,[UIImage imageNamed:@"futurebooking"],[UIImage imageNamed:@"history"]
+    var arrayResponse = ["Book a Reservation","Ride Info","DHB-Ride Info","Available Cards","Settings","Logout"];//@"Future Ride Info",@"Future Ride History",
+    var arr_images = [UIImage(named :"route"),UIImage(named :"home"),UIImage(named :"home"),UIImage(named :"payment"),UIImage(named :"tools"),UIImage(named :"exit")];//,[UIImage imageNamed:@"futurebooking"],[UIImage imageNamed:@"history"]
 
     
     //MARK: - View life cycle
@@ -98,6 +98,8 @@ extension SideMenuViewController :UITableViewDelegate,UITableViewDataSource {
             self.movetonextvc(id: "AvilableCardsViewController", storyBordid: "Profile",animated:false)
         } else if arrayResponse[indexPath.row] == "Ride Info" {
             self.movetonextvc(id: "RideHistoryViewController", storyBordid: "Profile",animated:false)
+        } else if arrayResponse[indexPath.row] == "DHB-Ride Info" {
+            self.movetonextvc(id: "DBHRideHistoryViewController", storyBordid: "Profile",animated:false)
         }
         
         
