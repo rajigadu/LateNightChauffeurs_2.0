@@ -17,7 +17,7 @@ class DBHRideHistoryViewController: UIViewController {
     @IBOutlet weak var lbl_NoListRef:UILabel!
     
     var rideInfoArray:[DBH_RideHistoryDataR] = []
-    var rideInfoEditButtonStatusArray:[Future_edit_ride_status] = []
+    var rideInfoEditButtonStatusArray:[DBH_Future_edit_ride_status] = []
     var selectedRideInfoDict:DBH_RideHistoryDataR?
     var PaymentInfoArray:[PaymentHistoryDatar] = []
     var str_DriverRating = ""
@@ -191,17 +191,19 @@ extension DBHRideHistoryViewController: UITableViewDelegate, UITableViewDataSour
                                         cell.btn_ViewDetailRef.layer.masksToBounds = true
                                         cell.btn_ViewDetailRef.tag = indexPath.row
                                         cell.btn_ViewDetailRef.setTitle("Edit Ride Info", for: .normal)
+                                        //cell.btn_ViewDetailRef.addTarget(self, action: #selector(editRideDetailsButtonClicked), for: .touchUpInside)
                                     } else {
                                         cell.btn_ViewDetailRef.setTitle("View Detail", for: .normal)
                                         cell.btn_ViewDetailRef.layer.cornerRadius = 5.0
                                         cell.btn_ViewDetailRef.layer.masksToBounds = true
                                         cell.btn_ViewDetailRef.tag = indexPath.row
+                                        //cell.btn_ViewDetailRef.addTarget(self, action: #selector(viewDetailButtonClicked), for: .touchUpInside)
                                     }
                                 }
                             }
                         }
                         
-                        if FutureBookingRideStatus == "1" {
+                        if rideInfoArray[indexPath.row].ride_assign_status == "1" {
                             cell.btn_ViewDetailRef.addTarget(self, action: #selector(viewDetailButtonClicked), for: .touchUpInside)
                         } else {
                             cell.btn_ViewDetailRef.addTarget(self, action: #selector(editRideDetailsButtonClicked), for: .touchUpInside)
@@ -404,11 +406,6 @@ extension DBHRideHistoryViewController: UITableViewDelegate, UITableViewDataSour
             cell.btn_PaymentRef.tag = indexPath.row
             cell.btn_PaymentRef.addTarget(self, action: #selector(paymentSummaryButtonClicked), for: .touchUpInside)
             
-            cell.btn_StopsRef.layer.cornerRadius = 5.0
-            cell.btn_StopsRef.layer.masksToBounds = true
-            cell.btn_StopsRef.tag = indexPath.row
-            cell.btn_StopsRef.addTarget(self, action: #selector(stopsButtonClicked), for: .touchUpInside)
-            
             if !isRideInfoEnabled {
                 cell.btn_PaymentRef.isHidden = false
             } else {
@@ -434,9 +431,9 @@ extension DBHRideHistoryViewController: UITableViewDelegate, UITableViewDataSour
             
         } else {
             
-            if let str_BookingType = rideInfoArray[indexPath.row].booking_type, str_BookingType == "2" {
+            if let str_BookingType = rideInfoArray[indexPath.row].booking_type, str_BookingType == "3" {
                 let Storyboard : UIStoryboard = UIStoryboard(name: "Profile", bundle: nil)
-                let nxtVC = Storyboard.instantiateViewController(withIdentifier: "DriverDetailInFutureBookingViewController") as! DriverDetailInFutureBookingViewController
+                let nxtVC = Storyboard.instantiateViewController(withIdentifier: "DBHDriverDetailIsBookingViewController") as! DBHDriverDetailIsBookingViewController
                 nxtVC.str_FutureRideStatus = rideInfoArray[indexPath.row].future_accept ?? ""
                 nxtVC.str_FutureRideDate = rideInfoArray[indexPath.row].date ?? ""
                 nxtVC.str_FutureRideTime = rideInfoArray[indexPath.row].time ?? ""
@@ -446,20 +443,11 @@ extension DBHRideHistoryViewController: UITableViewDelegate, UITableViewDataSour
         }
     }
     
-    @objc func stopsButtonClicked(sender: UIButton) {
-        
-        //MARK: - Move to stops page
-        let Storyboard : UIStoryboard = UIStoryboard(name: "DashBoard", bundle: nil)
-        let nxtVC = Storyboard.instantiateViewController(withIdentifier: "StopsViewController") as! StopsViewController
-        nxtVC.str_ComingFrom = "Ride History"
-        nxtVC.str_rideid = PaymentInfoArray[sender.tag].booking_id ?? ""
-        self.navigationController?.pushViewController(nxtVC, animated: true)
-    }
-    
     @objc func viewDetailButtonClicked(sender: UIButton) {
-        if let str_BookingType = rideInfoArray[sender.tag].booking_type, str_BookingType == "2" {
+        
+        if let str_BookingType = rideInfoArray[sender.tag].booking_type, str_BookingType == "3" {
             let Storyboard : UIStoryboard = UIStoryboard(name: "Profile", bundle: nil)
-            let nxtVC = Storyboard.instantiateViewController(withIdentifier: "DriverDetailInFutureBookingViewController") as! DriverDetailInFutureBookingViewController
+            let nxtVC = Storyboard.instantiateViewController(withIdentifier: "DBHDriverDetailIsBookingViewController") as! DBHDriverDetailIsBookingViewController
             nxtVC.str_FutureRideStatus = rideInfoArray[sender.tag].future_accept ?? ""
             nxtVC.str_FutureRideDate = rideInfoArray[sender.tag].date ?? ""
             nxtVC.str_FutureRideTime = rideInfoArray[sender.tag].time ?? ""
@@ -471,17 +459,19 @@ extension DBHRideHistoryViewController: UITableViewDelegate, UITableViewDataSour
     }
     
     @objc func editRideDetailsButtonClicked(sender: UIButton) {
-        self.selectedRideInfoDict = rideInfoArray[sender.tag]
-        self.EditRideConformationAPI(RideID:rideInfoArray[sender.tag].id ?? "")
-    }
-    
-    @objc func futureStopsButtonClicked(sender: UIButton) {
-        let Storyboard : UIStoryboard = UIStoryboard(name: "DashBoard", bundle: nil)
-        let nxtVC = Storyboard.instantiateViewController(withIdentifier: "StopsViewController") as! StopsViewController
-        nxtVC.str_ComingFrom = "Future"
-        nxtVC.str_rideid = rideInfoArray[sender.tag].id ?? ""
-        self.navigationController?.pushViewController(nxtVC, animated: true)
-        
+        if self.rideInfoEditButtonStatusArray.count == rideInfoArray.count {
+            if let EditButtonStatus = self.rideInfoEditButtonStatusArray[sender.tag].future_edit_ride_status,let EditButtonStatusId = self.rideInfoEditButtonStatusArray[sender.tag].id {
+                
+                if EditButtonStatusId == rideInfoArray[sender.tag].id {
+                    if EditButtonStatus == "1" {
+                        if let str_BookingType = rideInfoArray[sender.tag].ride_assign_status, str_BookingType != "1" {
+                            self.selectedRideInfoDict = rideInfoArray[sender.tag]
+                            self.EditRideConformationAPI(RideID:rideInfoArray[sender.tag].id ?? "")
+                        }
+                    }
+                }
+            }
+        }
     }
     
     @objc func feedbackButtonClicked(sender: UIButton) {
@@ -533,11 +523,15 @@ extension DBHRideHistoryViewController {
                 DispatchQueue.main.async { [self] in
                     indicator.hideActivityIndicator()
                     if UserData.status == "1" {
-                        if let dat = UserData.data {
+                        if let dat = UserData.data?.ride {
                             self.rideInfoArray = dat
                             str_DriverRating = UserData.rating ?? ""
+                            if let response = UserData.data?.future_edit_ride_status {
+                                self.rideInfoEditButtonStatusArray = response
+                            }
                             self.tableview_RideInfoRef.reloadData()
                         }
+                     
                     } else{
                         ////                        self.tableview_RideInfoRef.isHidden = true
                         //                        self.lbl_NoListRef.isHidden = false

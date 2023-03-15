@@ -14,9 +14,10 @@ struct DBH_RideHistoryModel : Codable {
     let status : String?
     let bannercount : String?
     let rating : String?
-    let data : [DBH_RideHistoryDataR]?
+    let data : DBH_FutureRideInfoDatarrrr?
 
     enum CodingKeys: String, CodingKey {
+
         case message = "message"
         case status = "status"
         case bannercount = "bannercount"
@@ -30,7 +31,43 @@ struct DBH_RideHistoryModel : Codable {
         status = try values.decodeIfPresent(String.self, forKey: .status)
         bannercount = try values.decodeIfPresent(String.self, forKey: .bannercount)
         rating = try values.decodeIfPresent(String.self, forKey: .rating)
-        data = try values.decodeIfPresent([DBH_RideHistoryDataR].self, forKey: .data)
+        data = try values.decodeIfPresent(DBH_FutureRideInfoDatarrrr.self, forKey: .data)
+    }
+
+}
+
+struct DBH_FutureRideInfoDatarrrr : Codable {
+    let future_edit_ride_status : [DBH_Future_edit_ride_status]?
+    let ride : [DBH_RideHistoryDataR]?
+
+    enum CodingKeys: String, CodingKey {
+
+        case future_edit_ride_status = "future_edit_ride_status"
+        case ride = "ride"
+    }
+
+    init(from decoder: Decoder) throws {
+        let values = try decoder.container(keyedBy: CodingKeys.self)
+        future_edit_ride_status = try values.decodeIfPresent([DBH_Future_edit_ride_status].self, forKey: .future_edit_ride_status)
+        ride = try values.decodeIfPresent([DBH_RideHistoryDataR].self, forKey: .ride)
+    }
+
+}
+
+struct DBH_Future_edit_ride_status : Codable {
+    let future_edit_ride_status : String?
+    let id : String?
+
+    enum CodingKeys: String, CodingKey {
+
+        case future_edit_ride_status = "future_edit_ride_status"
+        case id = "id"
+    }
+
+    init(from decoder: Decoder) throws {
+        let values = try decoder.container(keyedBy: CodingKeys.self)
+        future_edit_ride_status = try values.decodeIfPresent(String.self, forKey: .future_edit_ride_status)
+        id = try values.decodeIfPresent(String.self, forKey: .id)
     }
 
 }

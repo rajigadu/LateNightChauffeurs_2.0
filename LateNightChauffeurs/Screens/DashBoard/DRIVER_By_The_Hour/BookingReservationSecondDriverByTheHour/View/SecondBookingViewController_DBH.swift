@@ -5,7 +5,6 @@
 //  Created by rajesh gandru on 12/03/23.
 //
 
-
 import UIKit
 
 class SecondBookingViewController_DBH: UIViewController {
@@ -13,7 +12,6 @@ class SecondBookingViewController_DBH: UIViewController {
     @IBOutlet weak var promoCodeButtonref: UIButton!
     @IBOutlet weak var PromoApplyBtnref: UIButton!
     @IBOutlet weak var ProMoCodeTf_ref:UITextField!
-    
     @IBOutlet weak var cardTble_hightref: NSLayoutConstraint!
     @IBOutlet weak var AddCardBackViewref: UIView!
     @IBOutlet weak var addCardView_ref: UIView!

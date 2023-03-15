@@ -19,6 +19,7 @@
 		BA1181B328CDFB1100F61CD5 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA1181B228CDFB1100F61CD5 /* ProfileViewController.swift */; };
 		BA1181B528CDFB2D00F61CD5 /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA1181B428CDFB2D00F61CD5 /* ProfileViewModel.swift */; };
 		BA1181B728CDFE0E00F61CD5 /* ImagePickerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA1181B628CDFE0E00F61CD5 /* ImagePickerManager.swift */; };
+		BA12FD3F29C1ECEE00BF5DD2 /* DBHCancelRideViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA12FD3E29C1ECEE00BF5DD2 /* DBHCancelRideViewController.swift */; };
 		BA1497C628D8AF6000126BD0 /* DatePickerHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA1497C528D8AF6000126BD0 /* DatePickerHelper.swift */; };
 		BA18116D29BB6F7E00F5DAC4 /* ReservationForDriverByTheHourViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA18116C29BB6F7E00F5DAC4 /* ReservationForDriverByTheHourViewController.swift */; };
 		BA18116F29BB703200F5DAC4 /* ReservationForDriverByTheHourViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA18116E29BB703200F5DAC4 /* ReservationForDriverByTheHourViewModel.swift */; };
@@ -37,6 +38,7 @@
 		BA36D85C28C8C3A400B73053 /* LateNightChauffeursTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA36D85B28C8C3A400B73053 /* LateNightChauffeursTests.swift */; };
 		BA36D86628C8C3A400B73053 /* LateNightChauffeursUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA36D86528C8C3A400B73053 /* LateNightChauffeursUITests.swift */; };
 		BA36D86828C8C3A400B73053 /* LateNightChauffeursUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA36D86728C8C3A400B73053 /* LateNightChauffeursUITestsLaunchTests.swift */; };
+		BA3E4EF629C1F53F003B6AE6 /* DBHCancelRideViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA3E4EF529C1F53F003B6AE6 /* DBHCancelRideViewModel.swift */; };
 		BA3F71BA28D7EDEA00B650E9 /* AddressListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA3F71B928D7EDEA00B650E9 /* AddressListViewModel.swift */; };
 		BA3F71BC28D7EE0000B650E9 /* AddressListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA3F71BB28D7EE0000B650E9 /* AddressListViewController.swift */; };
 		BA3F71BE28D7EE1400B650E9 /* AddressListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA3F71BD28D7EE1400B650E9 /* AddressListModel.swift */; };
@@ -55,6 +57,9 @@
 		BA51634D28CDE46C008FF4C8 /* ContactUsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA51634C28CDE46C008FF4C8 /* ContactUsViewModel.swift */; };
 		BA51634F28CDE481008FF4C8 /* ContactUsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA51634E28CDE481008FF4C8 /* ContactUsViewController.swift */; };
 		BA51635128CDE494008FF4C8 /* ContactUsUserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA51635028CDE494008FF4C8 /* ContactUsUserData.swift */; };
+		BA5DF8B229C1E42F00AC93F1 /* DBHDriverDetailIsBookingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA5DF8B129C1E42F00AC93F1 /* DBHDriverDetailIsBookingModel.swift */; };
+		BA5DF8B429C1E4D700AC93F1 /* DBHDriverDetailIsBookingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA5DF8B329C1E4D700AC93F1 /* DBHDriverDetailIsBookingViewController.swift */; };
+		BA5DF8B629C1E5A300AC93F1 /* DBHDriverDetailIBookingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA5DF8B529C1E5A300AC93F1 /* DBHDriverDetailIBookingViewModel.swift */; };
 		BA60F9A028C986E4005D5B58 /* HttpRequestHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA60F99F28C986E4005D5B58 /* HttpRequestHelper.swift */; };
 		BA60F9A328C9873B005D5B58 /* EmployeesService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA60F9A228C9873B005D5B58 /* EmployeesService.swift */; };
 		BA60F9AB28C987C2005D5B58 /* LoginUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA60F9AA28C987C2005D5B58 /* LoginUser.swift */; };
@@ -177,6 +182,7 @@
 		BA1181B228CDFB1100F61CD5 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		BA1181B428CDFB2D00F61CD5 /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
 		BA1181B628CDFE0E00F61CD5 /* ImagePickerManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePickerManager.swift; sourceTree = "<group>"; };
+		BA12FD3E29C1ECEE00BF5DD2 /* DBHCancelRideViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBHCancelRideViewController.swift; sourceTree = "<group>"; };
 		BA1497C528D8AF6000126BD0 /* DatePickerHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatePickerHelper.swift; sourceTree = "<group>"; };
 		BA18116C29BB6F7E00F5DAC4 /* ReservationForDriverByTheHourViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReservationForDriverByTheHourViewController.swift; sourceTree = "<group>"; };
 		BA18116E29BB703200F5DAC4 /* ReservationForDriverByTheHourViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReservationForDriverByTheHourViewModel.swift; sourceTree = "<group>"; };
@@ -199,6 +205,7 @@
 		BA36D86128C8C3A400B73053 /* LateNightChauffeursUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LateNightChauffeursUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		BA36D86528C8C3A400B73053 /* LateNightChauffeursUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LateNightChauffeursUITests.swift; sourceTree = "<group>"; };
 		BA36D86728C8C3A400B73053 /* LateNightChauffeursUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LateNightChauffeursUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		BA3E4EF529C1F53F003B6AE6 /* DBHCancelRideViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBHCancelRideViewModel.swift; sourceTree = "<group>"; };
 		BA3F71B928D7EDEA00B650E9 /* AddressListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressListViewModel.swift; sourceTree = "<group>"; };
 		BA3F71BB28D7EE0000B650E9 /* AddressListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressListViewController.swift; sourceTree = "<group>"; };
 		BA3F71BD28D7EE1400B650E9 /* AddressListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressListModel.swift; sourceTree = "<group>"; };
@@ -217,6 +224,9 @@
 		BA51634C28CDE46C008FF4C8 /* ContactUsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactUsViewModel.swift; sourceTree = "<group>"; };
 		BA51634E28CDE481008FF4C8 /* ContactUsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactUsViewController.swift; sourceTree = "<group>"; };
 		BA51635028CDE494008FF4C8 /* ContactUsUserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactUsUserData.swift; sourceTree = "<group>"; };
+		BA5DF8B129C1E42F00AC93F1 /* DBHDriverDetailIsBookingModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBHDriverDetailIsBookingModel.swift; sourceTree = "<group>"; };
+		BA5DF8B329C1E4D700AC93F1 /* DBHDriverDetailIsBookingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBHDriverDetailIsBookingViewController.swift; sourceTree = "<group>"; };
+		BA5DF8B529C1E5A300AC93F1 /* DBHDriverDetailIBookingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBHDriverDetailIBookingViewModel.swift; sourceTree = "<group>"; };
 		BA60F99F28C986E4005D5B58 /* HttpRequestHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttpRequestHelper.swift; sourceTree = "<group>"; };
 		BA60F9A228C9873B005D5B58 /* EmployeesService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeesService.swift; sourceTree = "<group>"; };
 		BA60F9AA28C987C2005D5B58 /* LoginUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginUser.swift; sourceTree = "<group>"; };
@@ -426,6 +436,39 @@
 			isa = PBXGroup;
 			children = (
 				BA1181B028CDFAC300F61CD5 /* ProfileUserData.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		BA12FD3A29C1EC8400BF5DD2 /* DBH_CancelRide */ = {
+			isa = PBXGroup;
+			children = (
+				BA12FD3D29C1ECAB00BF5DD2 /* Model */,
+				BA12FD3C29C1ECA500BF5DD2 /* ViewModel */,
+				BA12FD3B29C1EC9F00BF5DD2 /* View */,
+			);
+			path = DBH_CancelRide;
+			sourceTree = "<group>";
+		};
+		BA12FD3B29C1EC9F00BF5DD2 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				BA12FD3E29C1ECEE00BF5DD2 /* DBHCancelRideViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		BA12FD3C29C1ECA500BF5DD2 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				BA3E4EF529C1F53F003B6AE6 /* DBHCancelRideViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		BA12FD3D29C1ECAB00BF5DD2 /* Model */ = {
+			isa = PBXGroup;
+			children = (
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1277,6 +1320,8 @@
 		BA89F9C829C049D300E554B7 /* DRIVER_By_The_Hour */ = {
 			isa = PBXGroup;
 			children = (
+				BA12FD3A29C1EC8400BF5DD2 /* DBH_CancelRide */,
+				BA8C40F629C1D79300C50DDE /* BookedRidePreview */,
 				BA89F9C929C0546800E554B7 /* DBH_RideInfo */,
 				BA18116829BB6ABC00F5DAC4 /* BookingReservationDriverByTheHour */,
 				BA89F9BE29BD85F400E554B7 /* BookingReservationSecondDriverByTheHour */,
@@ -1317,6 +1362,40 @@
 				BA89F9D329C05AFB00E554B7 /* DBH_RideHistoryModel.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		BA8C40F629C1D79300C50DDE /* BookedRidePreview */ = {
+			isa = PBXGroup;
+			children = (
+				BA8C40F929C1D7AD00C50DDE /* ViewModel */,
+				BA8C40F829C1D7A800C50DDE /* Model */,
+				BA8C40F729C1D7A400C50DDE /* View */,
+			);
+			path = BookedRidePreview;
+			sourceTree = "<group>";
+		};
+		BA8C40F729C1D7A400C50DDE /* View */ = {
+			isa = PBXGroup;
+			children = (
+				BA5DF8B329C1E4D700AC93F1 /* DBHDriverDetailIsBookingViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		BA8C40F829C1D7A800C50DDE /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				BA5DF8B129C1E42F00AC93F1 /* DBHDriverDetailIsBookingModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		BA8C40F929C1D7AD00C50DDE /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				BA5DF8B529C1E5A300AC93F1 /* DBHDriverDetailIBookingViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		BA912F1328E2AB47007E49AB /* CancelRide */ = {
@@ -1816,6 +1895,7 @@
 				BA60F9AD28C98914005D5B58 /* LoginViewController.swift in Sources */,
 				BAB3180C28DF0BA600A7047E /* RiseHistoryFeedBackViewController.swift in Sources */,
 				BA4B3C3528CAEDE1001D48B8 /* DashBoardViewModel.swift in Sources */,
+				BA3E4EF629C1F53F003B6AE6 /* DBHCancelRideViewModel.swift in Sources */,
 				BA7779DC28DED37F00EC8996 /* TipPercentageCollectionViewCell.swift in Sources */,
 				BA60F9CE28C9A764005D5B58 /* HelperConstants.swift in Sources */,
 				BA7B38FA28F16EFD00B2E6E9 /* AppdelegateModel.swift in Sources */,
@@ -1848,6 +1928,7 @@
 				BA36D84C28C8C39800B73053 /* LateNightChauffeurs.xcdatamodeld in Sources */,
 				BA67CD7328D9EBF9003127F4 /* SecondBookingViewController.swift in Sources */,
 				BA7779D628DEC95A00EC8996 /* RideHistoryTipViewModel.swift in Sources */,
+				BA5DF8B629C1E5A300AC93F1 /* DBHDriverDetailIBookingViewModel.swift in Sources */,
 				BA18116D29BB6F7E00F5DAC4 /* ReservationForDriverByTheHourViewController.swift in Sources */,
 				BA7A86D728EC90070036A4B5 /* SmallBannerAdsVC.swift in Sources */,
 				BAB3181028DF202D00A7047E /* StopsViewModel.swift in Sources */,
@@ -1878,6 +1959,7 @@
 				BADA1AE428D756690016C1AD /* BookingReservationViewModel.swift in Sources */,
 				BA2DE99D28E1A5D0003FDB12 /* DriverDetailInFutureBookingViewController.swift in Sources */,
 				BA3057B628EDE51C0091931D /* AppDelegateExtension.swift in Sources */,
+				BA5DF8B229C1E42F00AC93F1 /* DBHDriverDetailIsBookingModel.swift in Sources */,
 				BA1181AC28CDF44600F61CD5 /* ChangePasswordUserData.swift in Sources */,
 				BA7A86D928EC99370036A4B5 /* BannerModel.swift in Sources */,
 				BA89F9C529BD869D00E554B7 /* SecondBookingViewController_DBH.swift in Sources */,
@@ -1896,6 +1978,7 @@
 				BA2DE99B28E1A5BC003FDB12 /* DriverDetailInFutureBookingViewModel.swift in Sources */,
 				BA3F71BC28D7EE0000B650E9 /* AddressListViewController.swift in Sources */,
 				BA89F9CE29C0586300E554B7 /* DBHRideHistoryViewController.swift in Sources */,
+				BA5DF8B429C1E4D700AC93F1 /* DBHDriverDetailIsBookingViewController.swift in Sources */,
 				BA89F9D429C05AFB00E554B7 /* DBH_RideHistoryModel.swift in Sources */,
 				BAB3180E28DF147400A7047E /* ShowRideLocationViewController.swift in Sources */,
 				BA89EAA928DDA9D5006B65E4 /* AvilableCardsModel.swift in Sources */,
@@ -1909,6 +1992,7 @@
 				BA89F9D029C05A8800E554B7 /* DBH_RideHistoryTableViewCell.swift in Sources */,
 				BADA1ADB28D755D70016C1AD /* BookingReservationModel.swift in Sources */,
 				BA51635128CDE494008FF4C8 /* ContactUsUserData.swift in Sources */,
+				BA12FD3F29C1ECEE00BF5DD2 /* DBHCancelRideViewController.swift in Sources */,
 				BA3F71C628D7F6B900B650E9 /* StopsTableViewCell.swift in Sources */,
 				BAA2D1BC28E32C2D00DD5B8E /* ChatViewModel.swift in Sources */,
 				BA912F1C28E2AB9A007E49AB /* CancelRideModel.swift in Sources */,

@@ -47,6 +47,8 @@ protocol LateNightChauffeursUSERServiceProtocol {
     func requestForRemoveCardServices(_ perams: Dictionary<String, String>, completion: @escaping (Bool, addNewCardData?, String?) -> ())
     //MARK: - Payment history
     func requestForPaymentHistoryServices(_ perams: Dictionary<String, String>, completion: @escaping (Bool, PaymentHistoryData?, String?) -> ())
+    //MARK: - DBH Payment history
+    func requestForDBHPaymentHistoryServices(_ perams: Dictionary<String, String>, completion: @escaping (Bool, PaymentHistoryData?, String?) -> ())
     //MARK: - RIDE INFO
     func requestForRideInfoServices(_ perams: Dictionary<String, String>, completion: @escaping (Bool, RideInfoData?, String?) -> ())
     func requestForDBHRideInfoServices(_ perams: Dictionary<String, String>, completion: @escaping (Bool, DBH_RideHistoryData?, String?) -> ())
@@ -58,14 +60,21 @@ protocol LateNightChauffeursUSERServiceProtocol {
     func requestForStopsServices(_ perams: Dictionary<String, String>, completion: @escaping (Bool, StopsData?, String?) -> ())
     //MARK: - Get Ride Info
     func requestForDriverDetailInFutureBookingServices(_ perams: Dictionary<String, String>, completion: @escaping (Bool, DriverDetailInFutureBookingData?, String?) -> ())
+    //MARK: - Get DBH Ride Info
+    func requestForDriverDetailInDBHBookingServices(_ perams: Dictionary<String, String>, completion: @escaping (Bool, DriverDetailInFutureBookingData?, String?) -> ())
     //MARK: - Edit Ride Conformation
     func requestForEditRideConformationServices(_ perams: Dictionary<String, String>, completion: @escaping (Bool, EditRideConfirmData?, String?) -> ())
     //MARK: - DBH - Edit Ride Conformation
     func requestForEditDBHRideConformationServices(_ perams: Dictionary<String, String>, completion: @escaping (Bool, EditRideConfirmData?, String?) -> ())
     //MARK: - Cancel Ride information
     func requestForCancelRideServices(_ perams: Dictionary<String, String>, completion: @escaping (Bool, CancelRideData?, String?) -> ())
+    //MARK: - DBH Cancel Ride information
+    func requestForCancelDBHRideServices(_ perams: Dictionary<String, String>, completion: @escaping (Bool, CancelRideData?, String?) -> ())
     //MARK: - Cancel Ride Amount
     func requestForCancelRideAmountServices(_ perams: Dictionary<String, String>, completion: @escaping (Bool, CancelRideAmountData?, String?) -> ())
+    
+    //MARK: - DBH Cancel Ride Amount
+    func requestForCancelDBHRideAmountServices(_ perams: Dictionary<String, String>, completion: @escaping (Bool, CancelRideAmountData?, String?) -> ())
     //MARK: - Chat History
     func requestForChatViewServices(_ perams: Dictionary<String, String>, completion: @escaping (Bool, UserChatData?, String?) -> ())
     //MARK: - Notification List
@@ -478,6 +487,28 @@ extension ApiService {
         }
     }
 }
+
+extension ApiService {
+//MARK: - DBH Payment history
+    func requestForDBHPaymentHistoryServices(_ perams: Dictionary<String, String>, completion: @escaping (Bool, PaymentHistoryData?, String?) -> ()) {
+        if Connectivity.isNotConnectedToInternet{
+            completion(false, nil, I18n.NoInterNetString)
+        }
+        HttpRequestHelper().POST(url: API_URl.API_USER_DBH_RIDE_LIST_URL, params: perams, httpHeader: .application_json) { success, data in
+            if success {
+                do {
+                    let model = try JSONDecoder().decode(PaymentHistoryData.self, from: data!)
+                    completion(true, model, nil)
+                } catch {
+                    completion(false, nil, I18n.ModelDecodeErrorString)
+                }
+            } else {
+                completion(false, nil, I18n.GetRequestFailedString)
+            }
+        }
+    }
+}
+
 extension ApiService {
 //MARK: - Payment history
     func requestForPaymentHistoryServices(_ perams: Dictionary<String, String>, completion: @escaping (Bool, PaymentHistoryData?, String?) -> ()) {
@@ -602,6 +633,27 @@ extension ApiService {
 }
 
 extension ApiService {
+    //MARK: - Get DBH Ride Info
+    func requestForDriverDetailInDBHBookingServices(_ perams: Dictionary<String, String>, completion: @escaping (Bool, DriverDetailInFutureBookingData?, String?) -> ()) {
+        if Connectivity.isNotConnectedToInternet{
+            completion(false, nil, I18n.NoInterNetString)
+        }
+        HttpRequestHelper().GET(url: API_URl.API_USER_DBH_RIDE_DETAILS_URL, params: perams, httpHeader: .application_json) { success, data in
+            if success {
+                do {
+                    let model = try JSONDecoder().decode(DriverDetailInFutureBookingData.self, from: data!)
+                    completion(true, model, nil)
+                } catch {
+                    completion(false, nil, I18n.ModelDecodeErrorString)
+                }
+            } else {
+                completion(false, nil, I18n.GetRequestFailedString)
+            }
+        }
+    }
+}
+
+extension ApiService {
     //MARK: - Get Ride Info
     func requestForDriverDetailInFutureBookingServices(_ perams: Dictionary<String, String>, completion: @escaping (Bool, DriverDetailInFutureBookingData?, String?) -> ()) {
         if Connectivity.isNotConnectedToInternet{
@@ -663,6 +715,28 @@ extension ApiService {
         }
     }
 }
+
+extension ApiService {
+    //MARK: - DBH Cancel Ride info
+    func requestForCancelDBHRideServices(_ perams: Dictionary<String, String>, completion: @escaping (Bool, CancelRideData?, String?) -> ()) {
+        if Connectivity.isNotConnectedToInternet{
+            completion(false, nil, I18n.NoInterNetString)
+        }
+        HttpRequestHelper().GET(url: API_URl.API_USER_DBH_CANCEL_RIDE_URL, params: perams, httpHeader: .application_json) { success, data in
+            if success {
+                do {
+                    let model = try JSONDecoder().decode(CancelRideData.self, from: data!)
+                    completion(true, model, nil)
+                } catch {
+                    completion(false, nil, I18n.ModelDecodeErrorString)
+                }
+            } else {
+                completion(false, nil, I18n.GetRequestFailedString)
+            }
+        }
+    }
+}
+
 extension ApiService {
     //MARK: - Cancel Ride info
     func requestForCancelRideServices(_ perams: Dictionary<String, String>, completion: @escaping (Bool, CancelRideData?, String?) -> ()) {
@@ -683,6 +757,28 @@ extension ApiService {
         }
     }
 }
+
+extension ApiService {
+    //MARK: - DBH Cancel Ride Amount
+    func requestForCancelDBHRideAmountServices(_ perams: Dictionary<String, String>, completion: @escaping (Bool, CancelRideAmountData?, String?) -> ()) {
+        if Connectivity.isNotConnectedToInternet{
+            completion(false, nil, I18n.NoInterNetString)
+        }
+        HttpRequestHelper().GET(url: API_URl.API_CANCEL_DBH_RIDE_AMOUNT_URL, params: perams, httpHeader: .application_json) { success, data in
+            if success {
+                do {
+                    let model = try JSONDecoder().decode(CancelRideAmountData.self, from: data!)
+                    completion(true, model, nil)
+                } catch {
+                    completion(false, nil, I18n.ModelDecodeErrorString)
+                }
+            } else {
+                completion(false, nil, I18n.GetRequestFailedString)
+            }
+        }
+    }
+}
+
 extension ApiService {
     //MARK: - Cancel Ride Amount
     func requestForCancelRideAmountServices(_ perams: Dictionary<String, String>, completion: @escaping (Bool, CancelRideAmountData?, String?) -> ()) {
