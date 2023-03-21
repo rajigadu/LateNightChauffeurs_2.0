@@ -61,7 +61,7 @@ class DBHDriverDetailIsBookingViewController: UIViewController {
     
     @IBAction func btn_ChatActionRef(_ sender: Any) {
         let Storyboard : UIStoryboard = UIStoryboard(name: "Profile", bundle: nil)
-        let nxtVC = Storyboard.instantiateViewController(withIdentifier: "ChatViewController") as! ChatViewController
+        let nxtVC = Storyboard.instantiateViewController(withIdentifier: "DBHChatViewController") as! DBHChatViewController
         nxtVC.str_DriverID = self.str_CurrentRideDriverID
         self.navigationController?.pushViewController(nxtVC, animated: true)
 

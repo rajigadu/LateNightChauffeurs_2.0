@@ -101,6 +101,7 @@ static let API_REVIEWRATINGTODRIVER_URL                = API_URl.API_SERVER_URL 
 static let API_USER_CURRENTRIDEDETAILS_URL             = API_URl.API_SERVER_URL + "user-current-ride.php?"
 static let API_USER_UPDATESELECTEDLOCATION_URL         = API_URl.API_SERVER_URL + "update-user-location-info.php?"
 static let API_USER_CHATWITHDRIVER_URL                 = API_URl.API_SERVER_URL + "chat.php?"
+    static let API_USER_DBH_CHATWITHDRIVER_URL                 = API_URl.API_SERVER_URL + "dbh-chat.php?"
 static let API_BANNERADS_URL                           = API_URl.API_SERVER_URL + "banner_api.php?"
 static let Api_GET_GOOLE_KEY                           = API_URl.API_SERVER_URL + "google-api-key.php?"
 static let API_DRIVERLOCATONGETTING_URL                = API_URl.API_SERVER_URL + "get-driver-location.php?"

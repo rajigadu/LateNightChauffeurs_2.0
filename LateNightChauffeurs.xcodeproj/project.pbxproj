@@ -123,6 +123,8 @@
 		BA912F1828E2AB7C007E49AB /* CancelRideViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA912F1728E2AB7C007E49AB /* CancelRideViewModel.swift */; };
 		BA912F1A28E2AB8C007E49AB /* CancelRideViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA912F1928E2AB8C007E49AB /* CancelRideViewController.swift */; };
 		BA912F1C28E2AB9A007E49AB /* CancelRideModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA912F1B28E2AB9A007E49AB /* CancelRideModel.swift */; };
+		BA95C8A729C9A5A4006179B6 /* DBHChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA95C8A629C9A5A4006179B6 /* DBHChatViewController.swift */; };
+		BA95C8A929C9A606006179B6 /* DBHChatViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA95C8A829C9A606006179B6 /* DBHChatViewModel.swift */; };
 		BAA2D1BC28E32C2D00DD5B8E /* ChatViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAA2D1BB28E32C2D00DD5B8E /* ChatViewModel.swift */; };
 		BAA2D1BE28E32C4400DD5B8E /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAA2D1BD28E32C4400DD5B8E /* ChatViewController.swift */; };
 		BAA2D1C028E32C5300DD5B8E /* ChatModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAA2D1BF28E32C5300DD5B8E /* ChatModel.swift */; };
@@ -291,6 +293,8 @@
 		BA912F1728E2AB7C007E49AB /* CancelRideViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CancelRideViewModel.swift; sourceTree = "<group>"; };
 		BA912F1928E2AB8C007E49AB /* CancelRideViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CancelRideViewController.swift; sourceTree = "<group>"; };
 		BA912F1B28E2AB9A007E49AB /* CancelRideModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CancelRideModel.swift; sourceTree = "<group>"; };
+		BA95C8A629C9A5A4006179B6 /* DBHChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBHChatViewController.swift; sourceTree = "<group>"; };
+		BA95C8A829C9A606006179B6 /* DBHChatViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBHChatViewModel.swift; sourceTree = "<group>"; };
 		BAA2D1BB28E32C2D00DD5B8E /* ChatViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewModel.swift; sourceTree = "<group>"; };
 		BAA2D1BD28E32C4400DD5B8E /* ChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
 		BAA2D1BF28E32C5300DD5B8E /* ChatModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatModel.swift; sourceTree = "<group>"; };
@@ -1320,6 +1324,7 @@
 		BA89F9C829C049D300E554B7 /* DRIVER_By_The_Hour */ = {
 			isa = PBXGroup;
 			children = (
+				BA95C8A229C9A564006179B6 /* DBH_Chat */,
 				BA12FD3A29C1EC8400BF5DD2 /* DBH_CancelRide */,
 				BA8C40F629C1D79300C50DDE /* BookedRidePreview */,
 				BA89F9C929C0546800E554B7 /* DBH_RideInfo */,
@@ -1428,6 +1433,39 @@
 			isa = PBXGroup;
 			children = (
 				BA912F1B28E2AB9A007E49AB /* CancelRideModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		BA95C8A229C9A564006179B6 /* DBH_Chat */ = {
+			isa = PBXGroup;
+			children = (
+				BA95C8A529C9A576006179B6 /* Model */,
+				BA95C8A429C9A572006179B6 /* View */,
+				BA95C8A329C9A56C006179B6 /* ViewModel */,
+			);
+			path = DBH_Chat;
+			sourceTree = "<group>";
+		};
+		BA95C8A329C9A56C006179B6 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				BA95C8A829C9A606006179B6 /* DBHChatViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		BA95C8A429C9A572006179B6 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				BA95C8A629C9A5A4006179B6 /* DBHChatViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		BA95C8A529C9A576006179B6 /* Model */ = {
+			isa = PBXGroup;
+			children = (
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1955,6 +1993,7 @@
 				BA1181B128CDFAC300F61CD5 /* ProfileUserData.swift in Sources */,
 				BAB3181228DF212400A7047E /* StopsModel.swift in Sources */,
 				BA3F71BA28D7EDEA00B650E9 /* AddressListViewModel.swift in Sources */,
+				BA95C8A729C9A5A4006179B6 /* DBHChatViewController.swift in Sources */,
 				BAA2D1C828E3485E00DD5B8E /* NotificationViewModel.swift in Sources */,
 				BADA1AE428D756690016C1AD /* BookingReservationViewModel.swift in Sources */,
 				BA2DE99D28E1A5D0003FDB12 /* DriverDetailInFutureBookingViewController.swift in Sources */,
@@ -1963,6 +2002,7 @@
 				BA1181AC28CDF44600F61CD5 /* ChangePasswordUserData.swift in Sources */,
 				BA7A86D928EC99370036A4B5 /* BannerModel.swift in Sources */,
 				BA89F9C529BD869D00E554B7 /* SecondBookingViewController_DBH.swift in Sources */,
+				BA95C8A929C9A606006179B6 /* DBHChatViewModel.swift in Sources */,
 				BAA2D1C028E32C5300DD5B8E /* ChatModel.swift in Sources */,
 				BA3F71C028D7EE5700B650E9 /* AddressListTableViewCell.swift in Sources */,
 				BAA2D1CE28E348BB00DD5B8E /* NotificationModel.swift in Sources */,

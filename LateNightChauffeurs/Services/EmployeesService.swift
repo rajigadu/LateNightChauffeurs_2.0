@@ -77,6 +77,8 @@ protocol LateNightChauffeursUSERServiceProtocol {
     func requestForCancelDBHRideAmountServices(_ perams: Dictionary<String, String>, completion: @escaping (Bool, CancelRideAmountData?, String?) -> ())
     //MARK: - Chat History
     func requestForChatViewServices(_ perams: Dictionary<String, String>, completion: @escaping (Bool, UserChatData?, String?) -> ())
+    //MARK: - DBH - Chat History
+    func requestForDBHChatViewServices(_ perams: Dictionary<String, String>, completion: @escaping (Bool, UserChatData?, String?) -> ())
     //MARK: - Notification List
     func requestForNotificationServices(_ perams: Dictionary<String, String>, completion: @escaping (Bool, NotificationData?, String?) -> ())
     //MARK: - Banner Data 1
@@ -789,6 +791,28 @@ extension ApiService {
             if success {
                 do {
                     let model = try JSONDecoder().decode(CancelRideAmountData.self, from: data!)
+                    completion(true, model, nil)
+                } catch {
+                    completion(false, nil, I18n.ModelDecodeErrorString)
+                }
+            } else {
+                completion(false, nil, I18n.GetRequestFailedString)
+            }
+        }
+    }
+}
+
+//MARK: - DBH - Chat History
+extension ApiService {
+    //MARK: - Chat History
+    func requestForDBHChatViewServices(_ perams: Dictionary<String, String>, completion: @escaping (Bool, UserChatData?, String?) -> ()) {
+        if Connectivity.isNotConnectedToInternet{
+            completion(false, nil, I18n.NoInterNetString)
+        }
+        HttpRequestHelper().GET(url: API_URl.API_USER_DBH_CHATWITHDRIVER_URL, params: perams, httpHeader: .application_json) { success, data in
+            if success {
+                do {
+                    let model = try JSONDecoder().decode(UserChatData.self, from: data!)
                     completion(true, model, nil)
                 } catch {
                     completion(false, nil, I18n.ModelDecodeErrorString)

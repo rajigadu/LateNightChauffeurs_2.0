@@ -35,7 +35,7 @@ class DBHRideHistoryViewController: UIViewController {
         
         self.tableview_RideInfoRef.estimatedRowHeight = 1000
         self.tableview_RideInfoRef.rowHeight = UITableView.automaticDimension
-        self.title = "Ride Info"
+        self.title = "Driver By The Hour"
         //        if ([_str_CmgType  isEqual: @"RideHistory"]){
         //            str_SelectedType = @"Ride History";
         //        }
@@ -431,14 +431,26 @@ extension DBHRideHistoryViewController: UITableViewDelegate, UITableViewDataSour
             
         } else {
             
-            if let str_BookingType = rideInfoArray[indexPath.row].booking_type, str_BookingType == "3" {
-                let Storyboard : UIStoryboard = UIStoryboard(name: "Profile", bundle: nil)
-                let nxtVC = Storyboard.instantiateViewController(withIdentifier: "DBHDriverDetailIsBookingViewController") as! DBHDriverDetailIsBookingViewController
-                nxtVC.str_FutureRideStatus = rideInfoArray[indexPath.row].future_accept ?? ""
-                nxtVC.str_FutureRideDate = rideInfoArray[indexPath.row].date ?? ""
-                nxtVC.str_FutureRideTime = rideInfoArray[indexPath.row].time ?? ""
-                nxtVC.str_FutureRideID = rideInfoArray[indexPath.row].id ?? ""
-                self.navigationController?.pushViewController(nxtVC, animated: true)
+            if self.rideInfoEditButtonStatusArray.count == rideInfoArray.count {
+                if let EditButtonStatus = self.rideInfoEditButtonStatusArray[indexPath.row].future_edit_ride_status,let EditButtonStatusId = self.rideInfoEditButtonStatusArray[indexPath.row].id {
+                    
+                    if EditButtonStatusId == rideInfoArray[indexPath.row].id {
+                        if EditButtonStatus != "1" {
+                            if let str_BookingType = rideInfoArray[indexPath.row].ride_assign_status, str_BookingType != "1" {
+                                
+                                if let str_BookingType = rideInfoArray[indexPath.row].booking_type, str_BookingType == "3" {
+                                    let Storyboard : UIStoryboard = UIStoryboard(name: "Profile", bundle: nil)
+                                    let nxtVC = Storyboard.instantiateViewController(withIdentifier: "DBHDriverDetailIsBookingViewController") as! DBHDriverDetailIsBookingViewController
+                                    nxtVC.str_FutureRideStatus = rideInfoArray[indexPath.row].future_accept ?? ""
+                                    nxtVC.str_FutureRideDate = rideInfoArray[indexPath.row].date ?? ""
+                                    nxtVC.str_FutureRideTime = rideInfoArray[indexPath.row].time ?? ""
+                                    nxtVC.str_FutureRideID = rideInfoArray[indexPath.row].id ?? ""
+                                   // self.navigationController?.pushViewController(nxtVC, animated: true)
+                                }
+                            }
+                        }
+                    }
+                }
             }
         }
     }

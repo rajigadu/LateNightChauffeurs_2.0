@@ -496,14 +496,26 @@ extension RideHistoryViewController: UITableViewDelegate, UITableViewDataSource 
 
         } else {
             
-            if let str_BookingType = rideInfoArray[indexPath.row].booking_type, str_BookingType == "2" {
-            let Storyboard : UIStoryboard = UIStoryboard(name: "Profile", bundle: nil)
-            let nxtVC = Storyboard.instantiateViewController(withIdentifier: "DriverDetailInFutureBookingViewController") as! DriverDetailInFutureBookingViewController
-            nxtVC.str_FutureRideStatus = rideInfoArray[indexPath.row].future_accept ?? ""
-            nxtVC.str_FutureRideDate = rideInfoArray[indexPath.row].date ?? ""
-            nxtVC.str_FutureRideTime = rideInfoArray[indexPath.row].time ?? ""
-            nxtVC.str_FutureRideID = rideInfoArray[indexPath.row].id ?? ""
-            self.navigationController?.pushViewController(nxtVC, animated: true)
+            if self.rideInfoEditButtonStatusArray.count == rideInfoArray.count {
+                if let EditButtonStatus = self.rideInfoEditButtonStatusArray[indexPath.row].future_edit_ride_status,let EditButtonStatusId = self.rideInfoEditButtonStatusArray[indexPath.row].id {
+                    
+                    if EditButtonStatusId == rideInfoArray[indexPath.row].id {
+                        if EditButtonStatus != "1" {
+                     
+                                
+                                if let str_BookingType = rideInfoArray[indexPath.row].booking_type, str_BookingType == "2" {
+                                    let Storyboard : UIStoryboard = UIStoryboard(name: "Profile", bundle: nil)
+                                    let nxtVC = Storyboard.instantiateViewController(withIdentifier: "DriverDetailInFutureBookingViewController") as! DriverDetailInFutureBookingViewController
+                                    nxtVC.str_FutureRideStatus = rideInfoArray[indexPath.row].future_accept ?? ""
+                                    nxtVC.str_FutureRideDate = rideInfoArray[indexPath.row].date ?? ""
+                                    nxtVC.str_FutureRideTime = rideInfoArray[indexPath.row].time ?? ""
+                                    nxtVC.str_FutureRideID = rideInfoArray[indexPath.row].id ?? ""
+                                    //self.navigationController?.pushViewController(nxtVC, animated: true)
+                                
+                            }
+                        }
+                    }
+                }
             }
         }
     }
@@ -533,8 +545,19 @@ extension RideHistoryViewController: UITableViewDelegate, UITableViewDataSource 
     }
     
     @objc func editRideDetailsButtonClicked(sender: UIButton) {
-        self.selectedRideInfoDict = rideInfoArray[sender.tag]
-        self.EditRideConformationAPI(RideID:rideInfoArray[sender.tag].id ?? "")
+        if self.rideInfoEditButtonStatusArray.count == rideInfoArray.count {
+            if let EditButtonStatus = self.rideInfoEditButtonStatusArray[sender.tag].future_edit_ride_status,let EditButtonStatusId = self.rideInfoEditButtonStatusArray[sender.tag].id {
+                
+                if EditButtonStatusId == rideInfoArray[sender.tag].id {
+                    if EditButtonStatus == "1" {
+                 
+                            self.selectedRideInfoDict = rideInfoArray[sender.tag]
+                            self.EditRideConformationAPI(RideID:rideInfoArray[sender.tag].id ?? "")
+                        
+                    }
+                }
+            }
+        }
     }
     
     @objc func futureStopsButtonClicked(sender: UIButton) {

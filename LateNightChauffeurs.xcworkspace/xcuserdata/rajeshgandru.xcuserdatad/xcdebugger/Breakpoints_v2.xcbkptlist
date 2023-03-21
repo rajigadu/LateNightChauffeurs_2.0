@@ -269,8 +269,8 @@
             filePath = "LateNightChauffeurs/Services/EmployeesService.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "325"
-            endingLineNumber = "325"
+            startingLineNumber = "327"
+            endingLineNumber = "327"
             landmarkName = "requestForGetEstimatePriceServices(_:completion:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -285,8 +285,8 @@
             filePath = "LateNightChauffeurs/Services/EmployeesService.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "326"
-            endingLineNumber = "326"
+            startingLineNumber = "328"
+            endingLineNumber = "328"
             landmarkName = "requestForGetEstimatePriceServices(_:completion:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -662,22 +662,6 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "74DF6189-4CA2-41CB-A18B-353F120CDDE8"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "LateNightChauffeurs/Helpers/HttpRequestHelper.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "136"
-            endingLineNumber = "136"
-            landmarkName = "POST(url:params:httpHeader:complete:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
             uuid = "B46932C0-09CF-4B71-A31D-59C63C72E017"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
@@ -749,10 +733,42 @@
             filePath = "LateNightChauffeurs/Screens/DashBoard/DRIVER_By_The_Hour/DBH_RideInfo/View/DBHRideHistoryViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "625"
-            endingLineNumber = "625"
+            startingLineNumber = "637"
+            endingLineNumber = "637"
             landmarkName = "EditRideConformationAPI(RideID:)"
             landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "511B5C5D-3CCA-4B5E-BE33-BF3B36D63607 - f1a9f81a075342aa"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "LateNightChauffeurs.DBHRideHistoryViewController.EditRideConformationAPI(RideID: Swift.String) -&gt; ()"
+                  moduleName = "LateNightChauffeurs"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/rajeshgandru/Documents/IOS-Projects/LateNightChauffeurs_2.0/LateNightChauffeurs/Screens/DashBoard/DRIVER_By_The_Hour/DBH_RideInfo/View/DBHRideHistoryViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "637"
+                  endingLineNumber = "637"
+                  offsetFromSymbolStart = "71">
+               </Location>
+               <Location
+                  uuid = "511B5C5D-3CCA-4B5E-BE33-BF3B36D63607 - 132e054f1efa4d4c"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Bool, Swift.Optional&lt;LateNightChauffeurs.EditRideConfirmModel&gt;, Swift.Optional&lt;Swift.String&gt;) -&gt; () in LateNightChauffeurs.DBHRideHistoryViewController.EditRideConformationAPI(RideID: Swift.String) -&gt; ()"
+                  moduleName = "LateNightChauffeurs"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/rajeshgandru/Documents/IOS-Projects/LateNightChauffeurs_2.0/LateNightChauffeurs/Screens/DashBoard/DRIVER_By_The_Hour/DBH_RideInfo/View/DBHRideHistoryViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "638"
+                  endingLineNumber = "638"
+                  offsetFromSymbolStart = "349">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -765,42 +781,10 @@
             filePath = "LateNightChauffeurs/Screens/DashBoard/DRIVER_By_The_Hour/DBH_RideInfo/View/DBHRideHistoryViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "449"
-            endingLineNumber = "449"
+            startingLineNumber = "461"
+            endingLineNumber = "461"
             landmarkName = "viewDetailButtonClicked(sender:)"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "6E8540C0-E64A-4471-970C-EA996D33521A - bdaa187ba342fc41"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "LateNightChauffeurs.DBHRideHistoryViewController.viewDetailButtonClicked(sender: __C.UIButton) -&gt; ()"
-                  moduleName = "LateNightChauffeurs"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/rajeshgandru/Documents/IOS-Projects/LateNightChauffeurs_2.0/LateNightChauffeurs/Screens/DashBoard/DRIVER_By_The_Hour/DBH_RideInfo/View/DBHRideHistoryViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "456"
-                  endingLineNumber = "456"
-                  offsetFromSymbolStart = "3927">
-               </Location>
-               <Location
-                  uuid = "6E8540C0-E64A-4471-970C-EA996D33521A - bdaa187ba342fc41"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "LateNightChauffeurs.DBHRideHistoryViewController.viewDetailButtonClicked(sender: __C.UIButton) -&gt; ()"
-                  moduleName = "LateNightChauffeurs"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/rajeshgandru/Documents/IOS-Projects/LateNightChauffeurs_2.0/LateNightChauffeurs/Screens/DashBoard/DRIVER_By_The_Hour/DBH_RideInfo/View/DBHRideHistoryViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "456"
-                  endingLineNumber = "456"
-                  offsetFromSymbolStart = "5038">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -813,8 +797,8 @@
             filePath = "LateNightChauffeurs/Screens/DashBoard/DRIVER_By_The_Hour/DBH_RideInfo/View/DBHRideHistoryViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "450"
-            endingLineNumber = "450"
+            startingLineNumber = "462"
+            endingLineNumber = "462"
             landmarkName = "viewDetailButtonClicked(sender:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -829,10 +813,42 @@
             filePath = "LateNightChauffeurs/Screens/DashBoard/DRIVER_By_The_Hour/DBH_RideInfo/View/DBHRideHistoryViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "447"
-            endingLineNumber = "447"
+            startingLineNumber = "459"
+            endingLineNumber = "459"
             landmarkName = "viewDetailButtonClicked(sender:)"
             landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "235FE2E6-677F-4B89-9E2B-0BA26E37DFEA - bdaa187ba342fccd"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "LateNightChauffeurs.DBHRideHistoryViewController.viewDetailButtonClicked(sender: __C.UIButton) -&gt; ()"
+                  moduleName = "LateNightChauffeurs"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/rajeshgandru/Documents/IOS-Projects/LateNightChauffeurs_2.0/LateNightChauffeurs/Screens/DashBoard/DRIVER_By_The_Hour/DBH_RideInfo/View/DBHRideHistoryViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "460"
+                  endingLineNumber = "460"
+                  offsetFromSymbolStart = "131">
+               </Location>
+               <Location
+                  uuid = "235FE2E6-677F-4B89-9E2B-0BA26E37DFEA - bdaa187ba342fccd"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "LateNightChauffeurs.DBHRideHistoryViewController.viewDetailButtonClicked(sender: __C.UIButton) -&gt; ()"
+                  moduleName = "LateNightChauffeurs"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/rajeshgandru/Documents/IOS-Projects/LateNightChauffeurs_2.0/LateNightChauffeurs/Screens/DashBoard/DRIVER_By_The_Hour/DBH_RideInfo/View/DBHRideHistoryViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "460"
+                  endingLineNumber = "460"
+                  offsetFromSymbolStart = "1223">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -845,10 +861,218 @@
             filePath = "LateNightChauffeurs/Screens/DashBoard/DRIVER_By_The_Hour/DBH_RideInfo/View/DBHRideHistoryViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "453"
-            endingLineNumber = "453"
+            startingLineNumber = "465"
+            endingLineNumber = "465"
             landmarkName = "viewDetailButtonClicked(sender:)"
             landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "772FFACF-7017-4C46-87AF-986828F0CBC9"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "LateNightChauffeurs/Screens/DashBoard/DRIVER_By_The_Hour/DBH_RideInfo/View/DBHRideHistoryViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "577"
+            endingLineNumber = "577"
+            landmarkName = "currentRideWithFutureAcceptedListAPI()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "DA1E252B-8C17-4D8E-B693-2A85AB0E99C0"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "LateNightChauffeurs/Screens/DashBoard/DRIVER_By_The_Hour/DBH_RideInfo/View/DBHRideHistoryViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "578"
+            endingLineNumber = "578"
+            landmarkName = "currentRideWithFutureAcceptedListAPI()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "A5897BF1-8943-410B-B652-DF16FC0D9B91"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "LateNightChauffeurs/Screens/DashBoard/DRIVER_By_The_Hour/DBH_RideInfo/View/DBHRideHistoryViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "573"
+            endingLineNumber = "573"
+            landmarkName = "currentRideWithFutureAcceptedListAPI()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "9B75E52D-23B8-4F82-88D1-17061333B333"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "LateNightChauffeurs/Screens/DashBoard/DRIVER_By_The_Hour/DBH_RideInfo/View/DBHRideHistoryViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "583"
+            endingLineNumber = "583"
+            landmarkName = "currentRideWithFutureAcceptedListAPI()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "CB0D163A-3812-4AB3-BCEB-84BE95F41BA8"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "LateNightChauffeurs/Screens/DashBoard/DRIVER_By_The_Hour/DBH_RideInfo/View/DBHRideHistoryViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "569"
+            endingLineNumber = "569"
+            landmarkName = "currentRideWithFutureAcceptedListAPI()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "CB0D163A-3812-4AB3-BCEB-84BE95F41BA8 - f8eaa2ce11aa6f5"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "LateNightChauffeurs.DBHRideHistoryViewController.currentRideWithFutureAcceptedListAPI() -&gt; ()"
+                  moduleName = "LateNightChauffeurs"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/rajeshgandru/Documents/IOS-Projects/LateNightChauffeurs_2.0/LateNightChauffeurs/Screens/DashBoard/DRIVER_By_The_Hour/DBH_RideInfo/View/DBHRideHistoryViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "569"
+                  endingLineNumber = "569"
+                  offsetFromSymbolStart = "385">
+               </Location>
+               <Location
+                  uuid = "CB0D163A-3812-4AB3-BCEB-84BE95F41BA8 - 9ec9256cc21d3d09"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Bool, Swift.Optional&lt;LateNightChauffeurs.PaymentHistoryModel&gt;, Swift.Optional&lt;Swift.String&gt;) -&gt; () in LateNightChauffeurs.DBHRideHistoryViewController.currentRideWithFutureAcceptedListAPI() -&gt; ()"
+                  moduleName = "LateNightChauffeurs"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/rajeshgandru/Documents/IOS-Projects/LateNightChauffeurs_2.0/LateNightChauffeurs/Screens/DashBoard/DRIVER_By_The_Hour/DBH_RideInfo/View/DBHRideHistoryViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "570"
+                  endingLineNumber = "570"
+                  offsetFromSymbolStart = "295">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "F18ED6EB-FCF2-429C-98DF-00CC56B138C5"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "LateNightChauffeurs/Screens/DashBoard/DRIVER_By_The_Hour/DBH_RideInfo/View/DBHRideHistoryViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "604"
+            endingLineNumber = "604"
+            landmarkName = "paymentSummaryAPI()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "F18ED6EB-FCF2-429C-98DF-00CC56B138C5 - 33623f04a2b60dfc"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "LateNightChauffeurs.DBHRideHistoryViewController.paymentSummaryAPI() -&gt; ()"
+                  moduleName = "LateNightChauffeurs"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/rajeshgandru/Documents/IOS-Projects/LateNightChauffeurs_2.0/LateNightChauffeurs/Screens/DashBoard/DRIVER_By_The_Hour/DBH_RideInfo/View/DBHRideHistoryViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "604"
+                  endingLineNumber = "604"
+                  offsetFromSymbolStart = "385">
+               </Location>
+               <Location
+                  uuid = "F18ED6EB-FCF2-429C-98DF-00CC56B138C5 - 612a6c2288755871"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Bool, Swift.Optional&lt;LateNightChauffeurs.PaymentSummaryModel&gt;, Swift.Optional&lt;Swift.String&gt;) -&gt; () in LateNightChauffeurs.DBHRideHistoryViewController.paymentSummaryAPI() -&gt; ()"
+                  moduleName = "LateNightChauffeurs"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/rajeshgandru/Documents/IOS-Projects/LateNightChauffeurs_2.0/LateNightChauffeurs/Screens/DashBoard/DRIVER_By_The_Hour/DBH_RideInfo/View/DBHRideHistoryViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "605"
+                  endingLineNumber = "605"
+                  offsetFromSymbolStart = "316">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "BC86D3B7-793A-4E4F-970C-B96A6C48B23E"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "LateNightChauffeurs/Screens/DashBoard/DRIVER_By_The_Hour/DBH_RideInfo/View/DBHRideHistoryViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "533"
+            endingLineNumber = "533"
+            landmarkName = "userRideListAPI()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "BC86D3B7-793A-4E4F-970C-B96A6C48B23E - 370a2aed1508c4a2"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "LateNightChauffeurs.DBHRideHistoryViewController.userRideListAPI() -&gt; ()"
+                  moduleName = "LateNightChauffeurs"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/rajeshgandru/Documents/IOS-Projects/LateNightChauffeurs_2.0/LateNightChauffeurs/Screens/DashBoard/DRIVER_By_The_Hour/DBH_RideInfo/View/DBHRideHistoryViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "533"
+                  endingLineNumber = "533"
+                  offsetFromSymbolStart = "385">
+               </Location>
+               <Location
+                  uuid = "BC86D3B7-793A-4E4F-970C-B96A6C48B23E - 8de9ed6a94d07cf7"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Bool, Swift.Optional&lt;LateNightChauffeurs.DBH_RideHistoryModel&gt;, Swift.Optional&lt;Swift.String&gt;) -&gt; () in LateNightChauffeurs.DBHRideHistoryViewController.userRideListAPI() -&gt; ()"
+                  moduleName = "LateNightChauffeurs"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/rajeshgandru/Documents/IOS-Projects/LateNightChauffeurs_2.0/LateNightChauffeurs/Screens/DashBoard/DRIVER_By_The_Hour/DBH_RideInfo/View/DBHRideHistoryViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "534"
+                  endingLineNumber = "534"
+                  offsetFromSymbolStart = "316">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
