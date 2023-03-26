@@ -15,6 +15,7 @@ class ReservationForDriverByTheHour: UIViewController, SKUIDatePickerDelegate, S
     @IBOutlet weak var txt_DropLocationRef: UITextField!
     @IBOutlet weak var textview_Descriptionref: UITextView!
     
+    @IBOutlet weak var dbhRideCostLabel: UILabel!
     @IBOutlet weak var lbl_DescriptionRef: UILabel!
     @IBOutlet weak var lbl_CardNumberRef: UILabel!
     @IBOutlet weak var lbl_CardExpiryMonthRef: UILabel!
@@ -87,6 +88,10 @@ class ReservationForDriverByTheHour: UIViewController, SKUIDatePickerDelegate, S
     override func viewDidLoad() {
         super.viewDidLoad()
         IntialMethod()
+        self.dbhRideCostLabel.text = "Rate: $ 10.00 Per Hour"
+        if let dbhRidePrice = UserDefaults.standard.string(forKey: "dbhRidePrice") as? String {
+            self.dbhRideCostLabel.text = "Rate: $ \(dbhRidePrice) Per Hour"
+        }
         if str_ComingFrom == "DBHRideHistory" {
             
             self.txt_FutureBookingDateRef.text = dict_SelectedRideDetailsForEdit?.otherdate ?? ""
@@ -137,7 +142,7 @@ class ReservationForDriverByTheHour: UIViewController, SKUIDatePickerDelegate, S
             bookingModel = DBHBookingModel(userid: userID, card_id: "", acctid: "", platitude: userPickUplatitudeStr, plongitude: userPickUplongitudeStr, pickup_address: str_pickUpLocation, pickup_city: userPickCityNameStr, notes: BookNotes, booking_type: "3", date: str_Date, time: str_Time, transmission: transMission, promo: "", version: "Yes")
             
             
-            let Storyboard : UIStoryboard = UIStoryboard(name: "DashBoard", bundle: nil)
+            let Storyboard : UIStoryboard = UIStoryboard(name: "DriverByTheHour", bundle: nil)
             let nxtVC = Storyboard.instantiateViewController(withIdentifier: "SecondBookingViewController_DBH") as! SecondBookingViewController_DBH
             nxtVC.bookingModel = self.bookingModel
             if self.str_ComingFrom == "DBHRideHistory" {

@@ -144,7 +144,7 @@ class DashBoardViewController: UIViewController {
     
     
     @IBAction func BookDriverByTheHourBTnref(_ sender: Any) {
-        let Storyboard : UIStoryboard = UIStoryboard(name: "DashBoard", bundle: nil)
+        let Storyboard : UIStoryboard = UIStoryboard(name: "DriverByTheHour", bundle: nil)
         let nxtVC = Storyboard.instantiateViewController(withIdentifier: "ReservationForDriverByTheHour") as! ReservationForDriverByTheHour
         if str_UserCurrentLocationAddress != "" {
         nxtVC.str_UserCurrentLocationLatitude = str_UserCurrentLocationLatitude
@@ -378,6 +378,9 @@ extension DashBoardViewController {
                     
                     if UserData.status == "3" {
                         self.moveToLogOutPage()
+                    }
+                    if let dbhRidePrice = UserData.dbh_ride_cost_per_hour as? String {
+                        UserDefaults.standard.setValue(dbhRidePrice, forKey: "dbhRidePrice")
                     }
                     
                     if UserData.status != "1" {

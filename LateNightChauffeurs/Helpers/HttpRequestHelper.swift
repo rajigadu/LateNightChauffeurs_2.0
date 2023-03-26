@@ -81,6 +81,10 @@ extension HttpRequestHelper {
         }
         var urlRequest = URLRequest(url: url, cachePolicy: .reloadIgnoringLocalAndRemoteCacheData, timeoutInterval: 10.0 * 1000)
         urlRequest.httpMethod = "POST"
+        
+        print(" POST Method ")
+        print(" \(url) ")
+        print(" \(params) ")
         urlRequest.addValue("application/json", forHTTPHeaderField: "Content-type")
         
         switch httpHeader {
@@ -159,6 +163,9 @@ extension HttpRequestHelper {
         guard let url = URL(string: url) else {
             return
         }
+        print(" POST Method ")
+        print(" \(url) ")
+        print(" \(params) ")
         var urlRequest = URLRequest(url: url, cachePolicy: .reloadIgnoringLocalAndRemoteCacheData, timeoutInterval: 10.0 * 1000)
         urlRequest.httpMethod = "POST"
         urlRequest.addValue("application/json", forHTTPHeaderField: "Content-type")

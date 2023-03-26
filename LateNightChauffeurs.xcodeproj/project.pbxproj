@@ -106,6 +106,7 @@
 		BA7A86DE28EC99600036A4B5 /* BannerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA7A86DD28EC99600036A4B5 /* BannerViewModel.swift */; };
 		BA7B38FA28F16EFD00B2E6E9 /* AppdelegateModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA7B38F928F16EFC00B2E6E9 /* AppdelegateModel.swift */; };
 		BA7BB7B428F035C600E0561B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = BA7BB7B328F035C600E0561B /* GoogleService-Info.plist */; };
+		BA824B1529D023D800DEF51B /* DriverByTheHour.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BA824B1429D023D800DEF51B /* DriverByTheHour.storyboard */; };
 		BA89EAA528DDA9A0006B65E4 /* AvilableCardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA89EAA428DDA9A0006B65E4 /* AvilableCardViewModel.swift */; };
 		BA89EAA728DDA9C0006B65E4 /* AvilableCardsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA89EAA628DDA9C0006B65E4 /* AvilableCardsViewController.swift */; };
 		BA89EAA928DDA9D5006B65E4 /* AvilableCardsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA89EAA828DDA9D5006B65E4 /* AvilableCardsModel.swift */; };
@@ -276,6 +277,7 @@
 		BA7A86DD28EC99600036A4B5 /* BannerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerViewModel.swift; sourceTree = "<group>"; };
 		BA7B38F928F16EFC00B2E6E9 /* AppdelegateModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppdelegateModel.swift; sourceTree = "<group>"; };
 		BA7BB7B328F035C600E0561B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		BA824B1429D023D800DEF51B /* DriverByTheHour.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = DriverByTheHour.storyboard; sourceTree = "<group>"; };
 		BA89EAA428DDA9A0006B65E4 /* AvilableCardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvilableCardViewModel.swift; sourceTree = "<group>"; };
 		BA89EAA628DDA9C0006B65E4 /* AvilableCardsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvilableCardsViewController.swift; sourceTree = "<group>"; };
 		BA89EAA828DDA9D5006B65E4 /* AvilableCardsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvilableCardsModel.swift; sourceTree = "<group>"; };
@@ -1330,6 +1332,7 @@
 				BA89F9C929C0546800E554B7 /* DBH_RideInfo */,
 				BA18116829BB6ABC00F5DAC4 /* BookingReservationDriverByTheHour */,
 				BA89F9BE29BD85F400E554B7 /* BookingReservationSecondDriverByTheHour */,
+				BA824B1429D023D800DEF51B /* DriverByTheHour.storyboard */,
 			);
 			path = DRIVER_By_The_Hour;
 			sourceTree = "<group>";
@@ -1732,6 +1735,7 @@
 				BA60F9DF28C9A8E9005D5B58 /* Lato-Bold.ttf in Resources */,
 				BA726D0428C8D4E000E8D351 /* expanded.png in Resources */,
 				BA60F9E428C9A8E9005D5B58 /* Lato-BoldItalic.ttf in Resources */,
+				BA824B1529D023D800DEF51B /* DriverByTheHour.storyboard in Resources */,
 				BA60F9E228C9A8E9005D5B58 /* Lato-BlackItalic.ttf in Resources */,
 				BA60F9B328C98C55005D5B58 /* Authentication.storyboard in Resources */,
 				BA36D85128C8C3A300B73053 /* LaunchScreen.storyboard in Resources */,

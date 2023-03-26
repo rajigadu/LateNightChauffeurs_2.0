@@ -375,7 +375,7 @@ extension BookingReservationViewController {
          } else if str_DropLocation.isEmpty || userDroplatitudeStr.isEmpty || userDroplongitudeStr.isEmpty {
              self.ShowAlert(message: "Please select drop for booking reservation")
          } else {
-            indicator.showActivityIndicator()
+             indicator.showActivityIndicator()
              self.viewModel.requestForEstimatePriceForBookingServices(perams: ["pick_Add":str_pickUpLocation,"Drop_Add":str_DropLocation,"pick_lat":self.userPickUplatitudeStr,"pick_lng":self.userPickUplongitudeStr,"dest_lat":self.userDroplatitudeStr,"dest_lng":self.userDroplongitudeStr,"promo": self.promocodetf_ref.text ?? "","count":"\(self.ary_StopList.count )" , "date":str_Date,"time":str_Time,]) { success, model, error in
                 if success, let UserData = model {
                     DispatchQueue.main.async { [self] in

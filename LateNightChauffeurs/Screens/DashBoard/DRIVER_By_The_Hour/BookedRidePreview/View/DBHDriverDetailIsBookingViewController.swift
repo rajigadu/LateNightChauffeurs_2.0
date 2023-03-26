@@ -60,7 +60,7 @@ class DBHDriverDetailIsBookingViewController: UIViewController {
     }
     
     @IBAction func btn_ChatActionRef(_ sender: Any) {
-        let Storyboard : UIStoryboard = UIStoryboard(name: "Profile", bundle: nil)
+        let Storyboard : UIStoryboard = UIStoryboard(name: "DriverByTheHour", bundle: nil)
         let nxtVC = Storyboard.instantiateViewController(withIdentifier: "DBHChatViewController") as! DBHChatViewController
         nxtVC.str_DriverID = self.str_CurrentRideDriverID
         self.navigationController?.pushViewController(nxtVC, animated: true)
@@ -100,7 +100,7 @@ class DBHDriverDetailIsBookingViewController: UIViewController {
         let alertController = UIAlertController(title: kApptitle, message: "Ride canceled successfully please note if you are cancelling within four hours you are subject to being billed for your ride. To keep the ride please press cancel", preferredStyle: .alert)
         let OKAction = UIAlertAction(title: "Ok", style: .default) { (UIAlertAction) in
             //self.dismiss()
-            let Storyboard : UIStoryboard = UIStoryboard(name: "Profile", bundle: nil)
+            let Storyboard : UIStoryboard = UIStoryboard(name: "DriverByTheHour", bundle: nil)
             let nxtVC = Storyboard.instantiateViewController(withIdentifier: "DBHCancelRideViewController") as! DBHCancelRideViewController
             nxtVC.str_RideID = self.str_FutureRideID
             nxtVC.str_ComingFrom = "FutureRide"

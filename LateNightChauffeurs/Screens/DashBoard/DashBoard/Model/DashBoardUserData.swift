@@ -58,6 +58,7 @@ typealias currentRideData = currentRideModel
 
 struct currentRideModel : Codable {
     let time_left : String?
+    let dbh_ride_cost_per_hour : String?
     let data : [currentRideDatar]?
     let message : String?
     let status : String?
@@ -72,6 +73,7 @@ struct currentRideModel : Codable {
         case status = "status"
         case bannercount = "bannercount"
         case user_rating = "user_rating"
+        case dbh_ride_cost_per_hour = "dbh_ride_cost_per_hour"
     }
 
     init(from decoder: Decoder) throws {
@@ -82,6 +84,7 @@ struct currentRideModel : Codable {
         status = try values.decodeIfPresent(String.self, forKey: .status)
         bannercount = try values.decodeIfPresent(String.self, forKey: .bannercount)
         user_rating = try values.decodeIfPresent(String.self, forKey: .user_rating)
+        dbh_ride_cost_per_hour = try values.decode(String.self, forKey: .dbh_ride_cost_per_hour)
     }
 
 }

@@ -99,7 +99,7 @@ extension SideMenuViewController :UITableViewDelegate,UITableViewDataSource {
         } else if arrayResponse[indexPath.row] == "Ride Info" {
             self.movetonextvc(id: "RideHistoryViewController", storyBordid: "Profile",animated:false)
         } else if arrayResponse[indexPath.row] == "DHB-Ride Info" {
-            self.movetonextvc(id: "DBHRideHistoryViewController", storyBordid: "Profile",animated:false)
+            self.movetonextvc(id: "DBHRideHistoryViewController", storyBordid: "DriverByTheHour",animated:false)
         }
         
         

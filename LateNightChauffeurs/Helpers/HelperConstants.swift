@@ -220,7 +220,7 @@ extension UIViewController {
        }
     
     func MoveToDBHRideInfoPage() {
-        let Storyboard : UIStoryboard = UIStoryboard(name: "Profile", bundle: nil)
+        let Storyboard : UIStoryboard = UIStoryboard(name: "DriverByTheHour", bundle: nil)
 
                                 let loginVC = Storyboard.instantiateViewController(withIdentifier: "DBHRideHistoryViewController") as! DBHRideHistoryViewController
         let window = UIApplication.shared.windows.first

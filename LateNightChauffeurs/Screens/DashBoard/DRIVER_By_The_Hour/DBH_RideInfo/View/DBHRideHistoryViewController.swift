@@ -229,7 +229,7 @@ extension DBHRideHistoryViewController: UITableViewDelegate, UITableViewDataSour
 //
 //                        cell.lbl_RideDistanceRef.attributedText = attrStri
 //                    }
-                    if let hourRate  = rideInfoArray[indexPath.row].hourly_rate_while_ride_completed as? String {
+                    if let hourRate  =  UserDefaults.standard.string(forKey: "dbhRidePrice") as? String {
                         cell.lbl_RideDistanceRef.text = "Rate: $ \(hourRate)/Hrs"
                     }
                 }
@@ -441,7 +441,7 @@ extension DBHRideHistoryViewController: UITableViewDelegate, UITableViewDataSour
                             if let str_BookingType = rideInfoArray[indexPath.row].ride_assign_status, str_BookingType != "1" {
                                 
                                 if let str_BookingType = rideInfoArray[indexPath.row].booking_type, str_BookingType == "3" {
-                                    let Storyboard : UIStoryboard = UIStoryboard(name: "Profile", bundle: nil)
+                                    let Storyboard : UIStoryboard = UIStoryboard(name: "DriverByTheHour", bundle: nil)
                                     let nxtVC = Storyboard.instantiateViewController(withIdentifier: "DBHDriverDetailIsBookingViewController") as! DBHDriverDetailIsBookingViewController
                                     nxtVC.str_FutureRideStatus = rideInfoArray[indexPath.row].future_accept ?? ""
                                     nxtVC.str_FutureRideDate = rideInfoArray[indexPath.row].date ?? ""
@@ -460,7 +460,7 @@ extension DBHRideHistoryViewController: UITableViewDelegate, UITableViewDataSour
     @objc func viewDetailButtonClicked(sender: UIButton) {
         
         if let str_BookingType = rideInfoArray[sender.tag].booking_type, str_BookingType == "3" {
-            let Storyboard : UIStoryboard = UIStoryboard(name: "Profile", bundle: nil)
+            let Storyboard : UIStoryboard = UIStoryboard(name: "DriverByTheHour", bundle: nil)
             let nxtVC = Storyboard.instantiateViewController(withIdentifier: "DBHDriverDetailIsBookingViewController") as! DBHDriverDetailIsBookingViewController
             nxtVC.str_FutureRideStatus = rideInfoArray[sender.tag].future_accept ?? ""
             nxtVC.str_FutureRideDate = rideInfoArray[sender.tag].date ?? ""
@@ -641,7 +641,7 @@ extension DBHRideHistoryViewController {
             if success  {
                 DispatchQueue.main.async { [self] in
                     indicator.hideActivityIndicator()
-                    let Storyboard : UIStoryboard = UIStoryboard(name: "DashBoard", bundle: nil)
+                    let Storyboard : UIStoryboard = UIStoryboard(name: "DriverByTheHour", bundle: nil)
                     let nxtVC = Storyboard.instantiateViewController(withIdentifier: "ReservationForDriverByTheHour") as! ReservationForDriverByTheHour
                     nxtVC.dict_SelectedRideDetailsForEdit = selectedRideInfoDict
                     nxtVC.str_ComingFrom = "DBHRideHistory"
