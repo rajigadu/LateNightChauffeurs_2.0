@@ -73,7 +73,7 @@ struct currentRideModel : Codable {
         case status = "status"
         case bannercount = "bannercount"
         case user_rating = "user_rating"
-        case dbh_ride_cost_per_hour = "dbh_ride_cost_per_hour"
+        case dbh_ride_cost_per_hour = "dbh_hourly_price"
     }
 
     init(from decoder: Decoder) throws {
