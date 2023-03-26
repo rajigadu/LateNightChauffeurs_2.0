@@ -54,8 +54,13 @@ protocol LateNightChauffeursUSERServiceProtocol {
     func requestForDBHRideInfoServices(_ perams: Dictionary<String, String>, completion: @escaping (Bool, DBH_RideHistoryData?, String?) -> ())
     //MARK: - Payment summary
     func requestForPaymentSummaryServices(_ perams: Dictionary<String, String>, completion: @escaping (Bool, PaymentSummaryData?, String?) -> ())
+    //MARK: - DBH - Payment summary
+    func requestForDBHPaymentSummaryServices(_ perams: Dictionary<String, String>, completion: @escaping (Bool, PaymentSummaryData?, String?) -> ())
     //MARK: - submit tip payment summary
     func requestForSubmitFeedBackServices(_ perams: Dictionary<String, String>, completion: @escaping (Bool, RideHistoryTipData?, String?) -> ())
+    //MARK: - submit DBH tip payment summary
+    func requestForDBHSubmitFeedBackServices(_ perams: Dictionary<String, String>, completion: @escaping (Bool, RideHistoryTipData?, String?) -> ())
+    
     //MARK: - StopsList
     func requestForStopsServices(_ perams: Dictionary<String, String>, completion: @escaping (Bool, StopsData?, String?) -> ())
     //MARK: - Get Ride Info
@@ -574,6 +579,27 @@ extension ApiService {
 
 extension ApiService {
     //MARK: - Payment data
+    func requestForDBHPaymentSummaryServices(_ perams: Dictionary<String, String>, completion: @escaping (Bool, PaymentSummaryData?, String?) -> ()) {
+        if Connectivity.isNotConnectedToInternet{
+            completion(false, nil, I18n.NoInterNetString)
+        }
+        HttpRequestHelper().GET(url: API_URl.API_DBH_USER_PAYMENT_SUMMARY_URL, params: perams, httpHeader: .application_json) { success, data in
+            if success {
+                do {
+                    let model = try JSONDecoder().decode(PaymentSummaryData.self, from: data!)
+                    completion(true, model, nil)
+                } catch {
+                    completion(false, nil, I18n.ModelDecodeErrorString)
+                }
+            } else {
+                completion(false, nil, I18n.GetRequestFailedString)
+            }
+        }
+    }
+}
+
+extension ApiService {
+    //MARK: - Payment data
     func requestForPaymentSummaryServices(_ perams: Dictionary<String, String>, completion: @escaping (Bool, PaymentSummaryData?, String?) -> ()) {
         if Connectivity.isNotConnectedToInternet{
             completion(false, nil, I18n.NoInterNetString)
@@ -613,6 +639,27 @@ extension ApiService {
         }
     }
 }
+extension ApiService {
+    //MARK: - submit tip payment data
+    func requestForDBHSubmitFeedBackServices(_ perams: Dictionary<String, String>, completion: @escaping (Bool, RideHistoryTipData?, String?) -> ()) {
+        if Connectivity.isNotConnectedToInternet{
+            completion(false, nil, I18n.NoInterNetString)
+        }
+        HttpRequestHelper().GET(url: API_URl.API_DBH_FEEDBACK_URL, params: perams, httpHeader: .application_json) { success, data in
+            if success {
+                do {
+                    let model = try JSONDecoder().decode(RideHistoryTipData.self, from: data!)
+                    completion(true, model, nil)
+                } catch {
+                    completion(false, nil, I18n.ModelDecodeErrorString)
+                }
+            } else {
+                completion(false, nil, I18n.GetRequestFailedString)
+            }
+        }
+    }
+}
+
 extension ApiService {
     //MARK: - StopsList
     func requestForStopsServices(_ perams: Dictionary<String, String>, completion: @escaping (Bool, StopsData?, String?) -> ()) {

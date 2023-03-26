@@ -38,6 +38,8 @@ class RideHistoryTipViewController: UIViewController {
     lazy var viewModel = {
         RideHistoryTipViewModel()
     }()
+    
+    var isDBHRideStatus = ""
 
 
     override func viewDidLoad() {
@@ -87,7 +89,11 @@ class RideHistoryTipViewController: UIViewController {
         if str_SelectedTipOption == "" {
             self.ShowAlert(message: "Please select tip option")
         } else {
-            self.paymentSummaryAPI()
+            if isDBHRideStatus == "yes" {
+                self.DBHFeedBackAPI()
+            } else {
+                self.paymentSummaryAPI()
+            }
         }
     }
     
@@ -182,6 +188,41 @@ extension RideHistoryTipViewController {
         "amount":txt_TipAmount,
         "rating":str_RatingValue ]
         self.viewModel.requestForSubmitFeedBackAPIServices(perams: perams) { success, model, error in
+            if success, let UserData = model {
+                DispatchQueue.main.async { [self] in
+                    indicator.hideActivityIndicator()
+                    if UserData.loginStatus == "1" {
+                    self.ShowAlertWithPop(message: UserData.userData?[0].Message ?? "Your tip has been submitted.")
+                    } else {
+                        self.ShowAlertWithPop(message: UserData.userData?[0].Message ?? "no records found.")
+                    }
+                }
+            } else {
+                DispatchQueue.main.async { [self] in
+                    indicator.hideActivityIndicator()
+                    self.showToast(message: error ?? "Something went wrong.", font: .systemFont(ofSize: 12.0))
+                }
+            }
+            
+        }
+    }
+}
+
+extension RideHistoryTipViewController {
+    //MARK: - Api Intigration
+    func DBHFeedBackAPI(){
+        let txt_TipAmount = self.txt_TipAmountRef.text ?? ""
+        indicator.showActivityIndicator()
+        
+       let perams = [ "driverid":Str_DriverCmgHistory,
+        "rideid":str_CurrentRideID,
+        "userid":str_UserLoginID,
+        "msg":"",
+        "tip":"",
+        "percentage":str_SelectedPercentage,
+        "amount":txt_TipAmount,
+        "rating":str_RatingValue ]
+        self.viewModel.requestForDBHSubmitFeedBackAPIServices(perams: perams) { success, model, error in
             if success, let UserData = model {
                 DispatchQueue.main.async { [self] in
                     indicator.hideActivityIndicator()

@@ -16,6 +16,8 @@ class RiseHistoryFeedBackViewController: UIViewController {
     var str_SelectedDriverFirstNameget = ""
     var str_SelectedDriverLastNameget = ""
     var str_SelectedDriverProfilepicget = ""
+    
+    var isDBHRideStatus = ""
 
     @IBOutlet weak var imageview_DriverForFeedbackRef:UIImageView!
     @IBOutlet weak var lbl_DriverNameForFeedbackRef:UILabel!
@@ -110,7 +112,12 @@ class RiseHistoryFeedBackViewController: UIViewController {
         if str_RatingValue == "" {
             self.ShowAlert(message: "Please give me Rating for Driver")
         } else {
-            paymentSummaryAPI()
+            if isDBHRideStatus == "yes" {
+                self.DBHFeedBackAPI()
+            } else {
+                self.paymentSummaryAPI()
+            }
+            
         }
     }
 
@@ -129,6 +136,40 @@ extension RiseHistoryFeedBackViewController {
         "amount":"",
         "rating":str_RatingValue ]
         self.viewModel.requestForSubmitFeedBackAPIServices(perams: perams) { success, model, error in
+            if success, let UserData = model {
+                DispatchQueue.main.async { [self] in
+                    indicator.hideActivityIndicator()
+                    if UserData.loginStatus == "1" {
+                    self.ShowAlertWithPop(message: UserData.userData?[0].Message ?? "Your tip has been submitted.")
+                    } else {
+                        self.ShowAlertWithPop(message: UserData.userData?[0].Message ?? "no records found.")
+                    }
+                }
+            } else {
+                DispatchQueue.main.async { [self] in
+                    indicator.hideActivityIndicator()
+                    self.showToast(message: error ?? "Something went wrong.", font: .systemFont(ofSize: 12.0))
+                }
+            }
+            
+        }
+    }
+}
+
+extension RiseHistoryFeedBackViewController {
+    //MARK: - Api Intigration
+    func DBHFeedBackAPI(){
+         indicator.showActivityIndicator()
+        var discription = self.textview_DriverForFeedbackRef.text ?? ""
+       let perams = [ "driverid":Str_DriverCmgHistory,
+        "rideid":str_CurrentRideID,
+        "userid":str_UserLoginID,
+        "msg":discription,
+        "tip":"",
+        "percentage":"",
+        "amount":"",
+        "rating":str_RatingValue ]
+        self.viewModel.requestForDBHSubmitFeedBackAPIServices(perams: perams) { success, model, error in
             if success, let UserData = model {
                 DispatchQueue.main.async { [self] in
                     indicator.hideActivityIndicator()

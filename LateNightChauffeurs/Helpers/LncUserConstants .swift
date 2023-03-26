@@ -73,6 +73,7 @@ static let  API_EDITADDRESS_URL                        = API_URl.API_SERVER_URL 
 static let  API_ESTIMATEDPRICE_URL                     = API_URl.API_SERVER_URL + "estimate-price.php?"
 static let  API_CURRENTRIDESTOPLIST_URL                = API_URl.API_SERVER_URL + "num-stops-addres-list.php?"
 static let  API_FEEDBACK_URL                           = API_URl.API_SERVER_URL + "driver-rating.php?"
+    static let  API_DBH_FEEDBACK_URL                           = API_URl.API_SERVER_URL + "dbh-driver-rating.php?"
 
 //NORMAL PROCESS API'S....
 static let API_LOCATIONLIST_URL                        = API_URl.API_SERVER_URL + "location.php"
@@ -84,6 +85,8 @@ static let API_USERRIDELIST_URL                        = API_URl.API_SERVER_URL 
 static let API_USER_DBH_RIDE_LIST_URL                        = API_URl.API_SERVER_URL + "dbh-payment-history-complete-cancel.php?"
 static let API_USERFUTURERIDEHISTORY_URL               = API_URl.API_SERVER_URL + "future-ride-history.php?"
 static let API_USERPAYMENTSUMMARY_URL                  = API_URl.API_SERVER_URL + "payment-details.php?"
+    static let API_DBH_USER_PAYMENT_SUMMARY_URL                  = API_URl.API_SERVER_URL + "dbh-payment-details.php?"
+
 static let API_USERPAYMENTHISTORY_URL                  = API_URl.API_SERVER_URL + "payment-details.php?"
 static let API_USERFUTURECANCELRIDE_URL                = API_URl.API_SERVER_URL + "cancel-future-ride.php?"
 static let API_USER_DBH_CANCEL_RIDE_URL                = API_URl.API_SERVER_URL + "dbh-cancel-future-ride.php?"

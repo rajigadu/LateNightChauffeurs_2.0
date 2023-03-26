@@ -57,13 +57,13 @@ class PaymentSummaryViewController: UIViewController {
             //self.lbl_Adminfareref.isHidden = false
             self.lbl_TipRef.isHidden = false
             self.lbl_FinalPriceRef.isHidden = false
-           self.CancelLbelref.isHidden = true
+            self.CancelLbelref.isHidden = true
             self.lblpromocoderef.isHidden = false
             
             // str_AdmnFare
             let str_AdmnFare = PaymentInfoDict?.extra_charge ?? "0"
             if str_AdmnFare == "" {
-                self.lbl_Adminfareref.text = ""
+                //self.lbl_Adminfareref.text = ""
              } else {
                 //self.lbl_Adminfareref.text = str_AdmnFare
             }

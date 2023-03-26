@@ -85,6 +85,7 @@ struct DBH_RideHistoryDataR : Codable {
     let pickup_long : String?
     let city_pickup : String?
     let city_pickup2 : String?
+    let hourly_rate_while_ride_completed :  String?
     let notes : String?
     let status : String?
     let driver_status : String?
@@ -128,6 +129,7 @@ struct DBH_RideHistoryDataR : Codable {
         case status = "status"
         case driver_status = "driver_status"
         case driver_id_for_future_ride = "driver_id_for_future_ride"
+        case hourly_rate_while_ride_completed = "hourly_rate_while_ride_completed"
         case future_accept = "future_accept"
         case ride_assign_status = "ride_assign_status"
         case ride_start_time = "ride_start_time"
@@ -172,6 +174,7 @@ struct DBH_RideHistoryDataR : Codable {
         ride_assign_status = try values.decodeIfPresent(String.self, forKey: .ride_assign_status)
         ride_start_time = try values.decodeIfPresent(String.self, forKey: .ride_start_time)
         cancel_status = try values.decodeIfPresent(String.self, forKey: .cancel_status)
+        hourly_rate_while_ride_completed = try values.decode(String.self, forKey: .hourly_rate_while_ride_completed)
         cancel_time = try values.decodeIfPresent(String.self, forKey: .cancel_time)
         ride_cancel_by = try values.decodeIfPresent(String.self, forKey: .ride_cancel_by)
         promo = try values.decodeIfPresent(String.self, forKey: .promo)

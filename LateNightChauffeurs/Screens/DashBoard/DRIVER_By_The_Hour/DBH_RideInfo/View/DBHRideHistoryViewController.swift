@@ -229,7 +229,9 @@ extension DBHRideHistoryViewController: UITableViewDelegate, UITableViewDataSour
 //
 //                        cell.lbl_RideDistanceRef.attributedText = attrStri
 //                    }
-                    cell.lbl_RideDistanceRef.text = "Rate: $ 10.00 Per Hour"
+                    if let hourRate  = rideInfoArray[indexPath.row].hourly_rate_while_ride_completed as? String {
+                        cell.lbl_RideDistanceRef.text = "Rate: $ \(hourRate)/Hrs"
+                    }
                 }
             }
             return cell
@@ -495,6 +497,7 @@ extension DBHRideHistoryViewController: UITableViewDelegate, UITableViewDataSour
         nxtVC.str_SelectedDriverFirstNameget = PaymentInfoArray[sender.tag].first_name ?? ""
         nxtVC.str_SelectedDriverLastNameget = PaymentInfoArray[sender.tag].last_name ?? ""
         nxtVC.str_SelectedDriverProfilepicget = PaymentInfoArray[sender.tag].profile_pic ?? ""
+        nxtVC.isDBHRideStatus = "yes"
         self.navigationController?.pushViewController(nxtVC, animated: true)
         
     }
@@ -601,7 +604,7 @@ extension DBHRideHistoryViewController {
         guard let userID = UserDefaults.standard.string(forKey: "UserLoginID") else {return}
         indicator.showActivityIndicator()
         
-        self.viewModel.PaymentSummaryApiService(perams: ["userid":userID,"ride_id":self.str_BookingId]) { success, model, error in
+        self.viewModel.DBHPaymentSummaryApiService(perams: ["userid":userID,"ride_id":self.str_BookingId]) { success, model, error in
             if success, let UserData = model {
                 DispatchQueue.main.async { [self] in
                     indicator.hideActivityIndicator()

@@ -34,8 +34,8 @@ class DBH_RideInfoViewModel: NSObject {
         }
     }
     
-    func PaymentSummaryApiService(perams: Dictionary<String,String>, completion: @escaping (Bool, PaymentSummaryData?, String?) -> ()) {
-        RideInfoServices.requestForPaymentSummaryServices(perams) { success, model, error in
+    func DBHPaymentSummaryApiService(perams: Dictionary<String,String>, completion: @escaping (Bool, PaymentSummaryData?, String?) -> ()) {
+        RideInfoServices.requestForDBHPaymentSummaryServices(perams) { success, model, error in
             if success, let UserData = model {
                 completion(true, UserData, nil)
             } else {
