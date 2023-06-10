@@ -303,6 +303,9 @@ extension DashBoardViewController {
                     indicator.hideActivityIndicator()
                     if UserData.status == "1" {
                         UserDefaults.standard.set(UserData.data?.key ?? "", forKey: "Googlekeyvalue")
+                        if let dbhRidePrice = UserData.dbh_hourly_price as? String {
+                            UserDefaults.standard.setValue(dbhRidePrice, forKey: "dbhRidePrice")
+                        }
                     } else {
                         self.ShowAlert(message: UserData.msg ?? "no record found.")
                     }
@@ -379,9 +382,9 @@ extension DashBoardViewController {
                     if UserData.status == "3" {
                         self.moveToLogOutPage()
                     }
-                    if let dbhRidePrice = UserData.dbh_ride_cost_per_hour as? String {
-                        UserDefaults.standard.setValue(dbhRidePrice, forKey: "dbhRidePrice")
-                    }
+//                    if let dbhRidePrice = UserData.dbh_ride_cost_per_hour as? String {
+//                        UserDefaults.standard.setValue(dbhRidePrice, forKey: "dbhRidePrice")
+//                    }
                     
                     if UserData.status != "1" {
                         if let responseData = UserData.data as? [currentRideDatar] {

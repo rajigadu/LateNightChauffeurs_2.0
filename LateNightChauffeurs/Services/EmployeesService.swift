@@ -48,7 +48,7 @@ protocol LateNightChauffeursUSERServiceProtocol {
     //MARK: - Payment history
     func requestForPaymentHistoryServices(_ perams: Dictionary<String, String>, completion: @escaping (Bool, PaymentHistoryData?, String?) -> ())
     //MARK: - DBH Payment history
-    func requestForDBHPaymentHistoryServices(_ perams: Dictionary<String, String>, completion: @escaping (Bool, PaymentHistoryData?, String?) -> ())
+    func requestForDBHPaymentHistoryServices(_ perams: Dictionary<String, String>, completion: @escaping (Bool,  DBH_PaymentHistoryData?, String?) -> ())
     //MARK: - RIDE INFO
     func requestForRideInfoServices(_ perams: Dictionary<String, String>, completion: @escaping (Bool, RideInfoData?, String?) -> ())
     func requestForDBHRideInfoServices(_ perams: Dictionary<String, String>, completion: @escaping (Bool, DBH_RideHistoryData?, String?) -> ())
@@ -497,14 +497,14 @@ extension ApiService {
 
 extension ApiService {
 //MARK: - DBH Payment history
-    func requestForDBHPaymentHistoryServices(_ perams: Dictionary<String, String>, completion: @escaping (Bool, PaymentHistoryData?, String?) -> ()) {
+    func requestForDBHPaymentHistoryServices(_ perams: Dictionary<String, String>, completion: @escaping (Bool, DBH_PaymentHistoryData?, String?) -> ()) {
         if Connectivity.isNotConnectedToInternet{
             completion(false, nil, I18n.NoInterNetString)
         }
         HttpRequestHelper().POST(url: API_URl.API_USER_DBH_RIDE_LIST_URL, params: perams, httpHeader: .application_json) { success, data in
             if success {
                 do {
-                    let model = try JSONDecoder().decode(PaymentHistoryData.self, from: data!)
+                    let model = try JSONDecoder().decode(DBH_PaymentHistoryData.self, from: data!)
                     completion(true, model, nil)
                 } catch {
                     completion(false, nil, I18n.ModelDecodeErrorString)

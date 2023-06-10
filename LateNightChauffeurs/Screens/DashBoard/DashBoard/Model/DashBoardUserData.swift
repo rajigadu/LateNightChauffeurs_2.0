@@ -13,12 +13,14 @@ struct DashBoardUserModel : Codable {
     let data : DashBoardUserDatar?
     let msg : String?
     let status : String?
+    let dbh_hourly_price : String?
 
     enum CodingKeys: String, CodingKey {
 
         case data = "data"
         case msg = "msg"
         case status = "status"
+        case dbh_hourly_price = "dbh_hourly_price"
     }
 
     init(from decoder: Decoder) throws {
@@ -26,6 +28,7 @@ struct DashBoardUserModel : Codable {
         data = try values.decodeIfPresent(DashBoardUserDatar.self, forKey: .data)
         msg = try values.decodeIfPresent(String.self, forKey: .msg)
         status = try values.decodeIfPresent(String.self, forKey: .status)
+        dbh_hourly_price =  try values.decodeIfPresent(String.self, forKey: .dbh_hourly_price)
     }
 
 }
@@ -58,7 +61,7 @@ typealias currentRideData = currentRideModel
 
 struct currentRideModel : Codable {
     let time_left : String?
-    let dbh_ride_cost_per_hour : String?
+    //let dbh_ride_cost_per_hour : String?
     let data : [currentRideDatar]?
     let message : String?
     let status : String?
@@ -73,7 +76,7 @@ struct currentRideModel : Codable {
         case status = "status"
         case bannercount = "bannercount"
         case user_rating = "user_rating"
-        case dbh_ride_cost_per_hour = "dbh_hourly_price"
+        //case dbh_ride_cost_per_hour = "dbh_hourly_price"
     }
 
     init(from decoder: Decoder) throws {
@@ -84,7 +87,7 @@ struct currentRideModel : Codable {
         status = try values.decodeIfPresent(String.self, forKey: .status)
         bannercount = try values.decodeIfPresent(String.self, forKey: .bannercount)
         user_rating = try values.decodeIfPresent(String.self, forKey: .user_rating)
-        dbh_ride_cost_per_hour = try values.decode(String.self, forKey: .dbh_ride_cost_per_hour)
+        //dbh_ride_cost_per_hour = try values.decode(String.self, forKey: .dbh_ride_cost_per_hour)
     }
 
 }

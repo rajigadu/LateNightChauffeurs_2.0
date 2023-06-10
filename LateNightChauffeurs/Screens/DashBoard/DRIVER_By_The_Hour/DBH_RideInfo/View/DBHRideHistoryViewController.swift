@@ -19,7 +19,7 @@ class DBHRideHistoryViewController: UIViewController {
     var rideInfoArray:[DBH_RideHistoryDataR] = []
     var rideInfoEditButtonStatusArray:[DBH_Future_edit_ride_status] = []
     var selectedRideInfoDict:DBH_RideHistoryDataR?
-    var PaymentInfoArray:[PaymentHistoryDatar] = []
+    var PaymentInfoArray:[DBH_PaymentHistoryDatar] = []
     var str_DriverRating = ""
     var isRideInfoEnabled = true
     var str_SelectedRideID = ""
@@ -229,7 +229,9 @@ extension DBHRideHistoryViewController: UITableViewDelegate, UITableViewDataSour
 //
 //                        cell.lbl_RideDistanceRef.attributedText = attrStri
 //                    }
-                    if let hourRate  =  UserDefaults.standard.string(forKey: "dbhRidePrice") as? String {
+                    if let hourRate  = rideInfoArray[indexPath.row].hourly_rate as? String {
+                        cell.lbl_RideDistanceRef.text = "Rate: $ \(hourRate)/Hrs"
+                    } else if let hourRate  = UserDefaults.standard.string(forKey: "dbhRidePrice") as? String {
                         cell.lbl_RideDistanceRef.text = "Rate: $ \(hourRate)/Hrs"
                     }
                 }
@@ -246,6 +248,9 @@ extension DBHRideHistoryViewController: UITableViewDelegate, UITableViewDataSour
             let str_CurrentRideDate = PaymentInfoArray[indexPath.row].otherdate ?? ""
             let str_CurrentRideTime = PaymentInfoArray[indexPath.row].time ?? ""
             
+            let str_CurrentRide_StartTime = PaymentInfoArray[indexPath.row].ride_start_time ?? ""
+            let str_CurrentRide_EndTime = PaymentInfoArray[indexPath.row].ride_end_time ?? ""
+            
             // first date
             if let datestr = formattedDateFromString(dateString: str_CurrentRidepaymentDate, withFormat: "MM-dd-yyyy hh:mm a") {
                 str_PaymentDateTime = datestr
@@ -255,7 +260,7 @@ extension DBHRideHistoryViewController: UITableViewDelegate, UITableViewDataSour
             
             var Bookingdate = str_CurrentRideDate + " " + str_CurrentRideTime
             
-            var Journeystr = "Booking Date : " +  Bookingdate + "\nPayment Date : " + str_PaymentDateTime
+            var Journeystr = "Booking Date : " +  Bookingdate + "\nPayment Date : " + str_PaymentDateTime + "\nRide Start Time : " + str_CurrentRide_StartTime + "\nRide End Time : " + str_CurrentRide_EndTime
             
             let attrStri = NSMutableAttributedString.init(string:Journeystr)
             
@@ -263,6 +268,12 @@ extension DBHRideHistoryViewController: UITableViewDelegate, UITableViewDataSour
             attrStri.addAttributes([NSAttributedString.Key.foregroundColor : UIColor(red: CGFloat(35.0/255.0), green: CGFloat(159.0/255.0), blue: CGFloat(98.0/255.0), alpha: CGFloat(1.0)), NSAttributedString.Key.font: UIFont.init(name: "Arial", size: 15.0) as Any], range: nsRange)
             
             nsRange = NSString(string: Journeystr).range(of: "Payment Date :", options: String.CompareOptions.caseInsensitive)
+            attrStri.addAttributes([NSAttributedString.Key.foregroundColor : UIColor(red: CGFloat(35.0/255.0), green: CGFloat(159.0/255.0), blue: CGFloat(98.0/255.0), alpha: CGFloat(1.0)), NSAttributedString.Key.font: UIFont.init(name: "Arial", size: 15.0) as Any], range: nsRange)
+            
+            nsRange = NSString(string: Journeystr).range(of: "Ride Start Time : ", options: String.CompareOptions.caseInsensitive)
+            attrStri.addAttributes([NSAttributedString.Key.foregroundColor : UIColor(red: CGFloat(35.0/255.0), green: CGFloat(159.0/255.0), blue: CGFloat(98.0/255.0), alpha: CGFloat(1.0)), NSAttributedString.Key.font: UIFont.init(name: "Arial", size: 15.0) as Any], range: nsRange)
+            
+            nsRange = NSString(string: Journeystr).range(of: "Ride End Time :", options: String.CompareOptions.caseInsensitive)
             attrStri.addAttributes([NSAttributedString.Key.foregroundColor : UIColor(red: CGFloat(35.0/255.0), green: CGFloat(159.0/255.0), blue: CGFloat(98.0/255.0), alpha: CGFloat(1.0)), NSAttributedString.Key.font: UIFont.init(name: "Arial", size: 15.0) as Any], range: nsRange)
             cell.lbl_JourneyDateRef.attributedText = attrStri
             
@@ -275,12 +286,12 @@ extension DBHRideHistoryViewController: UITableViewDelegate, UITableViewDataSour
                 
                 cell.lbl_PickUpLocationRef.attributedText = attrStri
             }
-            
+            cell.lbl_DropLocationRef.textColor = .black
             //Drop Location
-            if let JourneyStartTo = PaymentInfoArray[indexPath.row].drop_address {
-                let AttributeStr = "Drop Location : " + JourneyStartTo
+            if let ride_total_time_Hour = PaymentInfoArray[indexPath.row].ride_total_time , let ride_total_time_min = PaymentInfoArray[indexPath.row].ride_total_minute{
+                let AttributeStr = "Total Duration : " + ride_total_time_Hour + "Hrs :" + ride_total_time_min + "Min"
                 let attrStri = NSMutableAttributedString.init(string:AttributeStr)
-                let nsRange = NSString(string: AttributeStr).range(of: "Drop Location :", options: String.CompareOptions.caseInsensitive)
+                let nsRange = NSString(string: AttributeStr).range(of: "Total Duration :", options: String.CompareOptions.caseInsensitive)
                 attrStri.addAttributes([NSAttributedString.Key.foregroundColor : UIColor.green], range: nsRange)
                 
                 cell.lbl_DropLocationRef.attributedText = attrStri
@@ -289,13 +300,11 @@ extension DBHRideHistoryViewController: UITableViewDelegate, UITableViewDataSour
             
             //TransactionID, //Ride Waiting Charges...
             var str_RideTransactionID = PaymentInfoArray[indexPath.row].transaction_id ?? ""
-            var str_RideWaitingCharges = PaymentInfoArray[indexPath.row].unplaned_waiting_amt ?? "0"
-            var str_RideCompleteAmount = PaymentInfoArray[indexPath.row].amount ?? "0"
-            var Str_AdminFare = PaymentInfoArray[indexPath.row].extra_charge ?? "0"
-            //Ride Amount...
-            var str_RideAmount = PaymentInfoArray[indexPath.row].ride_amt ?? str_RideCompleteAmount
-            var str_city_charges = PaymentInfoArray[indexPath.row].city_charges ?? ""
+           
             
+            var str_RideAmount = PaymentInfoArray[indexPath.row].amount ?? "0"
+            //Ride Amount...
+            var str_RideCompleteAmount  = PaymentInfoArray[indexPath.row].ride_amt ?? ""
             //            var result = Float(str_RideAmount ?? "0") ?? 0.0 + Float(Str_AdminFare ?? "0") ?? 0.0 + Float(str_city_charges ?? "0") ?? 0.0)
             var Str_promoCodevalue = PaymentInfoArray[indexPath.row].promo_amt ?? "0"
             
@@ -323,12 +332,12 @@ extension DBHRideHistoryViewController: UITableViewDelegate, UITableViewDataSour
                     distanceStr =  rideDistance
                 }
                 
-                var JourneyDistance = "Distance : " + "\(distanceStr)" + " Miles\nTransaction ID : " + str_RideTransactionID + "\nPromo Code : $" + Str_promoCodevalue + "\nTip Amount : $" + str_RideTipAmount + "\nRide Total Cost : $" + str_CompleteRideAmountWithTip
+                var JourneyDistance =  "Transaction ID : " + str_RideTransactionID + "\nPromo Code : $" + Str_promoCodevalue + "\nTip Amount : $" + str_RideTipAmount + "\nRide Total Cost : $" + str_CompleteRideAmountWithTip
                 
                 let attrStri = NSMutableAttributedString.init(string:JourneyDistance)
                 
-                var nsRange = NSString(string: JourneyDistance).range(of: "Distance :", options: String.CompareOptions.caseInsensitive)
-                attrStri.addAttributes([NSAttributedString.Key.foregroundColor : UIColor.green], range: nsRange)
+//                var nsRange = NSString(string: JourneyDistance).range(of: "Distance :", options: String.CompareOptions.caseInsensitive)
+//                attrStri.addAttributes([NSAttributedString.Key.foregroundColor : UIColor.green], range: nsRange)
                 
                 nsRange = NSString(string: JourneyDistance).range(of: "Transaction ID :", options: String.CompareOptions.caseInsensitive)
                 attrStri.addAttributes([NSAttributedString.Key.foregroundColor : UIColor.green], range: nsRange)
@@ -376,8 +385,10 @@ extension DBHRideHistoryViewController: UITableViewDelegate, UITableViewDataSour
             if str_FeedBackTipStatus == "" || str_FeedBackTipStatus == "0" {
                 if str_cancelRideCheckStatus == "4" {
                     cell.GIVeFeedBackHeightRef.constant = 0
+                    cell.feedBackHeightref.constant = 0
                 } else {
                     cell.GIVeFeedBackHeightRef.constant = 40
+                    cell.feedBackHeightref.constant = 40
                     cell.GiveFeedBackBtnref.layer.cornerRadius = 5.0
                     cell.GiveFeedBackBtnref.layer.masksToBounds = true
                     cell.GiveFeedBackBtnref.tag = indexPath.row
@@ -385,6 +396,7 @@ extension DBHRideHistoryViewController: UITableViewDelegate, UITableViewDataSour
                 }
             } else {
                 cell.GIVeFeedBackHeightRef.constant = 0
+                cell.feedBackHeightref.constant = 0
             }
             
             // add tip btn ref
@@ -392,8 +404,10 @@ extension DBHRideHistoryViewController: UITableViewDelegate, UITableViewDataSour
             if str_tipBackTipStatus == "1" || str_tipBackTipStatus == "" {
                 if str_cancelRideCheckStatus == "4" || str_tipBackTipStatus.count >= 1{
                     cell.AddtipAmountHeightbtnref.constant = 0
+                    cell.TipAmountheghtref.constant = 0
                 } else {
                     cell.AddtipAmountHeightbtnref.constant = 40
+                    cell.TipAmountheghtref.constant = 40
                     cell.AddTipAmountBtnref.layer.cornerRadius = 5.0
                     cell.AddTipAmountBtnref.layer.masksToBounds = true
                     cell.AddTipAmountBtnref.tag = indexPath.row
@@ -401,7 +415,10 @@ extension DBHRideHistoryViewController: UITableViewDelegate, UITableViewDataSour
                 }
             } else {
                 cell.AddtipAmountHeightbtnref.constant = 0
+                cell.TipAmountheghtref.constant = 0
             }
+            
+            
             
             cell.btn_PaymentRef.layer.cornerRadius = 5.0
             cell.btn_PaymentRef.layer.masksToBounds = true
@@ -413,7 +430,7 @@ extension DBHRideHistoryViewController: UITableViewDelegate, UITableViewDataSour
             } else {
                 cell.btn_PaymentRef.isHidden = true
             }
-            
+            cell.btn_PaymentRef.isHidden = true
             cell.selectionStyle = .none
             
             return cell
@@ -494,9 +511,10 @@ extension DBHRideHistoryViewController: UITableViewDelegate, UITableViewDataSour
         nxtVC.str_ComingFrom = "RideHistory"
         nxtVC.str_RideIDr = PaymentInfoArray[sender.tag].rideid ?? ""
         nxtVC.str_UserIDr = PaymentInfoArray[sender.tag].driver_id_for_future_ride ?? ""
-        nxtVC.str_SelectedDriverFirstNameget = PaymentInfoArray[sender.tag].first_name ?? ""
-        nxtVC.str_SelectedDriverLastNameget = PaymentInfoArray[sender.tag].last_name ?? ""
-        nxtVC.str_SelectedDriverProfilepicget = PaymentInfoArray[sender.tag].profile_pic ?? ""
+        nxtVC.str_SelectedDriverFirstNameget = ""//PaymentInfoArray[sender.tag].first_name ?? ""
+        nxtVC.str_SelectedDriverLastNameget = ""
+        //PaymentInfoArray[sender.tag].last_name ?? ""
+        nxtVC.str_SelectedDriverProfilepicget = "" //PaymentInfoArray[sender.tag].profile_pic ?? ""
         nxtVC.isDBHRideStatus = "yes"
         self.navigationController?.pushViewController(nxtVC, animated: true)
         

@@ -25,7 +25,9 @@ class DBH_RideHistoryTableViewCell: UITableViewCell {
     @IBOutlet weak var btn_StopsRef:UIButton!
     @IBOutlet weak var btn_PaymentConstraintRef:NSLayoutConstraint!
 
-
+    @IBOutlet weak var feedBackHeightref: NSLayoutConstraint!
+    
+    @IBOutlet weak var TipAmountheghtref: NSLayoutConstraint!
     @IBOutlet weak var view_FutureRideRef:UIView!
     @IBOutlet weak var btn_FutureRideRef:UIButton!
     @IBOutlet weak var lbl_DateRef:UILabel!
